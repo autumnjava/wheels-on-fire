@@ -1,11 +1,11 @@
 import { A } from '@solidjs/router'
 import clsx from 'clsx'
-import type { Component } from 'solid-js'
+import { type Component } from 'solid-js'
 import { navLinks } from './utils/constants'
 
 import logo from './utils/wheelsonfire_logoselection-02.svg'
 
-const Header: Component = () => {
+const Header: Component = (props: any) => {
   return (
     <header>
       <nav class="m-6 flex justify-end  md:hidden">
@@ -37,10 +37,8 @@ const Header: Component = () => {
           return (
             <A
               href={item.href}
-              class={clsx(
-                'font-extrabold uppercase text-red-600',
-                isActive && 'underline'
-              )}
+              class="font-extrabold uppercase text-red-600"
+              activeClass="underline"
             >
               {item.name}
             </A>
