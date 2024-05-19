@@ -9,7 +9,7 @@ import Footer from './components/footer'
 import Header from './components/header'
 
 // Pages
-import NotFound from './pages/404'
+import NotFound from './pages/not-found'
 import AboutUs from './pages/about-us'
 import GetInTouch from './pages/get-in-touch'
 import Home from './pages/home'

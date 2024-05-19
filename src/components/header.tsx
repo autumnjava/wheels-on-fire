@@ -1,5 +1,4 @@
 import { A } from '@solidjs/router'
-import clsx from 'clsx'
 import { type Component } from 'solid-js'
 import { navLinks } from './utils/constants'
 
