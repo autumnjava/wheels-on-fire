@@ -9,11 +9,11 @@ import Footer from './components/footer'
 import Header from './components/header'
 
 // Pages
-import NotFound from './pages/not-found'
 import AboutUs from './pages/about-us'
 import GetInTouch from './pages/get-in-touch'
 import Home from './pages/home'
 import InAction from './pages/in-action'
+import NotFound from './pages/not-found'
 import OurAdventures from './pages/our-adventures'
 import WhatWeOffer from './pages/what-we-offer'
 
@@ -22,10 +22,7 @@ const root = document.getElementById('root')
 const App = (props: any) => (
   <>
     <Header />
-    <main class="container mx-auto my-8 px-4">
-      {props.children}
-    </main>
-
+    <main class="container mx-auto my-8 px-4">{props.children}</main>
     <Footer />
   </>
 )
