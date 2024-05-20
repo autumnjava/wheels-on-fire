@@ -5,17 +5,17 @@ import { render } from 'solid-js/web'
 import './index.css'
 
 // Components
-import Footer from './components/footer'
-import Header from './components/header'
+import { Footer } from './components/footer'
+import { Header } from './components/header'
 
 // Pages
-import AboutUs from './pages/about-us'
-import GetInTouch from './pages/get-in-touch'
-import Home from './pages/home'
-import InAction from './pages/in-action'
-import NotFound from './pages/not-found'
-import OurAdventures from './pages/our-adventures'
-import WhatWeOffer from './pages/what-we-offer'
+import { AboutUs } from './pages/about-us'
+import { GetInTouch } from './pages/get-in-touch'
+import { Home } from './pages/home'
+import { InAction } from './pages/in-action'
+import { NotFound } from './pages/not-found'
+import { OurAdventures } from './pages/our-adventures'
+import { WhatWeOffer } from './pages/what-we-offer'
 
 const root = document.getElementById('root')
 

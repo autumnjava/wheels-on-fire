@@ -1,11 +1,8 @@
-import type { Component } from 'solid-js'
-
-const NotFound: Component = () => {
+export const NotFound = () => {
   return (
     <div>
-      <h1>Not found page</h1>
+      <h1>404-Page not found</h1>
+      <p>This page does not exist</p>
     </div>
   )
 }
-
-export default NotFound

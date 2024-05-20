@@ -1,10 +1,9 @@
 import { A } from '@solidjs/router'
-import type { Component } from 'solid-js'
-import { navLinks } from './utils/constants'
+import { Nav } from './nav'
 
 import logo from './utils/wheelsonfire_logoselection-01.svg'
 
-const Footer: Component = () => {
+export const Footer = () => {
   const columnStyle = 'flex flex-col justify-between [&>*]:my-2'
   return (
     <footer class="mt-auto w-full items-center bg-black text-center text-white">
@@ -22,16 +21,7 @@ const Footer: Component = () => {
         </div>
         <div class={columnStyle}>
           <div class="flex flex-wrap justify-center">
-            {navLinks.map((item) => {
-              return (
-                <A
-                  href={item.href}
-                  class="text-nowrap pr-4 font-extrabold uppercase text-white"
-                >
-                  {item.name}
-                </A>
-              )
-            })}
+            <Nav linkClass="text-nowrap pr-4 font-extrabold uppercase text-white" />
           </div>
           <div>
             <A
@@ -63,5 +53,3 @@ const Footer: Component = () => {
     </footer>
   )
 }
-
-export default Footer
