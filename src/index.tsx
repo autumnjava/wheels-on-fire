@@ -22,7 +22,7 @@ const root = document.getElementById('root')
 const App = (props: any) => (
   <>
     <Header />
-    <main class="container mx-auto my-8 px-4">{props.children}</main>
+    <main class="mx-auto my-8">{props.children}</main>
     <Footer />
   </>
 )

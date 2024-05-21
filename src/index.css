@@ -11,3 +11,9 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px red;
+  text-stroke: 1px red;
+}
