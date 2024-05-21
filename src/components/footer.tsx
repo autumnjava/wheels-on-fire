@@ -7,7 +7,7 @@ export const Footer = () => {
   const columnStyle = 'flex flex-col justify-between [&>*]:my-2'
   return (
     <footer class="mt-auto w-full items-center bg-black text-center text-white">
-      <div class="container mx-auto my-8 px-4 md:grid md:grid-cols-footer">
+      <div class="container mx-auto mt-8 px-4 md:grid md:grid-cols-footer">
         <div>
           <A href="/">
             <img
@@ -42,7 +42,7 @@ export const Footer = () => {
           <p class="text-sm">MTB TOURS SÃO MIGUEL AZORES</p>
           <hr class="mx-auto h-px w-[33%] border-0 bg-gray-200 dark:bg-gray-700" />
           <p class="text-center text-xs">
-            <span class="font-bold text-red-500 ">WHEELS ON FIRE </span> is a
+            <span class="font-bold text-red-600 ">WHEELS ON FIRE </span> is a
             MTB guide & shuttle company based in the island of São Miguel,
             Azores
           </p>

@@ -6,14 +6,35 @@ body {
   box-sizing: border-box;
 }
 
-#root {
+/* fucks up with keen slider */
+/* #root {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-}
+} */
 
 .text-outline {
   color: transparent;
   -webkit-text-stroke: 1px red;
   text-stroke: 1px red;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #717171;
 }
