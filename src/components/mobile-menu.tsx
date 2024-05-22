@@ -12,13 +12,14 @@ export const MobileMenu = () => {
     const main = document.querySelector('main')
     const body = document.querySelector('body')
     main?.classList.toggle('hidden')
-    body?.classList.toggle('overflow-y-hidden')
+    body?.classList.toggle('fixed')
+    body?.classList.toggle('overflow-y-scroll')
     setMobileMenuActive(!mobileMenuActive())
   }
 
   return (
     <>
-      <div class="flex justify-end md:hidden select-none">
+      <div class="flex select-none justify-end md:hidden">
         <button class="m-6" onClick={toggleMenu}>
           {/* font-awesome */}
           <svg
