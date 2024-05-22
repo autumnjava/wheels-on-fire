@@ -28,7 +28,7 @@ export const Slider = (props: SliderProps) => {
   )
 
   return (
-    <>
+    <div class="relative">
       <div ref={(el) => slider(el)}>{props.children}</div>
 
       {/* <div class="navigation-buttons">
@@ -36,7 +36,7 @@ export const Slider = (props: SliderProps) => {
         <button onClick={next}>Next</button>
       </div> */}
 
-      <div class="dots">
+      <div class="dots absolute bottom-[50px] left-1/2">
         <For each={slides().slice(0, slides().length)}>
           {(_, idx) => {
             return (
@@ -48,6 +48,6 @@ export const Slider = (props: SliderProps) => {
           }}
         </For>
       </div>
-    </>
+    </div>
   )
 }
