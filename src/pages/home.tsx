@@ -1,8 +1,6 @@
 import { useNavigate } from '@solidjs/router'
-import { For, createSignal } from 'solid-js'
-import { createSlider } from 'solid-slider'
-// import { autoplay } from 'solid-slider/plugins/autoplay'
 import { Hero } from '../components/hero'
+import { Slider } from '../components/slider'
 
 export const Home = () => {
   const navigate = useNavigate()
@@ -10,52 +8,13 @@ export const Home = () => {
   const sectionStyle = 'container mx-auto my-4 px-4 text-center'
   const h2Style = 'font-bold uppercase text-2xl'
 
-  const [slides, setSlides] = createSignal([])
-  const [pause, togglePause] = createSignal(false)
-
-  const options = {
-    duration: 1000,
-    loop: true,
-
-    created: (slider: any) => {
-      setSlides(slider.slides)
-    },
-  }
-
-  const [slider, { current, next, prev, moveTo }] = createSlider(
-    options,
-    /* autoplay(2000, {
-      pause,
-      pauseOnDrag: true,
-    }) */
-  )
-  slider
-
   return (
     <>
-      <div use:slider>
+      <Slider>
         <Hero></Hero>
         <Hero></Hero>
         <Hero></Hero>
-      </div>
-
-      {/* <div class="navigation-buttons">
-        <button onClick={prev}>Prev</button>
-        <button onClick={next}>Next</button>
-      </div> */}
-
-      <div class="dots">
-        <For each={slides().slice(0, slides().length)}>
-          {(_, idx) => {
-            return (
-              <button
-                onClick={() => moveTo(idx())}
-                class={`dot ${current() === idx() ? 'active' : ''}`}
-              ></button>
-            )
-          }}
-        </For>
-      </div>
+      </Slider>
 
       <div class="container mx-auto my-4 px-4">
         <h2 class="font-bold uppercase">Brands that support us</h2>

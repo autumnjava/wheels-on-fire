@@ -8,11 +8,11 @@ export const Hero = (props: HeroProps) => {
 
   return (
     <div
-      class="mb-8 h-[650px] w-[100vw] bg-black bg-center px-8 pt-4  content-center"
+      class="mb-8 h-[650px] w-[100vw] content-center bg-black bg-center px-8  pt-4"
       style={{ 'background-image': `url(${bgImage})` }}
     >
       <div class="xl:max-w-[70%]">
-        <q class="text-outline block text-5xl font-bold uppercase tracking-wider md:text-8xl lg:text-8xl">
+        <q class="text-outline block text-5xl font-bold uppercase tracking-wider md:text-8xl">
           Forget the comfort, let's get dirty!
         </q>
         <button
