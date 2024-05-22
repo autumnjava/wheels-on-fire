@@ -9,8 +9,10 @@ export const MobileMenu = () => {
   const [mobileMenuActive, setMobileMenuActive] = createSignal(false)
 
   const toggleMenu = () => {
+    const main = document.querySelector('main')
     const body = document.querySelector('body')
-    body?.classList.toggle('fixed')
+    main?.classList.toggle('hidden')
+    body?.classList.toggle('overflow-y-hidden')
     setMobileMenuActive(!mobileMenuActive())
   }
 
@@ -69,7 +71,7 @@ export const MobileMenu = () => {
 
           <div class="overflow-y-hidden">
             <nav class="my-8 grid gap-4 text-center">
-              <Nav />
+              <Nav toggleMenu={toggleMenu} />
             </nav>
           </div>
         </div>

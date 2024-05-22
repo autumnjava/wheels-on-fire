@@ -3,6 +3,7 @@ import { navLinks } from './utils/constants'
 
 type NavProps = {
   linkClass?: string
+  toggleMenu?: () => void
 }
 
 export const Nav = (props: NavProps) => {
@@ -12,6 +13,7 @@ export const Nav = (props: NavProps) => {
         href={item.href}
         class={props.linkClass || 'font-extrabold uppercase text-red-600'}
         activeClass="underline"
+        onClick={() => props.toggleMenu && props.toggleMenu()}
       >
         {item.name}
       </A>

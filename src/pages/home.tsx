@@ -1,7 +1,7 @@
 import { useNavigate } from '@solidjs/router'
 import { For, createSignal } from 'solid-js'
 import { createSlider } from 'solid-slider'
-import { autoplay } from 'solid-slider/plugins/autoplay'
+// import { autoplay } from 'solid-slider/plugins/autoplay'
 import { Hero } from '../components/hero'
 
 export const Home = () => {
@@ -24,18 +24,19 @@ export const Home = () => {
 
   const [slider, { current, next, prev, moveTo }] = createSlider(
     options,
-    autoplay(2000, {
+    /* autoplay(2000, {
       pause,
       pauseOnDrag: true,
-    })
+    }) */
   )
+  slider
 
   return (
     <>
-      <div ref={(el) => slider(el)}>
-        <Hero />
-        <Hero />
-        <Hero />
+      <div use:slider>
+        <Hero></Hero>
+        <Hero></Hero>
+        <Hero></Hero>
       </div>
 
       {/* <div class="navigation-buttons">

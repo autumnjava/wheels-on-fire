@@ -1,4 +1,4 @@
-import { MobileMenu } from './menu'
+import { MobileMenu } from './mobile-menu'
 import { Nav } from './nav'
 
 export const Header = () => {
