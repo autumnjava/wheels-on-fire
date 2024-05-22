@@ -8,7 +8,7 @@ export const Hero = (props: HeroProps) => {
 
   return (
     <div
-      class="mb-8 h-[650px] w-[100vw] content-center bg-black bg-center px-8  pt-4"
+      class="mb-8 h-[500px] w-[100vw] place-content-center content-center bg-black bg-center px-8 pt-4  md:h-[650px]"
       style={{ 'background-image': `url(${bgImage})` }}
     >
       <div class="xl:max-w-[70%]">
