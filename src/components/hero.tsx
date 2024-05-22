@@ -12,7 +12,7 @@ export const Hero = (props: HeroProps) => {
       style={{ 'background-image': `url(${bgImage})` }}
     >
       <div class="xl:max-w-[70%]">
-        <q class="text-outline block text-5xl font-bold uppercase tracking-wider md:text-8xl lg:text-9xl">
+        <q class="text-outline block text-5xl font-bold uppercase tracking-wider md:text-8xl lg:text-8xl">
           Forget the comfort, let's get dirty!
         </q>
         <button
