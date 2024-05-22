@@ -19,12 +19,6 @@ body {
   text-stroke: 1px red;
 }
 
-.dots {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-}
-
 .dot {
   height: 12px;
   width: 12px;
@@ -37,5 +31,4 @@ body {
 
 .dot.active {
   background-color: #bbb;
-
 }

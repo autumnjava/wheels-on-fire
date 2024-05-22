@@ -36,7 +36,7 @@ export const Slider = (props: SliderProps) => {
         <button onClick={next}>Next</button>
       </div> */}
 
-      <div class="dots absolute bottom-[50px] left-1/2">
+      <div class="absolute bottom-[50px] left-1/2 -translate-x-1/2 -translate-y-1/2">
         <For each={slides().slice(0, slides().length)}>
           {(_, idx) => {
             return (
