@@ -18,7 +18,7 @@ export const MobileMenu = () => {
 
   return (
     <>
-      <div class="flex justify-end md:hidden">
+      <div class="flex justify-end md:hidden select-none">
         <button class="m-6" onClick={toggleMenu}>
           {/* font-awesome */}
           <svg
@@ -31,15 +31,17 @@ export const MobileMenu = () => {
         </button>
       </div>
 
-      <A href="/">
-        <img
-          src={logo}
-          alt="Wheels on fire"
-          width={300}
-          height={300}
-          class="mx-auto"
-        />
-      </A>
+      <div>
+        <A href="/">
+          <img
+            src={logo}
+            alt="Wheels on fire"
+            width={300}
+            height={300}
+            class="mx-auto"
+          />
+        </A>
+      </div>
 
       <Show when={mobileMenuActive()}>
         <div
