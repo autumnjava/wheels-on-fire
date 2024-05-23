@@ -3,8 +3,6 @@ import { Route, Router } from '@solidjs/router'
 import { render } from 'solid-js/web'
 
 import './index.css'
-// import 'keen-slider/keen-slider.min.css'
-import '../node_modules/solid-slider/dist/slider.css';
 
 // Components
 import { Footer } from './components/footer'

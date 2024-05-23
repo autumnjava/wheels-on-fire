@@ -10,15 +10,24 @@ export const Home = () => {
 
   return (
     <>
-      <Slider>
-        <Hero></Hero>
-        <Hero></Hero>
-        <Hero></Hero>
+      <Slider controls={true}>
+        <Hero />
+        <Hero />
+        <Hero />
       </Slider>
 
       <div class="container mx-auto my-4 px-4">
         <h2 class="font-bold uppercase">Brands that support us</h2>
-        <p>carousel will be here</p>
+        <Slider slidesPerView={3} spacing={10} autoplay={true}>
+          <p>company1</p>
+          <p>company2</p>
+          <p>company3</p>
+          <p>company4</p>
+          <p>company5</p>
+          <p>company6</p>
+          <p>company7</p>
+          <p>company8</p>
+        </Slider>
       </div>
 
       <hr class="border-red-500" />

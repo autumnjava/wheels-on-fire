@@ -6,7 +6,7 @@ import logo from './utils/wheelsonfire_logoselection-01.svg'
 export const Footer = () => {
   const columnStyle = 'flex flex-col justify-between [&>*]:my-2'
   return (
-    <footer class="mt-auto w-full items-center bg-black text-center text-white">
+    <footer class="mt-auto w-full items-center py-4 bg-black text-center text-white">
       <div class="container mx-auto mt-8 px-4 md:grid md:grid-cols-footer">
         <div>
           <A href="/">
