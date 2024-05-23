@@ -2,17 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body {
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
 body {
   box-sizing: border-box;
   background-color: #eee;
 }
-
-/* fucks up with keen slider */
-/* #root {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-} */
 
 .text-outline {
   color: transparent;
