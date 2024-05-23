@@ -6,7 +6,7 @@ export const Header = () => {
     <header>
       <MobileMenu />
 
-      <hr class="border-red-500" />
+      <hr class="border-red-600 hidden md:block" />
 
       <nav class="my-8 hidden items-center justify-between md:container md:mx-auto  md:flex md:w-full  md:justify-between md:px-4">
         <Nav />

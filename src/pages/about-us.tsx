@@ -1,27 +1,138 @@
+import { useNavigate } from '@solidjs/router'
+
+import image2 from '../components/utils/DSC01567.jpg'
+import image1 from '../components/utils/Screenshot 2024-02-19 at 20.43.12.png'
+
 export const AboutUs = () => {
+  const navigate = useNavigate()
+
   return (
     <div>
-      <h1>About us</h1>
-      <div>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Mattis
-          pellentesque id nibh tortor id aliquet. Eu scelerisque felis imperdiet
-          proin fermentum leo vel orci. In tellus integer feugiat scelerisque
-          varius morbi enim nunc. Viverra maecenas accumsan lacus vel. Blandit
-          libero volutpat sed cras ornare arcu dui vivamus. Cras sed ullam ac.
-          Egestas sed sed risus pretium quam vliquet. Nec feugiat in fermentum
-          posuere urna. A diam maecenas sed enim ut sem. Sapien eget mi proin
-          sed libero enim sed faucibus. Ornare arcu odio ut sem nulla pharetra
-          diam. Sit amet mauris commodo quis imperdiet massa tincidunt nunc.
-          Turpis nunc eget lorem dolor sed viverra ipsum. Commodo elit at
-          imperdiet dui accumsan sit. Vel turpis nunc eget lorem dolor sed
-          viverra. Enim ut sem viverra aliquet eget. Lectus urna duis convallis
-          convallis tellus. Feugiat nisl pretium fusce id velit ut tortor
-          pretium. Odio facilisis mauris sit amet massa vitae tortor. Arcu non
-          odio euismod lacinia at quis risus sed vulputate. Facilisis volutpat
-          est velit egestas dui id ornare arcu odio.
-        </p>
+      <hr class="border-red-600" />
+
+      <div class="mt-8">
+        <h1 class="black-text-outline relative block text-5xl font-bold uppercase tracking-wider text-red-600 md:text-9xl">
+          About us
+        </h1>
+        <div class="mt-[-30px] flex">
+          <div class="w-1/2 pr-8">
+            <img src={image1} class="h-[450px]"></img>
+          </div>
+          <div class="w-1/2 content-center pr-8">
+            <h2 class="text-xl">We discovered the Azores by bike.</h2>
+            <p>
+              In the spring of 2023 we packed our passion in life and shipped it
+              over to São Miguel - 2 enduro bicycles, 2 surf boards and a bike
+              trailer. Ending up spending 10 weeks biking and sleeping in a tent
+              around 4 islands in the Azores. That was enough, we knew by then
+              that we wanted to move here permanently and become part of the
+              community.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-[-30px] flex">
+          <div class="w-1/2 content-end pl-8">
+            <h3 class="text-right text-3xl">
+              Discovering the islands by bike gave us so much.You really feel
+              the energy and adrenaline on these islands. Long uphills and
+              magical fast descents ending up by a sea of breaking waves.
+            </h3>
+          </div>
+          <div class="w-1/2 pl-8">
+            <img src={image2} class="h-[450px]"></img>
+          </div>
+        </div>
+
+        <div class="my-8 flex">
+          <div class="w-1/2 content-end pl-8">
+            <h3 class="text-right text-3xl">
+              Forget the luxury and the five stars, we want to offer a more
+              natural and adventurous way of seeing the island.
+            </h3>
+          </div>
+          <div class="w-1/2 pl-8">
+            <p>
+              Now living here, we would like to share this experience with
+              others, both locals and tourists looking beyond comfort but more
+              for a real life experience. Forget the luxury and the five stars
+              we want to offer a more natural and adventurous way of seeing the
+              island. The best way of doing this is by mountain bike and São
+              Miguel has such a big variety of bike trails from beginner to
+              competitive downhill trails all in a mixture of different natural
+              environments.
+            </p>
+          </div>
+        </div>
+
+        <hr class="border-red-600" />
+
+        <div class="mx-auto my-8 w-[60%] text-center text-5xl">
+          <h3>WHOʼS BEHIND WHEELS ON FIRE ?</h3>
+        </div>
+
+        <div class="flex text-center">
+          <div class="border-r border-r-red-600 px-4 [&>*]:my-2">
+            <h3 class="text-5xl">Jallas</h3>
+            <p>Hello there! </p>
+            <p>
+              I’m Jallas born in the south Sweden. Since south Sweden is kinda
+              flat I started out with cross country biking but lycra and pushing
+              on the uphills was not really me. The free ride mountain bike was
+              more my style.
+            </p>
+            <p>
+              In 2012 I traveled to Portugal for the first time to pursue my
+              surf dream and from then on I just knew that this was where in the
+              world I wanted to be. Biking has also always been a big part of my
+              life wherever I was, from working as a bike messenger, bikepacking
+              or riding downhill and being out in the nature with my bike is
+              what I enjoy the most. Not only biking but also creating, building
+              and maintaining the bike trails is something I really like
+              spending my time on.
+            </p>
+            <p>
+              After discovering the Azores by bike. Me and my partner Juliana
+              really enjoyed the island life. We felt that this is were we want
+              to be and create - <span class="font-bold">WHEELS ON FIRE.</span>
+            </p>
+          </div>
+
+          <div class="px-4 [&>*]:my-2">
+            <h3 class="text-5xl">Juliana</h3>
+            <p>Hey ! I’m Juliana from Porto, Portugal. </p>
+            <p>
+              I’ll never forget the first time I learnt how to bike. Since then
+              biking has always felt more than just the act of riding a bike, -
+              represents freedom and creativity and it’s the best way to get
+              around! And it’s funny how the surroundings and the kind of bike
+              I’m riding can make every experience very unique. Riding in the
+              city with my singlespeed, everything is fast and I love it! It’s
+              like a game: the other cyclists, the people, the traffic.
+            </p>
+            <p>
+              When mountainbiking is different, being out in the wild riding the
+              nature’s “cool obstacles” like the terrain, if it’s rocky, rooty,
+              steep, uphill or in flowy trails and jumps. Every bike day is
+              different and teaches so much more than just skills, but truly
+              being in touch and in tune with everything and myself.
+            </p>
+            <p>
+              <span class="font-bold">WHEELS ON FIRE</span> is born, out of the
+              burning passion of riding,travelling and is inspired by the
+              vulcanic terrain of this amazing place that is the Azores.
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <button
+            onClick={() => navigate('/what-we-offer')}
+            class="m-auto mt-8 block bg-red-600 px-4 py-1  uppercase text-white"
+          >
+            Check our article here
+          </button>
+        </div>
       </div>
     </div>
   )

@@ -18,6 +18,12 @@ body {
   background-color: #eee;
 }
 
+.black-text-outline {
+  color: black;
+  -webkit-text-stroke: 1px red;
+  text-stroke: 1px red;
+}
+
 .text-outline {
   color: transparent;
   -webkit-text-stroke: 1px red;
@@ -41,4 +47,21 @@ body {
 .safari-center {
   display: -webkit-inline-box;
   -webkit-box-align: center;
+}
+
+.testi-container {
+  background-size: cover;
+  padding-top: 70px;
+  padding-left: 70px;
+  background-clip: content-box;
+  background-repeat: no-repeat;
+}
+
+.testi-content {
+  margin-top: -70px;
+  margin-left: -70px;
+}
+
+.transparent-overlay {
+  background-color: rgba(255, 255, 255, 0.4);
 }

@@ -30,7 +30,7 @@ export const Home = () => {
         </Slider>
       </div>
 
-      <hr class="border-red-500" />
+      <hr class="border-red-600" />
 
       <div class={sectionStyle}>
         <h2 class={h2Style}>You ride. We pick you up.</h2>
