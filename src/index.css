@@ -33,3 +33,8 @@ body {
 .dot.active {
   background-color: #bbb;
 }
+
+.safari-center {
+  display: -webkit-inline-box;
+  -webkit-box-align: center;
+}
