@@ -3,53 +3,63 @@ import image2 from '../components/utils/DSC01567.jpg'
 import image1 from '../components/utils/Screenshot 2024-02-19 at 20.43.12.png'
 
 export const AboutUs = () => {
+  const paragraph1 = (customClass: string) => (
+    <p class={customClass}>
+      In the spring of 2023 we packed our passion in life and shipped it over to
+      São Miguel - 2 enduro bicycles, 2 surf boards and a bike trailer. Ending
+      up spending 10 weeks biking and sleeping in a tent around 4 islands in the
+      Azores. That was enough, we knew by then that we wanted to move here
+      permanently and become part of the community.
+    </p>
+  )
 
   return (
     <div class="">
       <hr class="border-red" />
 
       <div class="mt-8">
-        <h1 class="black-text-outline relative block text-5xl font-bold uppercase tracking-wider text-red md:text-9xl">
+        <h1 class="black-text-outline text-headingXXXL text-red relative block pl-4 uppercase tracking-wider">
           About us
         </h1>
-        <div class="mt-[-30px] flex">
+        <div class="mt-[-50px] flex">
           <div class="w-1/2 pr-8">
-            <img src={image1} class="h-[450px]"></img>
+            <img
+              src={image1}
+              class="h-96 w-full object-cover object-top md:h-[600px]"
+            ></img>
           </div>
           <div class="w-1/2 content-center pr-8">
-            <h2 class="text-xl">We discovered the Azores by bike.</h2>
-            <p>
-              In the spring of 2023 we packed our passion in life and shipped it
-              over to São Miguel - 2 enduro bicycles, 2 surf boards and a bike
-              trailer. Ending up spending 10 weeks biking and sleeping in a tent
-              around 4 islands in the Azores. That was enough, we knew by then
-              that we wanted to move here permanently and become part of the
-              community.
-            </p>
+            <h2 class="text-headingXXL">We discovered the Azores by bike.</h2>
+            {paragraph1('hidden md:block')}
           </div>
         </div>
 
-        <div class="mt-[-30px] flex">
-          <div class="w-1/2 content-end pl-8">
-            <h3 class="text-right text-3xl">
+        <div>{paragraph1('block md:hidden px-4 my-8')}</div>
+
+        <div class="flex md:mt-[-50px]">
+          <div class="w-1/2 content-center pl-4 md:pl-8">
+            <h3 class="text-headingL">
               Discovering the islands by bike gave us so much.You really feel
               the energy and adrenaline on these islands. Long uphills and
               magical fast descents ending up by a sea of breaking waves.
             </h3>
           </div>
           <div class="w-1/2 pl-8">
-            <img src={image2} class="h-[450px]"></img>
+            <img
+              src={image2}
+              class="h-96 w-full object-cover object-top md:h-[500px]"
+            ></img>
           </div>
         </div>
 
-        <div class="my-8 flex">
-          <div class="w-1/2 content-end pl-8">
-            <h3 class="text-right text-3xl">
+        <div class="my-8 flex flex-col-reverse pr-8  md:flex-row">
+          <div class="content-center pl-4 md:w-1/2 md:pl-8">
+            <h3 class="text-headingL">
               Forget the luxury and the five stars, we want to offer a more
               natural and adventurous way of seeing the island.
             </h3>
           </div>
-          <div class="w-1/2 pl-8">
+          <div class="py-4 pl-4 md:w-1/2 md:pl-8">
             <p>
               Now living here, we would like to share this experience with
               others, both locals and tourists looking beyond comfort but more
@@ -65,12 +75,14 @@ export const AboutUs = () => {
 
         <hr class="border-red" />
 
-        <div class="mx-auto my-8 w-[60%] text-center text-5xl">
-          <h3>WHOʼS BEHIND WHEELS ON FIRE ?</h3>
+        <div class="mx-auto my-8 w-[60%] text-center">
+          <h3 class="text-headingXXL font-futuraExtraBold">
+            WHOʼS BEHIND WHEELS ON FIRE ?
+          </h3>
         </div>
 
-        <div class="flex text-center">
-          <div class="border-r border-r-red px-4 [&>*]:my-2">
+        <div class="flex flex-col-reverse text-center md:flex-row">
+          <div class="border-r-red border-r px-4 [&>*]:my-2">
             <h3 class="text-5xl">Jallas</h3>
             <p>Hello there! </p>
             <p>
@@ -92,7 +104,8 @@ export const AboutUs = () => {
             <p>
               After discovering the Azores by bike. Me and my partner Juliana
               really enjoyed the island life. We felt that this is were we want
-              to be and create - <span class="font-bold">WHEELS ON FIRE.</span>
+              to be and create -{' '}
+              <span class="font-futuraExtraBold">WHEELS ON FIRE.</span>
             </p>
           </div>
 
@@ -116,17 +129,15 @@ export const AboutUs = () => {
               being in touch and in tune with everything and myself.
             </p>
             <p>
-              <span class="font-bold">WHEELS ON FIRE</span> is born, out of the
-              burning passion of riding,travelling and is inspired by the
-              vulcanic terrain of this amazing place that is the Azores.
+              <span class="font-futuraExtraBold">WHEELS ON FIRE</span> is born,
+              out of the burning passion of riding,travelling and is inspired by
+              the vulcanic terrain of this amazing place that is the Azores.
             </p>
           </div>
         </div>
 
         <div>
-          <Button
-            url='/what-we-offer'
-          >
+          <Button url="/what-we-offer" customClass="block mx-auto">
             Check our article here
           </Button>
         </div>

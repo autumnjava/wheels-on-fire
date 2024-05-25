@@ -1,10 +1,11 @@
+import clsx from 'clsx'
 import { Button } from '../components/button'
 import { Hero } from '../components/hero'
 import { Slider } from '../components/slider'
 
 export const Home = () => {
   const sectionStyle = 'container mx-auto my-12 px-4 text-center'
-  const h2Style = 'font-futuraExtraBold text-headerXL font-bold uppercase'
+  const h2Style = 'font-futuraExtraBold text-headingXL font-bold uppercase'
 
   return (
     <>
@@ -15,7 +16,7 @@ export const Home = () => {
       </Slider>
 
       <div class="container mx-auto my-4 px-4">
-        <h2 class="font-futuraExtraBold text-headerL font-bold uppercase">Brands that support us</h2>
+        <h2 class={clsx(h2Style, 'text-headingL')}>Brands that support us</h2>
         <Slider slidesPerView={3} spacing={10} autoplay={true}>
           <p>company1</p>
           <p>company2</p>
@@ -36,8 +37,10 @@ export const Home = () => {
       </div>
 
       <div class={sectionStyle}>
-        <h3 class="font-futuraMedium text-headerL uppercase">Get in touch</h3>
-        <Button url="/get-in-touch" customClass='mt-2'>Contact us</Button>
+        <h3 class="text-headingL uppercase">Get in touch</h3>
+        <Button url="/get-in-touch" customClass="mt-2">
+          Contact us
+        </Button>
       </div>
     </>
   )

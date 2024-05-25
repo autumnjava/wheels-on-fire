@@ -34,7 +34,7 @@ export const Footer = () => {
         </div>
 
         <div class={columnStyle}>
-          <p class="font-andale">MTB TOURS SÃO MIGUEL AZORES</p>
+          <p>MTB TOURS SÃO MIGUEL AZORES</p>
           <hr class="mx-auto h-px w-[33%] border-0 bg-gray-200 dark:bg-gray-700" />
           <p class="text-center font-futuraMedium">
             <span class="text-red font-bold font-futura">WHEELS ON FIRE </span> is a MTB

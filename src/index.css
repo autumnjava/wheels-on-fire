@@ -11,8 +11,16 @@
 }
 
 @font-face {
-  font-family: 'Andale';
-  src: url('./fonts/Andale-mono-mt-std-bold.otf') format("opentype");
+  font-family: 'AndaleMono';
+  src: url('./fonts/ANDALEIMO.TTF');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AndaleMonoBold';
+  src: url('./fonts/ANDALEBMO.TTF');
   font-weight: 400;
   font-display: swap;
   font-style: normal;
@@ -20,7 +28,7 @@
 
 @font-face {
   font-family: 'MinionPro';
-  src: url('./fonts/MinionPro-Regular.otf') format("opentype");
+  src: url('./fonts/MinionPro-Regular.otf') format('opentype');
   font-weight: 400;
   font-display: swap;
   font-style: normal;
@@ -29,6 +37,24 @@
 html,
 body {
   height: 100%;
+}
+
+p {
+  font-family: AndaleMono, sans-serif;
+}
+
+h1 {
+  font-family: Futura-CondensedExtraBold, Futura, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+h2,
+h3,
+h4,
+h5 {
+  font-family: Futura-CondensedMedium, Futura, sans-serif;
+  text-transform: uppercase;
 }
 
 #root {
@@ -104,12 +130,12 @@ body {
   --navMenu: 3rem;
   --heroHeading: 3.2rem;
 
-  --headerXXXL: 3rem;
-  --headerXXL: 2.25rem;
-  --headerXL: 1.8625rem;
-  --headerL: 1.35rem;
-  --headerM: 1.125rem;
-  --headerS: 0.90625rem;
+  --headingXXXL: 5rem;
+  --headingXXL: 2.25rem;
+  --headingXL: 1.8625rem;
+  --headingL: 1.35rem;
+  --headingM: 1.125rem;
+  --headingS: 0.90625rem;
 }
 
 /* sm */
@@ -118,12 +144,12 @@ body {
     --navMenu: 1.35rem;
     --heroHeading: 4rem;
 
-    --headerXXXL: 4rem;
-    --headerXXL: 2.875rem;
-    --headerXL: 2.25rem;
-    --headerL: 1.625rem;
-    --headerM: 1.28125rem;
-    --headerS: 1.0625rem;
+    --headingXXXL: 8rem;
+    --headingXXL: 2.875rem;
+    --headingXL: 2.25rem;
+    --headingL: 1.625rem;
+    --headingM: 1.28125rem;
+    --headingS: 1.0625rem;
   }
 }
 
@@ -141,11 +167,11 @@ body {
     --navMenu: 1.35rem;
     --heroHeading: 7rem;
 
-    --headerXXXL: 5rem;
-    --headerXXL: 3.5rem;
-    --headerXL: 2.75rem;
-    --headerL: 1.875rem;
-    --headerM: 1.5rem;
-    --headerS: 1.25rem;
+    --headingXXXL: 10rem;
+    --headingXXL: 3.5rem;
+    --headingXL: 2.75rem;
+    --headingL: 1.875rem;
+    --headingM: 1.5rem;
+    --headingS: 1.25rem;
   }
 }
