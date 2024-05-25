@@ -28,7 +28,7 @@ export const AboutUs = () => {
               class="h-96 w-full object-cover object-top md:h-[600px]"
             ></img>
           </div>
-          <div class="w-1/2 content-center pr-8">
+          <div class="w-1/2 content-center pr-8 flex flex-col justify-center">
             <h2 class="text-headingXXL">We discovered the Azores by bike.</h2>
             {paragraph1('hidden md:block')}
           </div>
@@ -37,7 +37,7 @@ export const AboutUs = () => {
         <div>{paragraph1('block md:hidden px-4 my-8')}</div>
 
         <div class="flex md:mt-[-50px]">
-          <div class="w-1/2 content-center pl-4 md:pl-8">
+          <div class="w-1/2 content-center pl-4 md:pl-8 flex flex-col justify-center">
             <h3 class="text-headingL">
               Discovering the islands by bike gave us so much.You really feel
               the energy and adrenaline on these islands. Long uphills and

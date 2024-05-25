@@ -1,15 +1,12 @@
-import { useNavigate } from '@solidjs/router'
-import bgImage from './utils/MRP_0119.jpg'
 import { Button } from './button'
+import bgImage from './utils/MRP_0119.jpg'
 
 type HeroProps = {}
 
 export const Hero = (props: HeroProps) => {
-  const navigate = useNavigate()
-
   return (
     <div
-      class="safari-center mb-8 h-[500px] w-[100vw] content-center bg-black bg-center px-8 pt-4 md:h-[650px]"
+      class="mb-8 flex h-[500px] w-[100vw] flex-col content-center justify-center bg-black bg-center px-8 pt-4 md:h-[650px]"
       style={{ 'background-image': `url(${bgImage})` }}
     >
       <div class="xl:max-w-[70%]">

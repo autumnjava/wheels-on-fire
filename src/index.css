@@ -94,11 +94,6 @@ body {
   background-color: #bbb;
 }
 
-.safari-center {
-  display: -webkit-inline-box;
-  -webkit-box-align: center;
-}
-
 .testi-container {
   background-size: cover;
   padding-top: 70px;
