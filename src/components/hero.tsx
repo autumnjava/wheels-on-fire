@@ -1,5 +1,6 @@
 import { useNavigate } from '@solidjs/router'
 import bgImage from './utils/MRP_0119.jpg'
+import { Button } from './button'
 
 type HeroProps = {}
 
@@ -12,15 +13,10 @@ export const Hero = (props: HeroProps) => {
       style={{ 'background-image': `url(${bgImage})` }}
     >
       <div class="xl:max-w-[70%]">
-        <q class="text-outline block text-5xl font-bold uppercase tracking-wider md:text-8xl">
+        <q class="text-outline text-heroHeading font-futuraExtraBold block font-bold uppercase tracking-wider">
           Forget the comfort, let's get dirty!
         </q>
-        <button
-          onClick={() => navigate('/what-we-offer')}
-          class="mt-8 bg-red-600 px-4 py-1 uppercase text-white"
-        >
-          What we offer
-        </button>
+        <Button url="/what-we-offer">What we offer</Button>
       </div>
     </div>
   )

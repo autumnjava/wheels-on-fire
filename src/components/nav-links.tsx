@@ -6,12 +6,12 @@ type NavProps = {
   toggleMenu?: () => void
 }
 
-export const Nav = (props: NavProps) => {
+export const NavLinks = (props: NavProps) => {
   return navLinks.map((item) => {
     return (
       <A
         href={item.href}
-        class={props.linkClass || 'font-extrabold uppercase text-red-600'}
+        class={props.linkClass || 'font-futuraExtraBold font-bold uppercase text-navMenu'}
         activeClass="underline"
         onClick={() => props.toggleMenu && props.toggleMenu()}
       >

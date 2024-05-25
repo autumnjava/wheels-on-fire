@@ -2,6 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Futura-CondensedExtraBold', Futura, sans-serif;
+  src: url('./fonts/Futura.ttc');
+  font-display: swap;
+  font-style: normal;
+  font-stretch: condensed;
+}
+
+@font-face {
+  font-family: 'Andale';
+  src: url('./fonts/Andale-mono-mt-std-bold.otf') format("opentype");
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MinionPro';
+  src: url('./fonts/MinionPro-Regular.otf') format("opentype");
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
 html,
 body {
   height: 100%;
@@ -64,4 +88,64 @@ body {
 
 .transparent-overlay {
   background-color: rgba(255, 255, 255, 0.4);
+}
+
+/*
+  sm	640px	@media (min-width: 640px) { ... }
+  md	768px	@media (min-width: 768px) { ... }
+  lg	1024px	@media (min-width: 1024px) { ... }
+  xl	1280px	@media (min-width: 1280px) { ... }
+  2xl	1536px	@media (min-width: 1536px) { ... }
+*/
+
+/* CSS Variables */
+/* Mobile */
+#root {
+  --navMenu: 3rem;
+  --heroHeading: 3.2rem;
+
+  --headerXXXL: 3rem;
+  --headerXXL: 2.25rem;
+  --headerXL: 1.8625rem;
+  --headerL: 1.35rem;
+  --headerM: 1.125rem;
+  --headerS: 0.90625rem;
+}
+
+/* sm */
+@media screen and (min-width: 640px) {
+  #root {
+    --navMenu: 1.35rem;
+    --heroHeading: 4rem;
+
+    --headerXXXL: 4rem;
+    --headerXXL: 2.875rem;
+    --headerXL: 2.25rem;
+    --headerL: 1.625rem;
+    --headerM: 1.28125rem;
+    --headerS: 1.0625rem;
+  }
+}
+
+/* Tablet / md */
+@media screen and (min-width: 768px) {
+  #root {
+    --navMenu: 1.35rem;
+    --heroHeading: 6rem;
+  }
+}
+
+/* Laptop / lg */
+@media screen and (min-width: 1024px) {
+  #root {
+    --navMenu: 1.35rem;
+    --heroHeading: 7rem;
+
+    --headerXXXL: 5rem;
+    --headerXXL: 3.5rem;
+    --headerXL: 2.75rem;
+    --headerL: 1.875rem;
+    --headerM: 1.5rem;
+    --headerS: 1.25rem;
+  }
 }

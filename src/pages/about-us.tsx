@@ -1,17 +1,15 @@
-import { useNavigate } from '@solidjs/router'
-
+import { Button } from '../components/button'
 import image2 from '../components/utils/DSC01567.jpg'
 import image1 from '../components/utils/Screenshot 2024-02-19 at 20.43.12.png'
 
 export const AboutUs = () => {
-  const navigate = useNavigate()
 
   return (
-    <div>
-      <hr class="border-red-600" />
+    <div class="">
+      <hr class="border-red" />
 
       <div class="mt-8">
-        <h1 class="black-text-outline relative block text-5xl font-bold uppercase tracking-wider text-red-600 md:text-9xl">
+        <h1 class="black-text-outline relative block text-5xl font-bold uppercase tracking-wider text-red md:text-9xl">
           About us
         </h1>
         <div class="mt-[-30px] flex">
@@ -65,14 +63,14 @@ export const AboutUs = () => {
           </div>
         </div>
 
-        <hr class="border-red-600" />
+        <hr class="border-red" />
 
         <div class="mx-auto my-8 w-[60%] text-center text-5xl">
           <h3>WHOʼS BEHIND WHEELS ON FIRE ?</h3>
         </div>
 
         <div class="flex text-center">
-          <div class="border-r border-r-red-600 px-4 [&>*]:my-2">
+          <div class="border-r border-r-red px-4 [&>*]:my-2">
             <h3 class="text-5xl">Jallas</h3>
             <p>Hello there! </p>
             <p>
@@ -126,12 +124,11 @@ export const AboutUs = () => {
         </div>
 
         <div>
-          <button
-            onClick={() => navigate('/what-we-offer')}
-            class="m-auto mt-8 block bg-red-600 px-4 py-1  uppercase text-white"
+          <Button
+            url='/what-we-offer'
           >
             Check our article here
-          </button>
+          </Button>
         </div>
       </div>
     </div>
