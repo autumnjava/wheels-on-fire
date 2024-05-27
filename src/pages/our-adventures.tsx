@@ -24,5 +24,5 @@ export const OurAdventures = () => {
         </p>
       </div>
     </div>
-  )
-}
+  );
+};

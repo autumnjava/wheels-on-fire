@@ -24,5 +24,5 @@ export const GetInTouch = () => {
         </p>
       </div>
     </div>
-  )
-}
+  );
+};

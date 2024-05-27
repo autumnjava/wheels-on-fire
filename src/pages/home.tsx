@@ -1,11 +1,11 @@
-import clsx from 'clsx'
-import { Button } from '../components/button'
-import { Hero } from '../components/hero'
-import { Slider } from '../components/slider'
+import clsx from 'clsx';
+import { Button } from '../components/button';
+import { Hero } from '../components/hero';
+import { Slider } from '../components/slider';
 
 export const Home = () => {
-  const sectionStyle = 'container mx-auto my-12 px-4 text-center'
-  const h2Style = 'font-futuraExtraBold text-headingXL font-bold uppercase'
+  const sectionStyle = 'container mx-auto my-12 px-4 text-center';
+  const h2Style = 'font-futuraExtraBold text-headingXL font-bold uppercase';
 
   return (
     <>
@@ -43,5 +43,5 @@ export const Home = () => {
         </Button>
       </div>
     </>
-  )
-}
+  );
+};

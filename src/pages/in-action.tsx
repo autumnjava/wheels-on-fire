@@ -24,5 +24,5 @@ export const InAction = () => {
         </p>
       </div>
     </div>
-  )
-}
+  );
+};

@@ -1,21 +1,21 @@
-import { A } from '@solidjs/router'
-import clsx from 'clsx'
-import { Show, createSignal } from 'solid-js'
+import { A } from '@solidjs/router';
+import clsx from 'clsx';
+import { Show, createSignal } from 'solid-js';
 
-import { NavLinks } from './nav-links'
-import logo from './utils/wheelsonfire_logoselection-02.svg'
+import { NavLinks } from './nav-links';
+import logo from './utils/wheelsonfire_logoselection-02.svg';
 
 export const MobileMenu = () => {
-  const [mobileMenuActive, setMobileMenuActive] = createSignal(false)
+  const [mobileMenuActive, setMobileMenuActive] = createSignal(false);
 
   const toggleMenu = () => {
-    const main = document.querySelector('main')
-    const body = document.querySelector('body')
-    main?.classList.toggle('hidden')
-    body?.classList.toggle('fixed')
-    body?.classList.toggle('overflow-y-scroll')
-    setMobileMenuActive(!mobileMenuActive())
-  }
+    const main = document.querySelector('main');
+    const body = document.querySelector('body');
+    main?.classList.toggle('hidden');
+    body?.classList.toggle('fixed');
+    body?.classList.toggle('overflow-y-scroll');
+    setMobileMenuActive(!mobileMenuActive());
+  };
 
   return (
     <>
@@ -81,5 +81,5 @@ export const MobileMenu = () => {
         </div>
       </Show>
     </>
-  )
-}
+  );
+};

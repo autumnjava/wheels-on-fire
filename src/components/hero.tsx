@@ -1,7 +1,7 @@
-import { Button } from './button'
-import bgImage from './utils/MRP_0119.jpg'
+import { Button } from './button';
+import bgImage from './utils/MRP_0119.jpg';
 
-type HeroProps = {}
+type HeroProps = {};
 
 export const Hero = (props: HeroProps) => {
   return (
@@ -10,11 +10,11 @@ export const Hero = (props: HeroProps) => {
       style={{ 'background-image': `url(${bgImage})` }}
     >
       <div class="xl:max-w-[70%]">
-        <q class="text-outline text-heroHeading font-futuraExtraBold block font-bold uppercase tracking-wider">
+        <q class="text-outline block font-futuraExtraBold text-heroHeading font-bold uppercase tracking-wider">
           Forget the comfort, let's get dirty!
         </q>
         <Button url="/what-we-offer">What we offer</Button>
       </div>
     </div>
-  )
-}
+  );
+};

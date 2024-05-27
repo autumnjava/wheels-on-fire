@@ -1,6 +1,6 @@
-import { Button } from '../components/button'
-import image2 from '../components/utils/DSC01567.jpg'
-import image1 from '../components/utils/Screenshot 2024-02-19 at 20.43.12.png'
+import { Button } from '../components/button';
+import image2 from '../components/utils/DSC01567.jpg';
+import image1 from '../components/utils/Screenshot 2024-02-19 at 20.43.12.png';
 
 export const AboutUs = () => {
   const paragraph1 = (customClass: string) => (
@@ -11,14 +11,14 @@ export const AboutUs = () => {
       Azores. That was enough, we knew by then that we wanted to move here
       permanently and become part of the community.
     </p>
-  )
+  );
 
   return (
-    <div class="">
+    <>
       <hr class="border-red" />
 
       <div class="mt-8">
-        <h1 class="black-text-outline text-headingXXXL text-red relative block pl-4 uppercase tracking-wider">
+        <h1 class="black-text-outline relative block pl-4 text-headingXXXL uppercase tracking-wider text-red">
           About us
         </h1>
         <div class="mt-[-50px] flex">
@@ -28,7 +28,7 @@ export const AboutUs = () => {
               class="h-96 w-full object-cover object-top md:h-[600px]"
             ></img>
           </div>
-          <div class="w-1/2 content-center pr-8 flex flex-col justify-center">
+          <div class="flex w-1/2 flex-col content-center justify-center pr-8">
             <h2 class="text-headingXXL">We discovered the Azores by bike.</h2>
             {paragraph1('hidden md:block')}
           </div>
@@ -37,7 +37,7 @@ export const AboutUs = () => {
         <div>{paragraph1('block md:hidden px-4 my-8')}</div>
 
         <div class="flex md:mt-[-50px]">
-          <div class="w-1/2 content-center pl-4 md:pl-8 flex flex-col justify-center">
+          <div class="flex w-1/2 flex-col content-center justify-center pl-4 md:pl-8">
             <h3 class="text-headingL">
               Discovering the islands by bike gave us so much.You really feel
               the energy and adrenaline on these islands. Long uphills and
@@ -76,13 +76,13 @@ export const AboutUs = () => {
         <hr class="border-red" />
 
         <div class="mx-auto my-8 w-[60%] text-center">
-          <h3 class="text-headingXXL font-futuraExtraBold">
+          <h3 class="font-futuraExtraBold text-headingXXL">
             WHOʼS BEHIND WHEELS ON FIRE ?
           </h3>
         </div>
 
         <div class="flex flex-col-reverse text-center md:flex-row">
-          <div class="border-r-red border-r px-4 [&>*]:my-2">
+          <div class="border-r border-r-red px-4 [&>*]:my-2">
             <h3 class="text-5xl">Jallas</h3>
             <p>Hello there! </p>
             <p>
@@ -142,6 +142,6 @@ export const AboutUs = () => {
           </Button>
         </div>
       </div>
-    </div>
-  )
-}
+    </>
+  );
+};

@@ -7,29 +7,29 @@ import {
   createMemo,
   JSX,
   Show,
-} from 'solid-js'
-import KeenSlider, { KeenSliderInstance } from 'keen-slider'
-import 'keen-slider/keen-slider.min.css'
+} from 'solid-js';
+import KeenSlider, { KeenSliderInstance } from 'keen-slider';
+import 'keen-slider/keen-slider.min.css';
 
 type SliderProps = {
-  children: JSX.Element[]
-  slidesPerView?: number
-  spacing?: number
-  autoplay?: boolean
-  controls?: boolean
-}
+  children: JSX.Element[];
+  slidesPerView?: number;
+  spacing?: number;
+  autoplay?: boolean;
+  controls?: boolean;
+};
 
 export const Slider = (props: SliderProps) => {
-  let sliderContainer: HTMLDivElement | undefined
-  let slider: KeenSliderInstance | undefined
+  let sliderContainer: HTMLDivElement | undefined;
+  let slider: KeenSliderInstance | undefined;
 
-  const [currentSlide, setCurrentSlide] = createSignal(0)
+  const [currentSlide, setCurrentSlide] = createSignal(0);
   const resolvedChildren = createMemo(
     () => solidChildren(() => props.children)() as JSX.Element[]
-  )
+  );
 
   onMount(() => {
-    if (!sliderContainer) return
+    if (!sliderContainer) return;
 
     slider = new KeenSlider(
       sliderContainer,
@@ -41,55 +41,55 @@ export const Slider = (props: SliderProps) => {
         },
         initial: 0,
         slideChanged(s) {
-          setCurrentSlide(s.track.details.rel)
+          setCurrentSlide(s.track.details.rel);
         },
       },
       [
         (slider) => {
-          let timeout: number
-          let mouseOver = false
+          let timeout: number;
+          let mouseOver = false;
 
           function clearNextTimeout() {
-            clearTimeout(timeout)
+            clearTimeout(timeout);
           }
 
           function nextTimeout() {
-            clearTimeout(timeout)
-            if (mouseOver || !props.autoplay) return
+            clearTimeout(timeout);
+            if (mouseOver || !props.autoplay) return;
             timeout = window.setTimeout(() => {
-              slider.next()
-            }, 2000)
+              slider.next();
+            }, 2000);
           }
 
           slider.on('created', () => {
             slider.container.addEventListener('mouseover', () => {
-              mouseOver = true
-              clearNextTimeout()
-            })
+              mouseOver = true;
+              clearNextTimeout();
+            });
 
             slider.container.addEventListener('mouseout', () => {
-              mouseOver = false
-              nextTimeout()
-            })
+              mouseOver = false;
+              nextTimeout();
+            });
 
-            nextTimeout()
-          })
+            nextTimeout();
+          });
 
-          slider.on('dragStarted', clearNextTimeout)
-          slider.on('animationEnded', nextTimeout)
-          slider.on('updated', nextTimeout)
+          slider.on('dragStarted', clearNextTimeout);
+          slider.on('animationEnded', nextTimeout);
+          slider.on('updated', nextTimeout);
         },
       ]
-    )
+    );
 
     onCleanup(() => {
-      slider?.destroy()
-    })
-  })
+      slider?.destroy();
+    });
+  });
 
-  const prev = () => slider?.prev()
-  const next = () => slider?.next()
-  const moveTo = (idx: number) => slider?.moveToIdx(idx)
+  const prev = () => slider?.prev();
+  const next = () => slider?.next();
+  const moveTo = (idx: number) => slider?.moveToIdx(idx);
 
   return (
     <div class="relative">
@@ -122,5 +122,5 @@ export const Slider = (props: SliderProps) => {
         </div>
       </Show>
     </div>
-  )
-}
+  );
+};

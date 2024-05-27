@@ -1,23 +1,23 @@
 /* @refresh reload */
-import { Route, Router } from '@solidjs/router'
-import { render } from 'solid-js/web'
+import { Route, Router } from '@solidjs/router';
+import { render } from 'solid-js/web';
 
-import './index.css'
+import './index.css';
 
 // Components
-import { Footer } from './components/footer'
-import { Header } from './components/header'
+import { Footer } from './components/footer';
+import { Header } from './components/header';
 
 // Pages
-import { AboutUs } from './pages/about-us'
-import { GetInTouch } from './pages/get-in-touch'
-import { Home } from './pages/home'
-import { InAction } from './pages/in-action'
-import { NotFound } from './pages/not-found'
-import { OurAdventures } from './pages/our-adventures'
-import { WhatWeOffer } from './pages/what-we-offer'
+import { AboutUs } from './pages/about-us';
+import { GetInTouch } from './pages/get-in-touch';
+import { Home } from './pages/home';
+import { InAction } from './pages/in-action';
+import { NotFound } from './pages/not-found';
+import { OurAdventures } from './pages/our-adventures';
+import { WhatWeOffer } from './pages/what-we-offer';
 
-const root = document.getElementById('root')
+const root = document.getElementById('root');
 
 const App = (props: any) => (
   <>
@@ -25,12 +25,12 @@ const App = (props: any) => (
     <main class="mx-auto mb-8 w-full">{props.children}</main>
     <Footer />
   </>
-)
+);
 
 if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
   throw new Error(
     'Root element not found. Did you forget to add it to your index.html? Or maybe the id attribute got misspelled?'
-  )
+  );
 }
 
 render(
@@ -46,4 +46,4 @@ render(
     </Router>
   ),
   root!
-)
+);
