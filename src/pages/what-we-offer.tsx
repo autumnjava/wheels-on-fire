@@ -101,7 +101,7 @@ export const WhatWeOffer = () => {
 
       <hr class="hidden border-red md:block" />
 
-      <div class="mx-auto my-8 text-center md:w-[60%]">
+      <div class="mx-auto my-8 px-4 text-center md:w-[60%]">
         <h3 class="font-futuraExtraBold text-headingXXL">What's included</h3>
         <h4>
           Either in for a half, full or a couple of days youʼll sure feel your{' '}
@@ -171,7 +171,7 @@ export const WhatWeOffer = () => {
         <div class="relative z-10 w-[fit-content] bg-red px-4 py-2 uppercase text-white md:static">
           Private guided tour
         </div>
-        <div class="p-4 pt-12 md:m-4 md:-mt-10 md:pt-4">
+        <div class="p-4 pt-12 md:m-4 md:pt-4">
           <h3 class="font-futuraExtraBold text-headingXXL">
             Are you the one and only rider?
           </h3>
@@ -182,10 +182,10 @@ export const WhatWeOffer = () => {
       </div>
 
       <div class="my-8 w-full border-t border-red text-center">
-        <div class="relative z-10 w-[fit-content] bg-red px-4 py-2 uppercase text-white md:static">
+        <div class="w-[fit-content] bg-red px-4 py-2 uppercase text-white">
           Customize your trip
         </div>
-        <div class="p-4 pt-12 md:m-4 md:-mt-10 md:pt-4">
+        <div class="p-4 pt-12 md:m-4 md:pt-4">
           <h3 class="font-futuraExtraBold text-headingXXL">
             Do you want us to customize your trip?
           </h3>

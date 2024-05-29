@@ -68,6 +68,28 @@ body {
   background-color: #eee;
 }
 
+label,
+input,
+textarea {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+}
+
+input,
+textarea {
+  display: block;
+  width: 100%;
+
+  background-color: transparent;
+  border: 1px solid red;
+}
+
+label {
+  text-transform: uppercase;
+  margin: 20px 0;
+}
+
 .black-text-outline {
   color: black;
   -webkit-text-stroke: 1px red;
@@ -127,7 +149,7 @@ body {
 
   --headingXXXL: 5rem;
   --headingXXL: 2.25rem;
-  --headingXL: 1.8625rem;
+  --headingXL: 1.6625rem;
   --headingL: 1.35rem;
   --headingM: 1.125rem;
   --headingS: 0.90625rem;
