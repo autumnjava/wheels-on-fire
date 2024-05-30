@@ -3,7 +3,7 @@ import emailjs from '@emailjs/browser';
 
 export const GetInTouch = () => {
   const [name, setName] = createSignal('');
-  const [email, setEmail] = createSignal('habib@gmail.com');
+  const [email, setEmail] = createSignal('');
   const [comment, setComment] = createSignal('');
   const [isSucess, setIsSuccess] = createSignal(false);
   const [errorMessage, setErrorMessage] = createSignal('');
