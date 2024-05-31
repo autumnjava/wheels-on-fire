@@ -93,13 +93,25 @@ label {
 .black-text-outline {
   color: black;
   -webkit-text-stroke: 1px red;
-  text-stroke: 1px red;
 }
 
 .text-outline {
   color: transparent;
   -webkit-text-stroke: 1px red;
-  text-stroke: 1px red;
+}
+
+.text-back {
+  color: transparent;
+  -webkit-text-stroke: 1px red;
+  letter-spacing: 0.2rem !important;
+}
+
+.text-front {
+  position: absolute;
+  left: -10px;
+  top: 0;
+  z-index: -1;
+  letter-spacing: 0.2rem;
 }
 
 .dot {
@@ -147,7 +159,7 @@ label {
   --navMenu: 3rem;
   --heroHeading: 3.2rem;
 
-  --headingXXXL: 5rem;
+  --headingXXXL: 3.8rem;
   --headingXXL: 2.25rem;
   --headingXL: 1.6625rem;
   --headingL: 1.35rem;
@@ -161,7 +173,7 @@ label {
     --navMenu: 1.35rem;
     --heroHeading: 4rem;
 
-    --headingXXXL: 8rem;
+    --headingXXXL: 6rem;
     --headingXXL: 2.875rem;
     --headingXL: 2.25rem;
     --headingL: 1.625rem;

@@ -1,28 +1,57 @@
+import { Button } from '../components/button';
+
 export const OurAdventures = () => {
   return (
-    <div>
-      <h1>Our adventures</h1>
-      <div>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Mattis
-          pellentesque id nibh tortor id aliquet. Eu scelerisque felis imperdiet
-          proin fermentum leo vel orci. In tellus integer feugiat scelerisque
-          varius morbi enim nunc. Viverra maecenas accumsan lacus vel. Blandit
-          libero volutpat sed cras ornare arcu dui vivamus. Cras sed ullam ac.
-          Egestas sed sed risus pretium quam vliquet. Nec feugiat in fermentum
-          posuere urna. A diam maecenas sed enim ut sem. Sapien eget mi proin
-          sed libero enim sed faucibus. Ornare arcu odio ut sem nulla pharetra
-          diam. Sit amet mauris commodo quis imperdiet massa tincidunt nunc.
-          Turpis nunc eget lorem dolor sed viverra ipsum. Commodo elit at
-          imperdiet dui accumsan sit. Vel turpis nunc eget lorem dolor sed
-          viverra. Enim ut sem viverra aliquet eget. Lectus urna duis convallis
-          convallis tellus. Feugiat nisl pretium fusce id velit ut tortor
-          pretium. Odio facilisis mauris sit amet massa vitae tortor. Arcu non
-          odio euismod lacinia at quis risus sed vulputate. Facilisis volutpat
-          est velit egestas dui id ornare arcu odio.
-        </p>
+    <>
+      {/* <div class="container relative mx-auto px-4">
+        <h1 class="text-headingXXXL !leading-[78%] tracking-wider text-red">
+          Our
+          <br />
+          advetures
+        </h1>
+
+        <div class="absolute right-[50%] top-[15%] border border-red p-4">
+          <h2 class="font-futuraMedium text-headingM !normal-case">
+            Film & photos from our travels
+          </h2>
+        </div>
+      </div> */}
+
+      <div class="container px-4">
+        <div class="flex items-start">
+          <h1 class="font-extrabold text-red-600 text-headingXXXL !leading-[78%] text-red">
+            OUR
+          </h1>
+          <h2 class="ml-4 sm:ml-16 self-center text-headingM border border-red sm:p-2 p-1 !normal-case">
+            Film & photos from our travels
+          </h2>
+        </div>
+        <h1 class="font-extrabold text-red-600 text-headingXXXL !leading-[78%] text-red">
+          ADVENTURES
+        </h1>
       </div>
-    </div>
+
+      <hr class="my-8 border-red" />
+
+      <div class="container px-4 flex sm:flex-row flex-col">
+        <div class="h-[300px] w-full sm:w-[450px] bg-black md:w-[600px] md:h-[400px]"></div>
+
+        <div class="ml-8 sm:w-[30%] text-center sm:text-left [&>*]:my-2 ">
+          <h3>The desert train</h3>
+          <p>
+            In the winter of 2020, we went all the way from Switzerland to
+            Mauritania to ride a freight train that crosses the desert.
+          </p>
+          <hr class="my-8 h-px w-[33%] border-0 bg-red mx-auto sm:mx-0" />
+          <h4 class="!normal-case">Film & Photos by us.</h4>
+        </div>
+      </div>
+
+      <div>
+        <Button url="/get-in-touch" customClass="mt-2 block mx-auto">
+          More
+        </Button>
+      </div>
+    </>
   );
 };

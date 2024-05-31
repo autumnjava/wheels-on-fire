@@ -7,9 +7,14 @@ export const InAction = () => {
   return (
     <>
       <div class="container mx-auto px-4 text-center">
-        <h1 class="black-text-outline text-headingXXXL tracking-wider text-red">
-          In action
-        </h1>
+        <div class="relative inline-block">
+          <h1 class="text-front text-headingXXXL tracking-wider text-black">
+            In action
+          </h1>
+          <h1 class="black-text-outline text-back text-headingXXXL tracking-wider text-red">
+            In action
+          </h1>
+        </div>
 
         <h2 class="text-headingXL" style={'text-transform: none !important'}>
           Videos, Articles and more - We want to share how S. Miguel looks like
