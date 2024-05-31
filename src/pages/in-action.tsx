@@ -1,28 +1,40 @@
+import { Button } from '../components/button';
+
 export const InAction = () => {
+  const sectionStyle = 'container mx-auto my-12 px-4 text-center';
+  const h2Style = 'font-futuraExtraBold text-headingXL font-bold uppercase';
+
   return (
-    <div>
-      <h1>In action</h1>
-      <div>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Mattis
-          pellentesque id nibh tortor id aliquet. Eu scelerisque felis imperdiet
-          proin fermentum leo vel orci. In tellus integer feugiat scelerisque
-          varius morbi enim nunc. Viverra maecenas accumsan lacus vel. Blandit
-          libero volutpat sed cras ornare arcu dui vivamus. Cras sed ullam ac.
-          Egestas sed sed risus pretium quam vliquet. Nec feugiat in fermentum
-          posuere urna. A diam maecenas sed enim ut sem. Sapien eget mi proin
-          sed libero enim sed faucibus. Ornare arcu odio ut sem nulla pharetra
-          diam. Sit amet mauris commodo quis imperdiet massa tincidunt nunc.
-          Turpis nunc eget lorem dolor sed viverra ipsum. Commodo elit at
-          imperdiet dui accumsan sit. Vel turpis nunc eget lorem dolor sed
-          viverra. Enim ut sem viverra aliquet eget. Lectus urna duis convallis
-          convallis tellus. Feugiat nisl pretium fusce id velit ut tortor
-          pretium. Odio facilisis mauris sit amet massa vitae tortor. Arcu non
-          odio euismod lacinia at quis risus sed vulputate. Facilisis volutpat
-          est velit egestas dui id ornare arcu odio.
-        </p>
+    <>
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="black-text-outline text-headingXXXL tracking-wider text-red">
+          In action
+        </h1>
+
+        <h2 class="text-headingXL" style={'text-transform: none !important'}>
+          Videos, Articles and more - We want to share how S. Miguel looks like
+          on the saddle and trails, what we’re up to and our true love for dirt
+          & fun!
+        </h2>
       </div>
-    </div>
+
+      <hr class="my-8 border-red" />
+
+      <div class="text-center">blogposts and whatnot</div>
+
+      <hr class="my-8 border-red" />
+
+      <div class={sectionStyle}>
+        <h2 class={h2Style}>You ride. We pick you up.</h2>
+        <h2 class={h2Style}>We got you all set up.</h2>
+      </div>
+
+      <div class={sectionStyle}>
+        <h3 class="text-headingL uppercase">Get in touch</h3>
+        <Button url="/get-in-touch" customClass="mt-2">
+          Contact us
+        </Button>
+      </div>
+    </>
   );
 };
