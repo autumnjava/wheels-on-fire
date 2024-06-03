@@ -1,6 +1,6 @@
 import { Button } from '../components/button';
-import image2 from '../components/utils/DSC01567.jpg';
-import image1 from '../components/utils/Screenshot 2024-02-19 at 20.43.12.png';
+import image2 from '../components/data/DSC01567.jpg';
+import image1 from '../components/data/Screenshot 2024-02-19 at 20.43.12.png';
 
 export const AboutUs = () => {
   const paragraph1 = (customClass: string) => (

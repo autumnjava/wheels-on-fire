@@ -1,7 +1,8 @@
 import clsx from 'clsx';
 import { Button } from '../components/button';
-import { Hero } from '../components/hero';
 import { Slider } from '../components/slider';
+import { HeroSlide1 } from '../components/slides/hero-slide-1';
+import { HeroSlide2 } from '../components/slides/hero-slide-2';
 
 export const Home = () => {
   const sectionStyle = 'container mx-auto my-12 px-4 text-center';
@@ -10,9 +11,9 @@ export const Home = () => {
   return (
     <>
       <Slider controls={true}>
-        <Hero />
-        <Hero />
-        <Hero />
+        <HeroSlide1 />
+        <HeroSlide2 />
+        {/* <HeroSlide1 /> */}
       </Slider>
 
       <div class="container mx-auto my-4 px-4">

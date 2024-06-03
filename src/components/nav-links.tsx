@@ -1,5 +1,5 @@
 import { A } from '@solidjs/router';
-import { navLinks } from './utils/constants';
+import { navLinks } from './data/constants';
 
 type NavProps = {
   linkClass?: string;

@@ -1,7 +1,7 @@
 import { A } from '@solidjs/router';
 import { NavLinks } from './nav-links';
 
-import logo from './utils/wheelsonfire_logoselection-01.svg';
+import logo from './data/wheelsonfire_logoselection-01.svg';
 
 export const Footer = () => {
   const columnStyle = 'flex flex-col justify-between [&>*]:my-2';

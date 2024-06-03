@@ -1,6 +1,6 @@
 import { Button } from '../components/button';
 import { ExpandableContainer } from '../components/expandable-container';
-import image1 from '../components/utils/Hip Hucks 1.jpg';
+import image1 from '../components/data/Hip Hucks 1.jpg';
 
 export const WhatWeOffer = () => {
   const halfDay = () => (

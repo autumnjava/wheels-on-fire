@@ -1,9 +1,9 @@
-import { Button } from './button';
-import bgImage from './utils/MRP_0119.jpg';
+import { Button } from '../button';
+import bgImage from '../data/MRP_0119.jpg';
 
 type HeroProps = {};
 
-export const Hero = (props: HeroProps) => {
+export const HeroSlide1 = (props: HeroProps) => {
   return (
     <div
       class="mb-8 flex h-[500px] w-[100vw] flex-col content-center justify-center bg-black bg-center px-8 pt-4 md:h-[650px]"

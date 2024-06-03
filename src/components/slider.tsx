@@ -1,15 +1,17 @@
+import KeenSlider, { KeenSliderInstance } from 'keen-slider';
+import 'keen-slider/keen-slider.min.css';
 import {
   For,
+  JSX,
+  Show,
+  createMemo,
   createSignal,
   onCleanup,
   onMount,
   children as solidChildren,
-  createMemo,
-  JSX,
-  Show,
 } from 'solid-js';
-import KeenSlider, { KeenSliderInstance } from 'keen-slider';
-import 'keen-slider/keen-slider.min.css';
+import { ChevronLeftIcon } from './icons-library/chevron-left';
+import { ChevronRightIcon } from './icons-library/chevron-right';
 
 type SliderProps = {
   children: JSX.Element[];
@@ -100,14 +102,12 @@ export const Slider = (props: SliderProps) => {
       </div>
 
       <Show when={props.controls}>
-        {/* <div class="navigation-buttons">
-          <button onClick={prev} aria-label="Previous Slide">
-            Prev
-          </button>
-          <button onClick={next} aria-label="Next Slide">
-            Next
-          </button>
-        </div> */}
+        <button onClick={prev}>
+          <ChevronLeftIcon class="absolute left-2 top-1/2 opacity-50" />
+        </button>
+        <button onClick={next}>
+          <ChevronRightIcon class="absolute right-2 top-1/2 opacity-50" />
+        </button>
 
         <div class="absolute bottom-[50px] left-1/2 -translate-x-1/2 -translate-y-1/2">
           <For each={resolvedChildren()}>

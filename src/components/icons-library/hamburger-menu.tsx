@@ -1,22 +1,20 @@
+import { mergeProps } from 'solid-js';
 import { SvgIcon } from './svg-icon';
 import { SvgIconProps } from './svg-icon.d';
-import { mergeProps } from 'solid-js';
 
 const defaultProps: SvgIconProps = {
-    height: 37,
-    width: 26,
-    fill: 'currentColor',
-    viewBox: '0 0 37 26'
+  height: '37px',
+  width: '26px',
+  fill: 'red',
+  viewBox: '0 0 448 512',
 };
 
 export const HamburgerMenuIcon = (componentProps: SvgIconProps) => {
-    const props = mergeProps(defaultProps, componentProps);
+  const props = mergeProps(defaultProps, componentProps);
 
-    return (
-        <SvgIcon {...props}>
-            <rect y="0.48291" width="37" height="3" rx="1.5"/>
-            <rect x="2" y="11.4829" width="33" height="3" rx="1.5"/>
-            <rect y="22.4829" width="37" height="3" rx="1.5"/>
-        </SvgIcon>
-    );
+  return (
+    <SvgIcon {...props}>
+      <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" />
+    </SvgIcon>
+  );
 };
