@@ -10,6 +10,7 @@ import { Header } from './components/header';
 
 // Pages
 import { AboutUs } from './pages/about-us';
+import { BlogPost } from './pages/blog-post';
 import { GetInTouch } from './pages/get-in-touch';
 import { Home } from './pages/home';
 import { InAction } from './pages/in-action';
@@ -42,6 +43,7 @@ render(
       <Route path="/in-action" component={InAction} />
       <Route path="/our-adventures" component={OurAdventures} />
       <Route path="/what-we-offer" component={WhatWeOffer} />
+      <Route path="/blog" component={BlogPost} />
       <Route path="*404" component={NotFound} />
     </Router>
   ),
