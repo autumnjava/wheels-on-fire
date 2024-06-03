@@ -1,6 +1,6 @@
 import { Button } from '../components/button';
-import { ExpandableContainer } from '../components/expandable-container';
 import image1 from '../components/data/Hip Hucks 1.jpg';
+import { ExpandableContainer } from '../components/expandable-container';
 
 export const WhatWeOffer = () => {
   const halfDay = () => (
@@ -162,7 +162,7 @@ export const WhatWeOffer = () => {
       </ExpandableContainer>
 
       <div class="hidden md:block">
-        <Button url="/get-in-touch" customClass="block ml-[80%]">
+        <Button url="/get-in-touch" customClass="block mx-auto">
           Get in touch
         </Button>
       </div>

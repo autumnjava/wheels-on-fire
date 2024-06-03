@@ -2,6 +2,8 @@ import { A } from '@solidjs/router';
 import { NavLinks } from './nav-links';
 
 import logo from './data/wheelsonfire_logoselection-01.svg';
+import { InstagramIcon } from './icons-library/social-media/instagram';
+import { YoutubeIcon } from './icons-library/social-media/youtube';
 
 export const Footer = () => {
   const columnStyle = 'flex flex-col justify-between [&>*]:my-2';
@@ -29,7 +31,14 @@ export const Footer = () => {
             </A>
             <A href="#">General terms</A>
           </div>
-          <div>social icons</div>
+          <div class="flex justify-center">
+            <A href="https://www.instagram.com">
+              <InstagramIcon />
+            </A>
+            <A href="https://www.youtube.com">
+              <YoutubeIcon class="ml-4" />
+            </A>
+          </div>
           <p class="font-futuraMedium">
             ART DIRECTION & DESIGN BY JULIANA CORTES
           </p>

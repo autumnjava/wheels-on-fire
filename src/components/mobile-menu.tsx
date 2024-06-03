@@ -32,8 +32,8 @@ export const MobileMenu = () => {
           <img
             src={logo}
             alt="Wheels on fire"
-            width={300}
-            height={300}
+            width="300px"
+            height="300px"
             class="mx-auto"
           />
         </A>

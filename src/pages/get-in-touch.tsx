@@ -1,5 +1,8 @@
-import { Show, createSignal, onMount } from 'solid-js';
 import emailjs from '@emailjs/browser';
+import { A } from '@solidjs/router';
+import { Show, createSignal, onMount } from 'solid-js';
+import { InstagramIcon } from '../components/icons-library/social-media/instagram';
+import { YoutubeIcon } from '../components/icons-library/social-media/youtube';
 
 export const GetInTouch = () => {
   const [name, setName] = createSignal('');
@@ -136,7 +139,14 @@ export const GetInTouch = () => {
           </h3>
 
           <h4 class="text-headingS">Check us on</h4>
-          <div>social media icons</div>
+          <div class="my-4 flex justify-center">
+            <A href="https://www.instagram.com">
+              <InstagramIcon class="fill-red" />
+            </A>
+            <A href="https://www.youtube.com">
+              <YoutubeIcon class="ml-4 fill-red" />
+            </A>
+          </div>
         </div>
       </Show>
     </>

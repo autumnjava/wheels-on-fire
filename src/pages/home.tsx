@@ -13,7 +13,6 @@ export const Home = () => {
       <Slider controls={true}>
         <HeroSlide1 />
         <HeroSlide2 />
-        {/* <HeroSlide1 /> */}
       </Slider>
 
       <div class="container mx-auto my-4 px-4">
