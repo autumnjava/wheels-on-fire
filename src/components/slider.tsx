@@ -103,10 +103,10 @@ export const Slider = (props: SliderProps) => {
 
       <Show when={props.controls}>
         <button onClick={prev}>
-          <ChevronLeftIcon class="absolute left-2 top-1/2 opacity-50" />
+          <ChevronLeftIcon class="absolute left-2 top-1/2 opacity-70" />
         </button>
         <button onClick={next}>
-          <ChevronRightIcon class="absolute right-2 top-1/2 opacity-50" />
+          <ChevronRightIcon class="absolute right-2 top-1/2 opacity-70" />
         </button>
 
         <div class="absolute bottom-[50px] left-1/2 -translate-x-1/2 -translate-y-1/2">

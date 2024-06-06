@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import { Button } from '../components/button';
 import { Slider } from '../components/slider';
 import { HeroSlide1 } from '../components/slides/hero-slide-1';
@@ -16,7 +15,9 @@ export const Home = () => {
       </Slider>
 
       <div class="container mx-auto my-4 px-4">
-        <h2 class={clsx(h2Style, 'text-headingL')}>Brands that support us</h2>
+        <h2 class="mb-4 font-futuraExtraBold text-headingL font-bold uppercase">
+          Brands that support us
+        </h2>
         <Slider slidesPerView={3} spacing={10} autoplay={true}>
           <p>company1</p>
           <p>company2</p>
@@ -29,7 +30,7 @@ export const Home = () => {
         </Slider>
       </div>
 
-      <hr class="border-red" />
+      <hr class="mt-8 border-red" />
 
       <div class={sectionStyle}>
         <h2 class={h2Style}>You ride. We pick you up.</h2>

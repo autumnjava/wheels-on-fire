@@ -6,7 +6,7 @@ type HeroProps = {};
 export const HeroSlide1 = (props: HeroProps) => {
   return (
     <div
-      class="mb-8 flex h-[500px] w-[100vw] flex-col content-center justify-center bg-black bg-center px-8 pt-4 md:h-[650px]"
+      class="mb-8 flex h-[500px] w-full flex-col content-center justify-center bg-black bg-center px-12 pt-4 md:h-[650px] md:px-16"
       style={{ 'background-image': `url(${bgImage})` }}
     >
       <div class="xl:max-w-[70%]">

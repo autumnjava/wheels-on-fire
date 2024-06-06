@@ -34,7 +34,7 @@ export const OurAdventures = () => {
       </div>
 
       <div>
-        <Button url="/get-in-touch" customClass="mt-2 block mx-auto">
+        <Button url="#" customClass="mt-2 block mx-auto">
           More
         </Button>
       </div>

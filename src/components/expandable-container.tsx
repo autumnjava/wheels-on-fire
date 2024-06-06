@@ -1,8 +1,8 @@
-import { Show, createSignal, mergeProps, onCleanup, onMount } from 'solid-js';
+import clsx from 'clsx';
+import { Show, createSignal, mergeProps } from 'solid-js';
 import { ChevronUpIcon } from './icons-library/chevron-up';
 
 const defaultProps = {
-  isDropdown: false,
   initialOpen: false,
 };
 
@@ -14,23 +14,30 @@ type ExpandableProps = {
 
 export const ExpandableContainer = (componentProps: ExpandableProps) => {
   const props = mergeProps(defaultProps, componentProps);
-  const [open, setOpen] = createSignal(props.initialOpen);
+  const [isOpen, setIsOpen] = createSignal(props.initialOpen);
 
   const handleClick = () => {
-    !open() ? setOpen(true) : setOpen(false);
+    !isOpen() ? setIsOpen(true) : setIsOpen(false);
   };
 
   return (
     <div class="block md:hidden">
       <div
-        class="flex cursor-pointer select-none content-center justify-center bg-black py-8 text-white border-b-white border-b-2"
+        class="flex cursor-pointer select-none content-center justify-center border-b-2 border-b-white bg-black py-8 text-white"
         onClick={handleClick}
       >
         <h3 class="font-futuraMedium text-headingL">{props.heading}</h3>
 
-        <ChevronUpIcon class="absolute right-12 self-center stroke-white" />
+        <ChevronUpIcon
+          class={clsx(
+            'absolute right-12 origin-center transform self-center stroke-white transition-transform duration-500',
+            {
+              'rotate-180': isOpen(),
+            }
+          )}
+        />
       </div>
-      <Show when={open()}>
+      <Show when={isOpen()}>
         <div class="text-center">{props.children}</div>
       </Show>
     </div>

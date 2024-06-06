@@ -3,10 +3,10 @@ import { SvgIconProps } from './svg-icon.d';
 import { mergeProps } from 'solid-js';
 
 const defaultProps: SvgIconProps = {
-  height: '19px',
+  height: '18px',
   width: '24px',
-  stroke: 'white',
-  viewBox: '0 0 9 12',
+  viewBox: '0 0 512 512',
+  fill: 'white',
 };
 
 export const ChevronUpIcon = (componentProps: SvgIconProps) => {
@@ -14,7 +14,7 @@ export const ChevronUpIcon = (componentProps: SvgIconProps) => {
 
   return (
     <SvgIcon {...props}>
-      <path stroke-linecap="round" stroke-width="2" d="M11 2 6 7 1 2" />
+      <path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z" />
     </SvgIcon>
   );
 };
