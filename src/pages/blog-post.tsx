@@ -35,20 +35,19 @@ export const BlogPost = () => {
         return `<img src="${imageUrl}" alt="${altText}" class="block mx-auto" />`;
       },
     },
-    marks: {
-      link: ({ children, value }: any) => {
-        const href = value.href || '';
-        if (uriLooksSafe(href)) {
-          const rel = href.startsWith('/') ? undefined : 'noreferrer noopener';
-          return (
-            <a href={href} rel={rel}>
-              {children}
-            </a>
-          );
-        }
-        return children;
-      },
-    },
+    // marks: {
+    //   link: ({ children, value }: any) => {
+    //     const href = value.href || '';
+    //     if (uriLooksSafe(href)) {
+    //       const rel = href.startsWith('/') ? undefined : 'noreferrer noopener';
+    //       return `
+    //         <a href=${href} rel=${rel}>
+    //           ${children}
+    //         </a>`;
+    //     }
+    //     return children;
+    //   },
+    // },
     onMissingComponent: (message: any, options: any) => {
       console.log(message, options, 'missing sanity component');
     },
