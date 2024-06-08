@@ -2,6 +2,7 @@ import { Button } from '../components/button';
 import { Slider } from '../components/slider';
 import { HeroSlide1 } from '../components/slides/hero-slide-1';
 import { HeroSlide2 } from '../components/slides/hero-slide-2';
+import { HeroSlide3 } from '../components/slides/hero-slide-3';
 
 export const Home = () => {
   const sectionStyle = 'container mx-auto my-12 px-4 text-center';
@@ -12,6 +13,7 @@ export const Home = () => {
       <Slider controls={true}>
         <HeroSlide1 />
         <HeroSlide2 />
+        <HeroSlide3 />
       </Slider>
 
       <div class="container mx-auto my-4 px-4">

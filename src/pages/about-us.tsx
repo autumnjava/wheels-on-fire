@@ -1,16 +1,14 @@
+import clsx from 'clsx';
 import { Button } from '../components/button';
-import image2 from '../components/data/DSC01567.jpg';
-import image1 from '../components/data/Screenshot 2024-02-19 at 20.43.12.png';
+import image2 from '../components/data/2.jpg';
+import image1 from '../components/data/j_jump.jpg';
 
 export const AboutUs = () => {
-  const paragraph1 = (customClass: string) => (
-    <p class={customClass}>
-      In the spring of 2023 we packed our passion in life and shipped it over to
-      São Miguel - 2 enduro bicycles, 2 surf boards and a bike trailer. Ending
-      up spending 10 weeks biking and sleeping in a tent around 4 islands in the
-      Azores. That was enough, we knew by then that we wanted to move here
-      permanently and become part of the community.
-    </p>
+  const forgetTheLuxury = (customClass: string) => (
+    <h3 class={clsx('text-headingL', customClass)}>
+      Forget the luxury and the five stars, we want to offer a more natural and
+      adventurous way of seeing the island.
+    </h3>
   );
 
   return (
@@ -18,10 +16,10 @@ export const AboutUs = () => {
       <hr class="border-red" />
 
       <div class="mt-8">
-        <h1 class="black-text-outline relative block pl-4 text-headingXXXL uppercase tracking-wider text-red">
+        <h1 class="text-outline relative block pl-4 text-headingXXXL uppercase tracking-wider">
           About us
         </h1>
-        <div class="mt-[-50px] flex">
+        <div class="my-8 flex sm:mt-[-50px]">
           <div class="w-1/2 pr-8">
             <img
               src={image1}
@@ -29,37 +27,28 @@ export const AboutUs = () => {
             ></img>
           </div>
           <div class="flex w-1/2 flex-col content-center justify-center pr-8">
-            <h2 class="text-headingXXL">We discovered the Azores by bike.</h2>
-            {paragraph1('hidden md:block')}
+            <h2 class="text-headingL">We discovered the Azores by bike.</h2>
+            <p class="">
+              In the spring of 2023 we packed our passion in life and shipped it
+              over to São Miguel - 2 enduro bicycles, 2 surf boards and a bike
+              trailer. Ending up spending 10 weeks biking and sleeping in a tent
+              around 4 islands in the Azores. That was enough, we knew by then
+              that we wanted to move here permanently and become part of the
+              community.
+            </p>
           </div>
         </div>
 
-        <div>{paragraph1('block md:hidden px-4 my-8')}</div>
+        {/* <div>{paragraph1('block sm:hidden px-4 my-8')}</div> */}
 
-        <div class="flex md:mt-[-50px]">
-          <div class="flex w-1/2 flex-col content-center justify-center pl-4 md:pl-8">
-            <h3 class="text-headingL">
+        <div class="flex xl:mt-[-50px]">
+          <div class="flex w-1/2 flex-col content-center justify-center pl-4 md:pl-8 [&>*]:my-4">
+            <h3 class="text-headingL xl:w-[80%]">
               Discovering the islands by bike gave us so much.You really feel
               the energy and adrenaline on these islands. Long uphills and
               magical fast descents ending up by a sea of breaking waves.
             </h3>
-          </div>
-          <div class="w-1/2 pl-8">
-            <img
-              src={image2}
-              class="h-96 w-full object-cover object-top md:h-[500px]"
-            ></img>
-          </div>
-        </div>
 
-        <div class="my-8 flex flex-col-reverse pr-8  md:flex-row">
-          <div class="content-center pl-4 md:w-1/2 md:pl-8">
-            <h3 class="text-headingL">
-              Forget the luxury and the five stars, we want to offer a more
-              natural and adventurous way of seeing the island.
-            </h3>
-          </div>
-          <div class="py-4 pl-4 md:w-1/2 md:pl-8">
             <p>
               Now living here, we would like to share this experience with
               others, both locals and tourists looking beyond comfort but more
@@ -70,26 +59,38 @@ export const AboutUs = () => {
               competitive downhill trails all in a mixture of different natural
               environments.
             </p>
+
+            {forgetTheLuxury('sm:block hidden')}
+          </div>
+          <div class="w-1/2 pl-8">
+            <img
+              src={image2}
+              class="h-96 w-full object-cover object-top md:h-[500px]"
+            ></img>
+            <Button url="/what-we-offer" customClass="block mx-auto">
+              Check our article here
+            </Button>
           </div>
         </div>
 
-        <hr class="border-red" />
+        <div class="mx-auto my-4 px-8 text-center">
+          {forgetTheLuxury('block sm:hidden')}
+        </div>
 
-        <div class="mx-auto my-8 w-[60%] text-center">
-          <h3 class="font-futuraExtraBold text-headingXXL">
+        <div class="mx-auto my-16 w-[60%] text-center">
+          <h3 class="font-futuraExtraBold text-headingXL">
             WHOʼS BEHIND WHEELS ON FIRE ?
           </h3>
         </div>
 
         <div class="flex flex-col-reverse text-center md:flex-row">
-          <div class="border-r border-r-red px-4 [&>*]:my-2">
+          <div class="border-r border-r-red px-4 sm:px-8 md:px-16 [&>*]:my-4">
             <h3 class="text-5xl">Jallas</h3>
-            <p>Hello there! </p>
             <p>
-              I’m Jallas born in the south Sweden. Since south Sweden is kinda
-              flat I started out with cross country biking but lycra and pushing
-              on the uphills was not really me. The free ride mountain bike was
-              more my style.
+              Hello there! I’m Jallas born in the south Sweden. Since south
+              Sweden is kinda flat I started out with cross country biking but
+              lycra and pushing on the uphills was not really me. The free ride
+              mountain bike was more my style.
             </p>
             <p>
               In 2012 I traveled to Portugal for the first time to pursue my
@@ -109,7 +110,7 @@ export const AboutUs = () => {
             </p>
           </div>
 
-          <div class="px-4 [&>*]:my-2">
+          <div class="px-4 sm:px-8 md:px-16 [&>*]:my-4">
             <h3 class="text-5xl">Juliana</h3>
             <p>Hey ! I’m Juliana from Porto, Portugal. </p>
             <p>
@@ -134,12 +135,6 @@ export const AboutUs = () => {
               the vulcanic terrain of this amazing place that is the Azores.
             </p>
           </div>
-        </div>
-
-        <div>
-          <Button url="/what-we-offer" customClass="block mx-auto">
-            Check our article here
-          </Button>
         </div>
       </div>
     </>

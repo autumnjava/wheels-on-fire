@@ -1,5 +1,5 @@
 import { Button } from '../components/button';
-import image1 from '../components/data/Hip Hucks 1.jpg';
+import image1 from '../components/data/pickup2.jpg';
 import { ExpandableContainer } from '../components/expandable-container';
 
 export const WhatWeOffer = () => {
@@ -73,15 +73,15 @@ export const WhatWeOffer = () => {
   return (
     <>
       <div
-        class="testi-container ml-4"
+        class="testi-container ml-4 bg-cover bg-center"
         style={{ 'background-image': `url(${image1})` }}
       >
-        <div class="testi-content mx-4 mt-8 w-[90%] md:w-[60%]">
-          <h1 class="black-text-outline relative block pl-4 text-headingXXXL tracking-wider text-red">
+        <div class="testi-content mx-4 mt-8 w-[90%] xl:w-[60%]">
+          <h1 class="text-outline relative block pl-4 text-headingXXXL tracking-wider">
             What we offer
           </h1>
 
-          <h2 class="transparent-overlay text-headingXL">
+          <h2 class="transparent-overlay text-headingL w-[60%] p-8">
             We want to bring you and your friends out on a bike adventure and
             show the island from a different perspective. Doesnʼt matter if itʼs
             your first time out on a bike trail or if you are a full on dirt
@@ -90,7 +90,7 @@ export const WhatWeOffer = () => {
         </div>
       </div>
 
-      <div class="my-8 w-full border-t border-red">
+      <div class="my-16 w-full border-t border-red">
         <div class="relative z-10 w-[fit-content] bg-red px-4 py-2 uppercase text-white md:static">
           The beasts
         </div>

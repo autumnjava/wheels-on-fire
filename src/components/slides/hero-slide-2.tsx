@@ -1,18 +1,18 @@
 import { Button } from '../button';
-import bgImage from '../data/DSC01567.jpg';
+import bgImage from '../data/ju_bike.jpg';
 
 type HeroProps = {};
 
 export const HeroSlide2 = (props: HeroProps) => {
   return (
     <div
-      class="mb-8 flex h-[500px] w-full flex-col content-center justify-center bg-black bg-center px-12 pt-4 md:h-[650px] md:px-16"
+      class="mb-8 flex h-[500px] w-full flex-col content-center justify-center bg-black bg-cover px-12 pt-4 brightness-75 md:h-[687px] md:px-16"
       style={{ 'background-image': `url(${bgImage})` }}
     >
-      <div class="sm:max-w-[50%]">
-        <p class="block font-futuraExtraBold text-headingXXL font-bold uppercase tracking-wider text-white">
-          S. Miguel in action - exploring the cool trails on the island
-        </p>
+      <div class="2xl:max-w-[70%]">
+        <q class="block text-outline text-heroHeadingXL font-futuraExtraBold font-bold uppercase tracking-wider">
+          Forget the comfort, let's get dirty!
+        </q>
         <Button url="/what-we-offer">Know more</Button>
       </div>
     </div>

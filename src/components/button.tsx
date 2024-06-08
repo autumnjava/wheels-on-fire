@@ -15,7 +15,7 @@ export const Button = (props: SliderProps) => {
     <button
       onClick={() => navigate(props.url)}
       class={clsx(
-        'mt-8 bg-red px-4 py-1 uppercase text-white',
+        'mt-8 bg-red px-4 py-1 text-white',
         props.customClass
       )}
     >

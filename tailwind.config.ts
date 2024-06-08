@@ -36,10 +36,11 @@ const config: Config = {
       fontSize: {
         navMenu: ['var(--navMenu)', { lineHeight: '120%' }],
         heroHeading: ['var(--heroHeading)', { lineHeight: '120%' }],
+        heroHeadingXL: ['var(--heroHeadingXL)', { lineHeight: '120%' }],
         headingXXXL: ['var(--headingXXXL)', { lineHeight: '120%' }],
         headingXXL: ['var(--headingXXL)', { lineHeight: '120%' }],
         headingXL: ['var(--headingXL)', { lineHeight: '130%' }],
-        headingL: ['var(--headingL)', { lineHeight: '133%' }],
+        headingL: ['var(--headingL)', { lineHeight: '120%' }],
         headingM: ['var(--headingM)', { lineHeight: '140%' }],
         headingS: ['var(--headingS)', { lineHeight: '120%' }],
       },

@@ -39,8 +39,26 @@ body {
   height: 100%;
 }
 
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+body {
+  box-sizing: border-box;
+  background-color: #eee;
+}
+
 p {
   font-family: AndaleMono, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 120%;
+
+  @media screen and (max-width: 640px) {
+    font-size: 1rem;
+    line-height: 110%;
+  }
 }
 
 h1 {
@@ -54,18 +72,14 @@ h3,
 h4,
 h5 {
   font-family: Futura-CondensedMedium, Futura, sans-serif;
+}
+
+button {
+  font-size: 1.25rem;
+  font-family: Futura-CondensedMedium, Futura, sans-serif;
+  line-height: 120%;
   text-transform: uppercase;
-}
-
-#root {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-}
-
-body {
-  box-sizing: border-box;
-  background-color: #eee;
+  letter-spacing: 0.05em; /* tracking-wider */
 }
 
 label,
@@ -92,17 +106,17 @@ label {
 
 .black-text-outline {
   color: black;
-  -webkit-text-stroke: 1px red;
+  -webkit-text-stroke: 1.2px red;
 }
 
 .text-outline {
   color: transparent;
-  -webkit-text-stroke: 1px red;
+  -webkit-text-stroke: 1.2px red;
 }
 
 .text-back {
   color: transparent;
-  -webkit-text-stroke: 1px red;
+  -webkit-text-stroke: 1.2px red;
   letter-spacing: 0.2rem !important;
 }
 
@@ -130,15 +144,15 @@ label {
 
 .testi-container {
   background-size: cover;
-  padding-top: 70px;
-  padding-left: 70px;
+  padding-top: 100px;
+  padding-left: 130px;
   background-clip: content-box;
   background-repeat: no-repeat;
 }
 
 .testi-content {
-  margin-top: -70px;
-  margin-left: -70px;
+  margin-top: -100px;
+  margin-left: -130px;
 }
 
 .transparent-overlay {
@@ -158,6 +172,7 @@ label {
 #root {
   --navMenu: 3rem;
   --heroHeading: 3.2rem;
+  --heroHeadingXL: 4rem;
 
   --headingXXXL: 3.8rem;
   --headingXXL: 2.25rem;
@@ -170,11 +185,11 @@ label {
 /* sm */
 @media screen and (min-width: 640px) {
   #root {
-    --navMenu: 1.35rem;
+    --navMenu: 1.25rem;
     --heroHeading: 4rem;
 
     --headingXXXL: 6rem;
-    --headingXXL: 2.875rem;
+    --headingXXL: 3rem;
     --headingXL: 2.25rem;
     --headingL: 1.625rem;
     --headingM: 1.28125rem;
@@ -183,24 +198,29 @@ label {
 }
 
 /* Tablet / md */
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
   #root {
-    --navMenu: 1.35rem;
-    --heroHeading: 6rem;
   }
-}
+} */
 
 /* Laptop / lg */
 @media screen and (min-width: 1024px) {
   #root {
-    --navMenu: 1.35rem;
     --heroHeading: 7rem;
+    --heroHeadingXL: 7rem;
 
     --headingXXXL: 10rem;
-    --headingXXL: 3.5rem;
-    --headingXL: 2.75rem;
+    --headingXXL: 4rem;
+    --headingXL: 3.125rem;
     --headingL: 1.875rem;
     --headingM: 1.5rem;
     --headingS: 1.25rem;
+  }
+}
+
+/* 2xl */
+@media screen and (min-width: 1536px) {
+  #root {
+    --heroHeadingXL: 8rem;
   }
 }
