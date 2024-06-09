@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { Show, createSignal, mergeProps } from 'solid-js';
-import { ChevronUpIcon } from './icons-library/chevron-up';
+import { ChevronDownIcon } from './icons-library/chevron-down';
 
 const defaultProps = {
   initialOpen: false,
@@ -28,7 +28,7 @@ export const ExpandableContainer = (componentProps: ExpandableProps) => {
       >
         <h3 class="font-futuraMedium text-headingL">{props.heading}</h3>
 
-        <ChevronUpIcon
+        <ChevronDownIcon
           class={clsx(
             'absolute right-12 origin-center transform self-center stroke-white transition-transform duration-500',
             {

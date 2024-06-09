@@ -144,15 +144,25 @@ label {
 
 .testi-container {
   background-size: cover;
-  padding-top: 100px;
-  padding-left: 130px;
+  padding-top: 0px;
+  padding-left: 0px;
   background-clip: content-box;
   background-repeat: no-repeat;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 100px;
+    padding-left: 130px;
+  }
 }
 
 .testi-content {
-  margin-top: -100px;
-  margin-left: -130px;
+  margin-top: 0px;
+  margin-left: 0px;
+
+  @media screen and (min-width: 768px) {
+    margin-top: -100px;
+    margin-left: -130px;
+  }
 }
 
 .transparent-overlay {
