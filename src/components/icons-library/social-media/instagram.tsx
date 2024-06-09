@@ -6,8 +6,7 @@ const defaultProps: SvgIconProps = {
   width: '24px',
   height: '24px',
   viewBox: '0 0 448 512',
-  stroke: 'none',
-  fill: 'white',
+  fill: 'red',
 };
 
 export const InstagramIcon = (componentProps: SvgIconProps) => {
