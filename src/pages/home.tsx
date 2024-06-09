@@ -4,6 +4,12 @@ import { HeroSlide1 } from '../components/slides/hero-slide-1';
 import { HeroSlide2 } from '../components/slides/hero-slide-2';
 import { HeroSlide3 } from '../components/slides/hero-slide-3';
 
+// brand logos
+import brand1 from '../components/data/brands/commencal-logo-vector-01.png';
+import brand2 from '../components/data/brands/poc-sports-logo-vector-01.png';
+import brand3 from '../components/data/brands/OneUp-Logo-Border-1000px.png';
+import brand4 from '../components/data/brands/chromag-bikes-seeklogo-01.png';
+
 export const Home = () => {
   const sectionStyle = 'container mx-auto my-12 px-4 text-center';
   const h2Style = 'font-futuraExtraBold text-headingXL font-bold uppercase';
@@ -20,16 +26,12 @@ export const Home = () => {
         <h2 class="mb-4 font-futuraExtraBold text-headingL font-bold uppercase">
           Brands that support us
         </h2>
-        <Slider slidesPerView={3} spacing={10} autoplay={true}>
-          <p>company1</p>
-          <p>company2</p>
-          <p>company3</p>
-          <p>company4</p>
-          <p>company5</p>
-          <p>company6</p>
-          <p>company7</p>
-          <p>company8</p>
-        </Slider>
+        <div class="flex items-center justify-between">
+          <img src={brand1} width={123} />
+          <img src={brand2} width={44} />
+          <img src={brand3} width={53} />
+          <img src={brand4} width={43} />
+        </div>
       </div>
 
       <hr class="mt-8 border-red" />

@@ -74,6 +74,10 @@ h5 {
   font-family: Futura-CondensedMedium, Futura, sans-serif;
 }
 
+/* img {
+  height: fit-content;
+} */
+
 button {
   font-size: 1rem;
   font-family: Futura-CondensedMedium, Futura, sans-serif;
