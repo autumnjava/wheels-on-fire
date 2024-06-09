@@ -1,11 +1,13 @@
 import { A } from '@solidjs/router';
 import clsx from 'clsx';
 import { Show, createSignal } from 'solid-js';
-
 import { NavLinks } from './nav-links';
-import logo from './data/wheelsonfire_logoselection-02.svg';
 import { CloseIcon } from './icons-library/close';
 import { HamburgerMenuIcon } from './icons-library/hamburger-menu';
+
+// logo
+import logo from './data/wheelsonfire_logoselection-02.svg';
+import logoDark from './data/wheelsonfire_logoselection-01.svg';
 
 export const MobileMenu = () => {
   const [mobileMenuActive, setMobileMenuActive] = createSignal(false);
@@ -32,9 +34,7 @@ export const MobileMenu = () => {
           <img
             src={logo}
             alt="Wheels on fire"
-            width="230px"
-            height="200px"
-            class="mx-auto"
+            class="mx-auto w-[130px] md:w-[230px]"
           />
         </A>
       </div>
@@ -52,18 +52,24 @@ export const MobileMenu = () => {
             { 'hidden ': !mobileMenuActive() }
           )}
         >
-          <div class="m-6 flex items-center justify-between gap-5">
-            <A aria-label="Gå till startsidan" href="/" class="p-s block">
-              logo?
-            </A>
-
-            <button aria-label="Visa meny" onClick={toggleMenu} class="p-s">
+          <div class="flex select-none justify-end md:hidden">
+            <button onClick={toggleMenu} class="m-6">
               <CloseIcon />
             </button>
           </div>
 
+          <div class="flex justify-center gap-5">
+            <A aria-label="Gå till startsidan" href="/" class="p-s block">
+              <img
+                src={logoDark}
+                alt="Wheels on fire"
+                class="mx-auto w-[130px] md:w-[230px]"
+              />
+            </A>
+          </div>
+
           <div class="overflow-y-hidden">
-            <nav class="my-8 grid gap-4 text-center">
+            <nav class="my-8 grid gap-4 px-4 text-center">
               <NavLinks toggleMenu={toggleMenu} />
             </nav>
           </div>
