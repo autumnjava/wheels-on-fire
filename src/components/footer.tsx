@@ -15,9 +15,7 @@ export const Footer = () => {
             <img
               src={logo}
               alt="Wheels on fire"
-              width={160}
-              height={130}
-              class="mx-auto"
+              class="mx-auto w-[130px] md:w-[160px]"
             />
           </A>
         </div>
