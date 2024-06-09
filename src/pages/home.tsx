@@ -23,10 +23,10 @@ export const Home = () => {
       </Slider>
 
       <div class="container mx-auto my-4 px-4">
-        <h2 class="mb-4 font-futuraExtraBold text-headingL font-bold uppercase">
+        <h2 class="mb-4 text-center font-futuraExtraBold text-headingL font-bold uppercase">
           Brands that support us
         </h2>
-        <div class="flex items-center justify-between">
+        <div class="flex items-center justify-evenly">
           <img src={brand1} width={123} />
           <img src={brand2} width={44} />
           <img src={brand3} width={53} />
