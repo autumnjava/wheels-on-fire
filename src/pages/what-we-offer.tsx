@@ -146,21 +146,21 @@ export const WhatWeOffer = () => {
         </div>
       </div>
 
-      <ExpandableContainer heading="half day">
+      <ExpandableContainer heading="half day" customCss="block md:hidden">
         {halfDay()}
 
         <Button url="/get-in-touch" customClass="block mx-auto my-4">
           Get in touch
         </Button>
       </ExpandableContainer>
-      <ExpandableContainer heading="full day">
+      <ExpandableContainer heading="full day" customCss="block md:hidden">
         {fullDay()}
 
         <Button url="/get-in-touch" customClass="block mx-auto my-4">
           Get in touch
         </Button>
       </ExpandableContainer>
-      <ExpandableContainer heading="1 day +">
+      <ExpandableContainer heading="1 day +" customCss="block md:hidden">
         {oneDayPlus()}
 
         <Button url="/get-in-touch" customClass="block mx-auto my-4">

@@ -8,7 +8,7 @@ export const OurAdventures = () => {
           <h1 class="font-extrabold text-red-600 text-headingXXXL !leading-[78%] text-red">
             OUR
           </h1>
-          <h2 class="ml-4 self-center border border-red p-1 text-headingM !normal-case sm:ml-16 sm:p-2">
+          <h2 class="ml-4 self-center border border-red p-1 text-headingL normal-case sm:ml-16 sm:p-2 md:text-headingXL">
             Film & photos from our travels
           </h2>
         </div>
@@ -22,7 +22,7 @@ export const OurAdventures = () => {
       <div class="container flex flex-col px-4 sm:flex-row">
         <div class="h-[300px] w-full bg-black sm:w-[450px] md:h-[400px] md:w-[600px]"></div>
 
-        <div class="ml-8 text-center sm:w-[30%] sm:text-left [&>*]:my-2 ">
+        <div class="ml-8 text-center sm:w-[30%] sm:text-left [&>*]:my-2">
           <h3>The desert train</h3>
           <p>
             In the winter of 2020, we went all the way from Switzerland to

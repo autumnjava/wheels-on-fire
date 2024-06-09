@@ -10,6 +10,8 @@ type ExpandableProps = {
   children: any;
   heading: string;
   initialOpen?: boolean;
+  customCss?: string;
+  extraCss?: string;
 };
 
 export const ExpandableContainer = (componentProps: ExpandableProps) => {
@@ -17,16 +19,21 @@ export const ExpandableContainer = (componentProps: ExpandableProps) => {
   const [isOpen, setIsOpen] = createSignal(props.initialOpen);
 
   const handleClick = () => {
-    !isOpen() ? setIsOpen(true) : setIsOpen(false);
+    isOpen() ? setIsOpen(false) : setIsOpen(true);
   };
 
   return (
-    <div class="block md:hidden">
+    <div class={props.customCss}>
       <div
-        class="flex cursor-pointer select-none content-center justify-center border-b-2 border-b-white bg-black py-8 text-white"
+        class={clsx(
+          'relative flex cursor-pointer select-none content-center justify-center border-b-2 border-b-white bg-black py-8 text-white',
+          props.extraCss
+        )}
         onClick={handleClick}
       >
-        <h3 class="font-futuraMedium text-headingL">{props.heading}</h3>
+        <h3 class="font-futuraMedium text-headingM uppercase">
+          {props.heading}
+        </h3>
 
         <ChevronDownIcon
           class={clsx(
@@ -38,7 +45,7 @@ export const ExpandableContainer = (componentProps: ExpandableProps) => {
         />
       </div>
       <Show when={isOpen()}>
-        <div class="text-center">{props.children}</div>
+        <div class="text-center select-none">{props.children}</div>
       </Show>
     </div>
   );

@@ -82,7 +82,6 @@ button {
   letter-spacing: 0.05em; /* tracking-wider */
 }
 
-label,
 input,
 textarea {
   display: block;
@@ -100,8 +99,12 @@ textarea {
 }
 
 label {
+  display: block;
+  width: 100%;
   text-transform: uppercase;
   margin: 20px 0;
+  padding: 0.5rem 0;
+
 }
 
 .black-text-outline {
