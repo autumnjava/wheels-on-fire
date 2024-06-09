@@ -30,7 +30,7 @@ export const Home = () => {
           <img src={brand1} width={123} />
           <img src={brand2} width={44} />
           <img src={brand3} width={53} />
-          <img src={brand4} width={43} />
+          <img src={brand4} width={43} class="h-[50px]" />
         </div>
       </div>
 
