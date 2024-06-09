@@ -7,16 +7,11 @@ export const InAction = () => {
   return (
     <>
       <div class="container mx-auto px-4 text-center">
-        <div class="relative inline-block">
-          <h1 class="text-front text-headingXXXL tracking-wider text-black">
-            In action
-          </h1>
-          <h1 class="black-text-outline text-back text-headingXXXL tracking-wider text-red">
-            In action
-          </h1>
-        </div>
+        <h1 class="text-outline relative block pl-4 text-headingXXXL tracking-wider">
+          In action
+        </h1>
 
-        <h2 class="text-headingXL" style={'text-transform: none !important'}>
+        <h2 class="text-headingL normal-case">
           Videos, Articles and more - We want to share how S. Miguel looks like
           on the saddle and trails, what we’re up to and our true love for dirt
           & fun!
