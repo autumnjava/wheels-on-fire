@@ -9,7 +9,7 @@ export const Footer = () => {
   const columnStyle = 'flex flex-col justify-evenly [&>*]:my-2';
   return (
     <footer class="mt-auto w-full items-center bg-black text-center text-white">
-      <div class="container mx-auto px-4 py-8 md:grid md:grid-cols-footer">
+      <div class="container mx-auto px-4 py-4 md:grid md:grid-cols-footer">
         <div class="w-auto">
           <A href="/">
             <img
