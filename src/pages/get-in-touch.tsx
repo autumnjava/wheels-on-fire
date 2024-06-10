@@ -58,7 +58,7 @@ export const GetInTouch = () => {
         </h2>
       </div>
 
-      <div class="my-8 w-full border-t border-red text-center">
+      <div class="my-8 text-center">
         <div class="mx-auto w-[fit-content] bg-red px-4 py-2 uppercase text-white">
           Contact form
         </div>
