@@ -125,7 +125,6 @@ export const GetInTouch = () => {
               <ExpandableContainer
                 heading="Select subject"
                 extraCss="text-white py-4 bg-red"
-                initialOpen={true}
               >
                 <div class="expandable-options [&>*]:my-2">
                   <For each={subjectOptions}>
