@@ -26,7 +26,7 @@ export const ExpandableContainer = (componentProps: ExpandableProps) => {
     <div class={props.customCss}>
       <div
         class={clsx(
-          'relative flex cursor-pointer select-none content-center justify-center border-b-2 border-b-white bg-black py-8 text-white',
+          'relative flex cursor-pointer select-none content-center justify-center border-b-2 border-b-white bg-black py-6 text-white',
           props.extraCss
         )}
         onClick={handleClick}

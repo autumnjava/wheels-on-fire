@@ -1,23 +1,38 @@
 import emailjs from '@emailjs/browser';
 import { A } from '@solidjs/router';
-import { Show, createSignal, onMount } from 'solid-js';
+import { For, Show, createSignal, onMount } from 'solid-js';
 import { InstagramIcon } from '../components/icons-library/social-media/instagram';
 import { YoutubeIcon } from '../components/icons-library/social-media/youtube';
 import { ExpandableContainer } from '../components/expandable-container';
+import clsx from 'clsx';
 
 export const GetInTouch = () => {
   const [name, setName] = createSignal('');
   const [email, setEmail] = createSignal('');
   const [comment, setComment] = createSignal('');
   const [isSucess, setIsSuccess] = createSignal(false);
-  const [errorMessage, setErrorMessage] = createSignal('');
+  const [subject, setSubject] = createSignal('');
+  const [errorMessage, setErrorMessage] = createSignal({}) as any;
+
+  const subjectOptions = [
+    { value: 'halfDay', label: 'Half day' },
+    { value: 'fullDay', label: 'Full day' },
+    { value: 'oneDayPlus', label: '1 day +' },
+    { value: 'privateGuidedTour', label: 'Private guided tour' },
+  ];
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
 
+    if (!subject()) {
+      setErrorMessage({ text: 'Please select a subject!' });
+      return;
+    }
+
     const templateParams = {
       from_name: name(),
       from_email: email(),
+      subject: subject(),
       message: comment(),
     };
 
@@ -36,8 +51,6 @@ export const GetInTouch = () => {
   };
 
   onMount(() => {
-    console.log('initing emailjs');
-
     emailjs.init({
       publicKey: 'TdNsRmJeYcW-hy5Za',
     });
@@ -112,12 +125,21 @@ export const GetInTouch = () => {
               <ExpandableContainer
                 heading="Select subject"
                 extraCss="text-white py-4 bg-red"
+                initialOpen={true}
               >
-                <div class="[&>*]:my-2">
-                  <p>one</p>
-                  <p>two</p>
-                  <p>three</p>
-                  <p>four</p>
+                <div class="expandable-options [&>*]:my-2">
+                  <For each={subjectOptions}>
+                    {(option) => (
+                      <p
+                        onClick={() => setSubject(option.value)}
+                        class={clsx({
+                          'bg-red bg-opacity-50': subject() === option.value,
+                        })}
+                      >
+                        {option.label}
+                      </p>
+                    )}
+                  </For>
                 </div>
               </ExpandableContainer>
             </div>
@@ -145,8 +167,10 @@ export const GetInTouch = () => {
             </div>
           </form>
 
-          <Show when={errorMessage()}>
-            <div class="mx-auto">error: {JSON.stringify(errorMessage())}</div>
+          <Show when={errorMessage().text}>
+            <div class="mx-auto my-4 bg-red px-16 py-4 text-white">
+              {errorMessage().text}
+            </div>
           </Show>
         </div>
         <hr class="border-red" />
