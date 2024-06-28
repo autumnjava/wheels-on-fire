@@ -1,8 +1,8 @@
 import { Button } from '../components/button';
 import { Slider } from '../components/slider';
-import { HeroSlide1 } from '../components/slides/hero-slide-1';
-import { HeroSlide2 } from '../components/slides/hero-slide-2';
-import { HeroSlide3 } from '../components/slides/hero-slide-3';
+import { HeroSlide1 } from '../components/slides/hero/hero-slide-1';
+import { HeroSlide2 } from '../components/slides/hero/hero-slide-2';
+import { HeroSlide3 } from '../components/slides/hero/hero-slide-3';
 
 // brand logos
 import brand1 from '../components/data/brands/commencal-logo-vector-01.png';
@@ -16,7 +16,7 @@ export const Home = () => {
 
   return (
     <>
-      <Slider controls={true}>
+      <Slider controls={true} controlsPosition="hero">
         <HeroSlide1 />
         <HeroSlide2 />
         <HeroSlide3 />

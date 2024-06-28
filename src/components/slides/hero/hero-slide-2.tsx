@@ -1,5 +1,5 @@
-import { Button } from '../button';
-import bgImage from '../data/ju_bike.jpg';
+import { Button } from '../../button';
+import bgImage from '../../data/ju_bike.jpg';
 
 type HeroProps = {};
 

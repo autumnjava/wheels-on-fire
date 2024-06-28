@@ -1,6 +1,10 @@
 import { Button } from '../components/button';
 import image1 from '../components/data/pickup2.jpg';
 import { ExpandableContainer } from '../components/expandable-container';
+import { Slider } from '../components/slider';
+import { BeastSlide1 } from '../components/slides/the-beasts/beast-slide-1';
+import { BeastSlide2 } from '../components/slides/the-beasts/beast-slide-2';
+import { BeastSlide3 } from '../components/slides/the-beasts/beast-slide-3';
 
 export const WhatWeOffer = () => {
   const halfDay = () => (
@@ -95,7 +99,11 @@ export const WhatWeOffer = () => {
           The beasts
         </div>
         <div class="-mt-10 bg-white p-4 pt-12 md:m-4 md:pt-4">
-          carousel will be here!
+          <Slider controls={true} slidesPerView={3}>
+            <BeastSlide1 />
+            <BeastSlide2 />
+            <BeastSlide3 />
+          </Slider>
         </div>
       </div>
 

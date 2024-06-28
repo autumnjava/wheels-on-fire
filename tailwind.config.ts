@@ -9,9 +9,11 @@ const config: Config = {
       dark: '#333333',
       transparent: 'transparent',
       red: '#E52629',
+      lightOliveGreen: '#d5caa5',
       gray: {
         200: '#e5e7eb',
         700: '#374151',
+        DEFAULT: '#bebebe',
       },
     },
     fontFamily: {

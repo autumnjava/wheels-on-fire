@@ -6,12 +6,14 @@ import {
   Show,
   createMemo,
   createSignal,
+  mergeProps,
   onCleanup,
   onMount,
   children as solidChildren,
 } from 'solid-js';
 import { ChevronLeftIcon } from './icons-library/chevron-left';
 import { ChevronRightIcon } from './icons-library/chevron-right';
+import clsx from 'clsx';
 
 type SliderProps = {
   children: JSX.Element[];
@@ -19,9 +21,17 @@ type SliderProps = {
   spacing?: number;
   autoplay?: boolean;
   controls?: boolean;
+  controlsPosition?: 'hero' | 'normal';
 };
 
-export const Slider = (props: SliderProps) => {
+const defaultProps: SliderProps = {
+  children: [],
+  controlsPosition: 'normal',
+};
+
+export const Slider = (componentProps: SliderProps) => {
+  const props = mergeProps(defaultProps, componentProps);
+
   let sliderContainer: HTMLDivElement | undefined;
   let slider: KeenSliderInstance | undefined;
 
@@ -109,7 +119,13 @@ export const Slider = (props: SliderProps) => {
           <ChevronRightIcon class="absolute right-2 top-1/2 opacity-70" />
         </button>
 
-        <div class="absolute bottom-[50px] left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div
+          class={clsx({
+            'absolute bottom-[50px] left-1/2 -translate-x-1/2 -translate-y-1/2':
+              props.controlsPosition === 'hero',
+            'text-center': props.controlsPosition === 'normal',
+          })}
+        >
           <For each={resolvedChildren()}>
             {(_, idx) => (
               <button
