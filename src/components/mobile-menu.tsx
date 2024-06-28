@@ -30,7 +30,7 @@ export const MobileMenu = () => {
       </div>
 
       <div>
-        <A href="/">
+        <A aria-label="Gå till startsidan" href="/">
           <img
             src={logo}
             alt="Wheels on fire"
@@ -60,7 +60,12 @@ export const MobileMenu = () => {
           </div>
 
           <div class="flex justify-center gap-5">
-            <A aria-label="Gå till startsidan" href="/" class="p-s block">
+            <A
+              aria-label="Gå till startsidan"
+              href="/"
+              class="p-s block"
+              onClick={() => toggleMenu()}
+            >
               <img
                 src={logoDark}
                 alt="Wheels on fire"
