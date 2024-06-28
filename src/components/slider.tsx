@@ -40,6 +40,14 @@ export const Slider = (componentProps: SliderProps) => {
     () => solidChildren(() => props.children)() as JSX.Element[]
   );
 
+  const getSlidesPerView = () => {
+    if (window.innerWidth <= 768) {
+      // If the screen width is less than or equal to 768px, set slidesPerView to 1
+      return 1;
+    }
+    return props.slidesPerView || 1;
+  };
+
   onMount(() => {
     if (!sliderContainer) return;
 
@@ -48,7 +56,7 @@ export const Slider = (componentProps: SliderProps) => {
       {
         loop: true,
         slides: {
-          perView: props.slidesPerView || 1,
+          perView: getSlidesPerView(),
           spacing: props.spacing || 100,
         },
         initial: 0,
