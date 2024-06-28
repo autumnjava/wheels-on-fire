@@ -98,7 +98,7 @@ export const WhatWeOffer = () => {
         <div class="relative z-10 w-[fit-content] bg-red px-4 py-2 font-futuraMedium text-headingM uppercase text-white md:static">
           The beasts
         </div>
-        <div class="-mt-10 bg-white p-4 pt-12 md:m-4 md:pt-4">
+        <div class="-mt-10 bg-white p-2 pt-12 md:m-4 md:pt-4">
           <Slider controls={true} slidesPerView={3}>
             <BeastSlide1 />
             <BeastSlide2 />
