@@ -121,10 +121,18 @@ export const Slider = (componentProps: SliderProps) => {
 
       <Show when={props.controls}>
         <button onClick={prev}>
-          <ChevronLeftIcon class="absolute left-2 top-1/2 opacity-70" />
+          <ChevronLeftIcon
+            class={clsx('absolute left-2 top-1/2 opacity-70', {
+              'fill-red': props.controlsPosition === 'normal',
+            })}
+          />
         </button>
         <button onClick={next}>
-          <ChevronRightIcon class="absolute right-2 top-1/2 opacity-70" />
+          <ChevronRightIcon
+            class={clsx('absolute right-2 top-1/2 opacity-70', {
+              'fill-red': props.controlsPosition === 'normal',
+            })}
+          />
         </button>
 
         <div
