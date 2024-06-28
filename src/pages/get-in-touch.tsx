@@ -90,7 +90,7 @@ export const GetInTouch = () => {
       >
         <div class="flex flex-col justify-center p-4 pt-12 md:m-4 md:pt-4">
           <form onSubmit={handleSubmit} class="mx-auto w-full sm:w-[500px]">
-            <div class="flex justify-between">
+            <div class="sm:flex sm:justify-between">
               <div>
                 <label for="name" class="font-futuraMedium text-headingS">
                   Name:
