@@ -20,12 +20,12 @@ export const Footer = () => {
           </A>
         </div>
         <div class={columnStyle}>
-          <p>MTB TOURS SÃO MIGUEL AZORES</p>
+          <p class="text-[15px] leading-[26px]">MTB TOURS SÃO MIGUEL AZORES</p>
 
           <nav class="flex flex-wrap justify-center">
-            <NavLinks linkClass="text-nowrap pr-4 font-futuraExtraBold uppercase text-white text-headingS" />
+            <NavLinks linkClass="text-nowrap pr-4 font-futuraExtraBold uppercase text-white text-headingS leading-[28px]" />
           </nav>
-          <div class="font-futuraMedium uppercase">
+          <div class="font-futuraMedium text-[15px] uppercase leading-[26px]">
             <A class="mr-4 " href="#">
               Legal
             </A>
@@ -55,13 +55,13 @@ export const Footer = () => {
 
           <hr class="mx-auto h-px w-[33%] border-0 bg-gray-200 dark:bg-gray-700" />
 
-          <p class="font-futuraMedium text-[1rem]">
+          <p class="font-futuraMedium text-[13px]">
             ART DIRECTION & DESIGN BY JULIANA CORTES
           </p>
 
           <hr class="mx-auto h-px w-[33%] border-0 bg-gray-200 dark:bg-gray-700" />
 
-          <p class="font-futuraMedium text-[0.9rem]">
+          <p class="font-futuraMedium text-[12px]">
             © WHEELS ON FIRE | 2024
           </p>
         </div>

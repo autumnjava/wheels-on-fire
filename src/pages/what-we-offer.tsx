@@ -77,12 +77,12 @@ export const WhatWeOffer = () => {
   return (
     <>
       <div
-        class="testi-container bg-cover bg-center md:ml-4"
+        class="testi-container bg-cover bg-center sm:h-[950px] md:ml-4"
         style={{ 'background-image': `url(${image1})` }}
       >
         <div class="testi-content mx-4 mt-8 w-[90%] xl:w-[60%]">
           <h1 class="text-outline relative block pl-4 text-headingXXXL tracking-wider">
-            What we offer
+            What <br /> we offer
           </h1>
 
           <h2 class="transparent-overlay w-[60%] p-8 text-headingL">
@@ -110,7 +110,9 @@ export const WhatWeOffer = () => {
       <hr class="hidden border-red md:block" />
 
       <div class="mx-auto my-16 px-4 text-center md:w-[60%]">
-        <h3 class="font-futuraExtraBold text-headingXL">What's included</h3>
+        <h3 class="font-futuraExtraBold text-headingXL uppercase leading-[85px]">
+          What's included
+        </h3>
         <h4 class="font-futuraMedium text-headingL uppercase">
           Either in for a half, full or a couple of days youʼll sure feel your{' '}
           <span class="font-futuraExtraBold">WHEELS ON FIRE.</span>

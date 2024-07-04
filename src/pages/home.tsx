@@ -41,7 +41,7 @@ export const Home = () => {
         <h2 class={h2Style}>We got you all set up.</h2>
       </div>
 
-      <div class={sectionStyle}>
+      <div class="container mx-auto px-4 text-center">
         <h3 class="text-headingL uppercase">Get in touch</h3>
         <Button url="/get-in-touch" customClass="mt-2">
           Contact us
