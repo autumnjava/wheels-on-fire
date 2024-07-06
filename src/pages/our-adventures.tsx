@@ -3,7 +3,7 @@ import { Button } from '../components/button';
 export const OurAdventures = () => {
   return (
     <>
-      <div class="container px-4">
+      <div class="container mx-auto px-4">
         <div class="flex items-start">
           <h1 class="font-extrabold text-red-600 text-headingXXXL !leading-[78%] text-red">
             OUR
@@ -19,8 +19,8 @@ export const OurAdventures = () => {
 
       <hr class="my-8 border-red" />
 
-      <div class="container flex flex-col px-4 sm:flex-row">
-        <div class="h-[300px] w-full bg-black sm:w-[450px] md:h-[400px] md:w-[600px]"></div>
+      <div class="container mx-auto flex flex-col px-4 sm:flex-row">
+        <div class="h-[300px] w-full bg-black sm:h-[328px] sm:w-[525px]"></div>
 
         <div class="ml-8 text-center sm:w-[30%] sm:text-left [&>*]:my-2">
           <h3>The desert train</h3>

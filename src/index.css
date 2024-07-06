@@ -78,6 +78,18 @@ h5 {
   height: fit-content;
 } */
 
+.what-we-offer p {
+  font-family: AndaleMonoBold, sans-serif;
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.what-we-offer-red p {
+  font-family: Futura-CondensedMedium, Futura, sans-serif;
+  font-size: 20px;
+  line-height: 25px;
+}
+
 button {
   font-size: 20px;
   font-family: Futura-CondensedMedium, Futura, sans-serif;
@@ -158,7 +170,7 @@ label {
 
   @media screen and (min-width: 768px) {
     padding-top: 100px;
-    padding-left: 130px;
+    padding-left: 230px;
   }
 }
 
@@ -167,8 +179,8 @@ label {
   margin-left: 0px;
 
   @media screen and (min-width: 768px) {
-    margin-top: -100px;
-    margin-left: -130px;
+    margin-top: -70px;
+    margin-left: -169px;
   }
 }
 

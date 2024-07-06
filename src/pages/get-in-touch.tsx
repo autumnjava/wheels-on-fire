@@ -7,7 +7,8 @@ import { ExpandableContainer } from '../components/expandable-container';
 import clsx from 'clsx';
 
 export const GetInTouch = () => {
-  const [name, setName] = createSignal('');
+  const [firstName, setFirstName] = createSignal('');
+  const [lastName, setLastName] = createSignal('');
   const [email, setEmail] = createSignal('');
   const [comment, setComment] = createSignal('');
   const [isSucess, setIsSuccess] = createSignal(false);
@@ -30,7 +31,7 @@ export const GetInTouch = () => {
     }
 
     const templateParams = {
-      from_name: name(),
+      from_name: `${firstName()} ${lastName()} `,
       from_email: email(),
       subject: subject(),
       message: comment(),
@@ -63,7 +64,7 @@ export const GetInTouch = () => {
           Get in touch
         </h1>
 
-        <h2 class="text-headingL">
+        <h2 class="mx-auto max-w-[828px] text-headingL">
           To make the most of your trip, for bookings and other questions,
           please send us an email:{' '}
           <span class="text-red">info@wheelsonfireazores.com</span> or fill the{' '}
@@ -89,21 +90,35 @@ export const GetInTouch = () => {
         }
       >
         <div class="flex flex-col justify-center p-4 pt-12 md:m-4 md:pt-4">
-          <form onSubmit={handleSubmit} class="mx-auto w-full sm:w-[500px]">
+          <form onSubmit={handleSubmit} class="mx-auto w-full lg:w-[931px]">
             <div class="sm:flex sm:justify-between">
               <div>
                 <label for="name" class="font-futuraMedium text-headingS">
                   Name:
                 </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="Firstname Lastname"
-                  value={name()}
-                  onInput={(e) => setName(e.target.value)}
-                  required
-                />
+                <div class="flex">
+                  <input
+                    type="text"
+                    id="firstName"
+                    name="name"
+                    placeholder="First"
+                    value={firstName()}
+                    onInput={(e) => setFirstName(e.target.value)}
+                    class="md:min-w-[217px]"
+                    required
+                  />
+
+                  <input
+                    type="text"
+                    id="lastName"
+                    name="name"
+                    placeholder="Last"
+                    value={lastName()}
+                    onInput={(e) => setLastName(e.target.value)}
+                    required
+                    class="ml-8 md:min-w-[217px]"
+                  />
+                </div>
               </div>
               <div>
                 <label for="email" class="font-futuraMedium text-headingS">
@@ -117,6 +132,7 @@ export const GetInTouch = () => {
                   value={email()}
                   onInput={(e) => setEmail(e.target.value)}
                   required
+                  class="md:min-w-[408px]"
                 />
               </div>
             </div>
@@ -150,7 +166,7 @@ export const GetInTouch = () => {
               <textarea
                 id="comment"
                 name="comment"
-                class="h-[150px]"
+                class="h-[300px]"
                 value={comment()}
                 onInput={(e) => setComment(e.target.value)}
                 required
@@ -179,7 +195,9 @@ export const GetInTouch = () => {
             Wanna see more of what we're up to?
           </h3>
 
-          <h4 class="font-futuraMedium text-headingS uppercase">Check us on</h4>
+          <h4 class="mt-4 font-futuraMedium text-headingS uppercase">
+            Check us on
+          </h4>
           <div class="my-4 flex justify-center">
             <A href="https://www.instagram.com">
               <InstagramIcon class="fill-red" />

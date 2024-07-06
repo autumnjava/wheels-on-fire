@@ -11,7 +11,7 @@ export const InAction = () => {
           In action
         </h1>
 
-        <h2 class="text-headingL normal-case">
+        <h2 class="mx-auto max-w-[704px] text-headingL normal-case">
           Videos, Articles and more - We want to share how S. Miguel looks like
           on the saddle and trails, what we’re up to and our true love for dirt
           & fun!

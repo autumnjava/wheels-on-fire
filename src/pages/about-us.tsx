@@ -46,7 +46,7 @@ export const AboutUs = () => {
         <div class="flex xl:mt-[-130px]">
           <div class="flex w-1/2 flex-col content-center justify-center pl-4 md:pl-8 [&>*]:my-4">
             <h3 class="text-headingL xl:max-w-[557px]">
-              Discovering the islands by bike gave us so much.You really feel
+              Discovering the islands by bike gave us so much. You really feel
               the energy and adrenaline on these islands. Long uphills and
               magical fast descents ending up by a sea of breaking waves.
             </h3>
@@ -62,7 +62,7 @@ export const AboutUs = () => {
               environments.
             </p>
 
-            {forgetTheLuxury('sm:block hidden')}
+            {forgetTheLuxury('sm:block hidden xl:max-w-[557px]')}
           </div>
           <div class="w-1/2 pl-8">
             <img
@@ -86,7 +86,7 @@ export const AboutUs = () => {
         </div>
 
         <div class="flex flex-col-reverse text-center md:flex-row">
-          <div class="md:w-1/2 border-r  border-r-red px-4 text-center sm:px-8 md:px-16">
+          <div class="border-r border-r-red  px-4 text-center sm:px-8 md:w-1/2 md:px-16">
             <div class="mx-auto max-w-[482px] [&>*]:my-4">
               <h3 class="font-futura text-headingL font-bold">Jallas</h3>
               <p>
@@ -114,7 +114,7 @@ export const AboutUs = () => {
             </div>
           </div>
 
-          <div class="md:w-1/2 px-4 text-center  sm:px-8 md:px-16">
+          <div class="px-4 text-center sm:px-8  md:w-1/2 md:px-16">
             <div class="mx-auto max-w-[482px] [&>*]:my-4">
               <h3 class="font-futura text-headingL font-bold">Juliana</h3>
               <p>Hey ! I’m Juliana from Porto, Portugal. </p>
