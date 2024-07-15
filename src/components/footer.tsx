@@ -23,7 +23,7 @@ export const Footer = () => {
           <p class="text-[15px] leading-[26px]">MTB TOURS SÃO MIGUEL AZORES</p>
 
           <nav class="flex flex-wrap justify-center">
-            <NavLinks linkClass="text-nowrap pr-4 font-futuraExtraBold uppercase text-white text-headingS leading-[28px]" />
+            <NavLinks linkClass="text-nowrap pr-4 font-futuraExtraBold uppercase text-white text-headingS leading-[28px] no-underline" />
           </nav>
           <div class="font-futuraMedium text-[15px] uppercase leading-[26px]">
             <A class="mr-4 " href="#">

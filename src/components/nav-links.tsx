@@ -15,7 +15,7 @@ export const NavLinks = (props: NavProps) => {
           props.linkClass ||
           'font-futuraExtraBold text-navMenu font-bold uppercase'
         }
-        activeClass="underline"
+        activeClass="underline underline-offset-[6px]"
         onClick={() => props.toggleMenu && props.toggleMenu()}
       >
         {item.name}
