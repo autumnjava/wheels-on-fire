@@ -33,7 +33,7 @@ const config: Config = {
 
     extend: {
       gridTemplateColumns: {
-        footer: '23% auto 23% 23%',
+        footer: '156px auto 23% 23%',
       },
       fontSize: {
         navMenu: ['var(--navMenu)', { lineHeight: '120%' }],

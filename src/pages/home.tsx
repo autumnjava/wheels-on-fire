@@ -11,7 +11,7 @@ import brand3 from '../components/data/brands/OneUp-Logo-Border-1000px.png';
 import brand4 from '../components/data/brands/chromag-bikes-seeklogo-01.png';
 
 export const Home = () => {
-  const sectionStyle = 'container mx-auto my-12 px-4 text-center';
+  const sectionStyle = 'container mx-auto mt-[94px] mb-[24px] px-4 text-center';
   const h2Style = 'font-futuraExtraBold text-headingXL font-bold uppercase';
 
   return (
@@ -43,7 +43,7 @@ export const Home = () => {
 
       <div class="container mx-auto px-4 text-center">
         <h3 class="text-headingL uppercase">Get in touch</h3>
-        <Button url="/get-in-touch" customClass="mt-2">
+        <Button url="/get-in-touch" customClass="mt-[20px]">
           Contact us
         </Button>
       </div>

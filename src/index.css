@@ -152,13 +152,14 @@ label {
   width: 12px;
   margin: 0 5px;
   border-radius: 50%;
-  background-color: #717171;
+  background-color: transparent;
+  border: 1px solid white;
   display: inline-block;
   cursor: pointer;
 }
 
 .dot.active {
-  background-color: #bbb;
+  background-color: #FFF;
 }
 
 .testi-container {

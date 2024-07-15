@@ -4,22 +4,23 @@ import { NavLinks } from './nav-links';
 import logo from './data/wheelsonfire_white-01.png';
 import { InstagramIcon } from './icons-library/social-media/instagram';
 import { YoutubeIcon } from './icons-library/social-media/youtube';
+import clsx from 'clsx';
 
 export const Footer = () => {
   const columnStyle = 'flex flex-col justify-evenly [&>*]:my-2';
   return (
     <footer class="mt-auto w-full items-center bg-black text-center text-white">
-      <div class="container mx-auto px-4 py-4 md:grid md:grid-cols-footer">
+      <div class="container mx-auto py-4 md:grid md:grid-cols-footer">
         <div class="w-auto">
           <A href="/">
             <img
               src={logo}
               alt="Wheels on fire"
-              class="mx-auto w-[130px] md:w-[160px]"
+              class="mx-auto w-[130px] md:w-[156px]"
             />
           </A>
         </div>
-        <div class={columnStyle}>
+        <div class={clsx('max-w-[386px] mx-auto', columnStyle)}>
           <p class="text-[15px] leading-[26px]">MTB TOURS SÃO MIGUEL AZORES</p>
 
           <nav class="flex flex-wrap justify-center">
@@ -33,7 +34,8 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div class={columnStyle}>
+        <div class={clsx('max-w-[208px] mx-auto', columnStyle)}>
+
           <hr class="mx-auto h-px w-[33%] border-0 bg-gray-200 dark:bg-gray-700" />
           <p class="text-center font-futuraMedium">
             <span class="font-futura font-bold text-red">WHEELS ON FIRE </span>{' '}
@@ -43,7 +45,8 @@ export const Footer = () => {
           <hr class="mx-auto h-px w-[33%] border-0 bg-gray-200 dark:bg-gray-700" />
         </div>
 
-        <div class={columnStyle}>
+        <div class={clsx('max-w-[143px] mx-auto', columnStyle)}>
+
           <div class="flex justify-center">
             <A href="https://www.instagram.com">
               <InstagramIcon />

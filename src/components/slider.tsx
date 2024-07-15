@@ -137,7 +137,7 @@ export const Slider = (componentProps: SliderProps) => {
 
         <div
           class={clsx({
-            'absolute bottom-[50px] left-1/2 -translate-x-1/2 -translate-y-1/2':
+            'absolute bottom-[70px] left-1/2 -translate-x-1/2 -translate-y-1/2':
               props.controlsPosition === 'hero',
             'text-center': props.controlsPosition === 'normal',
           })}
