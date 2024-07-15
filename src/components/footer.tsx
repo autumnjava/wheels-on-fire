@@ -1,7 +1,7 @@
 import { A } from '@solidjs/router';
 import { NavLinks } from './nav-links';
 
-import logo from './data/wheelsonfire_logoselection-01.svg';
+import logo from './data/wheelsonfire_white-01.png';
 import { InstagramIcon } from './icons-library/social-media/instagram';
 import { YoutubeIcon } from './icons-library/social-media/youtube';
 
@@ -61,9 +61,7 @@ export const Footer = () => {
 
           <hr class="mx-auto h-px w-[33%] border-0 bg-gray-200 dark:bg-gray-700" />
 
-          <p class="font-futuraMedium text-[12px]">
-            © WHEELS ON FIRE | 2024
-          </p>
+          <p class="font-futuraMedium text-[12px]">© WHEELS ON FIRE | 2024</p>
         </div>
       </div>
     </footer>

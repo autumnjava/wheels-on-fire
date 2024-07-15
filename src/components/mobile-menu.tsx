@@ -6,8 +6,8 @@ import { CloseIcon } from './icons-library/close';
 import { HamburgerMenuIcon } from './icons-library/hamburger-menu';
 
 // logo
-import logo from './data/wheelsonfire_logoselection-02.svg';
-import logoDark from './data/wheelsonfire_logoselection-01.svg';
+import logo from './data/wheelsonfire_logoselection-03.png';
+import logoWhite from './data/wheelsonfire_white-01.png';
 
 export const MobileMenu = () => {
   const [mobileMenuActive, setMobileMenuActive] = createSignal(false);
@@ -67,7 +67,7 @@ export const MobileMenu = () => {
               onClick={() => toggleMenu()}
             >
               <img
-                src={logoDark}
+                src={logoWhite}
                 alt="Wheels on fire"
                 class="mx-auto w-[130px] md:w-[230px]"
               />
