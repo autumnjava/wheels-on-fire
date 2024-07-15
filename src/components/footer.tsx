@@ -11,7 +11,7 @@ export const Footer = () => {
   return (
     <footer class="mt-auto w-full items-center bg-black text-center text-white">
       <div class="container mx-auto py-4 md:grid md:grid-cols-footer">
-        <div class="w-auto">
+        <div class="w-auto content-center">
           <A href="/">
             <img
               src={logo}
@@ -20,7 +20,7 @@ export const Footer = () => {
             />
           </A>
         </div>
-        <div class={clsx('max-w-[386px] mx-auto', columnStyle)}>
+        <div class={clsx('max-w-[386px] mx-auto xl:ml-[100px]', columnStyle)}>
           <p class="text-[15px] leading-[26px]">MTB TOURS SÃO MIGUEL AZORES</p>
 
           <nav class="flex flex-wrap justify-center">
@@ -36,13 +36,13 @@ export const Footer = () => {
 
         <div class={clsx('max-w-[208px] mx-auto', columnStyle)}>
 
-          <hr class="mx-auto h-px w-[33%] border-0 bg-gray-200 dark:bg-gray-700" />
+          <hr class="mx-auto h-px w-[50%] border-0 bg-gray" />
           <p class="text-center font-futuraMedium">
             <span class="font-futura font-bold text-red">WHEELS ON FIRE </span>{' '}
             is a MTB guide & shuttle company based in the island of São Miguel,
             Azores
           </p>
-          <hr class="mx-auto h-px w-[33%] border-0 bg-gray-200 dark:bg-gray-700" />
+          <hr class="mx-auto h-px w-[50%] border-0 bg-gray" />
         </div>
 
         <div class={clsx('max-w-[143px] mx-auto', columnStyle)}>
@@ -56,7 +56,7 @@ export const Footer = () => {
             </A>
           </div>
 
-          <hr class="mx-auto h-px w-[33%] border-0 bg-gray-200 dark:bg-gray-700" />
+          <hr class="mx-auto h-px w-[50%] border-0 bg-gray" />
 
           <p class="font-futuraMedium text-[13px]">
             ART DIRECTION & DESIGN BY JULIANA CORTES
