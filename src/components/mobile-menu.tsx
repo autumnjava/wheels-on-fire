@@ -1,12 +1,11 @@
 import { A } from '@solidjs/router';
 import clsx from 'clsx';
 import { Show, createSignal } from 'solid-js';
-import { NavLinks } from './nav-links';
 import { CloseIcon } from './icons-library/close';
 import { HamburgerMenuIcon } from './icons-library/hamburger-menu';
+import { NavLinks } from './nav-links';
 
 // logo
-import logo from './data/wheelsonfire_logoselection-03.png';
 import logoWhite from './data/wheelsonfire_white-01.png';
 
 export const MobileMenu = () => {
@@ -27,16 +26,6 @@ export const MobileMenu = () => {
         <button class="m-6" onClick={toggleMenu}>
           <HamburgerMenuIcon />
         </button>
-      </div>
-
-      <div>
-        <A aria-label="Gå till startsidan" href="/">
-          <img
-            src={logo}
-            alt="Wheels on fire"
-            class="mx-auto w-[130px] md:w-[226px]"
-          />
-        </A>
       </div>
 
       <Show when={mobileMenuActive()}>
