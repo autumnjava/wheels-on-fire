@@ -12,7 +12,7 @@
 
 @font-face {
   font-family: 'AndaleMono';
-  src: url('./fonts/ANDALEIMO.TTF');
+  src: url('./fonts/ANDALEMO.TTF');
   font-weight: 400;
   font-display: swap;
   font-style: normal;
@@ -171,6 +171,11 @@ label {
 
   @media screen and (min-width: 768px) {
     padding-top: 100px;
+    padding-left: 150px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    padding-top: 100px;
     padding-left: 230px;
   }
 }
@@ -180,8 +185,13 @@ label {
   margin-left: 0px;
 
   @media screen and (min-width: 768px) {
-    margin-top: -70px;
-    margin-left: -169px;
+    margin-top: -80px;
+    margin-left: -150px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    margin-top: -110px;
+    margin-left: -206px;
   }
 }
 
@@ -208,6 +218,7 @@ label {
   --navMenu: 2rem;
   --heroHeading: 3.2rem;
   --heroHeadingXL: 4rem;
+  --headingWhatWeOffer: 3.8rem;
 
   --headingXXXL: 3.8rem;
   --headingXXL: 2.25rem;
@@ -223,6 +234,7 @@ label {
     --navMenu: 1.25rem;
     --heroHeading: 4rem;
 
+    --headingWhatWeOffer: 140px;
     --headingXXXL: 6rem;
     --headingXXL: 3rem;
     --headingXL: 2.25rem;
@@ -232,19 +244,14 @@ label {
   }
 }
 
-/* Tablet / md */
-/* @media screen and (min-width: 768px) {
-  #root {
-  }
-} */
-
 /* Laptop / lg */
 @media screen and (min-width: 1024px) {
   #root {
     --heroHeading: 7rem;
     --heroHeadingXL: 7rem;
 
-    --headingXXXL: 10rem;
+    --headingWhatWeOffer: 200px;
+    --headingXXXL: 12rem;
     --headingXXL: 4rem;
     --headingXL: 3.125rem;
     --headingL: 1.875rem;
@@ -256,6 +263,6 @@ label {
 /* 2xl */
 @media screen and (min-width: 1536px) {
   #root {
-    --heroHeadingXL: 8rem;
+    --heroHeadingXL: 12rem;
   }
 }

@@ -190,7 +190,7 @@ export const GetInTouch = () => {
         </div>
         <hr class="border-red" />
 
-        <div class="mx-auto my-8 p-4 pt-12 text-center md:my-4 md:w-[35%] md:pt-4">
+        <div class="mx-auto my-8 p-4 pt-12 text-center md:mt-32 md:mb-0 md:w-[35%] md:pt-4">
           <h3 class="font-futuraExtraBold text-headingXL uppercase">
             Wanna see more of what we're up to?
           </h3>
@@ -198,7 +198,7 @@ export const GetInTouch = () => {
           <h4 class="mt-4 font-futuraMedium text-headingS uppercase">
             Check us on
           </h4>
-          <div class="my-4 flex justify-center">
+          <div class="mt-4 flex justify-center">
             <A href="https://www.instagram.com">
               <InstagramIcon class="fill-red" />
             </A>

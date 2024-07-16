@@ -20,13 +20,13 @@ export const AboutUs = () => {
           About us
         </h1>
         <div class="my-8 flex sm:mt-[-50px]">
-          <div class="w-1/2 pr-8">
+          <div class="w-auto max-w-[630px]">
             <img
               src={image1}
-              class="h-96 w-full object-cover object-top md:h-[600px]"
+              class="h-96 w-full object-cover object-top md:h-[420px]"
             ></img>
           </div>
-          <div class="flex w-1/2 flex-col content-center justify-center pr-8">
+          <div class="flex w-1/2 flex-col content-center justify-center pl-[22px] pr-8">
             <h2 class="text-headingL leading-[200%]">
               We discovered the Azores by bike.
             </h2>
@@ -44,10 +44,10 @@ export const AboutUs = () => {
         {/* <div>{paragraph1('block sm:hidden px-4 my-8')}</div> */}
 
         <div class="flex xl:mt-[-130px]">
-          <div class="flex w-1/2 flex-col content-center justify-center pl-4 md:pl-8 [&>*]:my-4">
+          <div class="flex w-1/2 flex-col content-center justify-center pl-4 pt-[28px] md:pl-8 [&>*]:my-4">
             <h3 class="text-headingL xl:max-w-[557px]">
-              Discovering the islands by bike gave us so much. You really feel
-              the energy and adrenaline on these islands. Long uphills and
+              Discovering the islands by bike gave us so much. <br /> You really
+              feel the energy and adrenaline on these islands. Long uphills and
               magical fast descents ending up by a sea of breaking waves.
             </h3>
 

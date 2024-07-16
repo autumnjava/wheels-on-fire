@@ -20,8 +20,9 @@ export const WhatWeOffer = () => {
       {/* <hr class="mx-auto h-px w-[20%] border-0 bg-red" /> */}
 
       <div class="what-we-offer-red my-4 flex justify-center text-center text-red">
-        <p>* Min. 2 ppl |</p>
-        <p class="ml-4">* Max. 3 ppl</p>
+        <p>* Min. 2 ppl</p>
+        <p class="ml-2">|</p>
+        <p class="ml-2">* Max. 3 ppl</p>
       </div>
       <div class="what-we-offer-red">
         <p class="text-red">* P/rider - 75€</p>
@@ -42,8 +43,9 @@ export const WhatWeOffer = () => {
       {/* <hr class="mx-auto h-px w-[20%] border-0 bg-red" /> */}
 
       <div class="what-we-offer-red my-4 flex justify-center text-center text-red">
-        <p>* Min. 2 ppl |</p>
-        <p class="ml-4">* Max. 3 ppl</p>
+        <p>* Min. 2 ppl</p>
+        <p class="ml-2">|</p>
+        <p class="ml-2">* Max. 3 ppl</p>
       </div>
 
       <div class="what-we-offer-red">
@@ -68,23 +70,24 @@ export const WhatWeOffer = () => {
       </div>
 
       <div class="what-we-offer-red my-4 flex justify-center text-center text-red">
-        <p>* Min. 2 ppl |</p>
-        <p class="ml-4">* Max. 3 ppl</p>
+        <p>* Min. 2 ppl</p>
+        <p class="ml-2">|</p>
+        <p class="ml-2">* Max. 3 ppl</p>
       </div>
     </>
   );
   return (
     <>
       <div
-        class="testi-container bg-cover bg-center sm:h-[950px] md:ml-4"
+        class="testi-container bg-cover  bg-bottom bg-origin-content sm:h-[890px] md:ml-4"
         style={{ 'background-image': `url(${image1})` }}
       >
-        <div class="testi-content mx-4 mt-8 w-[90%] xl:w-[60%]">
-          <h1 class="text-outline relative block pl-4 text-headingXXXL tracking-wider">
+        <div class="testi-content mx-4 mt-8">
+          <h1 class="text-outline text-heroHeadingWhatWeOffer relative block pl-4 tracking-wider">
             What <br /> we offer
           </h1>
 
-          <h2 class="transparent-overlay max-w-[586px] p-8 text-headingL">
+          <h2 class="transparent-overlay max-w-[490px] p-8 text-headingL">
             We want to bring you and your friends out on a bike adventure and
             show the island from a different perspective. Doesnʼt matter if itʼs
             your first time out on a bike trail or if you are a full on dirt
@@ -94,7 +97,7 @@ export const WhatWeOffer = () => {
       </div>
 
       <div class="my-16 w-full border-t border-red">
-        <div class="relative z-10 w-[fit-content] bg-red px-4 py-2 font-futuraMedium text-headingM uppercase text-white md:static">
+        <div class="relative z-10 w-[fit-content] bg-red px-4 py-2 font-futuraMedium text-headingM uppercase leading-[27px] text-white md:static">
           The beasts
         </div>
         <div class="-mt-10 bg-white p-2 pt-12 md:m-8 md:pt-4">
@@ -148,7 +151,7 @@ export const WhatWeOffer = () => {
           </div>
           {oneDayPlus()}
           <div class="hidden md:block">
-            <Button url="/get-in-touch" customClass="block mx-auto">
+            <Button url="/get-in-touch" customClass="block mx-auto text-[17px]">
               Get in touch
             </Button>
           </div>
@@ -178,7 +181,7 @@ export const WhatWeOffer = () => {
       </ExpandableContainer>
 
       <div class="my-16 w-full border-t border-red text-center">
-        <div class="w-[fit-content] bg-red px-4 py-2 font-futuraMedium text-headingM uppercase text-white">
+        <div class="w-[fit-content] bg-red px-4 py-2 font-futuraMedium text-headingM uppercase leading-[27px] text-white">
           Customize your trip
         </div>
         <div class="mx-auto max-w-[620px] p-4 pt-12 md:pt-8 [&>*]:my-2">
@@ -193,14 +196,14 @@ export const WhatWeOffer = () => {
             * Ride will be adjusted to your needs & skills*
           </p>
           <p class="font-futuraMedium text-headingM text-red">* Min 1 day</p>
-          <Button url="/get-in-touch" customClass="block mx-auto my-4">
+          <Button url="/get-in-touch" customClass="block mx-auto !my-8">
             Get in touch
           </Button>
         </div>
       </div>
 
       <div class="my-16 w-full border-t-0 border-red text-center md:border-t">
-        <div class="relative z-10 w-[fit-content] bg-red px-4 py-2 font-futuraMedium text-headingM uppercase text-white md:static">
+        <div class="relative z-10 w-[fit-content] bg-red px-4 py-2 font-futuraMedium text-headingM uppercase leading-[27px] text-white md:static">
           Private tour
         </div>
         <div class="p-4 pt-12 md:m-4 md:pt-4">

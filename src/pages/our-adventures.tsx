@@ -23,12 +23,12 @@ export const OurAdventures = () => {
         <div class="h-[300px] w-full bg-black sm:h-[328px] sm:w-[525px]"></div>
 
         <div class="ml-8 text-center sm:w-[30%] sm:text-left [&>*]:my-2">
-          <h3>The desert train</h3>
+          <h3 class="font-futura font-bold text-[27px] leading-[85px]">The desert train</h3>
           <p>
             In the winter of 2020, we went all the way from Switzerland to
             Mauritania to ride a freight train that crosses the desert.
           </p>
-          <hr class="mx-auto my-8 h-px w-[33%] border-0 bg-red sm:mx-0" />
+          <hr class="mx-auto my-8 h-px w-[5%] border-0 bg-red sm:mx-0" />
           <h4 class="!normal-case">Film & Photos by us.</h4>
         </div>
       </div>

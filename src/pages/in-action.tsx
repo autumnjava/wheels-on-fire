@@ -1,7 +1,7 @@
 import { Button } from '../components/button';
 
 export const InAction = () => {
-  const sectionStyle = 'container mx-auto my-12 px-4 text-center';
+  const sectionStyle = 'container mx-auto mt-16 mb-8 text-center';
   const h2Style = 'font-futuraExtraBold text-headingXL font-bold uppercase';
 
   return (
@@ -24,14 +24,14 @@ export const InAction = () => {
 
       <hr class="my-8 border-red" />
 
-      <div class={sectionStyle}>
+      <div class="container mx-auto mt-16 mb-6 text-center">
         <h2 class={h2Style}>You ride. We pick you up.</h2>
         <h2 class={h2Style}>We got you all set up.</h2>
       </div>
 
-      <div class={sectionStyle}>
+      <div class="container mx-auto my-6 text-center">
         <h3 class="text-headingL uppercase">Get in touch</h3>
-        <Button url="/get-in-touch" customClass="mt-2">
+        <Button url="/get-in-touch" customClass="!mt-6">
           Contact us
         </Button>
       </div>
