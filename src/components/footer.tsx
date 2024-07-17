@@ -1,10 +1,11 @@
 import { A } from '@solidjs/router';
-import { NavLinks } from './nav-links';
-
-import logo from './data/wheelsonfire_white-01.png';
+import clsx from 'clsx';
 import { InstagramIcon } from './icons-library/social-media/instagram';
 import { YoutubeIcon } from './icons-library/social-media/youtube';
-import clsx from 'clsx';
+import { NavLinks } from './nav-links';
+
+//logo
+import logo from './data/wheelsonfire_icon-05.png';
 
 export const Footer = () => {
   const columnStyle = 'flex flex-col justify-evenly [&>*]:my-2';
@@ -20,8 +21,10 @@ export const Footer = () => {
             />
           </A>
         </div>
-        <div class={clsx('max-w-[420px] mx-auto xl:ml-[100px]', columnStyle)}>
-          <p class="text-[15px] leading-[26px] font-andaleMonoBold">MTB TOURS SÃO MIGUEL AZORES</p>
+        <div class={clsx('mx-auto max-w-[420px] xl:ml-[100px]', columnStyle)}>
+          <p class="font-andaleMonoBold text-[15px] leading-[26px]">
+            MTB TOURS SÃO MIGUEL AZORES
+          </p>
 
           <nav class="flex flex-wrap justify-center">
             <NavLinks linkClass="text-nowrap pr-[28px] font-futuraExtraBold uppercase text-white text-headingS leading-[28px] no-underline" />
@@ -34,8 +37,7 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div class={clsx('max-w-[208px] mx-auto', columnStyle)}>
-
+        <div class={clsx('mx-auto max-w-[208px]', columnStyle)}>
           <hr class="mx-auto h-px w-[50%] border-0 bg-gray" />
           <p class="text-center font-futuraMedium">
             <span class="font-futura font-bold text-red">WHEELS ON FIRE </span>{' '}
@@ -45,8 +47,7 @@ export const Footer = () => {
           <hr class="mx-auto h-px w-[50%] border-0 bg-gray" />
         </div>
 
-        <div class={clsx('max-w-[143px] mx-auto', columnStyle)}>
-
+        <div class={clsx('mx-auto max-w-[143px]', columnStyle)}>
           <div class="flex justify-center">
             <A href="https://www.instagram.com">
               <InstagramIcon />

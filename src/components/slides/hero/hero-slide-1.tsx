@@ -11,7 +11,7 @@ export const HeroSlide1 = (props: HeroProps) => {
     >
       <div class="sm:max-w-[490px]">
         <p class="font-futura text-headingXXL font-bold uppercase tracking-wider text-white">
-          S. Miguel in action - exploring the cool trails on the island
+          S. Miguel <br /> in action - <br /> exploring <br /> the cool <br /> trails on <br /> the island
         </p>
         <Button url="/what-we-offer">Know more</Button>
       </div>

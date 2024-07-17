@@ -115,6 +115,8 @@ textarea {
 
   background-color: transparent;
   border: 1px solid red;
+  font-family: AndaleMono, sans-serif;
+  font-size: 17px;
 }
 
 label {
@@ -123,6 +125,9 @@ label {
   text-transform: uppercase;
   margin: 20px 0;
   padding: 0.5rem 0;
+  font-family: Futura-CondensedMedium, Futura, sans-serif;
+  font-size: 25px;
+  line-height: 30px;
 }
 
 .black-text-outline {
@@ -219,7 +224,7 @@ label {
 #root {
   --navMenu: 2rem;
   --heroHeading: 3.2rem;
-  --heroHeadingXL: 4rem;
+  --heroHeadingXL: 3rem;
   --headingWhatWeOffer: 3.8rem;
 
   --headingXXXL: 3.8rem;
@@ -235,6 +240,7 @@ label {
   #root {
     --navMenu: 1.25rem;
     --heroHeading: 4rem;
+    --heroHeadingXL: 3.4rem;
 
     --headingWhatWeOffer: 140px;
     --headingXXXL: 6rem;
@@ -246,11 +252,17 @@ label {
   }
 }
 
+@media screen and (min-width: 768px) {
+  #root {
+    --heroHeadingXL: 4rem;
+  }
+}
+
 /* Laptop / lg */
 @media screen and (min-width: 1024px) {
   #root {
     --heroHeading: 7rem;
-    --heroHeadingXL: 7rem;
+    --heroHeadingXL: 5.6rem;
 
     --headingWhatWeOffer: 200px;
     --headingXXXL: 12rem;
@@ -262,9 +274,16 @@ label {
   }
 }
 
+/* xl */
+@media screen and (min-width: 1280px) {
+  #root {
+    --heroHeadingXL: 7rem;
+  }
+}
+
 /* 2xl */
 @media screen and (min-width: 1536px) {
   #root {
-    --heroHeadingXL: 12rem;
+    --heroHeadingXL: 8rem;
   }
 }

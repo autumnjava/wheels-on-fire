@@ -11,9 +11,9 @@ export const HeroSlide3 = (props: HeroProps) => {
     >
       <div class="mx-auto text-center sm:max-w-[470px]">
         <p class="font-futuraExtraBold text-headingXXL font-bold uppercase tracking-wider text-white">
-          Bikepacking in the Azores
+          Bikepacking <br /> in the Azores
         </p>
-        <p class="font-futuraMedium text-headingXXL tracking-wider text-white leading-[137%]">
+        <p class="font-futuraMedium text-headingXXL leading-[137%] tracking-wider text-white">
           How it all started
         </p>
         <Button url="/what-we-offer">Know more</Button>

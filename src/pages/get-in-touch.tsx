@@ -66,6 +66,7 @@ export const GetInTouch = () => {
 
         <h2 class="mx-auto max-w-[828px] text-headingL">
           To make the most of your trip, for bookings and other questions,
+          <br />
           please send us an email:{' '}
           <span class="text-red">info@wheelsonfireazores.com</span> or fill the{' '}
           <span class="text-red">contact form</span> below.
@@ -73,7 +74,7 @@ export const GetInTouch = () => {
       </div>
 
       <div class="my-8 text-center">
-        <div class="mx-auto w-[fit-content] bg-red px-4 py-2 uppercase text-white">
+        <div class="mx-auto w-[fit-content] bg-red px-4 py-2 font-futuraMedium text-[23px] uppercase leading-[27px] text-white">
           Contact form
         </div>
       </div>
@@ -93,7 +94,7 @@ export const GetInTouch = () => {
           <form onSubmit={handleSubmit} class="mx-auto w-full lg:w-[931px]">
             <div class="sm:flex sm:justify-between">
               <div>
-                <label for="name" class="font-futuraMedium text-headingS">
+                <label for="name">
                   Name:
                 </label>
                 <div class="flex">
@@ -121,7 +122,7 @@ export const GetInTouch = () => {
                 </div>
               </div>
               <div>
-                <label for="email" class="font-futuraMedium text-headingS">
+                <label for="email">
                   Email:
                 </label>
                 <input
@@ -140,7 +141,7 @@ export const GetInTouch = () => {
             <div class="my-6">
               <ExpandableContainer
                 heading="Select subject"
-                extraCss="text-white py-4 bg-red"
+                extraCss="text-white !py-2 bg-red"
               >
                 <div class="expandable-options [&>*]:my-2">
                   <For each={subjectOptions}>
@@ -160,7 +161,7 @@ export const GetInTouch = () => {
             </div>
 
             <div>
-              <label for="comment" class="font-futuraMedium text-headingS">
+              <label for="comment">
                 Comment:
               </label>
               <textarea
@@ -190,7 +191,7 @@ export const GetInTouch = () => {
         </div>
         <hr class="border-red" />
 
-        <div class="mx-auto my-8 p-4 pt-12 text-center md:mt-32 md:mb-0 md:w-[35%] md:pt-4">
+        <div class="mx-auto my-8 p-4 pt-12 text-center md:mb-0 md:mt-32 md:w-[35%] md:pt-4">
           <h3 class="font-futuraExtraBold text-headingXL uppercase">
             Wanna see more of what we're up to?
           </h3>

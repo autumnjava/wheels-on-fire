@@ -111,11 +111,11 @@ export const WhatWeOffer = () => {
 
       <hr class="hidden border-red md:block" />
 
-      <div class="mx-auto my-16 px-4 text-center md:w-[60%]">
+      <div class="mx-auto my-16 px-4 text-center md:max-w-[991px]">
         <h3 class="font-futuraExtraBold text-headingXL uppercase leading-[85px]">
           What's included
         </h3>
-        <h4 class="font-futuraMedium text-headingL uppercase">
+        <h4 class="font-futuraMedium text-headingL uppercase leading-[45px]">
           Either in for a half, full or a couple of days youʼll sure feel your{' '}
           <span class="font-futuraExtraBold">WHEELS ON FIRE.</span>
         </h4>
