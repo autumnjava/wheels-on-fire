@@ -78,16 +78,18 @@ export const WhatWeOffer = () => {
   );
   return (
     <>
+      <hr class="border-red" />
+
       <div
-        class="testi-container bg-cover  bg-bottom bg-origin-content sm:h-[890px] md:ml-4"
+        class="testi-container mt-6 bg-cover bg-center bg-origin-content sm:h-[450px] sm:bg-[30%] md:h-fit xl:h-[850px]"
         style={{ 'background-image': `url(${image1})` }}
       >
-        <div class="testi-content mx-4 mt-8">
-          <h1 class="text-outline text-heroHeadingWhatWeOffer relative block pl-4 tracking-wider">
+        <div class="testi-content">
+          <h1 class="text-outline text-headingWhatWeOffer relative block pl-4 leading-[90%] tracking-wider">
             What <br /> we offer
           </h1>
 
-          <h2 class="transparent-overlay max-w-[490px] p-8 text-headingL">
+          <h2 class="text-headingWhatWeOfferSub transparent-overlay p-4 md:max-w-[180px] lg:max-w-[250px]">
             We want to bring you and your friends out on a bike adventure and
             show the island from a different perspective. Doesnʼt matter if itʼs
             your first time out on a bike trail or if you are a full on dirt

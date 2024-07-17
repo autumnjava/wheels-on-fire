@@ -8,7 +8,7 @@ const config: Config = {
       white: '#FFFFFF',
       dark: '#333333',
       transparent: 'transparent',
-      red: '#E52629',
+      red: '#D40E1D',
       lightOliveGreen: '#d5caa5',
       gray: {
         200: '#e5e7eb',
@@ -38,7 +38,8 @@ const config: Config = {
       fontSize: {
         navMenu: ['var(--navMenu)', { lineHeight: '120%' }],
         heroHeading: ['var(--heroHeading)', { lineHeight: '120%' }],
-        heroHeadingWhatWeOffer: ['var(--headingWhatWeOffer)', { lineHeight: '120%' }],
+        headingWhatWeOffer: ['var(--headingWhatWeOffer)', { lineHeight: '120%' }],
+        headingWhatWeOfferSub: ['var(--headingWhatWeOfferSub)', { lineHeight: '100%' }],
         heroHeadingXL: ['var(--heroHeadingXL)', { lineHeight: '120%' }],
         headingXXXL: ['var(--headingXXXL)', { lineHeight: '100%' }],
         headingXXL: ['var(--headingXXL)', { lineHeight: '100%' }],

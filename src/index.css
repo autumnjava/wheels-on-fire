@@ -177,33 +177,34 @@ label {
   background-repeat: no-repeat;
 
   @media screen and (min-width: 768px) {
-    padding-top: 100px;
-    padding-left: 150px;
+    padding-top: 18px;
+    padding-left: 176px;
   }
 
   @media screen and (min-width: 1024px) {
-    padding-top: 100px;
-    padding-left: 230px;
+    padding-top: 25px;
+    padding-left: 256px;
   }
 }
 
 .testi-content {
-  margin-top: 0px;
-  margin-left: 0px;
-
   @media screen and (min-width: 768px) {
-    margin-top: -80px;
-    margin-left: -150px;
+    margin-top: -18px;
+    margin-left: -176px;
   }
 
   @media screen and (min-width: 1024px) {
-    margin-top: -110px;
-    margin-left: -206px;
+    margin-top: -25px;
+    margin-left: -256px;
   }
 }
 
 .transparent-overlay {
   background-color: rgba(255, 255, 255, 0.4);
+  
+  @media screen and (min-width: 768px) {
+    background-color: transparent;
+  }
 }
 
 .expandable-options p {
@@ -225,7 +226,8 @@ label {
   --navMenu: 2rem;
   --heroHeading: 3.2rem;
   --heroHeadingXL: 3rem;
-  --headingWhatWeOffer: 3.8rem;
+  --headingWhatWeOffer: 3.8rem; /* 60px */
+  --headingWhatWeOfferSub: 1.4rem;
 
   --headingXXXL: 3.8rem;
   --headingXXL: 2.25rem;
@@ -242,7 +244,8 @@ label {
     --heroHeading: 4rem;
     --heroHeadingXL: 3.4rem;
 
-    --headingWhatWeOffer: 140px;
+    --headingWhatWeOffer: 120px;
+    --headingWhatWeOfferSub: 1.4rem;
     --headingXXXL: 6rem;
     --headingXXL: 3rem;
     --headingXL: 2.25rem;
@@ -255,6 +258,7 @@ label {
 @media screen and (min-width: 768px) {
   #root {
     --heroHeadingXL: 4rem;
+    --headingWhatWeOfferSub: 1.25rem;
   }
 }
 
@@ -264,7 +268,8 @@ label {
     --heroHeading: 7rem;
     --heroHeadingXL: 5.6rem;
 
-    --headingWhatWeOffer: 200px;
+    --headingWhatWeOffer: 180px;
+    --headingWhatWeOfferSub: 1.6rem;
     --headingXXXL: 12rem;
     --headingXXL: 4rem;
     --headingXL: 3.125rem;

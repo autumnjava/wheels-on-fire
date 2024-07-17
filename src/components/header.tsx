@@ -48,9 +48,9 @@ export const Header = () => {
       </header>
       <nav
         class={clsx(
-          'sticky top-0 z-10 hidden items-center justify-between  py-4 text-red md:container md:mx-auto md:flex md:w-full md:justify-between md:px-8',
+          'sticky top-0 z-10 hidden items-center justify-between  py-6 text-red md:container md:mx-auto md:flex md:w-full md:justify-between md:px-8',
           {
-            frostedBackground: floatHeader(),
+            'frostedBackground !py-4': floatHeader(),
           }
         )}
       >

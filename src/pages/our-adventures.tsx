@@ -3,7 +3,9 @@ import { Button } from '../components/button';
 export const OurAdventures = () => {
   return (
     <>
-      <div class="container mx-auto px-4">
+      <hr class="border-red" />
+
+      <div class="container mx-auto mt-6 px-4">
         <div class="flex items-start">
           <h1 class="font-extrabold text-red-600 text-headingXXXL !leading-[78%] text-red">
             OUR
@@ -23,7 +25,9 @@ export const OurAdventures = () => {
         <div class="h-[300px] w-full bg-black sm:h-[328px] sm:w-[525px]"></div>
 
         <div class="ml-8 text-center sm:w-[30%] sm:text-left [&>*]:my-2">
-          <h3 class="font-futura font-bold text-[27px] leading-[85px]">The desert train</h3>
+          <h3 class="font-futura text-[27px] font-bold leading-[85px]">
+            The desert train
+          </h3>
           <p>
             In the winter of 2020, we went all the way from Switzerland to
             Mauritania to ride a freight train that crosses the desert.

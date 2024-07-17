@@ -3,7 +3,9 @@ import { Button } from '../components/button';
 export const InAction = () => {
   return (
     <>
-      <div class="container mx-auto px-4 text-center">
+      <hr class="border-red" />
+
+      <div class="container mx-auto mt-6 px-4 text-center">
         <h1 class="text-outline relative block pl-4 text-headingXXXL tracking-wider">
           In action
         </h1>

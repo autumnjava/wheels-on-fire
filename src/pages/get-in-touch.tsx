@@ -59,7 +59,9 @@ export const GetInTouch = () => {
 
   return (
     <>
-      <div class="container mx-auto px-4 text-center">
+      <hr class="border-red" />
+
+      <div class="container mx-auto mt-6 px-4 text-center">
         <h1 class="black-text-outline text-headingXXXL tracking-wider text-red">
           Get in touch
         </h1>
@@ -94,9 +96,7 @@ export const GetInTouch = () => {
           <form onSubmit={handleSubmit} class="mx-auto w-full lg:w-[931px]">
             <div class="sm:flex sm:justify-between">
               <div>
-                <label for="name">
-                  Name:
-                </label>
+                <label for="name">Name:</label>
                 <div class="flex">
                   <input
                     type="text"
@@ -122,9 +122,7 @@ export const GetInTouch = () => {
                 </div>
               </div>
               <div>
-                <label for="email">
-                  Email:
-                </label>
+                <label for="email">Email:</label>
                 <input
                   type="email"
                   id="email"
@@ -161,9 +159,7 @@ export const GetInTouch = () => {
             </div>
 
             <div>
-              <label for="comment">
-                Comment:
-              </label>
+              <label for="comment">Comment:</label>
               <textarea
                 id="comment"
                 name="comment"
