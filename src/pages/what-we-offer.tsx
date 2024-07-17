@@ -1,10 +1,14 @@
 import { Button } from '../components/button';
-import image1 from '../components/data/pickup2.jpg';
 import { ExpandableContainer } from '../components/expandable-container';
 import { Slider } from '../components/slider';
-import { BeastSlide1 } from '../components/slides/the-beasts/beast-slide-1';
-import { BeastSlide2 } from '../components/slides/the-beasts/beast-slide-2';
-import { BeastSlide3 } from '../components/slides/the-beasts/beast-slide-3';
+
+// images
+import image1 from '../components/data/pickup2.jpg';
+
+import imageBike2 from '../components/data/bikes/22CLASHRIRS_01_2000.jpg';
+import imageBike3 from '../components/data/bikes/22CLASHRIRS_02_2000.jpg';
+import imageBike4 from '../components/data/bikes/22CLASHRIRS_03_2000.jpg';
+import imageBike1 from '../components/data/bikes/22CLASHRIRS_2000.jpg';
 
 export const WhatWeOffer = () => {
   const halfDay = () => (
@@ -30,6 +34,7 @@ export const WhatWeOffer = () => {
       </div>
     </>
   );
+
   const fullDay = () => (
     <>
       <div class="what-we-offer my-4">
@@ -54,6 +59,7 @@ export const WhatWeOffer = () => {
       </div>
     </>
   );
+
   const oneDayPlus = () => (
     <>
       <div class="what-we-offer my-4">
@@ -76,6 +82,13 @@ export const WhatWeOffer = () => {
       </div>
     </>
   );
+
+  const BikeSlide = (props: { image: string }) => (
+    <div class="bg-white px-8">
+      <img src={props.image} class="mx-auto max-h-[640px] object-contain" />
+    </div>
+  );
+
   return (
     <>
       <hr class="border-red" />
@@ -98,15 +111,16 @@ export const WhatWeOffer = () => {
         </div>
       </div>
 
-      <div class="my-16 w-full border-t border-red">
+      <div class="mb-16 w-full border-t border-red">
         <div class="relative z-10 w-[fit-content] bg-red px-4 py-2 font-futuraMedium text-headingM uppercase leading-[27px] text-white md:static">
           The beasts
         </div>
-        <div class="-mt-10 bg-white p-2 pt-12 md:m-8 md:pt-4">
-          <Slider controls={true} slidesPerView={3}>
-            <BeastSlide1 />
-            <BeastSlide2 />
-            <BeastSlide3 />
+        <div class="p-2 pt-12 md:m-8 md:pt-4">
+          <Slider controls={true} slidesPerView={1}>
+            <BikeSlide image={imageBike1} />
+            <BikeSlide image={imageBike2} />
+            <BikeSlide image={imageBike3} />
+            <BikeSlide image={imageBike4} />
           </Slider>
         </div>
       </div>
