@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import KeenSlider, { KeenSliderInstance } from 'keen-slider';
 import 'keen-slider/keen-slider.min.css';
 import {
@@ -13,7 +14,6 @@ import {
 } from 'solid-js';
 import { ChevronLeftIcon } from './icons-library/chevron-left';
 import { ChevronRightIcon } from './icons-library/chevron-right';
-import clsx from 'clsx';
 
 type SliderProps = {
   children: JSX.Element[];
@@ -22,11 +22,13 @@ type SliderProps = {
   autoplay?: boolean;
   controls?: boolean;
   controlsPosition?: 'hero' | 'normal';
+  dotsColor?: 'red' | 'white';
 };
 
 const defaultProps: SliderProps = {
   children: [],
   controlsPosition: 'normal',
+  dotsColor: 'white',
 };
 
 export const Slider = (componentProps: SliderProps) => {
@@ -146,7 +148,7 @@ export const Slider = (componentProps: SliderProps) => {
             {(_, idx) => (
               <button
                 onClick={() => moveTo(idx())}
-                class={`dot ${currentSlide() === idx() ? 'active' : ''}`}
+                class={`dot border ${clsx(props.dotsColor === 'white' ? 'border-white' : 'border-red')} ${currentSlide() === idx() && `active ${clsx(props.dotsColor === 'white' ? '!bg-white' : '!bg-red')}`}`}
                 aria-label={`Go to slide ${idx() + 1}`}
               ></button>
             )}

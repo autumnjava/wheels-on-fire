@@ -13,7 +13,7 @@ export const AboutUs = () => {
 
   return (
     <>
-      <hr class="border-red" />
+      <hr />
 
       <div class="mt-8">
         <h1 class="text-outline relative block pl-4 text-headingXXXL uppercase tracking-wider">

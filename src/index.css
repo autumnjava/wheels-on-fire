@@ -50,6 +50,10 @@ body {
   background-color: #eee;
 }
 
+nav a {
+  text-decoration-thickness: 1px;
+}
+
 p {
   font-family: AndaleMono, sans-serif;
   font-size: 1.0625rem;
@@ -74,6 +78,12 @@ h5 {
   font-family: Futura-CondensedMedium, Futura, sans-serif;
 }
 
+hr {
+  border-top: 0.3px solid;
+  border-color: #d40e1d;
+  display: block;
+}
+
 .frostedBackground {
   backdrop-filter: blur(0.71rem);
   -webkit-backdrop-filter: blur(0.71rem);
@@ -94,7 +104,7 @@ h5 {
 }
 
 button {
-  font-size: 20px;
+  font-size: 17px;
   font-family: Futura-CondensedMedium, Futura, sans-serif;
   line-height: 120%;
   text-transform: uppercase;
@@ -160,13 +170,8 @@ label {
   margin: 0 5px;
   border-radius: 50%;
   background-color: transparent;
-  border: 1px solid white;
   display: inline-block;
   cursor: pointer;
-}
-
-.dot.active {
-  background-color: #fff;
 }
 
 .testi-container {
@@ -201,7 +206,7 @@ label {
 
 .transparent-overlay {
   background-color: rgba(255, 255, 255, 0.4);
-  
+
   @media screen and (min-width: 768px) {
     background-color: transparent;
   }
@@ -274,7 +279,7 @@ label {
     --headingXXL: 4rem;
     --headingXL: 3.125rem;
     --headingL: 1.875rem;
-    --headingM: 1.5rem;
+    --headingM: 1.45rem;
     --headingS: 1.25rem;
   }
 }

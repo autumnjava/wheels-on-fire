@@ -38,13 +38,13 @@ export const Footer = () => {
         </div>
 
         <div class={clsx('mx-auto max-w-[208px]', columnStyle)}>
-          <hr class="mx-auto h-px w-[50%] border-0 bg-gray" />
+          <hr class="mx-auto w-[50%] border-gray" />
           <p class="text-center font-futuraMedium">
             <span class="font-futura font-bold text-red">WHEELS ON FIRE </span>{' '}
             is a MTB guide & shuttle company based in the island of São Miguel,
             Azores
           </p>
-          <hr class="mx-auto h-px w-[50%] border-0 bg-gray" />
+          <hr class="mx-auto w-[50%] border-gray" />
         </div>
 
         <div class={clsx('mx-auto max-w-[143px]', columnStyle)}>
@@ -57,13 +57,13 @@ export const Footer = () => {
             </A>
           </div>
 
-          <hr class="mx-auto h-px w-[50%] border-0 bg-gray" />
+          <hr class="mx-auto w-[33%] border-gray" />
 
           <p class="font-futuraMedium text-[13px]">
             ART DIRECTION & DESIGN BY JULIANA CORTES
           </p>
 
-          <hr class="mx-auto h-px w-[33%] border-0 bg-gray-200 dark:bg-gray-700" />
+          <hr class="mx-auto w-[33%] border-gray" />
 
           <p class="font-futuraMedium text-[12px]">© WHEELS ON FIRE | 2024</p>
         </div>

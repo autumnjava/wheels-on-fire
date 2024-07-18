@@ -44,7 +44,7 @@ export const Header = () => {
           </A>
         </div>
 
-        <hr class="hidden border-red md:block" />
+        <hr class="hidden md:block" />
       </header>
       <nav
         class={clsx(

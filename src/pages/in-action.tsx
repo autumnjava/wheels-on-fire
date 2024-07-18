@@ -3,7 +3,7 @@ import { Button } from '../components/button';
 export const InAction = () => {
   return (
     <>
-      <hr class="border-red" />
+      <hr />
 
       <div class="container mx-auto mt-6 px-4 text-center">
         <h1 class="text-outline relative block pl-4 text-headingXXXL tracking-wider">
@@ -17,11 +17,11 @@ export const InAction = () => {
         </h2>
       </div>
 
-      <hr class="my-8 border-red" />
+      <hr class="my-8" />
 
       <div class="text-center font-futuraMedium">Content coming soon</div>
 
-      <hr class="my-8 border-red" />
+      <hr class="my-8" />
 
       <div class="container mx-auto mb-6 mt-16 text-center">
         <h2 class="font-futuraExtraBold text-headingXL font-bold uppercase">

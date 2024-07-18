@@ -1,4 +1,4 @@
-import { toHTML, uriLooksSafe } from '@portabletext/to-html';
+import { toHTML } from '@portabletext/to-html';
 import urlBuilder from '@sanity/image-url';
 import { createResource } from 'solid-js';
 import { client } from '../utils/sanity/client';
@@ -72,7 +72,7 @@ export const BlogPost = () => {
         </div>
       </div>
 
-      <hr class="my-8 border-red" />
+      <hr />
 
       <div class="text-center">
         {content()?.map((post: any) => (

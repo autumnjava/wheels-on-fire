@@ -38,8 +38,14 @@ const config: Config = {
       fontSize: {
         navMenu: ['var(--navMenu)', { lineHeight: '120%' }],
         heroHeading: ['var(--heroHeading)', { lineHeight: '120%' }],
-        headingWhatWeOffer: ['var(--headingWhatWeOffer)', { lineHeight: '120%' }],
-        headingWhatWeOfferSub: ['var(--headingWhatWeOfferSub)', { lineHeight: '100%' }],
+        headingWhatWeOffer: [
+          'var(--headingWhatWeOffer)',
+          { lineHeight: '120%' },
+        ],
+        headingWhatWeOfferSub: [
+          'var(--headingWhatWeOfferSub)',
+          { lineHeight: '100%' },
+        ],
         heroHeadingXL: ['var(--heroHeadingXL)', { lineHeight: '120%' }],
         headingXXXL: ['var(--headingXXXL)', { lineHeight: '100%' }],
         headingXXL: ['var(--headingXXL)', { lineHeight: '100%' }],
@@ -47,6 +53,9 @@ const config: Config = {
         headingL: ['var(--headingL)', { lineHeight: '110%' }],
         headingM: ['var(--headingM)', { lineHeight: '140%' }],
         headingS: ['var(--headingS)', { lineHeight: '120%' }],
+      },
+      borderWidth: {
+        DEFAULT: '0.3px',
       },
     },
   },

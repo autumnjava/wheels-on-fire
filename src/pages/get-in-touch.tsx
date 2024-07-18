@@ -1,10 +1,10 @@
 import emailjs from '@emailjs/browser';
 import { A } from '@solidjs/router';
+import clsx from 'clsx';
 import { For, Show, createSignal, onMount } from 'solid-js';
+import { ExpandableContainer } from '../components/expandable-container';
 import { InstagramIcon } from '../components/icons-library/social-media/instagram';
 import { YoutubeIcon } from '../components/icons-library/social-media/youtube';
-import { ExpandableContainer } from '../components/expandable-container';
-import clsx from 'clsx';
 
 export const GetInTouch = () => {
   const [firstName, setFirstName] = createSignal('');
@@ -59,7 +59,7 @@ export const GetInTouch = () => {
 
   return (
     <>
-      <hr class="border-red" />
+      <hr />
 
       <div class="container mx-auto mt-6 px-4 text-center">
         <h1 class="black-text-outline text-headingXXXL tracking-wider text-red">
@@ -185,7 +185,7 @@ export const GetInTouch = () => {
             </div>
           </Show>
         </div>
-        <hr class="border-red" />
+        <hr />
 
         <div class="mx-auto my-8 p-4 pt-12 text-center md:mb-0 md:mt-32 md:w-[35%] md:pt-4">
           <h3 class="font-futuraExtraBold text-headingXL uppercase">

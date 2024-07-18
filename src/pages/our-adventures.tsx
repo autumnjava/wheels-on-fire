@@ -3,7 +3,7 @@ import { Button } from '../components/button';
 export const OurAdventures = () => {
   return (
     <>
-      <hr class="border-red" />
+      <hr />
 
       <div class="container mx-auto mt-6 px-4">
         <div class="flex items-start">
@@ -19,7 +19,7 @@ export const OurAdventures = () => {
         </h1>
       </div>
 
-      <hr class="my-8 border-red" />
+      <hr class="my-8" />
 
       <div class="container mx-auto flex flex-col px-4 sm:flex-row">
         <div class="h-[300px] w-full bg-black sm:h-[328px] sm:w-[525px]"></div>
@@ -32,7 +32,7 @@ export const OurAdventures = () => {
             In the winter of 2020, we went all the way from Switzerland to
             Mauritania to ride a freight train that crosses the desert.
           </p>
-          <hr class="mx-auto my-8 h-px w-[5%] border-0 bg-red sm:mx-0" />
+          <hr class="mx-auto my-8 w-[5%] sm:mx-0" />
           <h4 class="!normal-case">Film & Photos by us.</h4>
         </div>
       </div>
