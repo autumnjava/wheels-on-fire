@@ -281,13 +281,13 @@ export const WhatWeOffer = () => {
 
       <hr />
 
-      <div class="my-16 w-full text-center">
-        <div class=" p-4 pt-12 md:m-4 md:pt-4">
+      <div class="mt-16 w-full text-center">
+        <div class="px-4 pt-12">
           <h3 class="font-futuraExtraBold text-headingXL uppercase">
             Do you just want to rent bikes? <br /> Or shuttle?
           </h3>
 
-          <Button url="/get-in-touch" customClass="block mx-auto my-4">
+          <Button url="/get-in-touch" customClass="block mx-auto mt-4">
             Get in touch
           </Button>
         </div>
