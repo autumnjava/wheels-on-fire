@@ -47,6 +47,7 @@ const config: Config = {
           { lineHeight: '100%' },
         ],
         heroHeadingXL: ['var(--heroHeadingXL)', { lineHeight: '120%' }],
+        headingXXXL2: ['var(--headingXXXL2)', { lineHeight: '100%' }],
         headingXXXL: ['var(--headingXXXL)', { lineHeight: '100%' }],
         headingXXL: ['var(--headingXXL)', { lineHeight: '100%' }],
         headingXL: ['var(--headingXL)', { lineHeight: '100%' }],

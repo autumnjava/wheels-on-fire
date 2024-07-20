@@ -234,6 +234,7 @@ label {
   --headingWhatWeOffer: 3.8rem; /* 60px */
   --headingWhatWeOfferSub: 1.4rem;
 
+  --headingXXXL2: 3.8rem;
   --headingXXXL: 3.8rem;
   --headingXXL: 2.25rem;
   --headingXL: 1.6625rem;
@@ -251,6 +252,7 @@ label {
 
     --headingWhatWeOffer: 120px;
     --headingWhatWeOfferSub: 1.4rem;
+    --headingXXXL2: 5rem;
     --headingXXXL: 6rem;
     --headingXXL: 3rem;
     --headingXL: 2.25rem;
@@ -262,6 +264,7 @@ label {
 
 @media screen and (min-width: 768px) {
   #root {
+    --headingXXXL2: 6rem;
     --heroHeadingXL: 4rem;
     --headingWhatWeOfferSub: 1.25rem;
   }
@@ -275,6 +278,7 @@ label {
 
     --headingWhatWeOffer: 180px;
     --headingWhatWeOfferSub: 1.6rem;
+    --headingXXXL2: 8rem;
     --headingXXXL: 12rem;
     --headingXXL: 4rem;
     --headingXL: 3.125rem;
@@ -287,6 +291,7 @@ label {
 /* xl */
 @media screen and (min-width: 1280px) {
   #root {
+    --headingXXXL2: 10rem;
     --heroHeadingXL: 7rem;
   }
 }

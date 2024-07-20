@@ -62,7 +62,7 @@ export const GetInTouch = () => {
       <hr />
 
       <div class="container mx-auto mt-6 px-4 text-center">
-        <h1 class="black-text-outline text-headingXXXL tracking-wider text-red">
+        <h1 class="black-text-outline text-headingXXXL2 tracking-wider text-red mb-2">
           Get in touch
         </h1>
 
@@ -94,7 +94,7 @@ export const GetInTouch = () => {
       >
         <div class="flex flex-col justify-center p-4 pt-12 md:m-4 md:pt-4">
           <form onSubmit={handleSubmit} class="mx-auto w-full lg:w-[931px]">
-            <div class="sm:flex sm:justify-between">
+            <div class="lg:flex lg:justify-between">
               <div>
                 <label for="name">Name:</label>
                 <div class="flex">
