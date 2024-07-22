@@ -139,7 +139,7 @@ export const WhatWeOffer = () => {
             or dynamism thanks to a specific insert.
           </h4>
 
-          <Button url="/get-in-touch" customClass="block mx-auto !my-8">
+          <Button url="https://www.commencal.com/us/en/commencal-clash-ride-dirt-new-rockshox/22CLASHRIRS.html" customClass="block mx-auto !my-8">
             Check more here
           </Button>
         </div>

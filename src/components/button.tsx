@@ -10,10 +10,16 @@ type SliderProps = {
 
 export const Button = (props: SliderProps) => {
   const navigate = useNavigate();
-
+  const handleClick = () => {
+    if (props.url.startsWith('http')) {
+      window.location.href = props.url;
+    } else {
+      navigate(props.url);
+    }
+  };
   return (
     <button
-      onClick={() => navigate(props.url)}
+      onClick={handleClick}
       class={clsx(
         'mt-8 bg-red px-[13px] py-[9px] text-white',
         props.customClass
