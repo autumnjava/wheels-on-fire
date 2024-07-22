@@ -88,7 +88,6 @@ hr {
   backdrop-filter: blur(0.71rem);
   -webkit-backdrop-filter: blur(0.71rem);
   background: rgba(238, 238, 238, 0.3);
-  border-radius: 0 0 1rem 1rem;
 }
 
 .what-we-offer p {
@@ -180,25 +179,27 @@ label {
   padding-left: 0px;
   background-clip: content-box;
   background-repeat: no-repeat;
+}
 
-  @media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
+  .testi-container {
     padding-top: 18px;
     padding-left: 176px;
   }
 
-  @media screen and (min-width: 1024px) {
-    padding-top: 25px;
-    padding-left: 256px;
-  }
-}
-
-.testi-content {
-  @media screen and (min-width: 768px) {
+  .testi-content {
     margin-top: -18px;
     margin-left: -176px;
   }
+}
 
-  @media screen and (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
+  .testi-container {
+    padding-top: 25px;
+    padding-left: 256px;
+  }
+
+  .testi-content {
     margin-top: -25px;
     margin-left: -256px;
   }
@@ -206,8 +207,10 @@ label {
 
 .transparent-overlay {
   background-color: rgba(255, 255, 255, 0.4);
+}
 
-  @media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
+  .transparent-overlay {
     background-color: transparent;
   }
 }
@@ -283,7 +286,7 @@ label {
     --headingXXL: 4rem;
     --headingXL: 3.125rem;
     --headingL: 1.875rem;
-    --headingM: 1.50rem;
+    --headingM: 1.5rem;
     --headingS: 1.25rem;
   }
 }

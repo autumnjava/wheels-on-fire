@@ -47,14 +47,13 @@ export const Header = () => {
         <hr class="hidden md:block" />
       </header>
       <nav
-        class={clsx(
-          'sticky top-0 z-10 hidden items-center justify-between  py-6 text-red md:container md:mx-auto md:flex md:w-full md:justify-between md:px-8',
-          {
-            'frostedBackground !py-4': floatHeader(),
-          }
-        )}
+        class={clsx('sticky top-0 z-10 hidden py-6 md:block', {
+          'frostedBackground !py-4': floatHeader(),
+        })}
       >
-        <NavLinks />
+        <div class="items-center justify-between text-red md:container md:mx-auto md:flex md:w-full md:justify-between md:px-8">
+          <NavLinks />
+        </div>
       </nav>
 
       <div ref={headerRef} />
