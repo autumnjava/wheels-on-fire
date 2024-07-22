@@ -15,7 +15,7 @@ export const WhatWeOffer = () => {
   const halfDay = () => (
     <>
       <div class="what-we-offer my-4">
-        <p>Guided tour</p>
+        <p>- Guided tour</p>
         <p>- Shuttle Service</p>
         <p>- Pick up - Drop off</p>
         <br />
@@ -28,7 +28,7 @@ export const WhatWeOffer = () => {
         <p class="ml-2">* Max. 3 ppl</p>
       </div>
       <div class="what-we-offer-red">
-        <p class="text-red">* P/rider - 75€</p>
+        <p class="text-red">* P/rider - 65€</p>
         <p class="text-red">* Bike Rental - 55€</p>
       </div>
     </>
@@ -37,7 +37,7 @@ export const WhatWeOffer = () => {
   const fullDay = () => (
     <>
       <div class="what-we-offer my-4">
-        <p>Guided tour</p>
+        <p>- Guided tour</p>
         <p>- Shuttle Service</p>
         <p>- Pick up - Drop off</p>
         <br />
@@ -51,7 +51,7 @@ export const WhatWeOffer = () => {
       </div>
 
       <div class="what-we-offer-red">
-        <p class="text-red">* P/rider - 95€</p>
+        <p class="text-red">* P/rider - 85€</p>
         <p class="text-red">* Bike Rental - 75€</p>
       </div>
     </>
