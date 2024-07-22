@@ -243,11 +243,11 @@ export const WhatWeOffer = () => {
         </Button>
       </ExpandableContainer>
 
-      <div class="my-16 w-full border-t border-red text-center">
+      <div class="my-16 w-full border-t border-red flex flex-col">
         <div class="w-[fit-content] bg-red px-4 py-2 font-futuraMedium text-headingM uppercase leading-[27px] text-white">
           Customize your trip
         </div>
-        <div class="mx-auto max-w-[620px] p-4 pt-12 md:pt-8 [&>*]:my-2">
+        <div class="mx-auto max-w-[620px] p-4 pt-12 text-center md:pt-8 [&>*]:my-2">
           <h3 class="font-futuraExtraBold text-headingXL uppercase">
             Do you want us to customize your trip?
           </h3>
@@ -258,8 +258,11 @@ export const WhatWeOffer = () => {
           <p class="font-futuraMedium text-headingL">
             * Ride will be adjusted to your needs & skills*
           </p>
+        </div>
+
+        <div class="self-center">
           <p class="font-futuraMedium text-headingM text-red">* Min 1 day</p>
-          <Button url="/get-in-touch" customClass="block mx-auto !my-8">
+          <Button url="/get-in-touch" customClass="block !my-8">
             Get in touch
           </Button>
         </div>

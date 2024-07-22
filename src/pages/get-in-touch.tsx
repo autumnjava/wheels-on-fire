@@ -62,7 +62,7 @@ export const GetInTouch = () => {
       <hr />
 
       <div class="container mx-auto mt-6 px-4 text-center">
-        <h1 class="black-text-outline text-headingXXXL2 tracking-wider text-red mb-2">
+        <h1 class="black-text-outline text-headingXXXL2 mb-2 tracking-wider text-red">
           Get in touch
         </h1>
 

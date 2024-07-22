@@ -239,7 +239,7 @@ label {
   --headingXXL: 2.25rem;
   --headingXL: 1.6625rem;
   --headingL: 1.35rem;
-  --headingM: 1.125rem;
+  --headingM: 1.325rem;
   --headingS: 0.90625rem;
 }
 
@@ -257,7 +257,7 @@ label {
     --headingXXL: 3rem;
     --headingXL: 2.25rem;
     --headingL: 1.625rem;
-    --headingM: 1.28125rem;
+    --headingM: 1.4rem;
     --headingS: 1.0625rem;
   }
 }
@@ -283,7 +283,7 @@ label {
     --headingXXL: 4rem;
     --headingXL: 3.125rem;
     --headingL: 1.875rem;
-    --headingM: 1.45rem;
+    --headingM: 1.50rem;
     --headingS: 1.25rem;
   }
 }
