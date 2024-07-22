@@ -3,8 +3,9 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Futura-CondensedExtraBold', Futura, sans-serif;
-  src: url('./fonts/Futura.ttc');
+  font-family: 'Futura-CondensedExtraBold';
+  src: url('./fonts/Futura-Condensed-Extra-Bold.otf') format('opentype');
+  font-weight: 400;
   font-display: swap;
   font-style: normal;
   font-stretch: condensed;
@@ -67,7 +68,6 @@ p {
 
 h1 {
   font-family: Futura-CondensedExtraBold, Futura, sans-serif;
-  font-weight: 700;
   text-transform: uppercase;
 }
 

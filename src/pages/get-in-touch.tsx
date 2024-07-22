@@ -66,7 +66,7 @@ export const GetInTouch = () => {
           Get in touch
         </h1>
 
-        <h2 class="mx-auto max-w-[828px] text-headingL">
+        <h2 class="mx-auto text-headingL">
           To make the most of your trip, for bookings and other questions,
           <br />
           please send us an email:{' '}

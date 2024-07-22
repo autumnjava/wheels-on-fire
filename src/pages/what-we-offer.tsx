@@ -22,7 +22,7 @@ export const WhatWeOffer = () => {
         <p>3-4 hrs</p>
       </div>
 
-      <div class="what-we-offer-red my-4 flex justify-center text-center text-red">
+      <div class="what-we-offer-red my-4 flex justify-center whitespace-nowrap text-center text-red">
         <p>* Min. 2 ppl</p>
         <p class="ml-2">|</p>
         <p class="ml-2">* Max. 3 ppl</p>
@@ -44,7 +44,7 @@ export const WhatWeOffer = () => {
         <p>5-6 hrs</p>
       </div>
 
-      <div class="what-we-offer-red my-4 flex justify-center text-center text-red">
+      <div class="what-we-offer-red my-4 flex justify-center whitespace-nowrap text-center text-red">
         <p>* Min. 2 ppl</p>
         <p class="ml-2">|</p>
         <p class="ml-2">* Max. 3 ppl</p>
@@ -70,7 +70,7 @@ export const WhatWeOffer = () => {
         <p>- Pick up - Drop off</p>
       </div>
 
-      <div class="what-we-offer-red my-4 flex justify-center text-center text-red">
+      <div class="what-we-offer-red my-4 flex justify-center whitespace-nowrap text-center text-red">
         <p>* Min. 2 ppl</p>
         <p class="ml-2">|</p>
         <p class="ml-2">* Max. 3 ppl</p>
@@ -166,7 +166,7 @@ export const WhatWeOffer = () => {
         <div class="w-[fit-content] bg-red px-4 py-2 font-futuraMedium text-headingM uppercase leading-[27px] text-white">
           What we offer
         </div>
-        <div class="mx-auto p-4 pt-12 md:max-w-[1042px] md:pt-8">
+        <div class="mx-auto p-4 pt-12 md:pt-8">
           <h3 class="font-futuraExtraBold text-headingXL uppercase leading-[85px]">
             What's included
           </h3>
@@ -184,8 +184,8 @@ export const WhatWeOffer = () => {
           </p>
         </div>
 
-        <div class="mx-auto mt-8 hidden max-w-[1042px] justify-between text-center md:flex">
-          <div class="mx-8">
+        <div class="mx-auto mt-8 hidden max-w-[1100px] justify-between text-center md:flex">
+          <div class="mx-4">
             <div class="mx-auto w-[fit-content] bg-red px-4 py-2 uppercase text-white">
               <h4 class="font-futuraMedium text-headingS uppercase">
                 Half day
@@ -195,7 +195,7 @@ export const WhatWeOffer = () => {
             {halfDay()}
           </div>
 
-          <div class="mx-8">
+          <div class="mx-4">
             <div class="mx-auto w-[fit-content] bg-red px-4 py-2 uppercase text-white">
               <h4 class="font-futuraMedium text-headingS uppercase">
                 Full day
@@ -204,7 +204,7 @@ export const WhatWeOffer = () => {
             {fullDay()}
           </div>
 
-          <div class="mx-8">
+          <div class="mx-4">
             <div class="mx-auto w-[fit-content] bg-red px-4 py-2 uppercase text-white">
               <h4 class="font-futuraMedium text-headingS uppercase">1 day +</h4>
             </div>
@@ -243,7 +243,7 @@ export const WhatWeOffer = () => {
         </Button>
       </ExpandableContainer>
 
-      <div class="my-16 w-full border-t border-red flex flex-col">
+      <div class="my-16 flex w-full flex-col border-t border-red">
         <div class="w-[fit-content] bg-red px-4 py-2 font-futuraMedium text-headingM uppercase leading-[27px] text-white">
           Customize your trip
         </div>
