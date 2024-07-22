@@ -184,7 +184,7 @@ export const WhatWeOffer = () => {
           </p>
         </div>
 
-        <div class="mx-auto mt-8 hidden max-w-[1100px] justify-between text-center md:flex">
+        <div class="mx-auto mt-8 hidden max-w-[1400px] justify-between text-center lg:flex">
           <div class="mx-4">
             <div class="mx-auto w-[fit-content] bg-red px-4 py-2 uppercase text-white">
               <h4 class="font-futuraMedium text-headingS uppercase">
@@ -221,21 +221,21 @@ export const WhatWeOffer = () => {
         </div>
       </div>
 
-      <ExpandableContainer heading="half day" customCss="block md:hidden">
+      <ExpandableContainer heading="half day" customCss="block lg:hidden">
         {halfDay()}
 
         <Button url="/get-in-touch" customClass="block mx-auto my-4">
           Get in touch
         </Button>
       </ExpandableContainer>
-      <ExpandableContainer heading="full day" customCss="block md:hidden">
+      <ExpandableContainer heading="full day" customCss="block lg:hidden">
         {fullDay()}
 
         <Button url="/get-in-touch" customClass="block mx-auto my-4">
           Get in touch
         </Button>
       </ExpandableContainer>
-      <ExpandableContainer heading="1 day +" customCss="block md:hidden">
+      <ExpandableContainer heading="1 day +" customCss="block lg:hidden">
         {oneDayPlus()}
 
         <Button url="/get-in-touch" customClass="block mx-auto my-4">

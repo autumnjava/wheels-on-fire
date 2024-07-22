@@ -11,7 +11,7 @@ export const Footer = () => {
   const columnStyle = 'flex flex-col justify-evenly [&>*]:my-2';
   return (
     <footer class="mt-auto w-full items-center bg-black text-center text-white">
-      <div class="container mx-auto py-4 md:grid md:grid-cols-footer">
+      <div class="lg:container mx-auto py-4 md:grid md:grid-cols-footer">
         <div class="w-auto content-center">
           <A href="/">
             <img
@@ -21,13 +21,13 @@ export const Footer = () => {
             />
           </A>
         </div>
-        <div class={clsx('mx-auto max-w-[420px] xl:ml-[100px]', columnStyle)}>
+        <div class={clsx('mx-auto max-w-[420px]', columnStyle)}>
           <p class="font-andaleMonoBold text-[15px] leading-[26px]">
             MTB TOURS SÃO MIGUEL AZORES
           </p>
 
           <nav class="flex flex-wrap justify-center">
-            <NavLinks linkClass="text-nowrap pr-[28px] font-futuraExtraBold uppercase text-white text-headingS leading-[28px] no-underline" />
+            <NavLinks linkClass="text-nowrap px-[14px] font-futuraExtraBold uppercase text-white leading-[28px] no-underline" />
           </nav>
           <div class="font-futuraMedium text-[15px] uppercase leading-[26px]">
             <A class="mr-4 " href="#">

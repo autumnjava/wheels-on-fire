@@ -231,7 +231,7 @@ label {
 /* CSS Variables */
 /* Mobile */
 #root {
-  --navMenu: 2rem;
+  --navMenu: 0.90625rem;
   --heroHeading: 3.2rem;
   --heroHeadingXL: 3rem;
   --headingWhatWeOffer: 3.8rem; /* 60px */
@@ -267,6 +267,8 @@ label {
 
 @media screen and (min-width: 768px) {
   #root {
+    --navMenu: 1rem;
+
     --headingXXXL2: 6rem;
     --heroHeadingXL: 4rem;
     --headingWhatWeOfferSub: 1.25rem;

@@ -1,5 +1,6 @@
 import { A } from '@solidjs/router';
 import { navLinks } from '../utils/constants';
+import clsx from 'clsx';
 
 type NavProps = {
   linkClass?: string;
@@ -11,10 +12,10 @@ export const NavLinks = (props: NavProps) => {
     return (
       <A
         href={item.href}
-        class={
-          props.linkClass ||
-          'font-futuraExtraBold text-navMenu font-bold uppercase'
-        }
+        class={clsx(
+          'font-futuraExtraBold text-navMenu font-bold uppercase',
+          props.linkClass
+        )}
         activeClass="underline underline-offset-[6px]"
         onClick={() => props.toggleMenu && props.toggleMenu()}
       >

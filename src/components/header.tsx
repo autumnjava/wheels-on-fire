@@ -52,7 +52,7 @@ export const Header = () => {
         })}
       >
         <div class="items-center justify-between text-red md:container md:mx-auto md:flex md:w-full md:justify-between md:px-8">
-          <NavLinks />
+          <NavLinks linkClass='!text-headingS' />
         </div>
       </nav>
 

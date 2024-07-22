@@ -65,7 +65,7 @@ export const MobileMenu = () => {
 
           <div class="overflow-y-hidden">
             <nav class="my-8 grid gap-4 px-4 text-center">
-              <NavLinks toggleMenu={toggleMenu} />
+              <NavLinks toggleMenu={toggleMenu} linkClass='!text-[2rem]' />
             </nav>
           </div>
         </div>
