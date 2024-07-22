@@ -143,7 +143,7 @@ export const WhatWeOffer = () => {
       <hr />
 
       <div class="my-16 flex justify-center text-center">
-        <div class="mx-4">
+        <div class="mx-8">
           <p class="font-futuraMedium text-[40px] uppercase leading-[60px] text-red">
             M
           </p>
@@ -152,7 +152,7 @@ export const WhatWeOffer = () => {
           </p>
         </div>
 
-        <div class="mx-4">
+        <div class="mx-8">
           <p class="font-futuraMedium text-[40px] uppercase leading-[60px] text-red">
             L
           </p>
