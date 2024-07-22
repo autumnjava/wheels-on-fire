@@ -77,23 +77,23 @@ export const Slider = (componentProps: SliderProps) => {
 
           function nextTimeout() {
             clearTimeout(timeout);
-            if (mouseOver || !props.autoplay) return;
-            timeout = window.setTimeout(() => {
-              slider.next();
-            }, 2000);
+            if (props.autoplay) {
+              timeout = window.setTimeout(() => {
+                slider.next();
+              }, 2000);
+            }
           }
 
           slider.on('created', () => {
-            slider.container.addEventListener('mouseover', () => {
-              mouseOver = true;
-              clearNextTimeout();
-            });
+            // slider.container.addEventListener('mouseover', () => {
+            //   mouseOver = true;
+            //   clearNextTimeout();
+            // });
 
-            slider.container.addEventListener('mouseout', () => {
-              mouseOver = false;
-              nextTimeout();
-            });
-
+            // slider.container.addEventListener('mouseout', () => {
+            //   mouseOver = false;
+            //   nextTimeout();
+            // });
             nextTimeout();
           });
 

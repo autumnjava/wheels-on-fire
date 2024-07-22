@@ -111,7 +111,12 @@ export const WhatWeOffer = () => {
           The beasts
         </div>
         <div class="p-2 pt-12 md:m-8 md:pt-4">
-          <Slider controls={true} slidesPerView={1} dotsColor="red">
+          <Slider
+            controls={true}
+            slidesPerView={1}
+            dotsColor="red"
+            autoplay={true}
+          >
             <BikeSlide image={imageBike1} />
             <BikeSlide image={imageBike2} />
             <BikeSlide image={imageBike3} />
