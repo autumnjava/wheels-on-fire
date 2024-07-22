@@ -196,12 +196,12 @@ label {
 @media screen and (min-width: 1024px) {
   .testi-container {
     padding-top: 25px;
-    padding-left: 256px;
+    padding-left: 257px;
   }
 
   .testi-content {
     margin-top: -25px;
-    margin-left: -256px;
+    margin-left: -257px;
   }
 }
 
