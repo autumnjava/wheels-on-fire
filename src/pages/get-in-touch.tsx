@@ -3,8 +3,11 @@ import { A } from '@solidjs/router';
 import clsx from 'clsx';
 import { For, Show, createSignal, onMount } from 'solid-js';
 import { ExpandableContainer } from '../components/expandable-container';
+
+// icons
 import { InstagramIcon } from '../components/icons-library/social-media/instagram';
 import { YoutubeIcon } from '../components/icons-library/social-media/youtube';
+import whatsAppIcon from '../components/data/whatsapp.png';
 
 export const GetInTouch = () => {
   const [firstName, setFirstName] = createSignal('');
@@ -63,6 +66,14 @@ export const GetInTouch = () => {
     <>
       <hr />
 
+      <a aria-label="Chat on WhatsApp" href="https://wa.me/351915797870">
+        <img
+          src={whatsAppIcon}
+          width={100}
+          class="fixed bottom-6 right-6 z-10"
+        />
+      </a>
+
       <div class="container mx-auto mt-6 px-4 text-center">
         <h1 class="black-text-outline text-headingXXXL2 mb-2 tracking-wider text-red">
           Get in touch
@@ -76,9 +87,8 @@ export const GetInTouch = () => {
           <a aria-label="Chat on WhatsApp" href="https://wa.me/351915797870">
             <span class="text-red">+351 915 797 870</span>
           </a>
-          , email:{' '}
-          <span class="text-red">info@wheelsonfireazores.com</span> or fill the{' '}
-          <span class="text-red">contact form</span> below.
+          , email: <span class="text-red">info@wheelsonfireazores.com</span> or
+          fill the <span class="text-red">contact form</span> below.
         </h2>
       </div>
 
