@@ -1,12 +1,15 @@
 import { useParams } from '@solidjs/router';
-import { Button } from '../components/button';
 import { NotFound } from './not-found';
 
-export const InActionBlogPost = () => {
+export const BlogPost = () => {
   const params = useParams();
 
   if (params.slug === 'bikepacking-in-the-azores')
-    return <>what we get herebro?</>;
+    return (
+      <div class="my-8 text-center">
+        <h1>Bikepacking in the azores</h1>
+      </div>
+    );
   else {
     return <NotFound />;
   }

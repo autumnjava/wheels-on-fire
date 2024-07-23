@@ -3,7 +3,7 @@ import urlBuilder from '@sanity/image-url';
 import { createResource } from 'solid-js';
 import { client } from '../utils/sanity/client';
 
-export const BlogPost = () => {
+export const SanityBlogPost = () => {
   const fetchContent = async () => {
     const CONTENT_QUERY = `*[_type == "post"] {
       ...,
