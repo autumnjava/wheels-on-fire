@@ -20,6 +20,8 @@ export const GetInTouch = () => {
     { value: 'fullDay', label: 'Full day' },
     { value: 'oneDayPlus', label: '1 day +' },
     { value: 'privateGuidedTour', label: 'Private guided tour' },
+    { value: 'bikeRental', label: 'Bike rental' },
+    { value: 'shuttle', label: 'Shuttle' },
   ];
 
   const handleSubmit = async (event: any) => {
@@ -68,8 +70,9 @@ export const GetInTouch = () => {
 
         <h2 class="mx-auto text-headingL">
           To make the most of your trip, for bookings and other questions,
+          please contact us on
           <br />
-          please send us an email:{' '}
+          WhatsApp: <a aria-label="Chat on WhatsApp" href="https://wa.me/351915797870"><span class="text-red">+351 915 797 870</span></a>, email:
           <span class="text-red">info@wheelsonfireazores.com</span> or fill the{' '}
           <span class="text-red">contact form</span> below.
         </h2>
