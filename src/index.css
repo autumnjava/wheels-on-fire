@@ -264,7 +264,7 @@ label {
   #root {
     --navMenu: 1.25rem;
     --heroHeading: 4rem;
-    --heroHeadingXL: 8vw;
+    --heroHeadingXL: 8.4vw;
 
     --headingWhatWeOffer: 120px;
     --headingWhatWeOfferSub: 1.4rem;
@@ -292,7 +292,8 @@ label {
 @media screen and (min-width: 1024px) {
   #root {
     --heroHeading: 7rem;
-    /* --heroHeadingXL: 5.6rem; */
+    --heroHeadingXL: 8.8vw;
+
 
     --headingWhatWeOffer: 180px;
     --headingWhatWeOfferSub: 1.6rem;
