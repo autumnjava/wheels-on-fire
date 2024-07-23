@@ -39,6 +39,7 @@ const config: Config = {
       fontSize: {
         navMenu: ['var(--navMenu)', { lineHeight: '120%' }],
         heroHeading: ['var(--heroHeading)', { lineHeight: '120%' }],
+        headingAboutUs: ['var(--headingAboutUs)', { lineHeight: '100%' }],
         headingWhatWeOffer: [
           'var(--headingWhatWeOffer)',
           { lineHeight: '120%' },
@@ -58,6 +59,10 @@ const config: Config = {
       },
       borderWidth: {
         DEFAULT: '0.3px',
+      },
+      screens: {
+        'wider': '900px',
+        
       },
     },
   },

@@ -15,68 +15,98 @@ export const AboutUs = () => {
     <>
       <hr />
       <div class="mt-8">
-          <h1 class="text-outline relative z-10 text-headingXXXL uppercase tracking-wider">
-            About us
-          </h1>
-        <div class="flex gap-12">
-          <div class="w-1/2  sm:mt-[-58px]">
+        <h1 class="text-outline relative z-10 text-headingAboutUs uppercase tracking-wider">
+          About us
+        </h1>
+        <div class="flex gap-4">
+          <div class="mt-[-20px] w-[60%] sm:mt-[-30px] md:mt-[-30px] md:w-1/2 lg:mt-[-58px]">
             <img src={image1} class="object-cover object-top"></img>
-
-            <div class="px-8 py-4 [&>*]:my-4">
-              <h3 class="max-w-[557px] text-headingL xl:max-w-full">
-                Discovering the islands by bike gave us so much. <br /> You
-                really feel the energy and adrenaline on these islands. Long
-                uphills and magical fast descents ending up by a sea of breaking
-                waves.
-              </h3>
-
-              <p class="max-w-[557px] xl:max-w-full">
-                Now living here, we would like to share this experience with
-                others, both locals and tourists looking beyond comfort but more
-                for a real life experience. Forget the luxury and the five stars
-                we want to offer a more natural and adventurous way of seeing
-                the island. The best way of doing this is by mountain bike and
-                São Miguel has such a big variety of bike trails from beginner
-                to competitive downhill trails all in a mixture of different
-                natural environments.
-              </p>
-
-              <h3 class={clsx('max-w-[557px] text-headingL xl:max-w-full')}>
-                Forget the luxury and the five stars, we want to offer a more
-                natural and adventurous way of seeing the island.
-              </h3>
-            </div>
           </div>
-          <div class="w-1/2 sm:mt-[-58px]">
-            <div class="py-10 [&>*]:my-4">
-              <h2 class="text-headingL leading-[200%]">
-                We discovered the Azores by bike.
-              </h2>
-              <p class="max-w-[620px]">
-                In the spring of 2023 we packed our passion in life and shipped
-                it over to São Miguel - 2 enduro bicycles, 2 surf boards and a
-                bike trailer. Ending up spending 10 weeks biking and sleeping in
-                a tent around 4 islands in the Azores. That was enough, we knew
-                by then that we wanted to move here permanently and become part
-                of the community.
-              </p>
-            </div>
 
+          <div class="mb-1 mt-[-20px] w-[40%] content-center pr-4 sm:mt-[-30px] md:mt-0 md:w-1/2 lg:mt-[-58px]">
+            <h2 class="max-w-[87px]  text-headingL md:max-w-full">
+              We discovered the Azores by bike.
+            </h2>
+
+            <p class="hidden max-w-[620px] leading-[20px] md:block">
+              In the spring of 2023 we packed our passion in life and shipped it
+              over to São Miguel - 2 enduro bicycles, 2 surf boards and a bike
+              trailer. Ending up spending 10 weeks biking and sleeping in a tent
+              around 4 islands in the Azores. That was enough, we knew by then
+              that we wanted to move here permanently and become part of the
+              community.
+            </p>
+          </div>
+        </div>
+
+        <div class="my-8 block px-4 md:hidden">
+          <p class="mx-auto max-w-[90%] leading-[20px] sm:max-w-[560px]">
+            In the spring of 2023 we packed our passion in life and shipped it
+            over to São Miguel - 2 enduro bicycles, 2 surf boards and a bike
+            trailer. Ending up spending 10 weeks biking and sleeping in a tent
+            around 4 islands in the Azores. That was enough, we knew by then
+            that we wanted to move here permanently and become part of the
+            community.
+          </p>
+        </div>
+
+        <div class="wider:mt-[-2vw] flex gap-4 lg:mt-[-4vw] xl:mt-[-8vw]">
+          <div class="w-[40%] content-center pl-4 md:w-1/2">
+            <h3 class="mx-auto max-w-[107px] text-headingL sm:max-w-[208px]  md:max-w-[557px]">
+              Discovering the islands by bike gave us so much. <br /> You really
+              feel the energy and adrenaline on these islands. Long uphills and
+              magical fast descents ending up by a sea of breaking waves.
+            </h3>
+
+            <p class="mx-auto hidden max-w-[557px] md:block">
+              Now living here, we would like to share this experience with
+              others, both locals and tourists looking beyond comfort but more
+              for a real life experience. Forget the luxury and the five stars
+              we want to offer a more natural and adventurous way of seeing the
+              island. The best way of doing this is by mountain bike and São
+              Miguel has such a big variety of bike trails from beginner to
+              competitive downhill trails all in a mixture of different natural
+              environments.
+            </p>
+
+            <h3 class="mx-auto hidden max-w-[557px] text-headingL md:block">
+              Forget the luxury and the five stars, we want to offer a more
+              natural and adventurous way of seeing the island.
+            </h3>
+          </div>
+
+          <div class="w-[60%] md:w-1/2">
             <img
               src={image2}
-              class="w-full object-cover object-top md:h-[600px]"
+              class="h-full w-full object-cover md:h-[600px] xl:h-[650px] 2xl:h-[700px]"
             ></img>
-            <Button url="/what-we-offer" customClass="block mx-auto">
+            <Button url="/what-we-offer" customClass="hidden md:block mx-auto">
               Check our article here
             </Button>
           </div>
         </div>
 
-        <div class="mx-auto my-4 px-8 text-center">
-          {forgetTheLuxury('block sm:hidden')}
+        <div class="my-8 block px-4 md:hidden">
+          <p class="mx-auto max-w-[90%] leading-[20px] sm:max-w-[560px]">
+            Now living here, we would like to share this experience with others,
+            both locals and tourists looking beyond comfort but more for a real
+            life experience. Forget the luxury and the five stars we want to
+            offer a more natural and adventurous way of seeing the island. The
+            best way of doing this is by mountain bike and São Miguel has such a
+            big variety of bike trails from beginner to competitive downhill
+            trails all in a mixture of different natural environments.
+          </p>
         </div>
 
-        <div class="mx-auto my-16 w-[60%] text-center">
+
+        <div class="my-8 block px-4 md:hidden">
+        <h3 class="mx-auto max-w-[557px] text-headingL">
+              Forget the luxury and the five stars, we want to offer a more
+              natural and adventurous way of seeing the island.
+            </h3>
+        </div>
+
+        <div class="mx-auto my-20 w-[60%] text-center">
           <h3 class="font-futuraExtraBold text-headingXL">
             WHOʼS BEHIND WHEELS ON FIRE ?
           </h3>
