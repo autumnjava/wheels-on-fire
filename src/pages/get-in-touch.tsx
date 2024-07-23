@@ -72,8 +72,12 @@ export const GetInTouch = () => {
           To make the most of your trip, for bookings and other questions,
           please contact us on
           <br />
-          WhatsApp: <a aria-label="Chat on WhatsApp" href="https://wa.me/351915797870"><span class="text-red">+351 915 797 870</span></a>, email:
-          <span class="text-red">info@wheelsonfireazores.com</span> or fill the{' '}
+          WhatsApp:
+          <a aria-label="Chat on WhatsApp" href="https://wa.me/351915797870">
+            <span class="text-red">+351 915 797 870</span>
+          </a>
+          , email:
+          <span class="text-red">info@wheelsonfireazores.com</span> or fill the
           <span class="text-red">contact form</span> below.
         </h2>
       </div>
