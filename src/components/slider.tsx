@@ -80,7 +80,7 @@ export const Slider = (componentProps: SliderProps) => {
             if (props.autoplay && !mouseOver) {
               timeout = window.setTimeout(() => {
                 slider.next();
-              }, 2000);
+              }, 4000);
             }
           }
 

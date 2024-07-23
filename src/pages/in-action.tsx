@@ -7,7 +7,7 @@ export const InAction = () => {
 
       <div class="container mx-auto mt-6 px-4 text-center">
         <h1 class="text-outline relative block pl-4 text-headingXXXL tracking-wider">
-          In action
+          In action!
         </h1>
 
         <h2 class="mx-auto max-w-[704px] text-headingL normal-case">

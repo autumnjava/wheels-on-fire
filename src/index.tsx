@@ -17,6 +17,7 @@ import { InAction } from './pages/in-action';
 import { NotFound } from './pages/not-found';
 import { OurAdventures } from './pages/our-adventures';
 import { WhatWeOffer } from './pages/what-we-offer';
+import { InActionBlogPost } from './pages/in-action-blogpost';
 
 const root = document.getElementById('root');
 
@@ -41,6 +42,7 @@ render(
       <Route path="/about-us" component={AboutUs} />
       <Route path="/get-in-touch" component={GetInTouch} />
       <Route path="/in-action" component={InAction} />
+      <Route path="/in-action/:slug" component={InActionBlogPost} />
       <Route path="/our-adventures" component={OurAdventures} />
       <Route path="/what-we-offer" component={WhatWeOffer} />
       <Route path="/blog" component={BlogPost} />

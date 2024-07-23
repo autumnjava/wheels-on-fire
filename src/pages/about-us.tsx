@@ -47,7 +47,7 @@ export const AboutUs = () => {
               </h3>
             </div>
           </div>
-          <div class="w-1/2¨ sm:mt-[-58px]">
+          <div class="w-1/2 sm:mt-[-58px]">
             <div class="py-10 [&>*]:my-4">
               <h2 class="text-headingL leading-[200%]">
                 We discovered the Azores by bike.
