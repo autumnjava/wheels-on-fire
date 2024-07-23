@@ -7,7 +7,7 @@ import { ExpandableContainer } from '../components/expandable-container';
 // icons
 import { InstagramIcon } from '../components/icons-library/social-media/instagram';
 import { YoutubeIcon } from '../components/icons-library/social-media/youtube';
-import whatsAppIcon from '../components/data/whatsapp.png';
+import whatsAppIcon from '../components/data/images/whatsapp.png';
 
 export const GetInTouch = () => {
   const [firstName, setFirstName] = createSignal('');

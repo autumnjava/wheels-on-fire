@@ -5,10 +5,10 @@ import { HeroSlide2 } from '../components/slides/hero/hero-slide-2';
 import { HeroSlide3 } from '../components/slides/hero/hero-slide-3';
 
 // brand logos
-import brand3 from '../components/data/brands/OneUp-Logo-Border-1000px.png';
-import brand4 from '../components/data/brands/chromag-bikes-seeklogo-01.png';
-import brand1 from '../components/data/brands/commencal-logo-vector-01.png';
-import brand2 from '../components/data/brands/poc-sports-logo-vector-01.png';
+import brand3 from '../components/data/images/brands/OneUp-Logo-Border-1000px.png';
+import brand4 from '../components/data/images/brands/chromag-bikes-seeklogo-01.png';
+import brand1 from '../components/data/images/brands/commencal-logo-vector-01.png';
+import brand2 from '../components/data/images/brands/poc-sports-logo-vector-01.png';
 
 export const Home = () => {
   const sectionStyle = 'container mx-auto mt-[94px] mb-[24px] px-4 text-center';

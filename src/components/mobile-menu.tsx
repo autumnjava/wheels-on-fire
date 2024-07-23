@@ -6,7 +6,7 @@ import { HamburgerMenuIcon } from './icons-library/hamburger-menu';
 import { NavLinks } from './nav-links';
 
 // logo
-import logoWhite from './data/wheelsonfire_white-01.png';
+import logoWhite from './data/images/wheelsonfire_white-01.png';
 
 export const MobileMenu = () => {
   const [mobileMenuActive, setMobileMenuActive] = createSignal(false);

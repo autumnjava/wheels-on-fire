@@ -3,13 +3,13 @@ import { ExpandableContainer } from '../components/expandable-container';
 import { Slider } from '../components/slider';
 
 // images
-import brand1 from '../components/data/brands/commencal-logo-vector-01.png';
-import image1 from '../components/data/pickup2.jpg';
+import brand1 from '../components/data/images/brands/commencal-logo-vector-01.png';
+import image1 from '../components/data/images/pickup2.jpg';
 
-import imageBike2 from '../components/data/bikes/22CLASHRIRS_01_2000.jpg';
-import imageBike3 from '../components/data/bikes/22CLASHRIRS_02_2000.jpg';
-import imageBike4 from '../components/data/bikes/22CLASHRIRS_03_2000.jpg';
-import imageBike1 from '../components/data/bikes/22CLASHRIRS_2000.jpg';
+import imageBike2 from '../components/data/images/bikes/22CLASHRIRS_01_2000.jpg';
+import imageBike3 from '../components/data/images/bikes/22CLASHRIRS_02_2000.jpg';
+import imageBike4 from '../components/data/images/bikes/22CLASHRIRS_03_2000.jpg';
+import imageBike1 from '../components/data/images/bikes/22CLASHRIRS_2000.jpg';
 
 export const WhatWeOffer = () => {
   const halfDay = () => (

@@ -5,7 +5,7 @@ import { NavLinks } from './nav-links';
 
 // logo
 import clsx from 'clsx';
-import logo from './data/wheelsonfire_logoselection-03.png';
+import logo from './data/images/wheelsonfire_logoselection-03.png';
 export const Header = () => {
   const [floatHeader, setFloatHeader] = createSignal(false);
 

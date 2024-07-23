@@ -5,7 +5,7 @@ import { YoutubeIcon } from './icons-library/social-media/youtube';
 import { NavLinks } from './nav-links';
 
 //logo
-import logo from './data/wheelsonfire_icon-05.png';
+import logo from './data/images/wheelsonfire_icon-05.png';
 
 export const Footer = () => {
   const columnStyle = 'flex flex-col justify-evenly [&>*]:my-2';

@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { Button } from '../components/button';
-import image2 from '../components/data/2.jpg';
-import image1 from '../components/data/j_jump.jpg';
+import image2 from '../components/data/images/2.jpg';
+import image1 from '../components/data/images/j_jump.jpg';
 
 export const AboutUs = () => {
   const forgetTheLuxury = (customClass: string) => (

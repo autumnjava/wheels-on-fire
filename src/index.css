@@ -3,15 +3,6 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Futura';
-  src: url('./fonts/futur.ttf');
-  font-weight: 400;
-  font-display: swap;
-  font-style: normal;
-  font-stretch: condensed;
-}
-
-@font-face {
   font-family: 'Futura-CondensedExtraBold';
   src: url('./fonts/Futura-Condensed-Extra-Bold.otf') format('opentype');
   font-display: swap;
@@ -24,7 +15,6 @@
   src: url('./fonts/Futura-bold.ttf');
   font-display: swap;
   font-style: normal;
-  font-stretch: condensed;
 }
 
 @font-face {
