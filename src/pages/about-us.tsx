@@ -108,7 +108,7 @@ export const AboutUs = () => {
           </h3>
         </div>
 
-        <div class="mx-auto mt-28 text-center  md:mb-20">
+        <div class="mx-auto mt-28 text-center px-4 md:mb-20">
           <h3 class="font-futuraExtraBold text-headingXL">
             WHOʼS BEHIND WHEELS ON FIRE ?
           </h3>
