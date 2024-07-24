@@ -80,7 +80,7 @@ export const AboutUs = () => {
               src={image2}
               class="h-full w-full object-cover md:h-[600px] xl:h-[650px] 2xl:h-[700px]"
             ></img>
-            <Button url="/what-we-offer" customClass="hidden md:block mx-auto">
+            <Button url="/our-adventures" customClass="hidden md:block mx-auto">
               Check our article here
             </Button>
           </div>
@@ -99,18 +99,21 @@ export const AboutUs = () => {
         </div>
 
 
-        <div class="my-8 block px-4 md:hidden">
+        <div class="my-8 block px-4 md:hidden text-center">
         <h3 class="mx-auto max-w-[557px] text-headingL">
               Forget the luxury and the five stars, we want to offer a more
               natural and adventurous way of seeing the island.
             </h3>
         </div>
 
-        <div class="mx-auto my-20 w-[60%] text-center">
+        <div class="mx-auto mt-28 md:mb-20  text-center">
           <h3 class="font-futuraExtraBold text-headingXL">
             WHOʼS BEHIND WHEELS ON FIRE ?
           </h3>
         </div>
+
+        <hr class="block md:hidden my-10" />
+
 
         <div class="flex flex-col-reverse text-center md:flex-row">
           <div class="border-r border-r-red  px-4 text-center sm:px-8 md:w-1/2 md:px-16">
@@ -141,6 +144,9 @@ export const AboutUs = () => {
             </div>
           </div>
 
+        <hr class="block md:hidden my-10" />
+
+
           <div class="px-4 text-center sm:px-8  md:w-1/2 md:px-16">
             <div class="mx-auto max-w-[482px] [&>*]:my-4">
               <h3 class="font-futura text-headingL font-bold">Juliana</h3>
@@ -170,7 +176,13 @@ export const AboutUs = () => {
               </p>
             </div>
           </div>
+
+
+
         </div>
+          <Button url="/our-adventures" customClass="block md:hidden mx-auto">
+              Check our article here
+            </Button>
       </div>
     </>
   );
