@@ -27,10 +27,10 @@ export const Home = () => {
           Brands that support us
         </h2>
         <div class="flex items-center justify-evenly">
-          <img src={brand1} width={123} />
-          <img src={brand2} width={44} />
-          <img src={brand3} width={53} />
-          <img src={brand4} width={43} class="h-[50px]" />
+          <img src={brand1} class="w-[123px] md:w-[153px]" />
+          <img src={brand2} class="w-[44px] md:w-[64px]"/>
+          <img src={brand3} class="w-[53px] md:w-[73px]"/>
+          <img src={brand4} class="w-[43px] md:w-[63px]" />
         </div>
       </div>
 
