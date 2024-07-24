@@ -3,6 +3,14 @@
 @tailwind utilities;
 
 @font-face {
+  font-family: 'Futura-CondensedMedium';
+  src: url('./fonts/Futura-Condensed-Medium.otf') format('opentype');
+  font-display: swap;
+  font-style: normal;
+  font-stretch: condensed;
+}
+
+@font-face {
   font-family: 'Futura-CondensedExtraBold';
   src: url('./fonts/Futura-Condensed-Extra-Bold.otf') format('opentype');
   font-display: swap;
@@ -229,13 +237,6 @@ label {
 .expandable-options p {
   cursor: pointer;
   padding: 0.4rem 0;
-}
-
-.custom-test {
-  position: absolute;
-  right: 100%;
-  transform: translateX(50%);
-  white-space: nowrap;
 }
 
 /*

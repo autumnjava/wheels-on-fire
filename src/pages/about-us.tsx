@@ -23,7 +23,7 @@ export const AboutUs = () => {
             <img src={image1} class="object-cover object-top"></img>
           </div>
 
-          <div class="mb-1 mt-[-20px] w-[40%] content-center pr-4 sm:mt-[-30px] md:mt-0 md:w-1/2 lg:mt-[-58px]">
+          <div class="mb-1 mt-[-20px] flex w-[40%] flex-col content-center justify-center pr-4 sm:mt-[-30px] md:mt-0 md:w-1/2 lg:mt-[-58px]">
             <h2 class="text-headingL">
               We <br class="block md:hidden" />
               discovered <br class="block md:hidden" />
@@ -54,7 +54,7 @@ export const AboutUs = () => {
         </div>
 
         <div class="wider:mt-[-2vw] flex gap-4 lg:mt-[-4vw] xl:mt-[-8vw]">
-          <div class="w-[40%] content-center pl-4 md:w-1/2">
+          <div class="flex w-[40%] flex-col content-center justify-center pl-4 md:w-1/2">
             <h3 class="mx-auto max-w-[107px] text-headingL sm:max-w-[208px]  md:max-w-[557px]">
               Discovering the islands by bike gave us so much. <br /> You really
               feel the energy and adrenaline on these islands. Long uphills and
@@ -108,7 +108,7 @@ export const AboutUs = () => {
           </h3>
         </div>
 
-        <div class="mx-auto mt-28 text-center px-4 md:mb-20">
+        <div class="mx-auto mt-28 px-4 text-center md:mb-20">
           <h3 class="font-futuraExtraBold text-headingXL">
             WHOʼS BEHIND WHEELS ON FIRE ?
           </h3>
