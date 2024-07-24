@@ -12,7 +12,7 @@ import brand2 from '../components/data/images/brands/poc-sports-logo-vector-01.p
 
 export const Home = () => {
   const sectionStyle = 'container mx-auto mt-[94px] mb-[24px] px-4 text-center';
-  const h2Style = 'font-futuraExtraBold text-headingXL font-bold uppercase';
+  const h2Style = '';
 
   return (
     <>
@@ -28,8 +28,8 @@ export const Home = () => {
         </h2>
         <div class="flex items-center justify-evenly">
           <img src={brand1} class="w-[123px] md:w-[153px]" />
-          <img src={brand2} class="w-[44px] md:w-[64px]"/>
-          <img src={brand3} class="w-[53px] md:w-[73px]"/>
+          <img src={brand2} class="w-[44px] md:w-[64px]" />
+          <img src={brand3} class="w-[53px] md:w-[73px]" />
           <img src={brand4} class="w-[43px] md:w-[63px]" />
         </div>
       </div>
@@ -37,8 +37,12 @@ export const Home = () => {
       <hr class="mt-8" />
 
       <div class={sectionStyle}>
-        <h2 class={h2Style}>You ride. We pick you up.</h2>
-        <h2 class={h2Style}>We got you all set up.</h2>
+        <h2 class="font-futuraExtraBold text-headingXL font-bold uppercase">
+          You ride.
+          <br class="md:hidden block" /> We pick you up.
+          <br />
+          We got you all set up.
+        </h2>
       </div>
 
       <div class="container mx-auto px-4 text-center">
