@@ -28,7 +28,7 @@ export const OurAdventures = () => {
       <hr class="mt-8" />
 
       <A href="#">
-        <div class="container mx-auto my-10 flex flex-col px-4 sm:flex-row">
+        <div class="container mx-auto my-10 flex flex-col gap-8 px-4 sm:flex-row">
           <div
             class="relative h-[300px] w-full bg-cover sm:h-[328px] sm:w-[525px]"
             style={{ 'background-image': `url(${desertTrainFoto})` }}
@@ -40,8 +40,8 @@ export const OurAdventures = () => {
             />
           </div>
 
-          <div class="ml-8 text-center sm:w-[30%] sm:text-left [&>*]:my-2">
-            <h3 class="font-futura text-[27px] font-bold uppercase leading-[85px]">
+          <div class="sm:w-[30%] [&>*:not(:first-child)]:my-4">
+            <h3 class="font-futura text-[27px] font-bold uppercase">
               The desert train
             </h3>
             <p>
@@ -55,7 +55,7 @@ export const OurAdventures = () => {
       </A>
 
       <A href="/our-adventures/bikepacking-in-the-azores">
-        <div class="container mx-auto my-10 flex flex-col px-4 sm:flex-row">
+        <div class="container mx-auto my-10 flex flex-col gap-8 px-4 sm:flex-row">
           <div
             class="relative h-[300px] w-full bg-cover sm:h-[328px] sm:w-[525px]"
             style={{ 'background-image': `url(${bikepackingInTheAzoresFoto})` }}
@@ -67,8 +67,8 @@ export const OurAdventures = () => {
             />
           </div>
 
-          <div class="ml-8 text-center sm:w-[30%] sm:text-left [&>*]:my-2">
-            <h3 class="font-futura text-[27px] font-bold uppercase leading-[85px]">
+          <div class="sm:w-[30%] [&>*:not(:first-child)]:my-4">
+            <h3 class="font-futura text-[27px] font-bold uppercase">
               Bikepacking in the Azores
             </h3>
             <p>
