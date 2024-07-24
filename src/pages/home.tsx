@@ -39,7 +39,7 @@ export const Home = () => {
       <div class={sectionStyle}>
         <h2 class="font-futuraExtraBold text-headingXL font-bold uppercase">
           You ride.
-          <br class="md:hidden block" /> We pick you up.
+          <br class="block md:hidden" /> We pick you up.
           <br />
           We got you all set up.
         </h2>

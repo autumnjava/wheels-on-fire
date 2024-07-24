@@ -15,7 +15,7 @@ export const AboutUs = () => {
     <>
       <hr />
       <div class="mt-8">
-        <h1 class="text-outline relative z-10 text-headingAboutUs uppercase tracking-wider">
+        <h1 class="text-outline text-headingAboutUs relative z-10 uppercase tracking-wider">
           About us
         </h1>
         <div class="flex gap-4">
@@ -24,8 +24,11 @@ export const AboutUs = () => {
           </div>
 
           <div class="mb-1 mt-[-20px] w-[40%] content-center pr-4 sm:mt-[-30px] md:mt-0 md:w-1/2 lg:mt-[-58px]">
-            <h2 class="max-w-[87px]  text-headingL md:max-w-full">
-              We discovered the Azores by bike.
+            <h2 class="text-headingL">
+              We <br class="block md:hidden" />
+              discovered <br class="block md:hidden" />
+              the Azores <br class="block md:hidden" />
+              by bike.
             </h2>
 
             <p class="hidden max-w-[620px] leading-[20px] md:block">
@@ -98,22 +101,20 @@ export const AboutUs = () => {
           </p>
         </div>
 
-
-        <div class="my-8 block px-4 md:hidden text-center">
-        <h3 class="mx-auto max-w-[557px] text-headingL">
-              Forget the luxury and the five stars, we want to offer a more
-              natural and adventurous way of seeing the island.
-            </h3>
+        <div class="my-8 block px-4 text-center md:hidden">
+          <h3 class="mx-auto max-w-[557px] text-headingL">
+            Forget the luxury and the five stars, we want to offer a more
+            natural and adventurous way of seeing the island.
+          </h3>
         </div>
 
-        <div class="mx-auto mt-28 md:mb-20  text-center">
+        <div class="mx-auto mt-28 text-center  md:mb-20">
           <h3 class="font-futuraExtraBold text-headingXL">
             WHOʼS BEHIND WHEELS ON FIRE ?
           </h3>
         </div>
 
-        <hr class="block md:hidden my-10" />
-
+        <hr class="my-10 block md:hidden" />
 
         <div class="flex flex-col-reverse text-center md:flex-row">
           <div class="border-r border-r-red  px-4 text-center sm:px-8 md:w-1/2 md:px-16">
@@ -144,8 +145,7 @@ export const AboutUs = () => {
             </div>
           </div>
 
-        <hr class="block md:hidden my-10" />
-
+          <hr class="my-10 block md:hidden" />
 
           <div class="px-4 text-center sm:px-8  md:w-1/2 md:px-16">
             <div class="mx-auto max-w-[482px] [&>*]:my-4">
@@ -176,13 +176,10 @@ export const AboutUs = () => {
               </p>
             </div>
           </div>
-
-
-
         </div>
-          <Button url="/our-adventures" customClass="block md:hidden mx-auto">
-              Check our article here
-            </Button>
+        <Button url="/our-adventures" customClass="block md:hidden mx-auto">
+          Check our article here
+        </Button>
       </div>
     </>
   );
