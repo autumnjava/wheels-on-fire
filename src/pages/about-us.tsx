@@ -61,7 +61,7 @@ export const AboutUs = () => {
               magical fast descents ending up by a sea of breaking waves.
             </h3>
 
-            <p class="mx-auto hidden max-w-[557px] md:block">
+            <p class="mx-auto hidden max-w-[557px] md:block my-4">
               Now living here, we would like to share this experience with
               others, both locals and tourists looking beyond comfort but more
               for a real life experience. Forget the luxury and the five stars
