@@ -21,10 +21,10 @@ export const BikepackingInTheAzores = (props: HeroProps) => {
       </div>
 
       <div class="mx-auto px-4 text-center my-12 [&>*]:my-4">
-        <h1 class="font-futura text-headingXXL font-bold uppercase">
+        <h1 class="font-futura text-headingXL font-bold uppercase">
           Bikepacking in the Azores
         </h1>
-        <h2 class="font-futuraMedium text-headingXXL">
+        <h2 class="font-futuraMedium text-headingXL">
           Azores: A never ending uphill
         </h2>
       </div>
