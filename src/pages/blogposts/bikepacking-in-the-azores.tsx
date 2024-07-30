@@ -20,20 +20,18 @@ export const BikepackingInTheAzores = (props: HeroProps) => {
         />
       </div>
 
-      <div class="mx-auto max-w-[620px] p-4 pt-12 text-center md:pt-8 [&>*]:my-2">
-        <h1 class="font-futura text-headingXL font-bold uppercase">
-          Bikepacking
-          <br />
-          in the Azores
+      <div class="mx-auto p-4 pt-12 text-center md:pt-8 [&>*]:my-2">
+        <h1 class="font-futura text-headingXXL font-bold uppercase">
+          Bikepacking in the Azores
         </h1>
-        <h2 class="font-futuraMedium text-headingL">
+        <h2 class="font-futuraMedium text-headingXXL">
           Azores: A never ending uphill
         </h2>
       </div>
 
       <hr />
 
-      <div class="container mx-auto mt-6 max-w-[732px] px-4 [&>*]:my-6">
+      <div class="container mx-auto mt-6 max-w-[1040px] px-4 [&>*]:my-6">
         <h3 class="text-center font-futuraMedium text-headingL ">
           For some years me and my partner been constantly on the move. Living
           and traveling in a van around Europe and north Africa. We both share
@@ -43,51 +41,60 @@ export const BikepackingInTheAzores = (props: HeroProps) => {
           way.
         </h3>
 
-        <p>
-          We wanted to be in São Miguel, the biggest island in the beginning of
-          march. The first thing we had to do was to find a boat company in
-          Portugal that could transfer our bikes, boards and our bike wagon.
-          After finding a company and delivered our equipment it would take two
-          weeks to arrive! Leaving us without bikes and boards for two weeks
-          before catching a flight. We flew into Ponta Delgada the main city of
-          São Miguel.
-          <br />
-          We had an address a half an hour walk away to pick up our bikes. After
-          wrong address and misunderstandings we finally arrived 10 min. before
-          the terminal closed. Every thing was there and intact so we started to
-          assemble the bikes. It was already dark when we started putting every
-          thing together and by finishing close to midnight. The easy option
-          that night was to spend the first night sleeping inside an container.
-          <br />
-          We did not arrived with a certain bike route or a time limit. The plan
-          was to bike around the islands and ride bike trails and surf. More
-          take it as it comes kinda trip.
-          <br />
-          It felt a bit heavy the first day not biking for two weeks and also
-          the fact that we were riding enduro bikes with DH casing.
-          <br />
-          On top of that I was pushing the bike trailer with all our camping
-          gear and wetsuits while Juliana had two surfboards strapped to her
-          bike.
-          <br />
-          We started to pedal east out of Ponta Delgada following the sea threw
-          the outskirts of town. By the looks from the locals we passed, I guess
-          this was not an common sight too see bikepackers around the island
-          with surfboards and a trailer. The surprised crowed cheered and gave
-          us extra motivation.
-          <br />
-          We left the city behind and in front off us started the volcanic
-          landscape too emerge.
-          <br />
-          It was an amazing day, the sun was shining coloring the Atlantic ocean
-          in turquoise and from our left the volcanic crater Lago do Fogo was
-          looking down at us.
-          <br />
-          The volcanic landscape makes the terrain and road very hilly with
-          constant ups and downs. Looking on a map the distances doesn’t look
-          far but when biking it takes a lot of time and energy cause of the ups
-          and downs.
-        </p>
+        <div class="columns-2 gap-4 space-y-4">
+          <p>
+            We wanted to be in São Miguel, the biggest island in the beginning
+            of march. The first thing we had to do was to find a boat company in
+            Portugal that could transfer our bikes, boards and our bike wagon.
+            After finding a company and delivered our equipment it would take
+            two weeks to arrive! Leaving us without bikes and boards for two
+            weeks before catching a flight. We flew into Ponta Delgada the main
+            city of São Miguel.
+          </p>
+          <p>
+            We had an address a half an hour walk away to pick up our bikes.
+            After wrong address and misunderstandings we finally arrived 10 min.
+            before the terminal closed. Every thing was there and intact so we
+            started to assemble the bikes. It was already dark when we started
+            putting every thing together and by finishing close to midnight. The
+            easy option that night was to spend the first night sleeping inside
+            an container.
+          </p>
+          <p>
+            We did not arrived with a certain bike route or a time limit.
+            <br /> The plan was to bike around the islands and ride bike trails
+            and surf. More take it as it comes kinda trip.
+          </p>
+          {/* <p class="break-after-column"> */}
+          <p>
+            It felt a bit heavy the first day not biking for two weeks and also
+            the fact that we were riding enduro bikes with DH casing. On top of
+            that I was pushing the bike trailer with all our camping gear and
+            wetsuits while Juliana had two surfboards strapped to her bike.
+          </p>
+          <p>
+            We started to pedal east out of Ponta Delgada following the sea
+            threw the outskirts of town. By the looks from the locals we passed,
+            I guess this was not an common sight too see bikepackers around the
+            island with surfboards and a trailer. The surprised crowed cheered
+            and gave us extra motivation.
+          </p>
+          <p>
+            We left the city behind and in front off us started the volcanic
+            landscape too emerge.
+          </p>
+          <p>
+            It was an amazing day, the sun was shining coloring the Atlantic
+            ocean in turquoise and from our left the volcanic crater Lago do
+            Fogo was looking down at us.
+          </p>
+          <p>
+            The volcanic landscape makes the terrain and road very hilly with
+            constant ups and downs. Looking on a map the distances doesn’t look
+            far but when biking it takes a lot of time and energy cause of the
+            ups and downs.
+          </p>
+        </div>
       </div>
 
       <div
