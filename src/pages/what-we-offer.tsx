@@ -155,19 +155,19 @@ export const WhatWeOffer = () => {
 
       <div class="my-16 flex justify-center text-center">
         <div class="mx-8">
-          <p class="font-futuraMedium text-[40px] uppercase leading-[60px] text-red">
+          <p class="font-futuraMedium text-[30px] uppercase leading-[60px] text-red">
             M
           </p>
-          <p class="font-andaleMonoBold text-[20px] leading-[27px]">
+          <p class="whitespace-nowrap font-andaleMonoBold text-[18px] leading-[27px]">
             168 - 180 CM
           </p>
         </div>
 
         <div class="mx-8">
-          <p class="font-futuraMedium text-[40px] uppercase leading-[60px] text-red">
+          <p class="font-futuraMedium text-[30px] uppercase leading-[60px] text-red">
             L
           </p>
-          <p class="font-andaleMonoBold text-[20px] leading-[27px]">
+          <p class="whitespace-nowrap font-andaleMonoBold text-[18px] leading-[27px]">
             178 - 190 CM
           </p>
         </div>
@@ -266,16 +266,15 @@ export const WhatWeOffer = () => {
           </h3>
           <h4 class="font-futuraMedium text-headingL uppercase">
             Are you looking for a customized adventure where
-            <br class="hidden sm:block" /> youʼll get to see all the different parts of the island?
+            <br class="hidden sm:block" /> youʼll get to see all the different
+            parts of the island?
           </h4>
           <p class="font-futuraMedium text-headingL">
             * Ride will be adjusted to your needs & skills*
           </p>
-        </div>
-
-        <div class="self-center">
           <p class="font-futuraMedium text-headingM text-red">* Min 1 day</p>
-          <Button url="/get-in-touch" customClass="block !my-8">
+
+          <Button url="/get-in-touch" customClass="block !my-8 mx-auto">
             Get in touch
           </Button>
         </div>

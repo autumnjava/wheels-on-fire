@@ -31,7 +31,7 @@ export const AboutUs = () => {
               by bike.
             </h2>
 
-            <p class="hidden max-w-[620px] leading-[20px] md:block">
+            <p class="hidden max-w-[620px] leading-[20px] md:block my-4">
               In the spring of 2023 we packed our passion in life and shipped it
               over to São Miguel - 2 enduro bicycles, 2 surf boards and a bike
               trailer. Ending up spending 10 weeks biking and sleeping in a tent
