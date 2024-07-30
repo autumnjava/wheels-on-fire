@@ -158,7 +158,7 @@ export const WhatWeOffer = () => {
           <p class="font-futuraMedium text-[30px] uppercase leading-[60px] text-red">
             M
           </p>
-          <p class="whitespace-nowrap font-andaleMonoBold text-[18px] leading-[27px]">
+          <p class="whitespace-nowrap font-andaleMonoBold text-[16px] leading-[27px]">
             168 - 180 CM
           </p>
         </div>
@@ -167,7 +167,7 @@ export const WhatWeOffer = () => {
           <p class="font-futuraMedium text-[30px] uppercase leading-[60px] text-red">
             L
           </p>
-          <p class="whitespace-nowrap font-andaleMonoBold text-[18px] leading-[27px]">
+          <p class="whitespace-nowrap font-andaleMonoBold text-[16px] leading-[27px]">
             178 - 190 CM
           </p>
         </div>
