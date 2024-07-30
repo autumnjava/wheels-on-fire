@@ -43,7 +43,7 @@ render(
       <Route path="/get-in-touch" component={GetInTouch} />
       <Route path="/in-action" component={InAction} />
       <Route path="/our-adventures" component={OurAdventures} />
-      <Route path="/our-adventures/:slug" component={BlogPost} />
+      <Route path="/our-adventures/:slug/:page?" component={BlogPost} />
       <Route path="/what-we-offer" component={WhatWeOffer} />
       <Route path="/blog" component={SanityBlogPost} />
       <Route path="*404" component={NotFound} />

@@ -54,7 +54,7 @@ export const OurAdventures = () => {
         </div>
       </A>
 
-      <A href="/our-adventures/bikepacking-in-the-azores">
+      <A href="/our-adventures/bikepacking-in-the-azores/1">
         <div class="container mx-auto my-10 flex flex-col gap-8 px-4 sm:flex-row">
           <div
             class="relative h-[300px] w-full bg-cover sm:h-[328px] sm:w-[525px]"
