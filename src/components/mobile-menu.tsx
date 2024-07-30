@@ -58,7 +58,7 @@ export const MobileMenu = () => {
               <img
                 src={logoWhite}
                 alt="Wheels on fire"
-                class="mx-auto w-[130px] md:w-[230px]"
+                class="mx-auto w-[230px]"
               />
             </A>
           </div>
