@@ -20,7 +20,7 @@ export const BikepackingInTheAzores = (props: HeroProps) => {
         />
       </div>
 
-      <div class="mx-auto p-4 text-center my-12 [&>*]:my-2">
+      <div class="mx-auto px-4 text-center my-12 [&>*]:my-4">
         <h1 class="font-futura text-headingXXL font-bold uppercase">
           Bikepacking in the Azores
         </h1>
