@@ -31,8 +31,8 @@ export const BikepackingInTheAzores = (props: HeroProps) => {
 
       <hr />
 
-      <div class="container mx-auto mt-6 max-w-[1040px] px-4 [&>*]:my-6">
-        <h3 class="text-center font-futuraMedium text-headingL ">
+      <div class="container mx-auto my-8 max-w-[1040px] px-4">
+        <h3 class="text-center font-futuraMedium text-headingL my-8">
           For some years me and my partner been constantly on the move. Living
           and traveling in a van around Europe and north Africa. We both share
           the interest of exploring new places and combine this with surfing and
@@ -65,7 +65,6 @@ export const BikepackingInTheAzores = (props: HeroProps) => {
             <br /> The plan was to bike around the islands and ride bike trails
             and surf. More take it as it comes kinda trip.
           </p>
-          {/* <p class="break-after-column"> */}
           <p>
             It felt a bit heavy the first day not biking for two weeks and also
             the fact that we were riding enduro bikes with DH casing. On top of
