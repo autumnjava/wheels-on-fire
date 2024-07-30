@@ -45,7 +45,7 @@ export const GetInTouch = () => {
     try {
       const response = await emailjs.send(
         'default_service',
-        'template_al7up4a',
+        'template_9kr5gbo',
         templateParams
       );
       console.log('SUCCESS!', response.status, response.text);
@@ -58,7 +58,7 @@ export const GetInTouch = () => {
 
   onMount(() => {
     emailjs.init({
-      publicKey: 'TdNsRmJeYcW-hy5Za',
+      publicKey: 'xiKB2qC-EzY13ebzX',
     });
   });
 
@@ -87,7 +87,7 @@ export const GetInTouch = () => {
           <A aria-label="Chat on WhatsApp" href="https://wa.me/351915797870">
             <span class="text-red">+351 915 797 870</span>
           </A>
-          , email: <span class="text-red">info@wheelsonfireazores.com</span> or
+          , email: <span class="text-red">wheelsonfireazores@gmail.com</span> or
           fill the <span class="text-red">contact form</span> below.
         </h2>
       </div>
