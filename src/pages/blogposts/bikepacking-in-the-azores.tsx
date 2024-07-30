@@ -10,7 +10,7 @@ export const BikepackingInTheAzores = (props: HeroProps) => {
   return (
     <>
       <div
-        class="relative mb-8 flex h-[500px] w-full flex-col bg-black bg-cover bg-center px-12 pt-8 sm:pt-4 md:h-[868px] md:px-16 md:pt-28"
+        class="relative mb-12 flex h-[500px] w-full flex-col bg-black bg-cover bg-center px-12 pt-8 sm:pt-4 md:h-[868px] md:px-16 md:pt-28"
         style={{ 'background-image': `url(${ju_faial})` }}
       >
         <PlayIcon
@@ -20,7 +20,7 @@ export const BikepackingInTheAzores = (props: HeroProps) => {
         />
       </div>
 
-      <div class="mx-auto p-4 pt-12 text-center md:pt-8 [&>*]:my-2">
+      <div class="mx-auto p-4 text-center my-12 [&>*]:my-2">
         <h1 class="font-futura text-headingXXL font-bold uppercase">
           Bikepacking in the Azores
         </h1>
@@ -31,7 +31,7 @@ export const BikepackingInTheAzores = (props: HeroProps) => {
 
       <hr />
 
-      <div class="container mx-auto my-8 max-w-[1040px] px-4">
+      <div class="container mx-auto my-12 max-w-[1040px] px-4">
         <h3 class="text-center font-futuraMedium text-headingL my-8">
           For some years me and my partner been constantly on the move. Living
           and traveling in a van around Europe and north Africa. We both share
@@ -97,7 +97,7 @@ export const BikepackingInTheAzores = (props: HeroProps) => {
       </div>
 
       <div
-        class="my-8 h-[500px] w-full flex-col bg-black bg-cover bg-center md:h-[868px]"
+        class="my-12 h-[500px] w-full flex-col bg-black bg-cover bg-center md:h-[868px]"
         style={{ 'background-image': `url(${mosteiros_bike})` }}
       ></div>
     </>
