@@ -73,9 +73,11 @@ p {
   font-family: AndaleMono, sans-serif;
   font-size: 1.0625rem;
   line-height: 120%;
+}
 
-  @media screen and (max-width: 640px) {
-    font-size: 1rem;
+@media screen and (max-width: 640px) {
+  p {
+    font-size: 0.9rem;
     line-height: 110%;
   }
 }
@@ -252,7 +254,7 @@ label {
 #root {
   --navMenu: 0.90625rem;
   --heroHeading: 3.2rem;
-  --heroHeadingXL: 3rem;
+  --heroHeadingXL: 8vw;
   --headingWhatWeOffer: 3.8rem; /* 60px */
   --headingWhatWeOfferSub: 1.4rem;
   --headingAboutUs: 16vw;

@@ -23,7 +23,7 @@ export const MobileMenu = () => {
   return (
     <>
       <div class="flex select-none justify-end md:hidden">
-        <button class="m-6" onClick={toggleMenu}>
+        <button class="mx-6 my-2" onClick={toggleMenu}>
           <HamburgerMenuIcon />
         </button>
       </div>
@@ -43,7 +43,7 @@ export const MobileMenu = () => {
           )}
         >
           <div class="flex select-none justify-end md:hidden">
-            <button onClick={toggleMenu} class="m-6">
+            <button onClick={toggleMenu} class="mx-6 my-2">
               <CloseIcon />
             </button>
           </div>

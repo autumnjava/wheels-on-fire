@@ -4,64 +4,62 @@ import image2 from '../components/data/images/2.jpg';
 import image1 from '../components/data/images/j_jump.jpg';
 
 export const AboutUs = () => {
-  const forgetTheLuxury = (customClass: string) => (
-    <h3 class={clsx('text-headingL', customClass)}>
-      Forget the luxury and the five stars, we want to offer a more natural and
-      adventurous way of seeing the island.
-    </h3>
-  );
-
   return (
     <>
       <hr />
       <div class="mt-8">
-        <h1 class="text-outline text-headingAboutUs relative z-10 uppercase tracking-wider">
+        <h1 class="text-outline relative z-10 text-headingAboutUs uppercase tracking-wider">
           About us
         </h1>
         <div class="flex gap-4">
           <div class="mt-[-20px] w-[60%] sm:mt-[-30px] md:mt-[-30px] md:w-1/2 lg:mt-[-58px]">
-            <img src={image1} class="object-cover object-top"></img>
+            <img
+              src={image1}
+              class="min-h-[238px] object-cover object-top"
+            ></img>
           </div>
 
           <div class="mb-1 mt-[-20px] flex w-[40%] flex-col content-center justify-center pr-4 sm:mt-[-30px] md:mt-0 md:w-1/2 lg:mt-[-58px]">
-            <h2 class="text-headingL">
+            <h2 class="sm:text-headingL text-[2rem] leading-[110%]">
               We <br class="block md:hidden" />
               discovered <br class="block md:hidden" />
               the Azores <br class="block md:hidden" />
               by bike.
             </h2>
 
-            <p class="hidden max-w-[620px] leading-[20px] md:block my-4">
+            <p class="my-4 hidden max-w-[630px] leading-[20px] md:block">
               In the spring of 2023 we packed our passion in life and shipped it
               over to São Miguel - 2 enduro bicycles, 2 surf boards and a bike
               trailer. Ending up spending 10 weeks biking and sleeping in a tent
-              around 4 islands in the Azores. That was enough, we knew by then
-              that we wanted to move here permanently and become part of the
-              community.
+              around 4 islands in the Azores.
+              <br />
+              That was enough, we knew by then that we wanted to move here
+              permanently and become part of the community.
             </p>
           </div>
         </div>
 
         <div class="my-8 block px-4 md:hidden">
-          <p class="mx-auto max-w-[90%] leading-[20px] sm:max-w-[560px]">
+          <p class="mx-auto leading-[20px] sm:max-w-[560px]">
             In the spring of 2023 we packed our passion in life and shipped it
             over to São Miguel - 2 enduro bicycles, 2 surf boards and a bike
             trailer. Ending up spending 10 weeks biking and sleeping in a tent
-            around 4 islands in the Azores. That was enough, we knew by then
-            that we wanted to move here permanently and become part of the
-            community.
+            around 4 islands in the Azores.
+            <br />
+            That was enough, we knew by then that we wanted to move here
+            permanently and become part of the community.
           </p>
         </div>
 
-        <div class="wider:mt-[-2vw] flex gap-4 lg:mt-[-4vw] xl:mt-[-8vw]">
+        <div class="flex gap-4 wider:mt-[-2vw] lg:mt-[-4vw] xl:mt-[-8vw]">
           <div class="flex w-[40%] flex-col content-center justify-center pl-4 md:w-1/2">
-            <h3 class="mx-auto max-w-[107px] text-headingL sm:max-w-[208px]  md:max-w-[557px]">
+            <h3 class="mx-auto max-w-[115px] text-headingL sm:max-w-[208px]  md:max-w-[557px]">
               Discovering the islands by bike gave us so much. <br /> You really
               feel the energy and adrenaline on these islands. Long uphills and
               magical fast descents ending up by a sea of breaking waves.
             </h3>
 
-            <p class="mx-auto hidden max-w-[557px] md:block my-4">
+            <p class="mx-auto my-4 hidden max-w-[557px] md:block">
               Now living here, we would like to share this experience with
               others, both locals and tourists looking beyond comfort but more
               for a real life experience. Forget the luxury and the five stars
@@ -90,7 +88,7 @@ export const AboutUs = () => {
         </div>
 
         <div class="my-8 block px-4 md:hidden">
-          <p class="mx-auto max-w-[90%] leading-[20px] sm:max-w-[560px]">
+          <p class="mx-auto leading-[20px] sm:max-w-[560px]">
             Now living here, we would like to share this experience with others,
             both locals and tourists looking beyond comfort but more for a real
             life experience. Forget the luxury and the five stars we want to
@@ -102,13 +100,13 @@ export const AboutUs = () => {
         </div>
 
         <div class="my-8 block px-4 text-center md:hidden">
-          <h3 class="mx-auto max-w-[557px] text-headingL">
+          <h3 class="mx-auto max-w-[560px] text-headingL">
             Forget the luxury and the five stars, we want to offer a more
             natural and adventurous way of seeing the island.
           </h3>
         </div>
 
-        <div class="mx-auto mt-28 px-4 text-center md:mb-20">
+        <div class="mx-auto mt-16 md:mt-28 px-4 text-center md:mb-20">
           <h3 class="font-futuraExtraBold text-headingXL">
             WHOʼS BEHIND WHEELS ON FIRE ?
           </h3>
@@ -118,13 +116,13 @@ export const AboutUs = () => {
 
         <div class="flex flex-col-reverse text-center md:flex-row">
           <div class="border-r border-r-red  px-4 text-center sm:px-8 md:w-1/2 md:px-16">
-            <div class="mx-auto max-w-[482px] [&>*]:my-4">
+            <div class="mx-auto max-w-[482px] [&>*:not(:first-child)]:my-4">
               <h3 class="font-futura text-headingL font-bold">Jallas</h3>
               <p>
-                Hello there! I’m Jallas born in south Sweden. Since south
-                Sweden is kinda flat I started out with cross country biking but
-                lycra and pushing on the uphills was not really me. The free
-                ride mountain bike was more my style.
+                Hello there! I’m Jallas born in south Sweden. Since south Sweden
+                is kinda flat I started out with cross country biking but lycra
+                and pushing on the uphills was not really me. The free ride
+                mountain bike was more my style.
               </p>
               <p>
                 In 2012 I traveled to Portugal for the first time to pursue my
@@ -148,7 +146,7 @@ export const AboutUs = () => {
           <hr class="my-10 block md:hidden" />
 
           <div class="px-4 text-center sm:px-8  md:w-1/2 md:px-16">
-            <div class="mx-auto max-w-[482px] [&>*]:my-4">
+            <div class="mx-auto max-w-[482px] [&>*:not(:first-child)]:my-4">
               <h3 class="font-futura text-headingL font-bold">Juliana</h3>
               <p>Hey ! I’m Juliana from Porto, Portugal. </p>
               <p>
@@ -177,7 +175,7 @@ export const AboutUs = () => {
             </div>
           </div>
         </div>
-        <Button url="/our-adventures" customClass="block md:hidden mx-auto">
+        <Button url="/our-adventures/bikepacking-in-the-azores/1" customClass="block md:hidden mx-auto">
           Check our article here
         </Button>
       </div>
