@@ -10,19 +10,25 @@ import biking from '../../components/data/images/16.jpg';
 export const BikepackingInTheAzoresPart2 = () => {
   return (
     <>
-      <div class="container mx-auto my-12 flex gap-4">
+      <div class="container mx-auto my-12 flex flex-col gap-4 sm:flex-row">
         <div
-          class="h-[500px] w-full flex-col bg-cover bg-center bg-no-repeat"
+          class="h-[500px] w-full bg-cover bg-center bg-no-repeat"
           style={{ 'background-image': `url(${biking})` }}
         ></div>
         <div
-          class="h-[500px] w-full flex-col bg-cover bg-center bg-no-repeat"
+          class="h-[500px] w-full bg-cover bg-center bg-no-repeat"
           style={{ 'background-image': `url(${view})` }}
         ></div>
       </div>
 
       <div class="container mx-auto my-12 max-w-[1040px] px-4">
-        <div class="columns-2 gap-4 space-y-4">
+        <div class="gap-4 space-y-4 sm:columns-2">
+          <h3 class="!mt-0 mb-4 block !break-inside-avoid font-futuraMedium text-headingL sm:hidden">
+            We reached the peak of the route and for a moment the fog
+            disappeared and a beautiful view of the sea and the 10 volcanoes
+            appeared in front of us. Sweaty, tired and wet in one second it all
+            makes sense why you go through what you do.
+          </h3>
           <p>
             The local bike shop managed to patch up my bike with a new
             derailleur but they did not have a replacement for the brake lever,
@@ -53,7 +59,7 @@ export const BikepackingInTheAzoresPart2 = () => {
             disappeared and a beautiful view of the sea and the 10 volcanoes
             appeared in front of us.
           </p>
-          <h3 class="!mt-0 mb-4 !break-inside-avoid font-futuraMedium text-headingL">
+          <h3 class="!mt-0 mb-4 hidden !break-inside-avoid font-futuraMedium text-headingL sm:block">
             We reached the peak of the route and for a moment the fog
             disappeared and a beautiful view of the sea and the 10 volcanoes
             appeared in front of us. Sweaty, tired and wet in one second it all
@@ -85,19 +91,19 @@ export const BikepackingInTheAzoresPart2 = () => {
         </div>
       </div>
 
-      <div class="container mx-auto my-12 flex gap-4">
+      <div class="container mx-auto my-12 flex flex-col gap-4 sm:flex-row">
         <div
-          class="h-[500px] w-full flex-col bg-cover bg-center bg-no-repeat"
+          class="h-[500px] w-full bg-cover bg-center bg-no-repeat"
           style={{ 'background-image': `url(${bike1})` }}
         ></div>
         <div
-          class="h-[500px] w-full flex-col bg-cover bg-center bg-no-repeat"
+          class="h-[500px] w-full bg-cover bg-center bg-no-repeat"
           style={{ 'background-image': `url(${bike2})` }}
         ></div>
       </div>
 
       <div class="container mx-auto my-12 max-w-[1040px] px-4">
-        <div class="columns-2 gap-4 space-y-4">
+        <div class="gap-4 space-y-4 sm:columns-2">
           <p>
             The west part of the island had a lot to offer and see. First we had
             to bike up again to the main road and that was a good 270m climb.
@@ -147,7 +153,7 @@ export const BikepackingInTheAzoresPart2 = () => {
         + Photos
       </Button>
 
-      <div class="container mx-auto my-12 flex max-w-[600px] justify-between gap-16 px-4">
+      <div class="container mx-auto my-12 flex flex-col justify-between gap-8 px-4 sm:max-w-[600px] sm:flex-row sm:gap-16">
         <A
           class="text-center font-futuraMedium text-headingM leading-[26px] text-red"
           href="/our-adventures/bikepacking-in-the-azores/1"

@@ -15,7 +15,7 @@ export const BikepackingInTheAzoresPart3 = () => {
       ></div>
 
       <div class="container mx-auto my-12 max-w-[1040px] px-4">
-        <div class="columns-2 gap-4 space-y-4">
+        <div class="gap-4 space-y-4 sm:columns-2">
           <p>
             This time I managed to bike up the first big hill from Velas without
             breaking any bike parts. Our goal was to bike to the north side of
@@ -84,7 +84,7 @@ export const BikepackingInTheAzoresPart3 = () => {
         </h3>
       </div>
 
-      <div class="container mx-auto my-12 flex gap-4">
+      <div class="container mx-auto my-12 flex flex-col gap-4 sm:flex-row">
         <div
           class="h-[500px] w-full flex-col bg-cover bg-center bg-no-repeat"
           style={{ 'background-image': `url(${posing})` }}
@@ -99,7 +99,7 @@ export const BikepackingInTheAzoresPart3 = () => {
         + Photos
       </Button>
 
-      <div class="container mx-auto my-12 flex max-w-[600px] justify-between gap-16 px-4">
+      <div class="container mx-auto my-12 flex flex-col justify-between gap-8 px-4 sm:max-w-[600px] sm:flex-row sm:gap-16">
         <A
           class="text-center font-futuraMedium text-headingM leading-[26px] text-red"
           href="/our-adventures/bikepacking-in-the-azores/1"
