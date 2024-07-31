@@ -48,7 +48,7 @@ export const BikepackingInTheAzoresPart2 = () => {
             bike several times.Luckily nothing happened to her or the
             surfboards.
           </p>
-          <p class="break-after-column break-inside-avoid">
+          <p class="break-inside-avoid break-after-column">
             We reached the peak of the route and for a moment the fog
             disappeared and a beautiful view of the sea and the 10 volcanoes
             appeared in front of us.
@@ -117,7 +117,7 @@ export const BikepackingInTheAzoresPart2 = () => {
             houses got destroyed but the old lighthouse remained and turned into
             a museum about the eruption.
           </p>
-          <p>
+          <p class="break-inside-avoid">
             The good thing about Faial was that was a much smaller island then
             São Miguel. If you want you can bike around the island in two days.
           </p>
