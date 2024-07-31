@@ -114,47 +114,51 @@ export const Slider = (componentProps: SliderProps) => {
   const moveTo = (idx: number) => slider?.moveToIdx(idx);
 
   return (
-    <div class="relative">
-      <div ref={sliderContainer} id="my-keen-slider" class="keen-slider">
+    <div>
+      <div
+        ref={sliderContainer}
+        id="my-keen-slider"
+        class="keen-slider relative"
+      >
         <For each={resolvedChildren()}>
           {(child) => <div class="keen-slider__slide">{child}</div>}
         </For>
+
+        <Show when={props.controls}>
+          <button onClick={prev}>
+            <ChevronLeftIcon
+              class={clsx('absolute left-2 top-1/2 opacity-70', {
+                'fill-red': props.controlsPosition === 'normal',
+              })}
+            />
+          </button>
+          <button onClick={next}>
+            <ChevronRightIcon
+              class={clsx('absolute right-2 top-1/2 opacity-70', {
+                'fill-red': props.controlsPosition === 'normal',
+              })}
+            />
+          </button>
+
+          <div
+            class={clsx({
+              'absolute bottom-[50px] left-1/2 -translate-x-1/2 -translate-y-1/2':
+                props.controlsPosition === 'hero',
+              'text-center': props.controlsPosition === 'normal',
+            })}
+          >
+            <For each={resolvedChildren()}>
+              {(_, idx) => (
+                <button
+                  onClick={() => moveTo(idx())}
+                  class={`dot border ${clsx(props.dotsColor === 'white' ? 'border-white' : 'border-red')} ${currentSlide() === idx() && `active ${clsx(props.dotsColor === 'white' ? '!bg-white' : '!bg-red')}`}`}
+                  aria-label={`Go to slide ${idx() + 1}`}
+                ></button>
+              )}
+            </For>
+          </div>
+        </Show>
       </div>
-
-      <Show when={props.controls}>
-        <button onClick={prev}>
-          <ChevronLeftIcon
-            class={clsx('absolute left-2 top-1/2 opacity-70', {
-              'fill-red': props.controlsPosition === 'normal',
-            })}
-          />
-        </button>
-        <button onClick={next}>
-          <ChevronRightIcon
-            class={clsx('absolute right-2 top-1/2 opacity-70', {
-              'fill-red': props.controlsPosition === 'normal',
-            })}
-          />
-        </button>
-
-        <div
-          class={clsx({
-            'absolute bottom-[70px] left-1/2 -translate-x-1/2 -translate-y-1/2':
-              props.controlsPosition === 'hero',
-            'text-center': props.controlsPosition === 'normal',
-          })}
-        >
-          <For each={resolvedChildren()}>
-            {(_, idx) => (
-              <button
-                onClick={() => moveTo(idx())}
-                class={`dot border ${clsx(props.dotsColor === 'white' ? 'border-white' : 'border-red')} ${currentSlide() === idx() && `active ${clsx(props.dotsColor === 'white' ? '!bg-white' : '!bg-red')}`}`}
-                aria-label={`Go to slide ${idx() + 1}`}
-              ></button>
-            )}
-          </For>
-        </div>
-      </Show>
     </div>
   );
 };

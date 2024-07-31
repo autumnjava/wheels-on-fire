@@ -92,10 +92,10 @@ export const WhatWeOffer = () => {
       <hr />
 
       <div
-        class="testi-container mt-6 bg-cover bg-center bg-origin-content sm:h-[450px] sm:bg-[30%] md:h-fit xl:h-[850px]"
+        class="what-we-offer-container mt-6 bg-cover bg-center bg-origin-content sm:h-[450px] sm:bg-[30%] md:h-fit xl:h-[850px]"
         style={{ 'background-image': `url(${image1})` }}
       >
-        <div class="testi-content">
+        <div class="what-we-offer-content">
           <h1 class="text-outline relative block pl-4 text-headingWhatWeOffer leading-[90%] tracking-wider">
             What <br /> we offer
           </h1>
@@ -109,11 +109,11 @@ export const WhatWeOffer = () => {
         </div>
       </div>
 
-      <div class="mb-16 w-full border-t border-red">
+      <div class="my-8 w-full border-t border-red md:my-16">
         <div class="relative z-10 w-[fit-content] bg-red px-4 py-2 font-futuraMedium text-headingM uppercase leading-[27px] text-white md:static">
           The beasts
         </div>
-        <div class="p-2 pt-12 md:m-8 md:pt-4">
+        <div class="pt-8 md:m-8 md:pt-4">
           <Slider
             controls={true}
             slidesPerView={1}
@@ -153,7 +153,7 @@ export const WhatWeOffer = () => {
 
       <hr />
 
-      <div class="my-16 flex justify-center text-center">
+      <div class="my-8 flex justify-center text-center md:my-16">
         <div class="mx-8">
           <p class="font-futuraMedium text-[30px] uppercase leading-[60px] text-red">
             M
@@ -173,17 +173,18 @@ export const WhatWeOffer = () => {
         </div>
       </div>
 
-      <div class="my-16 w-full border-t border-red text-center">
+      <div class="my-16 w-full border-t border-red text-center md:my-16">
         <div class="w-[fit-content] bg-red px-4 py-2 font-futuraMedium text-headingM uppercase leading-[27px] text-white">
           What we offer
         </div>
-        <div class="mx-auto p-4 pt-12 md:pt-8">
+        <div class="mx-auto my-8 px-4">
           <h3 class="font-futuraExtraBold text-headingXL uppercase leading-[85px]">
             What's included
           </h3>
-          <h4 class="font-futuraMedium text-headingL uppercase leading-[45px]">
-            Either in for a half, full or a couple of days youʼll sure feel your{' '}
-            <span class="font-futuraExtraBold">WHEELS ON FIRE!</span>
+          <h4 class="font-futuraMedium uppercase md:text-headingL md:leading-[45px]">
+            Either in for a half, full or a couple of days
+            <br class="block md:hidden" /> youʼll sure feel your
+            <span class="font-futuraExtraBold"> WHEELS ON FIRE!</span>
           </h4>
           <p class="font-futuraMedium text-headingL leading-[45px]">
             * Ride will be adjusted to your needs & skills*
@@ -256,7 +257,7 @@ export const WhatWeOffer = () => {
         </Button>
       </ExpandableContainer>
 
-      <div class="my-16 flex w-full flex-col border-t border-red">
+      <div class="my-8 mt-16 md:my-16 flex w-full flex-col border-t border-red">
         <div class="w-[fit-content] bg-red px-4 py-2 font-futuraMedium text-headingM uppercase leading-[27px] text-white">
           Customize your trip
         </div>
@@ -280,7 +281,7 @@ export const WhatWeOffer = () => {
         </div>
       </div>
 
-      <div class="my-16 w-full border-t-0 border-red text-center md:border-t">
+      <div class="my-8 md:my-16 w-full border-red text-center border-t">
         <div class="relative z-10 w-[fit-content] bg-red px-4 py-2 font-futuraMedium text-headingM uppercase leading-[27px] text-white md:static">
           Private tour
         </div>
@@ -296,7 +297,7 @@ export const WhatWeOffer = () => {
 
       <hr />
 
-      <div class="mt-16 w-full text-center">
+      <div class="mt-8 md:mt-16 w-full text-center">
         <div class="px-4 pt-12">
           <h3 class="font-futuraExtraBold text-headingXL uppercase">
             Do you just want to rent bikes? <br /> Or shuttle?

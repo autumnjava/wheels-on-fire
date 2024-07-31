@@ -194,33 +194,41 @@ label {
   cursor: pointer;
 }
 
-.testi-container {
+.what-we-offer-container {
   background-size: cover;
   padding-top: 0px;
   padding-left: 0px;
   background-clip: content-box;
   background-repeat: no-repeat;
+
+  padding-top: 18px;
+  padding-left: 74px;
+}
+
+.what-we-offer-content {
+  margin-top: -18px;
+  margin-left: -74px;
 }
 
 @media screen and (min-width: 768px) {
-  .testi-container {
+  .what-we-offer-container {
     padding-top: 18px;
     padding-left: 176px;
   }
 
-  .testi-content {
+  .what-we-offer-content {
     margin-top: -18px;
     margin-left: -176px;
   }
 }
 
 @media screen and (min-width: 1024px) {
-  .testi-container {
+  .what-we-offer-container {
     padding-top: 25px;
     padding-left: 257px;
   }
 
-  .testi-content {
+  .what-we-offer-content {
     margin-top: -25px;
     margin-left: -257px;
   }
@@ -263,7 +271,7 @@ label {
   --headingXXXL: 3.8rem;
   --headingXXL: 2.25rem;
   --headingXL: 1.6625rem;
-  --headingL: 1.35rem;
+  --headingL: 1.30rem;
   --headingM: 1.325rem;
   --headingS: 0.90625rem;
 }
