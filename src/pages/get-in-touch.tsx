@@ -96,16 +96,16 @@ export const GetInTouch = () => {
         when={!isSucess()}
         fallback={
           <>
-          <hr class="my-16" />
-          <div class="mx-auto text-center my-16">
-            <h3 class="font-futuraExtraBold text-headingXXL uppercase leading-[110%]">
-              Thank you for reaching out to us!
-              <br />
-              We’ll get back to you
-              <br />
-              as soon as we can.
-            </h3>
-          </div>
+            <hr class="my-16" />
+            <div class="mx-auto my-16 text-center">
+              <h3 class="font-futuraExtraBold text-headingXXL uppercase leading-[110%]">
+                Thank you for reaching out to us!
+                <br />
+                We’ll get back to you
+                <br />
+                as soon as we can.
+              </h3>
+            </div>
           </>
         }
       >
@@ -120,7 +120,7 @@ export const GetInTouch = () => {
             <div class="lg:flex lg:justify-between">
               <div>
                 <label for="name">Name:</label>
-                <div class="flex">
+                <div class="flex flex-col gap-8 md:flex-row">
                   <input
                     type="text"
                     id="firstName"
@@ -140,7 +140,7 @@ export const GetInTouch = () => {
                     value={lastName()}
                     onInput={(e) => setLastName(e.target.value)}
                     required
-                    class="ml-8 md:min-w-[217px]"
+                    class="md:min-w-[217px]"
                   />
                 </div>
               </div>
