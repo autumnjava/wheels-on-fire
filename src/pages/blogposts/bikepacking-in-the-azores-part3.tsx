@@ -38,7 +38,7 @@ export const BikepackingInTheAzoresPart3 = () => {
             descent to reach to the sea. We could do it, from here it was just
             going down.
           </p>
-          <p>
+          <p class="break-inside-avoid">
             We started to roll down but didn’t make it too far, blinded by an
             amazing view we just had to stop and take in what lied in front of
             us. When you come down to Fajã dos Cubres you can’t drive any

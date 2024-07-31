@@ -9,6 +9,7 @@ import brand3 from '../components/data/images/brands/OneUp-Logo-Border-1000px.pn
 import brand4 from '../components/data/images/brands/chromag-bikes-seeklogo-01.png';
 import brand1 from '../components/data/images/brands/commencal-logo-vector-01.png';
 import brand2 from '../components/data/images/brands/poc-sports-logo-vector-01.png';
+import { A } from '@solidjs/router';
 
 export const Home = () => {
   const sectionStyle = 'container mx-auto mt-[94px] mb-[24px] px-4 text-center';
@@ -27,10 +28,18 @@ export const Home = () => {
           Brands that support us
         </h2>
         <div class="flex items-center justify-evenly">
-          <img src={brand1} class="w-[123px] md:w-[153px]" />
-          <img src={brand2} class="w-[44px] md:w-[64px]" />
-          <img src={brand3} class="w-[53px] md:w-[73px]" />
-          <img src={brand4} class="w-[43px] md:w-[63px]" />
+          <A href="https://www.commencal.com">
+            <img src={brand1} class="w-[123px] md:w-[153px]" />
+          </A>
+          <A href="https://poc.com/en">
+            <img src={brand2} class="w-[44px] md:w-[64px]" />
+          </A>
+          <A href="https://www.oneupcomponents.com">
+            <img src={brand3} class="w-[53px] md:w-[73px]" />
+          </A>
+          <A href="https://chromagbikes.com">
+            <img src={brand4} class="w-[43px] md:w-[63px]" />
+          </A>
         </div>
       </div>
 

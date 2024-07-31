@@ -121,7 +121,7 @@ export const AboutUs = () => {
             <div class="mx-auto max-w-[482px] [&>*]:my-4">
               <h3 class="font-futura text-headingL font-bold">Jallas</h3>
               <p>
-                Hello there! I’m Jallas born in the south Sweden. Since south
+                Hello there! I’m Jallas born in south Sweden. Since south
                 Sweden is kinda flat I started out with cross country biking but
                 lycra and pushing on the uphills was not really me. The free
                 ride mountain bike was more my style.
@@ -171,7 +171,7 @@ export const AboutUs = () => {
               <p>
                 <span class="font-futuraExtraBold">WHEELS ON FIRE</span> is
                 born, out of the burning passion of riding,travelling and is
-                inspired by the vulcanic terrain of this amazing place that is
+                inspired by the volcanic terrain of this amazing place that is
                 the Azores.
               </p>
             </div>

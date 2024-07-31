@@ -30,15 +30,6 @@ export const BikepackingInTheAzoresPart2 = () => {
             again till a new lever would arrive.
           </p>
           <p>
-            We had an address a half an hour walk away to pick up our bikes.
-            After wrong address and misunderstandings we finally arrived 10 min.
-            before the terminal closed. Every thing was there and intact so we
-            started to assemble the bikes. It was already dark when we started
-            putting every thing together and by finishing close to midnight. The
-            easy option that night was to spend the first night sleeping inside
-            an container.
-          </p>
-          <p>
             With a working bike again we had a look at the map and made a bike
             route. There was a small gravel road going up and and around the
             biggest crater Caldeira, it’s huge and really impressive.
@@ -51,18 +42,18 @@ export const BikepackingInTheAzoresPart2 = () => {
             more sunny days. We were wrong. Faial’s weather was rough and we
             were constantly fighting strong winds and on and off rain.
           </p>
-          <p>
+          <p class="break-inside-avoid">
             I really admire my girlfriend Juliana,she kept pushing on her heavy
             bike with the boards working like a sail that tossed her off the
             bike several times.Luckily nothing happened to her or the
             surfboards.
           </p>
-          <p class="break-after-column">
+          <p class="break-after-column break-inside-avoid">
             We reached the peak of the route and for a moment the fog
             disappeared and a beautiful view of the sea and the 10 volcanoes
             appeared in front of us.
           </p>
-          <h3 class="!mt-0 mb-4 font-futuraMedium text-headingL">
+          <h3 class="!mt-0 mb-4 !break-inside-avoid font-futuraMedium text-headingL">
             We reached the peak of the route and for a moment the fog
             disappeared and a beautiful view of the sea and the 10 volcanoes
             appeared in front of us. Sweaty, tired and wet in one second it all

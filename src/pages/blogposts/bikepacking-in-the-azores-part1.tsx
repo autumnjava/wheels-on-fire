@@ -370,7 +370,7 @@ export const BikepackingInTheAzoresPart1 = () => {
             pieces, impossible to repair, I needed to find a new one, also my
             brake lever was hanging on a loose thread after a crash.
           </p>
-          <p>
+          <p class="break-inside-avoid">
             There was no bike shop in São Jorge only on the island Faial, two
             hours away by boat.
           </p>

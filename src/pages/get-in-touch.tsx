@@ -92,23 +92,29 @@ export const GetInTouch = () => {
         </h2>
       </div>
 
-      <div class="my-8 text-center">
-        <div class="mx-auto w-[fit-content] bg-red px-4 py-2 font-futuraMedium text-[23px] uppercase leading-[27px] text-white">
-          Contact form
-        </div>
-      </div>
-
       <Show
         when={!isSucess()}
         fallback={
-          <div class="mx-auto text-center md:w-[50%]">
-            <h3 class="font-futuraExtraBold text-headingXXL">
-              Thank you for reaching out to us! We’ll get back to you as soon as
-              we can.
+          <>
+          <hr class="my-16" />
+          <div class="mx-auto text-center my-16">
+            <h3 class="font-futuraExtraBold text-headingXXL uppercase leading-[110%]">
+              Thank you for reaching out to us!
+              <br />
+              We’ll get back to you
+              <br />
+              as soon as we can.
             </h3>
           </div>
+          </>
         }
       >
+        <div class="my-8 text-center">
+          <div class="mx-auto w-[fit-content] bg-red px-4 py-2 font-futuraMedium text-[23px] uppercase leading-[27px] text-white">
+            Contact form
+          </div>
+        </div>
+
         <div class="flex flex-col justify-center p-4 pt-12 md:m-4 md:pt-4">
           <form onSubmit={handleSubmit} class="mx-auto w-full lg:w-[931px]">
             <div class="lg:flex lg:justify-between">
