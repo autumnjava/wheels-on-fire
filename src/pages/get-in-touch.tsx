@@ -194,7 +194,7 @@ export const GetInTouch = () => {
             <div class="text-end">
               <button
                 type="submit"
-                class="mt-8 bg-red px-4 py-1 uppercase text-white"
+                class="my-8 bg-red px-4 py-1 uppercase text-white text-[21.2px]"
               >
                 Submit
               </button>
