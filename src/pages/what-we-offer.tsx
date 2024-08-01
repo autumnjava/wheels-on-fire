@@ -15,11 +15,12 @@ export const WhatWeOffer = () => {
   const halfDay = () => (
     <>
       <div class="what-we-offer my-4">
-        <p>- Guided tour</p>
+        <p class="hidden sm:block">- Guided tour</p>
+        <p class="block sm:hidden">3-4 hrs - Guided tour</p>
         <p>- Shuttle Service</p>
         <p>- Pick up - Drop off</p>
-        <br />
-        <p>3-4 hrs</p>
+        <br class="hidden sm:block"/>
+        <p class="hidden sm:block">3-4 hrs</p>
       </div>
 
       <div class="what-we-offer-red my-4 flex justify-center whitespace-nowrap text-center text-red">
@@ -37,11 +38,12 @@ export const WhatWeOffer = () => {
   const fullDay = () => (
     <>
       <div class="what-we-offer my-4">
-        <p>- Guided tour</p>
+      <p class="hidden sm:block">- Guided tour</p>
+        <p class="block sm:hidden">5-6 hrs - Guided tour</p>
         <p>- Shuttle Service</p>
         <p>- Pick up - Drop off</p>
-        <br />
-        <p>5-6 hrs</p>
+        <br class="hidden sm:block"/>
+        <p class="hidden sm:block">5-6 hrs</p>
       </div>
 
       <div class="what-we-offer-red my-4 flex justify-center whitespace-nowrap text-center text-red">
@@ -199,7 +201,7 @@ export const WhatWeOffer = () => {
             * Ride will be adjusted to your needs & skills*
           </p>
 
-          <p class="text-[12px] leading-[14px] text-red sm:font-futuraMedium sm:text-headingL md:hidden">
+          <p class="text-[11px] leading-[14px] text-red font-futuraMedium sm:text-headingL">
             * Includes a full suspension Enduro bike, helmet & knee pads,
             gloves, Accident insurance coverage
           </p>

@@ -78,7 +78,7 @@ export const GetInTouch = () => {
           Get in touch
         </h1>
 
-        <h2 class="mx-auto text-headingL">
+        <h2 class="mx-auto text-[1.1rem] sm:text-headingL leading-[100%]">
           To make the most of your trip, for bookings and other questions,
           please contact us on
           <br />
@@ -108,13 +108,13 @@ export const GetInTouch = () => {
           </>
         }
       >
-        <div class="my-8 text-center">
-          <div class="mx-auto w-[fit-content] bg-red px-4 py-2 font-futuraMedium text-[23px] uppercase leading-[27px] text-white">
+        <div class="my-8 text-center  border-t border-red ">
+          <div class="mx-auto w-[fit-content] bg-red px-4 py-2 font-futuraMedium text-headingM uppercase leading-[27px] text-white">
             Contact form
           </div>
         </div>
 
-        <div class="flex flex-col justify-center p-4 pt-12 md:m-4 md:pt-4">
+        <div class="flex flex-col justify-center px-4 mt-4 md:m-4 md:mt-4">
           <form onSubmit={handleSubmit} class="mx-auto w-full lg:w-[931px]">
             <div class="lg:flex lg:justify-between">
               <div>

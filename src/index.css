@@ -124,8 +124,9 @@ hr {
 }
 
 @media screen and (max-width: 640px) {
-  .what-we-offer p, .what-we-offer-red p {
-    font-size: 9px;
+  .what-we-offer p,
+  .what-we-offer-red p {
+    font-size: 11px;
     line-height: 110%;
   }
 }
@@ -190,15 +191,15 @@ label {
 
 @media screen and (max-width: 640px) {
   .black-text-outline {
-    -webkit-text-stroke: 1.1px red;
+    -webkit-text-stroke: 0.9px red;
   }
 
   .text-outline {
-    -webkit-text-stroke: 1.1px red;
+    -webkit-text-stroke: 0.9px red;
   }
 
   .text-outline-thicker {
-    -webkit-text-stroke: 1.1px red;
+    -webkit-text-stroke: 0.9px red;
   }
 }
 

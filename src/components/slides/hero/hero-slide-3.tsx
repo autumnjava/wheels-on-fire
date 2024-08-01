@@ -6,7 +6,7 @@ type HeroProps = {};
 export const HeroSlide3 = (props: HeroProps) => {
   return (
     <div
-      class="mb-8 flex h-[360px] w-full flex-col bg-black bg-cover bg-center px-12 pt-16 sm:pt-4 md:h-[768px] md:px-16 md:pt-28"
+      class="mb-8 flex h-[270px] w-full flex-col bg-black bg-cover bg-center px-10 pt-4 sm:pt-4 md:h-[768px] md:px-16 md:pt-28"
       style={{ 'background-image': `url(${bgImage})` }}
     >
       <div class="mx-auto text-center">
@@ -15,12 +15,12 @@ export const HeroSlide3 = (props: HeroProps) => {
           <br />
           in the Azores
         </p>
-        <p class="font-futuraMedium text-headingXXL leading-[137%] text-white">
+        <p class="font-futuraMedium text-headingXXL sm:leading-[137%] text-white">
           How it all started
         </p>
         <Button
           url="/our-adventures/bikepacking-in-the-azores/1"
-          customClass="mx-auto"
+          customClass="mx-auto !mt-0"
         >
           Know more
         </Button>

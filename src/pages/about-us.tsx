@@ -111,7 +111,7 @@ export const AboutUs = () => {
 
         <div class="mx-auto mt-16 px-4 text-center md:mb-20 md:mt-28">
           <h3 class="font-futuraExtraBold text-[1.4rem] sm:text-headingXL">
-            WHOʼS BEHIND WHEELS ON FIRE ?
+            WHOʼS BEHIND<br class="block sm:hidden" /> WHEELS ON FIRE ?
           </h3>
         </div>
 

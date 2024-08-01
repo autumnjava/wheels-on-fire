@@ -52,7 +52,7 @@ export const Footer = () => {
             <A href="https://www.instagram.com">
               <InstagramIcon />
             </A>
-            <A href="https://www.youtube.com">
+            <A href="https://www.youtube.com/@wheelsonfireazores">
               <YoutubeIcon class="ml-4" />
             </A>
           </div>

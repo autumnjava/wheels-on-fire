@@ -27,7 +27,7 @@ export const OurAdventures = () => {
 
       <hr class="mt-8" />
 
-      <A href="#">
+      <A href="https://www.youtube.com/watch?v=4iYAmrZAx18">
         <div class="container mx-auto my-10 flex flex-col gap-8 px-4 sm:flex-row">
           <div
             class="relative h-[180px] w-full bg-cover bg-center sm:h-[328px] sm:w-[525px]"
