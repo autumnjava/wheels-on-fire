@@ -12,11 +12,11 @@ export const BikepackingInTheAzoresPart2 = () => {
     <>
       <div class="container mx-auto my-12 flex flex-col gap-4 sm:flex-row">
         <div
-          class="h-[500px] w-full bg-cover bg-center bg-no-repeat"
+          class="h-[200px] sm:h-[500px] w-full bg-cover bg-center bg-no-repeat"
           style={{ 'background-image': `url(${biking})` }}
         ></div>
         <div
-          class="h-[500px] w-full bg-cover bg-center bg-no-repeat"
+          class="h-[200px] sm:h-[500px] w-full bg-cover bg-center bg-no-repeat"
           style={{ 'background-image': `url(${view})` }}
         ></div>
       </div>
@@ -93,11 +93,11 @@ export const BikepackingInTheAzoresPart2 = () => {
 
       <div class="container mx-auto my-12 flex flex-col gap-4 sm:flex-row">
         <div
-          class="h-[500px] w-full bg-cover bg-center bg-no-repeat"
+          class="h-[200px] sm:h-[500px] w-full bg-cover bg-center bg-no-repeat"
           style={{ 'background-image': `url(${bike1})` }}
         ></div>
         <div
-          class="h-[500px] w-full bg-cover bg-center bg-no-repeat"
+          class="h-[200px] sm:h-[500px] w-full bg-cover bg-center bg-no-repeat"
           style={{ 'background-image': `url(${bike2})` }}
         ></div>
       </div>

@@ -18,7 +18,7 @@ export const BikepackingInTheAzoresPart1 = () => {
   return (
     <>
       <div
-        class="relative mb-12 flex h-[500px] w-full flex-col bg-black bg-cover bg-center px-12 pt-8 sm:pt-4 md:h-[868px] md:px-16 md:pt-28"
+        class="relative mb-12 flex h-[300px] sm:h-[500px] w-full flex-col bg-black bg-cover bg-center px-12 pt-8 sm:pt-4 md:h-[868px] md:px-16 md:pt-28"
         style={{ 'background-image': `url(${ju_faial})` }}
       >
         <PlayIcon
@@ -105,7 +105,7 @@ export const BikepackingInTheAzoresPart1 = () => {
       </div>
 
       <div
-        class="my-12 h-[500px] w-full flex-col bg-black bg-cover bg-center md:h-[868px]"
+        class="my-12 h-[200px] sm:h-[500px] w-full flex-col bg-black bg-cover bg-left md:h-[868px]"
         style={{ 'background-image': `url(${mosteiros_bike})` }}
       ></div>
 
@@ -169,11 +169,11 @@ export const BikepackingInTheAzoresPart1 = () => {
 
       <div class="container mx-auto my-12 flex flex-col gap-4 sm:flex-row">
         <div
-          class="h-[500px] w-full flex-col bg-cover bg-center bg-no-repeat"
+          class="h-[200px] sm:h-[500px] w-full flex-col bg-cover bg-center bg-no-repeat"
           style={{ 'background-image': `url(${bikes_old_guy})` }}
         ></div>
         <div
-          class="h-[500px] w-full flex-col bg-cover bg-center bg-no-repeat"
+          class="h-[200px] sm:h-[500px] w-full flex-col bg-cover bg-center bg-no-repeat"
           style={{ 'background-image': `url(${bikes_camping})` }}
         ></div>
       </div>
@@ -222,11 +222,11 @@ export const BikepackingInTheAzoresPart1 = () => {
 
       <div class="container mx-auto my-12 flex flex-col gap-4 sm:flex-row">
         <div
-          class="h-[500px] w-full flex-col bg-cover bg-center bg-no-repeat"
+          class="h-[200px] sm:h-[500px] w-full flex-col bg-cover bg-center bg-no-repeat"
           style={{ 'background-image': `url(${pickup_hitchhike})` }}
         ></div>
         <div
-          class="h-[500px] w-full flex-col bg-cover bg-center bg-no-repeat"
+          class="h-[200px] sm:h-[500px] w-full flex-col bg-cover bg-center bg-no-repeat"
           style={{ 'background-image': `url(${coast_view})` }}
         ></div>
       </div>
@@ -282,21 +282,21 @@ export const BikepackingInTheAzoresPart1 = () => {
       <div class="container mx-auto my-12">
         <div class="flex flex-col gap-4 sm:flex-row">
           <div
-            class="h-[500px] w-full flex-col bg-cover bg-center bg-no-repeat"
+            class="h-[200px] sm:h-[500px] w-full flex-col bg-cover bg-center bg-no-repeat"
             style={{ 'background-image': `url(${mosteiros})` }}
           ></div>
           <div
-            class="h-[500px] w-full flex-col bg-cover bg-center bg-no-repeat"
+            class="h-[200px] sm:h-[500px] w-full flex-col bg-cover bg-center bg-no-repeat"
             style={{ 'background-image': `url(${jallas_forest})` }}
           ></div>
         </div>
         <div class="my-4 flex flex-col gap-4 sm:flex-row">
           <div
-            class="h-[500px] w-full flex-col bg-cover bg-center bg-no-repeat"
+            class="h-[200px] sm:h-[500px] w-full flex-col bg-cover bg-center bg-no-repeat"
             style={{ 'background-image': `url(${ju_bike})` }}
           ></div>
           <div
-            class="h-[500px] w-full flex-col bg-cover bg-center bg-no-repeat"
+            class="h-[200px] sm:h-[500px] w-full flex-col bg-cover bg-center bg-no-repeat"
             style={{ 'background-image': `url(${coast_2})` }}
           ></div>
         </div>

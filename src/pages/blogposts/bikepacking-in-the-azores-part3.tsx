@@ -10,7 +10,7 @@ export const BikepackingInTheAzoresPart3 = () => {
   return (
     <>
       <div
-        class="mb-12 flex h-[500px] w-full flex-col bg-black bg-cover bg-center px-12 pt-8 sm:pt-4 md:h-[868px] md:px-16 md:pt-28"
+        class="mb-12 flex h-[200px] sm:h-[500px] w-full flex-col bg-black bg-cover bg-center px-12 pt-8 sm:pt-4 md:h-[868px] md:px-16 md:pt-28"
         style={{ 'background-image': `url(${mountainView})` }}
       ></div>
 
@@ -86,11 +86,11 @@ export const BikepackingInTheAzoresPart3 = () => {
 
       <div class="container mx-auto my-12 flex flex-col gap-4 sm:flex-row">
         <div
-          class="h-[500px] w-full flex-col bg-cover bg-center bg-no-repeat"
+          class="h-[200px] sm:h-[500px] w-full flex-col bg-cover bg-center bg-no-repeat"
           style={{ 'background-image': `url(${posing})` }}
         ></div>
         <div
-          class="h-[500px] w-full flex-col bg-cover bg-center bg-no-repeat"
+          class="h-[200px] sm:h-[500px] w-full flex-col bg-cover bg-center bg-no-repeat"
           style={{ 'background-image': `url(${surfing})` }}
         ></div>
       </div>
