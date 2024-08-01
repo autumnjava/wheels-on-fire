@@ -17,7 +17,7 @@ export const Home = () => {
 
   return (
     <>
-      <Slider controls={true} controlsPosition="hero" autoplay={false}>
+      <Slider controls={true} controlsPosition="hero" autoplay={true}>
         <HeroSlide1 />
         <HeroSlide2 />
         <HeroSlide3 />
