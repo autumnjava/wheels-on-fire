@@ -20,7 +20,7 @@ export const HeroSlide3 = (props: HeroProps) => {
         </p>
         <Button
           url="/our-adventures/bikepacking-in-the-azores/1"
-          customClass="mx-auto !mt-0"
+          customClass="mx-auto !mt-2"
         >
           Know more
         </Button>

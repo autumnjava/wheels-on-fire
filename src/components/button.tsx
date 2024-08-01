@@ -21,7 +21,7 @@ export const Button = (props: SliderProps) => {
     <button
       onClick={handleClick}
       class={clsx(
-        'mt-8 bg-red sm:px-[13px] sm:py-[9px] px-[15px] py-[4px] text-white',
+        'mt-8 bg-red sm:px-[13px] sm:py-[9px] px-[13px] py-[2px] text-white',
         props.customClass
       )}
     >

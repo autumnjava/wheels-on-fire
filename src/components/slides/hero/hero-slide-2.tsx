@@ -18,7 +18,7 @@ export const HeroSlide2 = (props: HeroProps) => {
         get dirty!{' '}
       </q>
       <div>
-        <Button url="/what-we-offer" customClass="!mt-0">Know more</Button>
+        <Button url="/what-we-offer" customClass="!mt-2">Know more</Button>
       </div>
     </div>
   );
