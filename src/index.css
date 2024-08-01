@@ -227,6 +227,13 @@ label {
   cursor: pointer;
 }
 
+@media screen and (max-width: 640px) {
+  .dot {
+    height: 8px;
+    width: 8px;
+  }
+}
+
 .what-we-offer-container {
   background-size: cover;
   padding-top: 0px;
