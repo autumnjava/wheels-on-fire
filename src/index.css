@@ -80,6 +80,11 @@ p {
     font-size: 0.9rem;
     line-height: 110%;
   }
+
+  p.about-us {
+    font-size: 0.7rem;
+    line-height: 110%;
+  }
 }
 
 h1 {
@@ -118,12 +123,25 @@ hr {
   line-height: 25px;
 }
 
+@media screen and (max-width: 640px) {
+  .what-we-offer p, .what-we-offer-red p {
+    font-size: 9px;
+    line-height: 110%;
+  }
+}
+
 button {
   font-size: 17px;
   font-family: Futura-CondensedMedium, Futura, sans-serif;
   line-height: 120%;
   text-transform: uppercase;
   letter-spacing: 0.05em; /* tracking-wider */
+}
+
+@media screen and (max-width: 640px) {
+  button {
+    font-size: 12px;
+  }
 }
 
 input,
@@ -170,6 +188,20 @@ label {
   -webkit-text-stroke: 1.8px red;
 }
 
+@media screen and (max-width: 640px) {
+  .black-text-outline {
+    -webkit-text-stroke: 1.1px red;
+  }
+
+  .text-outline {
+    -webkit-text-stroke: 1.1px red;
+  }
+
+  .text-outline-thicker {
+    -webkit-text-stroke: 1.1px red;
+  }
+}
+
 .text-back {
   color: transparent;
   -webkit-text-stroke: 1.2px red;
@@ -201,13 +233,13 @@ label {
   background-clip: content-box;
   background-repeat: no-repeat;
 
-  padding-top: 18px;
-  padding-left: 74px;
+  padding-top: 78px;
+  /* padding-left: 74px; */
 }
 
 .what-we-offer-content {
-  margin-top: -18px;
-  margin-left: -74px;
+  margin-top: -78px;
+  /* margin-left: -74px; */
 }
 
 @media screen and (min-width: 768px) {
@@ -264,14 +296,14 @@ label {
   --heroHeading: 3.2rem;
   --heroHeadingXL: 8vw;
   --headingWhatWeOffer: 3.8rem; /* 60px */
-  --headingWhatWeOfferSub: 1.4rem;
+  --headingWhatWeOfferSub: 1.35rem;
   --headingAboutUs: 16vw;
 
-  --headingXXXL2: 3.8rem;
+  --headingXXXL2: 3rem;
   --headingXXXL: 3.8rem;
   --headingXXL: 2.25rem;
   --headingXL: 1.6625rem;
-  --headingL: 1.30rem;
+  --headingL: 1.3rem;
   --headingM: 1.325rem;
   --headingS: 0.90625rem;
 }

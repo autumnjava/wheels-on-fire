@@ -20,7 +20,7 @@ export const AboutUs = () => {
           </div>
 
           <div class="mb-1 mt-[-20px] flex w-[40%] flex-col content-center justify-center pr-4 sm:mt-[-30px] md:mt-0 md:w-1/2 lg:mt-[-58px]">
-            <h2 class="sm:text-headingL text-[2rem] leading-[110%]">
+            <h2 class="text-headingL leading-[110%]">
               We <br class="block md:hidden" />
               discovered <br class="block md:hidden" />
               the Azores <br class="block md:hidden" />
@@ -100,14 +100,17 @@ export const AboutUs = () => {
         </div>
 
         <div class="my-8 block px-4 text-center md:hidden">
-          <h3 class="mx-auto max-w-[560px] text-headingL">
+          <h3 class="mx-auto max-w-[560px] text-[1.2rem] sm:text-headingL">
             Forget the luxury and the five stars, we want to offer a more
             natural and adventurous way of seeing the island.
           </h3>
+          <Button url="/our-adventures" customClass="mx-auto">
+            Check our article here
+          </Button>
         </div>
 
-        <div class="mx-auto mt-16 md:mt-28 px-4 text-center md:mb-20">
-          <h3 class="font-futuraExtraBold text-headingXL">
+        <div class="mx-auto mt-16 px-4 text-center md:mb-20 md:mt-28">
+          <h3 class="font-futuraExtraBold text-[1.4rem] sm:text-headingXL">
             WHOʼS BEHIND WHEELS ON FIRE ?
           </h3>
         </div>
@@ -115,16 +118,16 @@ export const AboutUs = () => {
         <hr class="my-10 block md:hidden" />
 
         <div class="flex flex-col-reverse text-center md:flex-row">
-          <div class="border-r border-r-red  px-4 text-center sm:px-8 md:w-1/2 md:px-16">
+          <div class="border-r border-r-red px-12 text-center md:w-1/2 md:px-16">
             <div class="mx-auto max-w-[482px] [&>*:not(:first-child)]:my-4">
               <h3 class="font-futura text-headingL font-bold">Jallas</h3>
-              <p>
+              <p class="about-us">
                 Hello there! I’m Jallas born in south Sweden. Since south Sweden
                 is kinda flat I started out with cross country biking but lycra
                 and pushing on the uphills was not really me. The free ride
                 mountain bike was more my style.
               </p>
-              <p>
+              <p class="about-us">
                 In 2012 I traveled to Portugal for the first time to pursue my
                 surf dream and from then on I just knew that this was where in
                 the world I wanted to be. Biking has also always been a big part
@@ -134,7 +137,7 @@ export const AboutUs = () => {
                 creating, building and maintaining the bike trails is something
                 I really like spending my time on.
               </p>
-              <p>
+              <p class="about-us">
                 After discovering the Azores by bike. Me and my partner Juliana
                 really enjoyed the island life. We felt that this is were we
                 want to be and create -{' '}
@@ -145,11 +148,11 @@ export const AboutUs = () => {
 
           <hr class="my-10 block md:hidden" />
 
-          <div class="px-4 text-center sm:px-8  md:w-1/2 md:px-16">
+          <div class="px-12 text-center md:w-1/2 md:px-16">
             <div class="mx-auto max-w-[482px] [&>*:not(:first-child)]:my-4">
               <h3 class="font-futura text-headingL font-bold">Juliana</h3>
-              <p>Hey ! I’m Juliana from Porto, Portugal. </p>
-              <p>
+              <p class="about-us">Hey ! I’m Juliana from Porto, Portugal. </p>
+              <p class="about-us">
                 I’ll never forget the first time I learnt how to bike. Since
                 then biking has always felt more than just the act of riding a
                 bike, - represents freedom and creativity and it’s the best way
@@ -159,14 +162,14 @@ export const AboutUs = () => {
                 it! It’s like a game: the other cyclists, the people, the
                 traffic.
               </p>
-              <p>
+              <p class="about-us">
                 When mountainbiking is different, being out in the wild riding
                 the nature’s “cool obstacles” like the terrain, if it’s rocky,
                 rooty, steep, uphill or in flowy trails and jumps. Every bike
                 day is different and teaches so much more than just skills, but
                 truly being in touch and in tune with everything and myself.
               </p>
-              <p>
+              <p class="about-us">
                 <span class="font-futuraExtraBold">WHEELS ON FIRE</span> is
                 born, out of the burning passion of riding,travelling and is
                 inspired by the volcanic terrain of this amazing place that is
@@ -175,7 +178,10 @@ export const AboutUs = () => {
             </div>
           </div>
         </div>
-        <Button url="/our-adventures/bikepacking-in-the-azores/1" customClass="block md:hidden mx-auto">
+        <Button
+          url="/our-adventures/bikepacking-in-the-azores/1"
+          customClass="block md:hidden mx-auto"
+        >
           Check our article here
         </Button>
       </div>

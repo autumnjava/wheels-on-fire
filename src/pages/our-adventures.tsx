@@ -30,7 +30,7 @@ export const OurAdventures = () => {
       <A href="#">
         <div class="container mx-auto my-10 flex flex-col gap-8 px-4 sm:flex-row">
           <div
-            class="relative h-[300px] w-full bg-cover sm:h-[328px] sm:w-[525px]"
+            class="relative h-[180px] w-full bg-cover bg-center sm:h-[328px] sm:w-[525px]"
             style={{ 'background-image': `url(${desertTrainFoto})` }}
           >
             <PlayIcon
@@ -57,7 +57,7 @@ export const OurAdventures = () => {
       <A href="/our-adventures/bikepacking-in-the-azores/1">
         <div class="container mx-auto my-10 flex flex-col gap-8 px-4 sm:flex-row">
           <div
-            class="relative h-[300px] w-full bg-cover sm:h-[328px] sm:w-[525px]"
+            class="relative h-[180px] w-full bg-cover bg-center sm:h-[328px] sm:w-[525px]"
             style={{ 'background-image': `url(${bikepackingInTheAzoresFoto})` }}
           >
             <PlayIcon

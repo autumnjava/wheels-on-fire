@@ -109,15 +109,6 @@ export const BikepackingInTheAzoresPart2 = () => {
             to bike up again to the main road and that was a good 270m climb.
           </p>
           <p>
-            We had an address a half an hour walk away to pick up our bikes.
-            After wrong address and misunderstandings we finally arrived 10 min.
-            before the terminal closed. Every thing was there and intact so we
-            started to assemble the bikes. It was already dark when we started
-            putting every thing together and by finishing close to midnight. The
-            easy option that night was to spend the first night sleeping inside
-            an container.
-          </p>
-          <p>
             In the 1957 there was a volcanic eruption that made the island
             bigger. The lava cooled down and a peninsula was created. The old
             houses got destroyed but the old lighthouse remained and turned into
@@ -133,7 +124,7 @@ export const BikepackingInTheAzoresPart2 = () => {
             that the locals had build. For us that was a great place to spend
             some time while waiting.
           </p>
-          <p>
+          <p class="!mt-0">
             We set up a base camp and started to get familiar with the bike
             trails. The locals had put in a lot of effort in the trails with
             cool gaps and jumps all build by wood and all marked up very well.

@@ -39,7 +39,7 @@ export const Header = () => {
             <img
               src={logo}
               alt="Wheels on fire"
-              class="mx-auto w-[230px] md:w-[300px]"
+              class="mx-auto w-[150px] md:w-[300px]"
             />
           </A>
         </div>

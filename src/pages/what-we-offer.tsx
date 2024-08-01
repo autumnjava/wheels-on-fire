@@ -92,7 +92,7 @@ export const WhatWeOffer = () => {
       <hr />
 
       <div
-        class="what-we-offer-container mt-6 bg-cover bg-center bg-origin-content sm:h-[450px] sm:bg-[30%] md:h-fit xl:h-[850px]"
+        class="what-we-offer-container mt-6 min-h-[330px] bg-cover bg-center bg-origin-content sm:h-[450px] sm:bg-[30%] md:h-fit xl:h-[850px]"
         style={{ 'background-image': `url(${image1})` }}
       >
         <div class="what-we-offer-content">
@@ -100,13 +100,22 @@ export const WhatWeOffer = () => {
             What <br /> we offer
           </h1>
 
-          <h2 class="transparent-overlay p-4 text-headingWhatWeOfferSub md:max-w-[180px] lg:max-w-[250px]">
+          <h2 class="transparent-overlay hidden p-4 text-headingWhatWeOfferSub sm:block md:max-w-[180px] lg:max-w-[250px]">
             We want to bring you and your friends out on a bike adventure and
             show the island from a different perspective. Doesnʼt matter if itʼs
             your first time out on a bike trail or if you are a full on dirt
             shredder, either way, youʼre in for a fun ride !
           </h2>
         </div>
+      </div>
+
+      <div>
+        <h2 class="p-4 text-center text-headingWhatWeOfferSub sm:hidden md:max-w-[180px] lg:max-w-[250px]">
+          We want to bring you and your friends out on a bike adventure and show
+          the island from a different perspective. Doesnʼt matter if itʼs your
+          first time out on a bike trail or if you are a full on dirt shredder,
+          either way, youʼre in for a fun ride !
+        </h2>
       </div>
 
       <div class="my-8 w-full border-t border-red md:my-16">
@@ -128,8 +137,8 @@ export const WhatWeOffer = () => {
         </div>
 
         <div class="px-4 text-center">
-          <img src={brand1} width={123} class="mx-auto" />
-          <h3 class="font-futuraMedium text-headingL uppercase leading-[60px] text-red">
+          <img src={brand1} width={123} class="mx-auto my-6" />
+          <h3 class="font-futuraMedium text-headingL uppercase text-red sm:leading-[60px]">
             Commencal clash ride dirt rockshox
           </h3>
 
@@ -186,11 +195,11 @@ export const WhatWeOffer = () => {
             <br class="block md:hidden" /> youʼll sure feel your
             <span class="font-futuraExtraBold"> WHEELS ON FIRE!</span>
           </h4>
-          <p class="font-futuraMedium text-headingL leading-[45px]">
+          <p class="my-2 font-futuraMedium text-[12px] leading-[14px] sm:text-headingL sm:leading-[45px]">
             * Ride will be adjusted to your needs & skills*
           </p>
 
-          <p class="text-red md:hidden">
+          <p class="text-[12px] leading-[14px] text-red sm:font-futuraMedium sm:text-headingL md:hidden">
             * Includes a full suspension Enduro bike, helmet & knee pads,
             gloves, Accident insurance coverage
           </p>
@@ -257,7 +266,7 @@ export const WhatWeOffer = () => {
         </Button>
       </ExpandableContainer>
 
-      <div class="my-8 mt-16 md:my-16 flex w-full flex-col border-t border-red">
+      <div class="my-8 mt-16 flex w-full flex-col border-t border-red md:my-16">
         <div class="w-[fit-content] bg-red px-4 py-2 font-futuraMedium text-headingM uppercase leading-[27px] text-white">
           Customize your trip
         </div>
@@ -281,7 +290,7 @@ export const WhatWeOffer = () => {
         </div>
       </div>
 
-      <div class="my-8 md:my-16 w-full border-red text-center border-t">
+      <div class="my-8 w-full border-t border-red text-center md:my-16">
         <div class="relative z-10 w-[fit-content] bg-red px-4 py-2 font-futuraMedium text-headingM uppercase leading-[27px] text-white md:static">
           Private tour
         </div>
@@ -297,10 +306,11 @@ export const WhatWeOffer = () => {
 
       <hr />
 
-      <div class="mt-8 md:mt-16 w-full text-center">
+      <div class="mt-8 w-full text-center md:mt-16">
         <div class="px-4 pt-12">
           <h3 class="font-futuraExtraBold text-headingXL uppercase">
-            Do you just want to rent bikes? <br /> Or shuttle?
+            Do you just want to rent bikes? <br class="hidden sm:block" /> Or
+            shuttle?
           </h3>
 
           <Button url="/get-in-touch" customClass="block mx-auto mt-4">

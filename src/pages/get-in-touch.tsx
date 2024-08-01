@@ -69,8 +69,7 @@ export const GetInTouch = () => {
       <A aria-label="Chat on WhatsApp" href="https://wa.me/351915797870">
         <img
           src={whatsAppIcon}
-          width={100}
-          class="fixed bottom-6 right-6 z-10"
+          class="fixed bottom-6 right-6 z-10 w-[50px] sm:w-[100px]"
         />
       </A>
 
@@ -96,9 +95,9 @@ export const GetInTouch = () => {
         when={!isSucess()}
         fallback={
           <>
-            <hr class="my-16" />
-            <div class="mx-auto my-16 text-center">
-              <h3 class="font-futuraExtraBold text-headingXXL uppercase leading-[110%]">
+            <hr class="my-8 sm:my-16" />
+            <div class="mx-auto my-8 text-center sm:my-16">
+              <h3 class="font-futuraExtraBold text-[2rem] uppercase leading-[110%] sm:text-headingXXL">
                 Thank you for reaching out to us!
                 <br />
                 We’ll get back to you
@@ -210,7 +209,7 @@ export const GetInTouch = () => {
         </div>
         <hr />
 
-        <div class="mx-auto my-8 p-4 pt-12 text-center md:mb-0 md:mt-32 md:w-[35%] md:pt-4">
+        <div class="mx-auto my-8 mb-0 p-4 pt-12 text-center md:mt-32 md:w-[35%] md:pt-4">
           <h3 class="font-futuraExtraBold text-headingXL uppercase">
             Wanna see more of what we're up to?
           </h3>

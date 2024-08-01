@@ -29,16 +29,16 @@ export const Home = () => {
         </h2>
         <div class="flex items-center justify-evenly">
           <A href="https://www.commencal.com">
-            <img src={brand1} class="w-[123px] md:w-[153px]" />
+            <img src={brand1} class="w-[103px] md:w-[153px]" />
           </A>
           <A href="https://poc.com/en">
-            <img src={brand2} class="w-[44px] md:w-[64px]" />
+            <img src={brand2} class="w-[24px] md:w-[64px]" />
           </A>
           <A href="https://www.oneupcomponents.com">
-            <img src={brand3} class="w-[53px] md:w-[73px]" />
+            <img src={brand3} class="w-[33px] md:w-[73px]" />
           </A>
           <A href="https://chromagbikes.com">
-            <img src={brand4} class="w-[43px] md:w-[63px]" />
+            <img src={brand4} class="w-[23px] md:w-[63px]" />
           </A>
         </div>
       </div>

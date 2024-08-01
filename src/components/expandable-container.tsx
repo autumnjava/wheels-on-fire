@@ -45,7 +45,7 @@ export const ExpandableContainer = (componentProps: ExpandableProps) => {
         />
       </div>
       <Show when={isOpen()}>
-        <div class="text-center select-none">{props.children}</div>
+        <div class="my-8 select-none text-center">{props.children}</div>
       </Show>
     </div>
   );

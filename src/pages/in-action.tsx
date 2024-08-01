@@ -25,13 +25,14 @@ export const InAction = () => {
 
       <div class="container mx-auto mb-6 mt-16 text-center">
         <h2 class="font-futuraExtraBold text-headingXL font-bold uppercase">
-          You ride. We pick you up. <br /> We got you all set up.
+          You ride. <br class="sm:hidden" /> We pick you up. <br /> We got you
+          all set up.
         </h2>
       </div>
 
       <div class="container mx-auto my-6 text-center">
         <h3 class="text-headingL uppercase">Get in touch</h3>
-        <Button url="/get-in-touch" customClass="!mt-6">
+        <Button url="/get-in-touch" customClass="!mt-4">
           Contact us
         </Button>
       </div>

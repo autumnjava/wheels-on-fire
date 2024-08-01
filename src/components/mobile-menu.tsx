@@ -58,14 +58,14 @@ export const MobileMenu = () => {
               <img
                 src={logoWhite}
                 alt="Wheels on fire"
-                class="mx-auto w-[230px]"
+                class="mx-auto w-[150px]"
               />
             </A>
           </div>
 
           <div class="overflow-y-hidden">
             <nav class="my-8 grid gap-4 px-4 text-center">
-              <NavLinks toggleMenu={toggleMenu} linkClass='!text-[2rem]' />
+              <NavLinks toggleMenu={toggleMenu} linkClass="!text-[2rem]" />
             </nav>
           </div>
         </div>
