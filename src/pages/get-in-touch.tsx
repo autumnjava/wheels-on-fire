@@ -92,13 +92,15 @@ export const GetInTouch = () => {
       </div>
 
       <Show
-        when={isSucess()}
+        when={!isSucess()}
         fallback={
           <>
             <hr class="my-8 sm:my-16" />
             <div class="mx-auto my-8 text-center sm:my-16">
-              <h3 class="font-futuraExtraBold text-[1.3rem] sm:text-[2rem] uppercase leading-[110%] sm:text-headingXXL">
-                Thank you for reaching out to us!
+              <h3 class="font-futuraExtraBold text-[1.3rem] uppercase leading-[110%] sm:text-[2rem] sm:text-headingXXL">
+                Thank you
+                <br class="block 2xl:hidden" />
+                {' '}for reaching out to us!
                 <br />
                 We’ll get back to you
                 <br />
