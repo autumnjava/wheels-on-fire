@@ -271,7 +271,7 @@ export const WhatWeOffer = () => {
       <div class="w-[fit-content] bg-red px-8 py-1 font-futuraMedium text-[16px] uppercase leading-[100%] text-white sm:px-4 sm:text-headingM sm:leading-[27px]">
           Customize your trip
         </div>
-        <div class="mx-auto max-w-[650px] p-4 pt-12 text-center md:pt-8 [&>*]:my-2">
+        <div class="mx-auto max-w-[650px] p-4 pt-12 text-center md:pt-8 [&>*:not(:first-child)]:my-2">
           <h3 class="font-futuraExtraBold text-headingXL uppercase">
             Do you want us to customize your trip?
           </h3>
@@ -283,9 +283,9 @@ export const WhatWeOffer = () => {
           <p class="font-futuraMedium text-headingL">
             * Ride will be adjusted to your needs & skills*
           </p>
-          <p class="font-futuraMedium text-headingM text-red">* Min 1 day</p>
+          <p class="font-futuraMedium text-headingS text-red">* Min 1 day</p>
 
-          <Button url="/get-in-touch" customClass="block !mt-4 mx-auto">
+          <Button url="/get-in-touch" customClass="block !mt-2 mx-auto">
             Get in touch
           </Button>
         </div>
@@ -295,11 +295,11 @@ export const WhatWeOffer = () => {
       <div class="w-[fit-content] bg-red px-8 py-1 font-futuraMedium text-[16px] uppercase leading-[100%] text-white sm:px-4 sm:text-headingM sm:leading-[27px]">
           Private tour
         </div>
-        <div class="p-4 pt-12 md:m-4 md:pt-4">
+        <div class="px-4 mt-8 md:m-4 md:mt-4">
           <h3 class="font-futuraExtraBold text-headingXL uppercase">
             Are you the one <br /> and only rider?
           </h3>
-          <Button url="/get-in-touch" customClass="block mx-auto !my-4">
+          <Button url="/get-in-touch" customClass="block mx-auto !my-2">
             Get in touch
           </Button>
         </div>
@@ -308,13 +308,13 @@ export const WhatWeOffer = () => {
       <hr />
 
       <div class="mt-8 w-full text-center md:mt-16">
-        <div class="px-4 pt-12">
+        <div class="px-4 mt-12">
           <h3 class="font-futuraExtraBold text-headingXL uppercase">
             Do you just want to rent bikes? <br class="hidden sm:block" /> Or
             shuttle?
           </h3>
 
-          <Button url="/get-in-touch" customClass="block mx-auto !mt-4">
+          <Button url="/get-in-touch" customClass="block mx-auto !mt-2">
             Get in touch
           </Button>
         </div>

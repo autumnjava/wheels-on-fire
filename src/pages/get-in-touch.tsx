@@ -219,11 +219,11 @@ export const GetInTouch = () => {
           <h4 class="mt-4 font-futuraMedium text-headingS uppercase">
             Check us on
           </h4>
-          <div class="mt-4 flex justify-center">
+          <div class="mt-2 flex justify-center">
             <A href="https://www.instagram.com">
               <InstagramIcon class="fill-red" />
             </A>
-            <A href="https://www.youtube.com">
+            <A href="https://m.youtube.com/@wheelsonfireazores">
               <YoutubeIcon class="ml-4 fill-red" />
             </A>
           </div>

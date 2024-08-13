@@ -177,7 +177,7 @@ label {
   display: block;
   width: 100%;
   text-transform: uppercase;
-  margin: 20px 0;
+  margin-bottom: 20px;
   padding: 0.5rem 0;
   font-family: Futura-CondensedMedium, Futura, sans-serif;
   font-size: 25px;
@@ -186,7 +186,7 @@ label {
 
 @media screen and (max-width: 640px) {
   label {
-    margin: 10px 0;
+    margin-bottom: 10px;
     font-size: 20px;
     padding: 0;
   }
