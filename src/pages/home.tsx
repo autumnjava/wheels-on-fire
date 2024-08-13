@@ -53,7 +53,7 @@ export const Home = () => {
 
       <div class="container mx-auto px-4 text-center">
         <h3 class="text-headingL uppercase">Get in touch</h3>
-        <Button url="/get-in-touch" customClass="sm:mt-[20px] !mt-2 !px-[10px]">
+        <Button url="/get-in-touch" customClass="sm:mt-[20px] !mt-1 !px-[10px]">
           Contact us
         </Button>
       </div>

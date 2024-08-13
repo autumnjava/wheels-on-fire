@@ -32,7 +32,7 @@ export const InAction = () => {
 
       <div class="container mx-auto my-6 text-center">
         <h3 class="text-headingL uppercase">Get in touch</h3>
-        <Button url="/get-in-touch" customClass="!mt-4">
+        <Button url="/get-in-touch" customClass="sm:mt-[20px] !mt-1 !px-[10px]">
           Contact us
         </Button>
       </div>

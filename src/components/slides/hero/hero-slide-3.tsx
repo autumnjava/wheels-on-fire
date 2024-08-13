@@ -15,7 +15,7 @@ export const HeroSlide3 = (props: HeroProps) => {
           <br />
           in the Azores
         </p>
-        <p class="font-futuraMedium text-headingXXL sm:leading-[137%] text-white">
+        <p class="font-futuraMedium text-headingL sm:leading-[137%] text-white">
           How it all started
         </p>
         <Button

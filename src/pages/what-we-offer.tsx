@@ -64,7 +64,7 @@ export const WhatWeOffer = () => {
       <div class="what-we-offer my-4">
         <p>
           Join us for a good
-          <br class="hidden md:block" /> ride! Guided tour on
+          <br class="hidden md:block" /> ride! <br class="block md:hidden" />Guided tour on
           <br class="hidden md:block" /> multiple locations.
         </p>
       </div>
@@ -299,7 +299,7 @@ export const WhatWeOffer = () => {
           <h3 class="font-futuraExtraBold text-headingXL uppercase">
             Are you the one <br /> and only rider?
           </h3>
-          <Button url="/get-in-touch" customClass="block mx-auto my-4">
+          <Button url="/get-in-touch" customClass="block mx-auto !my-4">
             Get in touch
           </Button>
         </div>
@@ -314,7 +314,7 @@ export const WhatWeOffer = () => {
             shuttle?
           </h3>
 
-          <Button url="/get-in-touch" customClass="block mx-auto mt-4">
+          <Button url="/get-in-touch" customClass="block mx-auto !mt-4">
             Get in touch
           </Button>
         </div>

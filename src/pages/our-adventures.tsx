@@ -16,7 +16,7 @@ export const OurAdventures = () => {
           <h1 class="font-extrabold text-red-600 text-headingXXXL !leading-[78%] text-red lg:text-[11rem] xl:text-[12rem]">
             OUR
           </h1>
-          <h2 class="ml-4 self-center border border-red p-1 text-[1.2rem] normal-case sm:ml-16 sm:p-2 md:text-headingXL">
+          <h2 class="ml-4 self-center border border-red px-1 mb-1 text-[1.2rem] normal-case sm:ml-16 sm:p-2 md:text-headingXL">
             Film & photos from our travels
           </h2>
         </div>
