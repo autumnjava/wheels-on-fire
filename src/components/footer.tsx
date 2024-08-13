@@ -11,7 +11,7 @@ export const Footer = () => {
   const columnStyle = 'flex flex-col justify-evenly [&>*]:my-2';
   return (
     <footer class="mt-auto w-full items-center bg-black text-center text-white">
-      <div class="lg:container mx-auto py-4 md:grid md:grid-cols-footer">
+      <div class="mx-auto py-4 lg:container md:grid md:grid-cols-footer">
         <div class="w-auto content-center">
           <A href="/">
             <img
@@ -49,10 +49,18 @@ export const Footer = () => {
 
         <div class={clsx('mx-auto max-w-[143px]', columnStyle)}>
           <div class="flex justify-center">
-            <A href="https://www.instagram.com">
+            <A
+              href="https://www.instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <InstagramIcon />
             </A>
-            <A href="https://www.youtube.com/@wheelsonfireazores">
+            <A
+              href="https://www.youtube.com/@wheelsonfireazores"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <YoutubeIcon class="ml-4" />
             </A>
           </div>

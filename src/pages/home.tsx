@@ -25,16 +25,32 @@ export const Home = () => {
           Brands that support us
         </h2>
         <div class="flex items-center justify-evenly">
-          <A href="https://www.commencal.com">
+          <A
+            href="https://www.commencal.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img src={brand1} class="w-[103px] md:w-[153px]" />
           </A>
-          <A href="https://poc.com/en">
+          <A
+            href="https://poc.com/en"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img src={brand2} class="w-[24px] md:w-[64px]" />
           </A>
-          <A href="https://www.oneupcomponents.com">
+          <A
+            href="https://www.oneupcomponents.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img src={brand3} class="w-[33px] md:w-[73px]" />
           </A>
-          <A href="https://chromagbikes.com">
+          <A
+            href="https://chromagbikes.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img src={brand4} class="w-[23px] md:w-[63px]" />
           </A>
         </div>
@@ -42,7 +58,7 @@ export const Home = () => {
 
       <hr class="mt-8" />
 
-      <div class="container mx-auto sm:mb-[24px] sm:mt-[94px] px-4 text-center mt-8 mb-4">
+      <div class="container mx-auto mb-4 mt-8 px-4 text-center sm:mb-[24px] sm:mt-[94px]">
         <h2 class="font-futuraExtraBold text-headingXL font-bold uppercase">
           You ride.
           <br class="block md:hidden" /> We pick you up.

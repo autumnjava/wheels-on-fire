@@ -99,8 +99,7 @@ export const GetInTouch = () => {
             <div class="mx-auto my-8 text-center sm:my-16">
               <h3 class="font-futuraExtraBold text-[1.3rem] uppercase leading-[110%] sm:text-[2rem] sm:text-headingXXL">
                 Thank you
-                <br class="block 2xl:hidden" />
-                {' '}for reaching out to us!
+                <br class="block 2xl:hidden" /> for reaching out to us!
                 <br />
                 We’ll get back to you
                 <br />
@@ -220,10 +219,18 @@ export const GetInTouch = () => {
             Check us on
           </h4>
           <div class="mt-2 flex justify-center">
-            <A href="https://www.instagram.com">
+            <A
+              href="https://www.instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <InstagramIcon class="fill-red" />
             </A>
-            <A href="https://m.youtube.com/@wheelsonfireazores">
+            <A
+              href="https://m.youtube.com/@wheelsonfireazores"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <YoutubeIcon class="ml-4 fill-red" />
             </A>
           </div>

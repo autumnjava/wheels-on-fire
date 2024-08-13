@@ -21,7 +21,11 @@ export const BikepackingInTheAzoresPart1 = () => {
         class="relative mb-12 flex h-[300px] w-full flex-col bg-black bg-cover bg-center px-12 pt-8 sm:h-[500px] sm:pt-4 md:h-[868px] md:px-16 md:pt-28"
         style={{ 'background-image': `url(${ju_faial})` }}
       >
-        <A href="https://www.youtube.com/@wheelsonfireazores">
+        <A
+          href="https://www.youtube.com/@wheelsonfireazores"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <PlayIcon
             class="absolute left-0 right-0 top-1/2 mx-auto -translate-y-1/2"
             height="50"

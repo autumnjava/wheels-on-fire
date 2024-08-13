@@ -16,7 +16,7 @@ export const OurAdventures = () => {
           <h1 class="font-extrabold text-red-600 text-headingXXXL !leading-[78%] text-red lg:text-[11rem] xl:text-[12rem]">
             OUR
           </h1>
-          <h2 class="ml-4 self-center border border-red px-1 mb-1 text-[1.2rem] normal-case sm:ml-16 sm:p-2 md:text-headingXL">
+          <h2 class="mb-1 ml-4 self-center border border-red px-1 text-[1.2rem] normal-case sm:ml-16 sm:p-2 md:text-headingXL">
             Film & photos from our travels
           </h2>
         </div>
@@ -27,7 +27,11 @@ export const OurAdventures = () => {
 
       <hr class="mt-8" />
 
-      <A href="https://www.youtube.com/watch?v=4iYAmrZAx18">
+      <A
+        href="https://www.youtube.com/watch?v=4iYAmrZAx18"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <div class="container mx-auto my-10 flex flex-col gap-8 px-4 sm:flex-row">
           <div
             class="relative h-[180px] w-full bg-cover bg-center sm:h-[328px] sm:w-[525px]"
