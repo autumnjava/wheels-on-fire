@@ -110,8 +110,9 @@ export const AboutUs = () => {
         </div>
 
         <div class="mx-auto mt-16 px-4 text-center md:mb-20 md:mt-28">
-          <h3 class="font-futuraExtraBold text-[1.4rem] sm:text-headingXL">
-            WHOʼS BEHIND<br class="block sm:hidden" /> WHEELS ON FIRE ?
+          <h3 class="font-futuraExtraBold text-[1.4rem] leading-[100%] sm:text-headingXL">
+            WHOʼS BEHIND
+            <br class="block sm:hidden" /> WHEELS ON FIRE ?
           </h3>
         </div>
 
@@ -120,7 +121,9 @@ export const AboutUs = () => {
         <div class="flex flex-col-reverse text-center md:flex-row">
           <div class="border-r border-r-red px-12 text-center md:w-1/2 md:px-16">
             <div class="mx-auto max-w-[482px] [&>*:not(:first-child)]:my-4">
-              <h3 class="font-futura text-headingL font-bold">Jallas</h3>
+              <h3 class="font-futuraExtraBold text-headingL font-bold sm:font-futura">
+                Jallas
+              </h3>
               <p class="about-us">
                 Hello there! I’m Jallas born in south Sweden. Since south Sweden
                 is kinda flat I started out with cross country biking but lycra
@@ -150,7 +153,9 @@ export const AboutUs = () => {
 
           <div class="px-12 text-center md:w-1/2 md:px-16">
             <div class="mx-auto max-w-[482px] [&>*:not(:first-child)]:my-4">
-              <h3 class="font-futura text-headingL font-bold">Juliana</h3>
+              <h3 class="font-futuraExtraBold text-headingL font-bold sm:font-futura">
+                Juliana
+              </h3>
               <p class="about-us">Hey ! I’m Juliana from Porto, Portugal. </p>
               <p class="about-us">
                 I’ll never forget the first time I learnt how to bike. Since
