@@ -3,8 +3,8 @@ import { SvgIcon } from './svg-icon';
 import { SvgIconProps } from './svg-icon.d';
 
 const defaultProps: SvgIconProps = {
-  height: '37px',
-  width: '26px',
+  height: '31px',
+  width: '20px',
   fill: 'red',
   viewBox: '0 0 448 512',
 };

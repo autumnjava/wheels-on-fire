@@ -16,7 +16,7 @@ export const OurAdventures = () => {
           <h1 class="font-extrabold text-red-600 text-headingXXXL !leading-[78%] text-red lg:text-[11rem] xl:text-[12rem]">
             OUR
           </h1>
-          <h2 class="ml-4 self-center border border-red p-1 text-headingL normal-case sm:ml-16 sm:p-2 md:text-headingXL">
+          <h2 class="ml-4 self-center border border-red p-1 text-[1.2rem] normal-case sm:ml-16 sm:p-2 md:text-headingXL">
             Film & photos from our travels
           </h2>
         </div>
@@ -48,7 +48,7 @@ export const OurAdventures = () => {
               In the winter of 2020, we went all the way from Switzerland to
               Mauritania to ride a freight train that crosses the desert.
             </p>
-            <hr class="mx-auto my-8 w-[5%] sm:mx-0" />
+            <hr class="my-8 w-[5%]" />
             <h4 class="!normal-case">Film & Photos by us.</h4>
           </div>
         </div>
@@ -74,9 +74,12 @@ export const OurAdventures = () => {
             <p>
               In the spring of 2023 we packed our passion in life and shipped it
               over to São Miguel - 2 enduro bicycles, 2 surf boards and a bike
-              trailer. We did 4 islands in 2 months and a half.
+              trailer.
+              <br />
+              <br />
+              We did 4 islands in 2 months and a half.
             </p>
-            <hr class="mx-auto my-8 w-[5%] sm:mx-0" />
+            <hr class="my-8 w-[5%]" />
             <h4 class="!normal-case">Film & Photos by us.</h4>
           </div>
         </div>

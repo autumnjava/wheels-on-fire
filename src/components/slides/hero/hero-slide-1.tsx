@@ -14,7 +14,7 @@ export const HeroSlide1 = (props: HeroProps) => {
           S. Miguel <br /> in action - <br /> exploring <br /> the cool <br />{' '}
           trails on <br /> the island
         </p>
-        <Button url="/what-we-offer" customClass="!mt-2">Know more</Button>
+        <Button url="/what-we-offer" customClass="!mt-6">Know more</Button>
       </div>
     </div>
   );

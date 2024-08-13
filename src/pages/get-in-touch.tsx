@@ -78,7 +78,7 @@ export const GetInTouch = () => {
           Get in touch
         </h1>
 
-        <h2 class="mx-auto text-[1.1rem] sm:text-headingL leading-[100%]">
+        <h2 class="mx-auto text-[1.1rem] leading-[100%] sm:text-headingL">
           To make the most of your trip, for bookings and other questions,
           please contact us on
           <br />
@@ -92,12 +92,12 @@ export const GetInTouch = () => {
       </div>
 
       <Show
-        when={!isSucess()}
+        when={isSucess()}
         fallback={
           <>
             <hr class="my-8 sm:my-16" />
             <div class="mx-auto my-8 text-center sm:my-16">
-              <h3 class="font-futuraExtraBold text-[2rem] uppercase leading-[110%] sm:text-headingXXL">
+              <h3 class="font-futuraExtraBold text-[1.3rem] sm:text-[2rem] uppercase leading-[110%] sm:text-headingXXL">
                 Thank you for reaching out to us!
                 <br />
                 We’ll get back to you
@@ -108,18 +108,18 @@ export const GetInTouch = () => {
           </>
         }
       >
-        <div class="my-8 text-center  border-t border-red ">
-          <div class="mx-auto w-[fit-content] bg-red px-4 py-2 font-futuraMedium text-headingM uppercase leading-[27px] text-white">
+        <div class="my-8 border-t  border-red text-center ">
+          <div class="mx-auto w-[fit-content] bg-red px-8 py-1 font-futuraMedium text-[16px] uppercase leading-[100%] text-white sm:px-4 sm:text-headingM sm:leading-[27px]">
             Contact form
           </div>
         </div>
 
-        <div class="flex flex-col justify-center px-4 mt-4 md:m-4 md:mt-4">
+        <div class="mt-4 flex flex-col justify-center px-4 md:m-4 md:mt-4">
           <form onSubmit={handleSubmit} class="mx-auto w-full lg:w-[931px]">
             <div class="lg:flex lg:justify-between">
               <div>
                 <label for="name">Name:</label>
-                <div class="flex flex-col gap-8 md:flex-row">
+                <div class="flex flex-col gap-4 sm:gap-8 md:flex-row">
                   <input
                     type="text"
                     id="firstName"
@@ -194,7 +194,7 @@ export const GetInTouch = () => {
             <div class="text-end">
               <button
                 type="submit"
-                class="my-8 bg-red px-4 py-1 uppercase text-white text-[21.2px]"
+                class="my-8 bg-red px-4 py-1 text-[21.2px] uppercase text-white"
               >
                 Submit
               </button>

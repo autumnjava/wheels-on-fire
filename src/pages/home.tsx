@@ -12,12 +12,9 @@ import brand2 from '../components/data/images/brands/poc-sports-logo-vector-01.p
 import { A } from '@solidjs/router';
 
 export const Home = () => {
-  const sectionStyle = 'container mx-auto mt-[94px] mb-[24px] px-4 text-center';
-  const h2Style = '';
-
   return (
     <>
-      <Slider controls={true} controlsPosition="hero" autoplay={false}>
+      <Slider controls={true} controlsPosition="hero" autoplay={true}>
         <HeroSlide1 />
         <HeroSlide2 />
         <HeroSlide3 />
@@ -45,7 +42,7 @@ export const Home = () => {
 
       <hr class="mt-8" />
 
-      <div class={sectionStyle}>
+      <div class="container mx-auto sm:mb-[24px] sm:mt-[94px] px-4 text-center mt-8 mb-4">
         <h2 class="font-futuraExtraBold text-headingXL font-bold uppercase">
           You ride.
           <br class="block md:hidden" /> We pick you up.
@@ -56,7 +53,7 @@ export const Home = () => {
 
       <div class="container mx-auto px-4 text-center">
         <h3 class="text-headingL uppercase">Get in touch</h3>
-        <Button url="/get-in-touch" customClass="mt-[20px]">
+        <Button url="/get-in-touch" customClass="sm:mt-[20px] !mt-2 !px-[10px]">
           Contact us
         </Button>
       </div>

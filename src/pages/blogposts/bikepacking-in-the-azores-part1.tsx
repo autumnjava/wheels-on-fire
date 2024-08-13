@@ -111,7 +111,7 @@ export const BikepackingInTheAzoresPart1 = () => {
 
       <div class="container mx-auto my-12 max-w-[1040px] px-4">
         <div class="gap-4 space-y-4 sm:columns-2">
-          <h3 class="my-8 font-futuraMedium text-headingL">
+          <h3 class="mb-8 font-futuraMedium text-headingL">
             It felt a bit heavy the first day not biking for two weeks and also
             the fact that we were riding enduro bikes with DH casing. On top of
             that I was pushing the bike trailer with all our camping gear and

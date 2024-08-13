@@ -81,7 +81,10 @@ export const AboutUs = () => {
               src={image2}
               class="h-full w-full object-cover md:h-[600px] xl:h-[650px] 2xl:h-[700px]"
             ></img>
-            <Button url="/our-adventures" customClass="hidden md:block mx-auto">
+            <Button
+              url="/our-adventures/bikepacking-in-the-azores/1"
+              customClass="hidden md:block mx-auto"
+            >
               Check our article here
             </Button>
           </div>
@@ -100,7 +103,7 @@ export const AboutUs = () => {
         </div>
 
         <div class="my-8 block px-4 text-center md:hidden">
-          <h3 class="mx-auto max-w-[560px] text-[1.2rem] sm:text-headingL">
+          <h3 class="mx-auto max-w-[560px] text-[1.2rem] leading-[100%] sm:text-headingL">
             Forget the luxury and the five stars, we want to offer a more
             natural and adventurous way of seeing the island.
           </h3>
@@ -183,12 +186,6 @@ export const AboutUs = () => {
             </div>
           </div>
         </div>
-        <Button
-          url="/our-adventures/bikepacking-in-the-azores/1"
-          customClass="block md:hidden mx-auto"
-        >
-          Check our article here
-        </Button>
       </div>
     </>
   );

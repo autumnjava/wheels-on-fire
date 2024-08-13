@@ -3,8 +3,8 @@ import { SvgIconProps } from './svg-icon.d';
 import { mergeProps } from 'solid-js';
 
 const defaultProps: SvgIconProps = {
-  height: '37px',
-  width: '26px',
+  height: '31px',
+  width: '20px',
   fill: 'white',
   viewBox: '0 0 384 512',
 };

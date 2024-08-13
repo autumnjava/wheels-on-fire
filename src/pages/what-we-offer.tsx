@@ -19,7 +19,7 @@ export const WhatWeOffer = () => {
         <p class="block sm:hidden">3-4 hrs - Guided tour</p>
         <p>- Shuttle Service</p>
         <p>- Pick up - Drop off</p>
-        <br class="hidden sm:block"/>
+        <br class="hidden sm:block" />
         <p class="hidden sm:block">3-4 hrs</p>
       </div>
 
@@ -38,11 +38,11 @@ export const WhatWeOffer = () => {
   const fullDay = () => (
     <>
       <div class="what-we-offer my-4">
-      <p class="hidden sm:block">- Guided tour</p>
+        <p class="hidden sm:block">- Guided tour</p>
         <p class="block sm:hidden">5-6 hrs - Guided tour</p>
         <p>- Shuttle Service</p>
         <p>- Pick up - Drop off</p>
-        <br class="hidden sm:block"/>
+        <br class="hidden sm:block" />
         <p class="hidden sm:block">5-6 hrs</p>
       </div>
 
@@ -98,7 +98,7 @@ export const WhatWeOffer = () => {
         style={{ 'background-image': `url(${image1})` }}
       >
         <div class="what-we-offer-content">
-          <h1 class="text-outline relative block pl-4 text-headingWhatWeOffer leading-[90%] tracking-wider">
+          <h1 class="text-outline word-spacing relative block pl-4 text-headingWhatWeOffer leading-[90%] tracking-wider">
             What <br /> we offer
           </h1>
 
@@ -121,7 +121,7 @@ export const WhatWeOffer = () => {
       </div>
 
       <div class="my-8 w-full border-t border-red md:my-16">
-        <div class="relative z-10 w-[fit-content] bg-red px-4 py-2 font-futuraMedium text-headingM uppercase leading-[27px] text-white md:static">
+        <div class="relative z-10 w-[fit-content] bg-red px-8 py-1 font-futuraMedium text-[16px] uppercase leading-[100%] text-white sm:px-4 sm:text-headingM sm:leading-[27px] md:static">
           The beasts
         </div>
         <div class="pt-8 md:m-8 md:pt-4">
@@ -155,7 +155,7 @@ export const WhatWeOffer = () => {
 
           <Button
             url="https://www.commencal.com/us/en/commencal-clash-ride-dirt-new-rockshox/22CLASHRIRS.html"
-            customClass="block mx-auto !my-8"
+            customClass="block mx-auto !my-8 text-[17px]"
           >
             Check more here
           </Button>
@@ -166,7 +166,7 @@ export const WhatWeOffer = () => {
 
       <div class="my-8 flex justify-center text-center md:my-16">
         <div class="mx-8">
-          <p class="font-futuraMedium text-[30px] uppercase leading-[60px] text-red">
+          <p class="font-futuraMedium text-[1.25rem] uppercase leading-[60px] text-red sm:text-[30px]">
             M
           </p>
           <p class="whitespace-nowrap font-andaleMonoBold text-[16px] leading-[27px]">
@@ -175,7 +175,7 @@ export const WhatWeOffer = () => {
         </div>
 
         <div class="mx-8">
-          <p class="font-futuraMedium text-[30px] uppercase leading-[60px] text-red">
+          <p class="font-futuraMedium text-[1.25rem] uppercase leading-[60px] text-red sm:text-[30px]">
             L
           </p>
           <p class="whitespace-nowrap font-andaleMonoBold text-[16px] leading-[27px]">
@@ -185,7 +185,7 @@ export const WhatWeOffer = () => {
       </div>
 
       <div class="my-16 w-full border-t border-red text-center md:my-16">
-        <div class="w-[fit-content] bg-red px-4 py-2 font-futuraMedium text-headingM uppercase leading-[27px] text-white">
+        <div class="w-[fit-content] bg-red px-8 py-1 font-futuraMedium text-[16px] uppercase leading-[100%] text-white sm:px-4 sm:text-headingM sm:leading-[27px]">
           What we offer
         </div>
         <div class="mx-auto my-8 px-4">
@@ -197,13 +197,12 @@ export const WhatWeOffer = () => {
             <br class="block md:hidden" /> youʼll sure feel your
             <span class="font-futuraExtraBold"> WHEELS ON FIRE!</span>
           </h4>
-          <p class="my-2 font-futuraMedium text-[12px] leading-[14px] sm:text-headingL sm:leading-[45px]">
+          <p class="my-2 font-futuraMedium text-[15px] leading-[14px] sm:text-headingL sm:leading-[45px]">
             * Ride will be adjusted to your needs & skills*
           </p>
 
-          <p class="text-[11px] leading-[14px] text-red font-futuraMedium sm:text-headingL">
-            * Includes a full suspension Enduro bike, helmet & knee pads,
-            gloves, Accident insurance coverage
+          <p class="font-futuraMedium text-[13px] leading-[14px] text-red sm:text-headingM">
+            * Includes a full suspension Enduro bike, helmet & knee pads, gloves
           </p>
 
           <div class="mx-auto mt-8 hidden max-w-[1070px] justify-between gap-4 text-center lg:flex">
@@ -249,27 +248,27 @@ export const WhatWeOffer = () => {
       <ExpandableContainer heading="half day" customCss="block lg:hidden">
         {halfDay()}
 
-        <Button url="/get-in-touch" customClass="block mx-auto my-4">
+        <Button url="/get-in-touch" customClass="block mx-auto !my-4 what-we-offer-get-in-touch !px-[10px]">
           Get in touch
         </Button>
       </ExpandableContainer>
       <ExpandableContainer heading="full day" customCss="block lg:hidden">
         {fullDay()}
 
-        <Button url="/get-in-touch" customClass="block mx-auto my-4">
+        <Button url="/get-in-touch" customClass="block mx-auto !my-4 what-we-offer-get-in-touch !px-[10px]">
           Get in touch
         </Button>
       </ExpandableContainer>
       <ExpandableContainer heading="1 day +" customCss="block lg:hidden">
         {oneDayPlus()}
 
-        <Button url="/get-in-touch" customClass="block mx-auto my-4">
+        <Button url="/get-in-touch" customClass="block mx-auto !my-4 what-we-offer-get-in-touch !px-[10px]">
           Get in touch
         </Button>
       </ExpandableContainer>
 
       <div class="my-8 mt-16 flex w-full flex-col border-t border-red md:my-16">
-        <div class="w-[fit-content] bg-red px-4 py-2 font-futuraMedium text-headingM uppercase leading-[27px] text-white">
+      <div class="w-[fit-content] bg-red px-8 py-1 font-futuraMedium text-[16px] uppercase leading-[100%] text-white sm:px-4 sm:text-headingM sm:leading-[27px]">
           Customize your trip
         </div>
         <div class="mx-auto max-w-[650px] p-4 pt-12 text-center md:pt-8 [&>*]:my-2">
@@ -286,14 +285,14 @@ export const WhatWeOffer = () => {
           </p>
           <p class="font-futuraMedium text-headingM text-red">* Min 1 day</p>
 
-          <Button url="/get-in-touch" customClass="block !my-8 mx-auto">
+          <Button url="/get-in-touch" customClass="block !mt-4 mx-auto">
             Get in touch
           </Button>
         </div>
       </div>
 
       <div class="my-8 w-full border-t border-red text-center md:my-16">
-        <div class="relative z-10 w-[fit-content] bg-red px-4 py-2 font-futuraMedium text-headingM uppercase leading-[27px] text-white md:static">
+      <div class="w-[fit-content] bg-red px-8 py-1 font-futuraMedium text-[16px] uppercase leading-[100%] text-white sm:px-4 sm:text-headingM sm:leading-[27px]">
           Private tour
         </div>
         <div class="p-4 pt-12 md:m-4 md:pt-4">
