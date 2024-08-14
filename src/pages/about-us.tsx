@@ -20,7 +20,7 @@ export const AboutUs = () => {
           </div>
 
           <div class="mb-1 mt-[-20px] flex w-[40%] flex-col content-center justify-center pr-4 sm:mt-[-30px] md:mt-0 md:w-1/2 lg:mt-[-58px]">
-            <h2 class="text-headingL leading-[110%]">
+            <h2 class="text-[1.2rem] leading-[110%] sm:text-headingL">
               We <br class="block md:hidden" />
               discovered <br class="block md:hidden" />
               the Azores <br class="block md:hidden" />
@@ -53,7 +53,7 @@ export const AboutUs = () => {
 
         <div class="flex gap-4 wider:mt-[-2vw] lg:mt-[-4vw] xl:mt-[-8vw]">
           <div class="flex w-[40%] flex-col content-center justify-center pl-4 md:w-1/2">
-            <h3 class="mx-auto max-w-[115px] text-headingL sm:max-w-[208px]  md:max-w-[557px]">
+            <h3 class="mx-auto max-w-[115px] text-[1.2rem] leading-[110%] sm:max-w-[208px] sm:text-headingL  md:max-w-[557px]">
               Discovering the islands by bike gave us so much. <br /> You really
               feel the energy and adrenaline on these islands. Long uphills and
               magical fast descents ending up by a sea of breaking waves.
@@ -103,7 +103,7 @@ export const AboutUs = () => {
         </div>
 
         <div class="my-8 block px-4 text-center md:hidden">
-          <h3 class="mx-auto max-w-[560px] text-[1.2rem] leading-[100%] sm:text-headingL">
+          <h3 class="mx-auto max-w-[560px] text-[1.2rem] leading-[110%] sm:text-headingL">
             Forget the luxury and the five stars, we want to offer a more
             natural and adventurous way of seeing the island.
           </h3>
@@ -130,13 +130,13 @@ export const AboutUs = () => {
               <h3 class="font-futuraExtraBold text-headingL font-bold sm:font-futura">
                 Jallas
               </h3>
-              <p class="about-us">
+              <p>
                 Hello there! I’m Jallas born in south Sweden. Since south Sweden
                 is kinda flat I started out with cross country biking but lycra
                 and pushing on the uphills was not really me. The free ride
                 mountain bike was more my style.
               </p>
-              <p class="about-us">
+              <p>
                 In 2012 I traveled to Portugal for the first time to pursue my
                 surf dream and from then on I just knew that this was where in
                 the world I wanted to be. Biking has also always been a big part
@@ -146,7 +146,7 @@ export const AboutUs = () => {
                 creating, building and maintaining the bike trails is something
                 I really like spending my time on.
               </p>
-              <p class="about-us">
+              <p>
                 After discovering the Azores by bike. Me and my partner Juliana
                 really enjoyed the island life. We felt that this is were we
                 want to be and create -{' '}
@@ -162,8 +162,8 @@ export const AboutUs = () => {
               <h3 class="font-futuraExtraBold text-headingL font-bold sm:font-futura">
                 Juliana
               </h3>
-              <p class="about-us">Hey ! I’m Juliana from Porto, Portugal. </p>
-              <p class="about-us">
+              <p>Hey ! I’m Juliana from Porto, Portugal. </p>
+              <p>
                 I’ll never forget the first time I learnt how to bike. Since
                 then biking has always felt more than just the act of riding a
                 bike, - represents freedom and creativity and it’s the best way
@@ -173,14 +173,14 @@ export const AboutUs = () => {
                 it! It’s like a game: the other cyclists, the people, the
                 traffic.
               </p>
-              <p class="about-us">
+              <p>
                 When mountainbiking is different, being out in the wild riding
                 the nature’s “cool obstacles” like the terrain, if it’s rocky,
                 rooty, steep, uphill or in flowy trails and jumps. Every bike
                 day is different and teaches so much more than just skills, but
                 truly being in touch and in tune with everything and myself.
               </p>
-              <p class="about-us">
+              <p>
                 <span class="font-futuraExtraBold">WHEELS ON FIRE</span> is
                 born, out of the burning passion of riding,travelling and is
                 inspired by the volcanic terrain of this amazing place that is

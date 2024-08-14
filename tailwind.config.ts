@@ -26,6 +26,7 @@ const config: Config = {
       minionpro: 'MinionPro, sans-serif',
     },
     fontWeight: {
+      thick: '900',
       bold: '700',
       medium: '500',
       normal: '400',

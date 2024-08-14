@@ -45,7 +45,7 @@ export const OurAdventures = () => {
           </div>
 
           <div class="sm:w-[30%] [&>*:not(:first-child)]:my-4">
-            <h3 class="font-futura text-[20px] font-bold uppercase leading-[100%] sm:text-[27px]">
+            <h3 class="font-futura text-[20px] font-thick uppercase leading-[100%] sm:text-[27px]">
               The desert train
             </h3>
             <p>
@@ -72,7 +72,7 @@ export const OurAdventures = () => {
           </div>
 
           <div class="sm:w-[30%] [&>*:not(:first-child)]:my-4">
-            <h3 class="font-futura text-[20px] font-bold uppercase leading-[100%] sm:text-[27px]">
+            <h3 class="font-futura text-[20px] font-thick uppercase leading-[100%] sm:text-[27px]">
               Bikepacking in the Azores
             </h3>
             <p>
