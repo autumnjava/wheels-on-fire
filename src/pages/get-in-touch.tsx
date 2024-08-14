@@ -78,7 +78,7 @@ export const GetInTouch = () => {
           Get in touch
         </h1>
 
-        <h2 class="mx-auto text-[1.1rem] leading-[100%] sm:text-headingL">
+        <h2 class="mx-auto text-[1.05rem] leading-[110%] sm:text-headingL sm:leading-[100%]">
           To make the most of your trip, for bookings and other questions,
           please contact us on
           <br />
@@ -86,8 +86,10 @@ export const GetInTouch = () => {
           <A aria-label="Chat on WhatsApp" href="https://wa.me/351915797870">
             <span class="text-red">+351 915 797 870</span>
           </A>
-          , email: <span class="text-red">wheelsonfireazores@gmail.com</span> or
-          fill the <span class="text-red">contact form</span> below.
+          ,<br class="block sm:hidden" /> email:{' '}
+          <span class="text-red">wheelsonfireazores@gmail.com</span>
+          <br class="block sm:hidden" /> or fill the{' '}
+          <span class="text-red">contact form</span> below.
         </h2>
       </div>
 
@@ -120,7 +122,7 @@ export const GetInTouch = () => {
             <div class="lg:flex lg:justify-between">
               <div>
                 <label for="name">Name:</label>
-                <div class="flex flex-col gap-4 sm:gap-8 md:flex-row">
+                <div class="flex flex-col gap-4 sm:gap-8 flex-wrap md:flex-row">
                   <input
                     type="text"
                     id="firstName"
@@ -163,6 +165,7 @@ export const GetInTouch = () => {
               <ExpandableContainer
                 heading="Select subject"
                 extraCss="text-white !py-2 bg-red"
+                headingCss="text-[16px]"
               >
                 <div class="expandable-options [&>*]:my-2">
                   <For each={subjectOptions}>
@@ -195,7 +198,7 @@ export const GetInTouch = () => {
             <div class="text-end">
               <button
                 type="submit"
-                class="my-8 bg-red px-4 py-1 text-[21.2px] uppercase text-white"
+                class="my-8 bg-red px-4 py-1 text-[16px] uppercase text-white sm:text-[21.2px]"
               >
                 Submit
               </button>
@@ -220,7 +223,7 @@ export const GetInTouch = () => {
           </h4>
           <div class="mt-2 flex justify-center">
             <A
-              href="https://www.instagram.com"
+              href="https://www.instagram.com/wheelsonfireazores"
               target="_blank"
               rel="noopener noreferrer"
             >

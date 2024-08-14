@@ -10,7 +10,7 @@ export const InAction = () => {
           In action!
         </h1>
 
-        <h2 class="mx-auto max-w-[704px] text-headingL normal-case">
+        <h2 class="mx-auto max-w-[704px] text-headingWhatWeOfferSub normal-case leading-[28px]">
           Videos, Articles and more - We want to share how S. Miguel looks like
           on the saddle and trails, what we’re up to and our true love for dirt
           & fun!
@@ -23,7 +23,7 @@ export const InAction = () => {
 
       <hr class="my-8" />
 
-      <div class="container mx-auto mb-6 mt-6 sm:mt-16 text-center">
+      <div class="container mx-auto mb-6 mt-6 text-center sm:mt-16">
         <h2 class="font-futuraExtraBold text-headingXL font-bold uppercase">
           You ride. <br class="sm:hidden" /> We pick you up. <br /> We got you
           all set up.
@@ -32,7 +32,7 @@ export const InAction = () => {
 
       <div class="container mx-auto my-6 text-center">
         <h3 class="text-headingL uppercase">Get in touch</h3>
-        <Button url="/get-in-touch" customClass="sm:mt-[20px] !mt-1 !px-[10px]">
+        <Button url="/get-in-touch" customClass="sm:mt-[20px] !mt-4">
           Contact us
         </Button>
       </div>

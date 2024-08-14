@@ -107,12 +107,15 @@ export const AboutUs = () => {
             Forget the luxury and the five stars, we want to offer a more
             natural and adventurous way of seeing the island.
           </h3>
-          <Button url="/our-adventures" customClass="mx-auto">
+          <Button
+            url="/our-adventures/bikepacking-in-the-azores/1"
+            customClass="mx-auto"
+          >
             Check our article here
           </Button>
         </div>
 
-        <div class="mx-auto mt-8 sm:mt-16 px-4 text-center md:mb-20 md:mt-28">
+        <div class="mx-auto mt-8 px-4 text-center sm:mt-16 md:mb-20 md:mt-28">
           <h3 class="font-futuraExtraBold text-[1.4rem] leading-[100%] sm:text-headingXL">
             WHOʼS BEHIND
             <br class="block sm:hidden" /> WHEELS ON FIRE ?

@@ -64,7 +64,8 @@ export const WhatWeOffer = () => {
       <div class="what-we-offer my-4">
         <p>
           Join us for a good
-          <br class="hidden md:block" /> ride! <br class="block md:hidden" />Guided tour on
+          <br class="hidden md:block" /> ride! <br class="block md:hidden" />
+          Guided tour on
           <br class="hidden md:block" /> multiple locations.
         </p>
       </div>
@@ -112,7 +113,7 @@ export const WhatWeOffer = () => {
       </div>
 
       <div>
-        <h2 class="p-4 text-center text-headingWhatWeOfferSub sm:hidden md:max-w-[180px] lg:max-w-[250px]">
+        <h2 class="p-4 text-center text-headingWhatWeOfferSub leading-[28px] sm:hidden md:max-w-[180px] lg:max-w-[250px]">
           We want to bring you and your friends out on a bike adventure and show
           the island from a different perspective. Doesnʼt matter if itʼs your
           first time out on a bike trail or if you are a full on dirt shredder,
@@ -155,7 +156,7 @@ export const WhatWeOffer = () => {
 
           <Button
             url="https://www.commencal.com/us/en/commencal-clash-ride-dirt-new-rockshox/22CLASHRIRS.html"
-            customClass="block mx-auto !my-8 text-[17px]"
+            customClass="block mx-auto !my-8"
           >
             Check more here
           </Button>
@@ -197,11 +198,11 @@ export const WhatWeOffer = () => {
             <br class="block md:hidden" /> youʼll sure feel your
             <span class="font-futuraExtraBold"> WHEELS ON FIRE!</span>
           </h4>
-          <p class="my-2 font-futuraMedium text-[15px] leading-[14px] sm:text-headingL sm:leading-[45px]">
+          <p class="my-2 font-futuraMedium text-[17px] leading-[14px] sm:text-headingL sm:leading-[45px]">
             * Ride will be adjusted to your needs & skills*
           </p>
 
-          <p class="font-futuraMedium text-[13px] leading-[14px] text-red sm:text-headingM">
+          <p class="font-futuraMedium text-[15px] leading-[14px] text-red sm:text-headingM">
             * Includes a full suspension Enduro bike, helmet & knee pads, gloves
           </p>
 
@@ -248,27 +249,36 @@ export const WhatWeOffer = () => {
       <ExpandableContainer heading="half day" customCss="block lg:hidden">
         {halfDay()}
 
-        <Button url="/get-in-touch" customClass="block mx-auto !my-4 what-we-offer-get-in-touch !px-[10px]">
+        <Button
+          url="/get-in-touch"
+          customClass="block mx-auto !my-4 what-we-offer-get-in-touch !px-[10px]"
+        >
           Get in touch
         </Button>
       </ExpandableContainer>
       <ExpandableContainer heading="full day" customCss="block lg:hidden">
         {fullDay()}
 
-        <Button url="/get-in-touch" customClass="block mx-auto !my-4 what-we-offer-get-in-touch !px-[10px]">
+        <Button
+          url="/get-in-touch"
+          customClass="block mx-auto !my-4 what-we-offer-get-in-touch !px-[10px]"
+        >
           Get in touch
         </Button>
       </ExpandableContainer>
       <ExpandableContainer heading="1 day +" customCss="block lg:hidden">
         {oneDayPlus()}
 
-        <Button url="/get-in-touch" customClass="block mx-auto !my-4 what-we-offer-get-in-touch !px-[10px]">
+        <Button
+          url="/get-in-touch"
+          customClass="block mx-auto !my-4 what-we-offer-get-in-touch !px-[10px]"
+        >
           Get in touch
         </Button>
       </ExpandableContainer>
 
       <div class="my-8 mt-16 flex w-full flex-col border-t border-red md:my-16">
-      <div class="w-[fit-content] bg-red px-8 py-1 font-futuraMedium text-[16px] uppercase leading-[100%] text-white sm:px-4 sm:text-headingM sm:leading-[27px]">
+        <div class="w-[fit-content] bg-red px-8 py-1 font-futuraMedium text-[16px] uppercase leading-[100%] text-white sm:px-4 sm:text-headingM sm:leading-[27px]">
           Customize your trip
         </div>
         <div class="mx-auto max-w-[650px] p-4 pt-12 text-center md:pt-8 [&>*:not(:first-child)]:my-2">
@@ -285,21 +295,21 @@ export const WhatWeOffer = () => {
           </p>
           <p class="font-futuraMedium text-headingS text-red">* Min 1 day</p>
 
-          <Button url="/get-in-touch" customClass="block !mt-2 mx-auto">
+          <Button url="/get-in-touch" customClass="block !mt-4 mx-auto">
             Get in touch
           </Button>
         </div>
       </div>
 
       <div class="my-8 w-full border-t border-red text-center md:my-16">
-      <div class="w-[fit-content] bg-red px-8 py-1 font-futuraMedium text-[16px] uppercase leading-[100%] text-white sm:px-4 sm:text-headingM sm:leading-[27px]">
+        <div class="w-[fit-content] bg-red px-8 py-1 font-futuraMedium text-[16px] uppercase leading-[100%] text-white sm:px-4 sm:text-headingM sm:leading-[27px]">
           Private tour
         </div>
-        <div class="px-4 mt-8 md:m-4 md:mt-4">
+        <div class="mt-8 px-4 md:m-4 md:mt-4">
           <h3 class="font-futuraExtraBold text-headingXL uppercase">
             Are you the one <br /> and only rider?
           </h3>
-          <Button url="/get-in-touch" customClass="block mx-auto !my-2">
+          <Button url="/get-in-touch" customClass="block mx-auto !my-4">
             Get in touch
           </Button>
         </div>
@@ -308,13 +318,13 @@ export const WhatWeOffer = () => {
       <hr />
 
       <div class="mt-8 w-full text-center md:mt-16">
-        <div class="px-4 mt-12">
+        <div class="mt-12 px-4">
           <h3 class="font-futuraExtraBold text-headingXL uppercase">
             Do you just want to rent bikes? <br class="hidden sm:block" /> Or
             shuttle?
           </h3>
 
-          <Button url="/get-in-touch" customClass="block mx-auto !mt-2">
+          <Button url="/get-in-touch" customClass="block mx-auto !mt-4">
             Get in touch
           </Button>
         </div>

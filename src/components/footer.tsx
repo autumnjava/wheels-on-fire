@@ -50,7 +50,7 @@ export const Footer = () => {
         <div class={clsx('mx-auto max-w-[143px]', columnStyle)}>
           <div class="flex justify-center">
             <A
-              href="https://www.instagram.com"
+              href="https://www.instagram.com/wheelsonfireazores"
               target="_blank"
               rel="noopener noreferrer"
             >

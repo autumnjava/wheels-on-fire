@@ -12,6 +12,7 @@ type ExpandableProps = {
   initialOpen?: boolean;
   customCss?: string;
   extraCss?: string;
+  headingCss?: string;
 };
 
 export const ExpandableContainer = (componentProps: ExpandableProps) => {
@@ -31,7 +32,12 @@ export const ExpandableContainer = (componentProps: ExpandableProps) => {
         )}
         onClick={handleClick}
       >
-        <h3 class="font-futuraMedium text-[1.2rem] uppercase leading-[100%] sm:text-headingM">
+        <h3
+          class={clsx(
+            'font-futuraMedium text-[1.2rem] uppercase leading-[100%] sm:text-headingM',
+            props.headingCss
+          )}
+        >
           {props.heading}
         </h3>
 

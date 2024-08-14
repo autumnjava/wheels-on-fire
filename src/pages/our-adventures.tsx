@@ -32,7 +32,7 @@ export const OurAdventures = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <div class="container mx-auto my-10 flex flex-col gap-8 px-4 sm:flex-row">
+        <div class="container mx-auto my-8 flex flex-col gap-8 px-4 sm:flex-row">
           <div
             class="relative h-[180px] w-full bg-cover bg-center sm:h-[328px] sm:w-[525px]"
             style={{ 'background-image': `url(${desertTrainFoto})` }}
@@ -45,7 +45,7 @@ export const OurAdventures = () => {
           </div>
 
           <div class="sm:w-[30%] [&>*:not(:first-child)]:my-4">
-            <h3 class="font-futura text-[27px] font-bold uppercase leading-[100%]">
+            <h3 class="font-futura text-[20px] font-bold uppercase leading-[100%] sm:text-[27px]">
               The desert train
             </h3>
             <p>
@@ -53,13 +53,13 @@ export const OurAdventures = () => {
               Mauritania to ride a freight train that crosses the desert.
             </p>
             <hr class="my-8 w-[5%]" />
-            <h4 class="!normal-case">Film & Photos by us.</h4>
+            <h4 class="!my-0 !normal-case">Film & Photos by us.</h4>
           </div>
         </div>
       </A>
 
       <A href="/our-adventures/bikepacking-in-the-azores/1">
-        <div class="container mx-auto my-10 flex flex-col gap-8 px-4 sm:flex-row">
+        <div class="container mx-auto my-8 flex flex-col gap-8 px-4 sm:flex-row">
           <div
             class="relative h-[180px] w-full bg-cover bg-center sm:h-[328px] sm:w-[525px]"
             style={{ 'background-image': `url(${bikepackingInTheAzoresFoto})` }}
@@ -72,7 +72,7 @@ export const OurAdventures = () => {
           </div>
 
           <div class="sm:w-[30%] [&>*:not(:first-child)]:my-4">
-            <h3 class="font-futura text-[27px] font-bold uppercase leading-[100%]">
+            <h3 class="font-futura text-[20px] font-bold uppercase leading-[100%] sm:text-[27px]">
               Bikepacking in the Azores
             </h3>
             <p>
@@ -84,7 +84,7 @@ export const OurAdventures = () => {
               We did 4 islands in 2 months and a half.
             </p>
             <hr class="my-8 w-[5%]" />
-            <h4 class="!normal-case">Film & Photos by us.</h4>
+            <h4 class="!my-0 !normal-case">Film & Photos by us.</h4>
           </div>
         </div>
       </A>

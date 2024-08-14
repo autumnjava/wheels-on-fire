@@ -45,7 +45,7 @@ export const BikepackingInTheAzoresPart1 = () => {
 
       <hr />
 
-      <div class="container mx-auto my-12 max-w-[1040px] px-4">
+      <div class="container mx-auto my-4 max-w-[1040px] px-4 sm:my-12">
         <h3 class="my-8 text-center font-futuraMedium text-headingL">
           For some years me and my partner been constantly on the move. Living
           and traveling in a van around Europe and north Africa. We both share
@@ -111,11 +111,11 @@ export const BikepackingInTheAzoresPart1 = () => {
       </div>
 
       <div
-        class="my-12 h-[200px] w-full flex-col bg-black bg-cover bg-left sm:h-[500px] md:h-[868px]"
+        class="my-4 h-[200px] w-full flex-col bg-black bg-cover bg-left sm:my-12 sm:h-[500px] md:h-[868px]"
         style={{ 'background-image': `url(${mosteiros_bike})` }}
       ></div>
 
-      <div class="container mx-auto my-12 max-w-[1040px] px-4">
+      <div class="container mx-auto my-4 max-w-[1040px] px-4 sm:my-12">
         <div class="gap-4 space-y-4 sm:columns-2">
           <h3 class="mb-8 font-futuraMedium text-headingL">
             It felt a bit heavy the first day not biking for two weeks and also
@@ -173,7 +173,7 @@ export const BikepackingInTheAzoresPart1 = () => {
         </div>
       </div>
 
-      <div class="container mx-auto my-12 flex flex-col gap-4 sm:flex-row">
+      <div class="container mx-auto my-4 flex flex-col gap-4 sm:my-12 sm:flex-row">
         <div
           class="h-[200px] w-full flex-col bg-cover bg-center bg-no-repeat sm:h-[500px]"
           style={{ 'background-image': `url(${bikes_old_guy})` }}
@@ -184,7 +184,7 @@ export const BikepackingInTheAzoresPart1 = () => {
         ></div>
       </div>
 
-      <div class="container mx-auto my-12 max-w-[1040px] px-4">
+      <div class="container mx-auto my-4 max-w-[1040px] px-4 sm:my-12">
         <div class="gap-4 space-y-4 sm:columns-2">
           <p>
             We arrived to a viewpoint and deep down that bay, was a lonely
@@ -226,7 +226,7 @@ export const BikepackingInTheAzoresPart1 = () => {
         </div>
       </div>
 
-      <div class="container mx-auto my-12 flex flex-col gap-4 sm:flex-row">
+      <div class="container mx-auto my-4 flex flex-col gap-4 sm:my-12 sm:flex-row">
         <div
           class="h-[200px] w-full flex-col bg-cover bg-center bg-no-repeat sm:h-[500px]"
           style={{ 'background-image': `url(${pickup_hitchhike})` }}
@@ -237,7 +237,7 @@ export const BikepackingInTheAzoresPart1 = () => {
         ></div>
       </div>
 
-      <div class="container mx-auto my-12 max-w-[1040px] px-4">
+      <div class="container mx-auto my-4 max-w-[1040px] px-4 sm:my-12">
         <div class="gap-4 space-y-4 sm:columns-2">
           <p>
             The village it famous for its characteristic rocky surf beach and
@@ -285,7 +285,7 @@ export const BikepackingInTheAzoresPart1 = () => {
         </h3>
       </div>
 
-      <div class="container mx-auto my-12">
+      <div class="container mx-auto my-4 sm:my-12">
         <div class="flex flex-col gap-4 sm:flex-row">
           <div
             class="h-[200px] w-full flex-col bg-cover bg-center bg-no-repeat sm:h-[500px]"
@@ -312,7 +312,7 @@ export const BikepackingInTheAzoresPart1 = () => {
         + Photos
       </Button>
 
-      <div class="container mx-auto my-12 max-w-[1040px] px-4">
+      <div class="container mx-auto my-4 max-w-[1040px] px-4 sm:my-12">
         <div class="gap-4 space-y-4 sm:columns-2">
           <p>
             Close to Furnas, a town famous for boiling hot streams and a
@@ -393,7 +393,7 @@ export const BikepackingInTheAzoresPart1 = () => {
         </div>
       </div>
 
-      <div class="container mx-auto my-12 flex flex-col justify-between gap-8 px-4 sm:max-w-[600px] sm:flex-row sm:gap-16">
+      <div class="container mx-auto my-4 flex flex-col justify-between gap-8 px-4 sm:my-12 sm:max-w-[600px] sm:flex-row sm:gap-16">
         <A
           class="text-center font-futuraMedium text-headingM leading-[26px] text-red"
           href="/our-adventures/bikepacking-in-the-azores/1"
