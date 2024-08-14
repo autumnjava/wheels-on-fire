@@ -218,7 +218,7 @@ export const GetInTouch = () => {
             Wanna see more of what we're up to?
           </h3>
 
-          <h4 class="mt-4 font-futuraMedium text-headingS uppercase">
+          <h4 class="mt-4 text-headingL uppercase">
             Check us on
           </h4>
           <div class="mt-2 flex justify-center">
