@@ -198,11 +198,11 @@ export const WhatWeOffer = () => {
             <br class="block md:hidden" /> youʼll sure feel your
             <span class="font-futuraExtraBold"> WHEELS ON FIRE!</span>
           </h4>
-          <p class="my-2 font-futuraMedium text-[17px] leading-[14px] sm:text-headingL sm:leading-[45px]">
+          <p class="my-2 font-futuraMedium text-[19px] leading-[14px] sm:text-headingL sm:leading-[45px]">
             * Ride will be adjusted to your needs & skills*
           </p>
 
-          <p class="font-futuraMedium text-[15px] leading-[14px] text-red sm:text-headingM">
+          <p class="font-futuraMedium text-[17px] leading-[14px] text-red sm:text-headingM">
             * Includes a full suspension Enduro bike, helmet & knee pads, gloves
           </p>
 
