@@ -79,7 +79,7 @@ export const GetInTouch = () => {
         </h1>
 
         <h2 class="mx-auto text-[1.05rem] leading-[110%] sm:text-headingL sm:leading-[100%]">
-          To make the most of your trip, for bookings and other questions,
+          To make the most of your trip, for bookings<br class="block sm:hidden" /> and other questions,
           please contact us on
           <br />
           WhatsApp:{' '}
