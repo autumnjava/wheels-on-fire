@@ -129,6 +129,7 @@ export const Slider = (componentProps: SliderProps) => {
             <ChevronLeftIcon
               class={clsx('absolute left-2 top-1/2 opacity-70', {
                 'fill-red': props.controlsPosition === 'normal',
+                'fill-white': props.dotsColor === 'white',
               })}
             />
           </button>
@@ -136,15 +137,17 @@ export const Slider = (componentProps: SliderProps) => {
             <ChevronRightIcon
               class={clsx('absolute right-2 top-1/2 opacity-70', {
                 'fill-red': props.controlsPosition === 'normal',
+                'fill-white': props.dotsColor === 'white',
               })}
             />
           </button>
 
           <div
             class={clsx({
-              'absolute bottom-[30px] sm:bottom-[50px] left-1/2 -translate-x-1/2 -translate-y-1/2':
+              'absolute bottom-[30px] left-1/2 -translate-x-1/2 -translate-y-1/2 sm:bottom-[50px]':
                 props.controlsPosition === 'hero',
-              'text-center': props.controlsPosition === 'normal',
+              'absolute bottom-0 left-1/2 -translate-x-1/2':
+                props.controlsPosition === 'normal',
             })}
           >
             <For each={resolvedChildren()}>
