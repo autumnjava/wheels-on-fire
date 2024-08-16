@@ -23,12 +23,16 @@ type SliderProps = {
   controls?: boolean;
   controlsPosition?: 'hero' | 'normal';
   dotsColor?: 'red' | 'white';
+  showArrowsMobile?: boolean;
+  initialSlide?: number;
 };
 
 const defaultProps: SliderProps = {
   children: [],
   controlsPosition: 'normal',
   dotsColor: 'white',
+  showArrowsMobile: false,
+  initialSlide: 0,
 };
 
 export const Slider = (componentProps: SliderProps) => {
@@ -37,7 +41,7 @@ export const Slider = (componentProps: SliderProps) => {
   let sliderContainer: HTMLDivElement | undefined;
   let slider: KeenSliderInstance | undefined;
 
-  const [currentSlide, setCurrentSlide] = createSignal(0);
+  const [currentSlide, setCurrentSlide] = createSignal(props.initialSlide);
   const resolvedChildren = createMemo(
     () => solidChildren(() => props.children)() as JSX.Element[]
   );
@@ -61,7 +65,7 @@ export const Slider = (componentProps: SliderProps) => {
           perView: getSlidesPerView(),
           spacing: props.spacing || 100,
         },
-        initial: 0,
+        initial: props.initialSlide,
         slideChanged(s) {
           setCurrentSlide(s.track.details.rel);
         },
@@ -125,7 +129,12 @@ export const Slider = (componentProps: SliderProps) => {
         </For>
 
         <Show when={props.controls}>
-          <button onClick={prev} class="hidden sm:block">
+          <button
+            onClick={prev}
+            class={clsx('hidden sm:block', {
+              '!block': props.showArrowsMobile,
+            })}
+          >
             <ChevronLeftIcon
               class={clsx('absolute left-2 top-1/2 opacity-70', {
                 'fill-red': props.controlsPosition === 'normal',
@@ -133,7 +142,12 @@ export const Slider = (componentProps: SliderProps) => {
               })}
             />
           </button>
-          <button onClick={next} class="hidden sm:block">
+          <button
+            onClick={next}
+            class={clsx('hidden sm:block', {
+              '!block': props.showArrowsMobile,
+            })}
+          >
             <ChevronRightIcon
               class={clsx('absolute right-2 top-1/2 opacity-70', {
                 'fill-red': props.controlsPosition === 'normal',

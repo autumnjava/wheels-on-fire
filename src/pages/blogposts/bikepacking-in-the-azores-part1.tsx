@@ -1,6 +1,8 @@
 import { A } from '@solidjs/router';
-import { Button } from '../../components/button';
+import { createSignal } from 'solid-js';
 import { PlayIcon } from '../../components/icons-library/play';
+import { Modal } from '../../components/modal';
+import { Slider } from '../../components/slider';
 
 // images
 import mosteiros_bike from '../../components/data/images/10.mosteiros_bike.jpg';
@@ -15,6 +17,14 @@ import ju_bike from '../../components/data/images/8.ju_bike_2.jpg';
 import ju_faial from '../../components/data/images/ju_faial.jpeg';
 
 export const BikepackingInTheAzoresPart1 = () => {
+  const [isModalVisible, setIsModalVisible] = createSignal(false);
+  const [initialSlide, setIinitialSlide] = createSignal(0);
+
+  const handleOnClickOpenModal = (initialSlide: number) => {
+    setIinitialSlide(initialSlide);
+    setIsModalVisible(true);
+    document.body.style.overflowY = 'hidden';
+  };
   return (
     <>
       <div
@@ -111,8 +121,9 @@ export const BikepackingInTheAzoresPart1 = () => {
       </div>
 
       <div
-        class="my-4 h-[200px] w-full flex-col bg-black bg-cover bg-left sm:my-12 sm:h-[500px] md:h-[868px]"
+        class="my-4 h-[200px] w-full cursor-pointer flex-col bg-black bg-cover bg-left sm:my-12 sm:h-[500px] md:h-[868px]"
         style={{ 'background-image': `url(${mosteiros_bike})` }}
+        onClick={() => handleOnClickOpenModal(0)}
       ></div>
 
       <div class="container mx-auto my-4 max-w-[1040px] px-4 sm:my-12">
@@ -173,14 +184,16 @@ export const BikepackingInTheAzoresPart1 = () => {
         </div>
       </div>
 
-      <div class="container mx-auto my-4 flex flex-col gap-4 sm:my-12 sm:flex-row">
+      <div class="container mx-auto my-4 grid gap-4 sm:my-12 sm:grid-cols-2">
         <div
-          class="h-[200px] w-full flex-col bg-cover bg-center bg-no-repeat sm:h-[500px]"
+          class="h-[200px] w-full cursor-pointer flex-col bg-cover bg-center bg-no-repeat sm:h-[500px]"
           style={{ 'background-image': `url(${bikes_old_guy})` }}
+          onClick={() => handleOnClickOpenModal(1)}
         ></div>
         <div
-          class="h-[200px] w-full flex-col bg-cover bg-center bg-no-repeat sm:h-[500px]"
+          class="h-[200px] w-full cursor-pointer flex-col bg-cover bg-center bg-no-repeat sm:h-[500px]"
           style={{ 'background-image': `url(${bikes_camping})` }}
+          onClick={() => handleOnClickOpenModal(2)}
         ></div>
       </div>
 
@@ -226,14 +239,16 @@ export const BikepackingInTheAzoresPart1 = () => {
         </div>
       </div>
 
-      <div class="container mx-auto my-4 flex flex-col gap-4 sm:my-12 sm:flex-row">
+      <div class="container mx-auto my-4 grid gap-4 sm:my-12 sm:grid-cols-2">
         <div
-          class="h-[200px] w-full flex-col bg-cover bg-center bg-no-repeat sm:h-[500px]"
+          class="h-[200px] w-full cursor-pointer flex-col bg-cover bg-center bg-no-repeat sm:h-[500px]"
           style={{ 'background-image': `url(${pickup_hitchhike})` }}
+          onClick={() => handleOnClickOpenModal(3)}
         ></div>
         <div
-          class="h-[200px] w-full flex-col bg-cover bg-center bg-no-repeat sm:h-[500px]"
+          class="h-[200px] w-full cursor-pointer flex-col bg-cover bg-center bg-no-repeat sm:h-[500px]"
           style={{ 'background-image': `url(${coast_view})` }}
+          onClick={() => handleOnClickOpenModal(4)}
         ></div>
       </div>
 
@@ -286,31 +301,38 @@ export const BikepackingInTheAzoresPart1 = () => {
       </div>
 
       <div class="container mx-auto my-4 sm:my-12">
-        <div class="flex flex-col gap-4 sm:flex-row">
+        <div class="mx-auto my-4 grid gap-4 sm:my-12 sm:grid-cols-2">
           <div
-            class="h-[200px] w-full flex-col bg-cover bg-center bg-no-repeat sm:h-[500px]"
+            class="h-[200px] w-full cursor-pointer flex-col bg-cover bg-center bg-no-repeat sm:h-[500px]"
             style={{ 'background-image': `url(${mosteiros})` }}
+            onClick={() => handleOnClickOpenModal(5)}
           ></div>
           <div
-            class="h-[200px] w-full flex-col bg-cover bg-center bg-no-repeat sm:h-[500px]"
+            class="h-[200px] w-full cursor-pointer flex-col bg-cover bg-center bg-no-repeat sm:h-[500px]"
             style={{ 'background-image': `url(${jallas_forest})` }}
+            onClick={() => handleOnClickOpenModal(6)}
           ></div>
         </div>
-        <div class="my-4 flex flex-col gap-4 sm:flex-row">
+        <div class="mx-auto my-4 grid gap-4 sm:my-12 sm:grid-cols-2">
           <div
-            class="h-[200px] w-full flex-col bg-cover bg-center bg-no-repeat sm:h-[500px]"
+            class="h-[200px] w-full cursor-pointer flex-col bg-cover bg-center bg-no-repeat sm:h-[500px]"
             style={{ 'background-image': `url(${ju_bike})` }}
+            onClick={() => handleOnClickOpenModal(7)}
           ></div>
           <div
-            class="h-[200px] w-full flex-col bg-cover bg-center bg-no-repeat sm:h-[500px]"
+            class="h-[200px] w-full cursor-pointer flex-col bg-cover bg-center bg-no-repeat sm:h-[500px]"
             style={{ 'background-image': `url(${coast_2})` }}
+            onClick={() => handleOnClickOpenModal(8)}
           ></div>
         </div>
       </div>
 
-      <Button url="#" customClass="block mx-auto !my-8">
+      <button
+        class="mx-auto mt-8 block bg-red px-[13px] py-[2px] text-white sm:px-[13px] sm:py-[5px]"
+        onClick={() => handleOnClickOpenModal(8)}
+      >
         + Photos
-      </Button>
+      </button>
 
       <div class="container mx-auto my-4 max-w-[1040px] px-4 sm:my-12">
         <div class="gap-4 space-y-4 sm:columns-2">
@@ -393,6 +415,7 @@ export const BikepackingInTheAzoresPart1 = () => {
         </div>
       </div>
 
+      {/* TODO: refactor later */}
       <div class="container mx-auto my-4 flex flex-col justify-between gap-8 px-4 sm:my-12 sm:max-w-[600px] sm:flex-row sm:gap-16">
         <A
           class="text-center font-futuraMedium text-headingM leading-[26px] text-red"
@@ -427,6 +450,58 @@ export const BikepackingInTheAzoresPart1 = () => {
           <span class="dot border border-red" />
           <h3>Pico</h3>
         </A>
+      </div>
+
+      <div class="container mx-auto my-8 px-4 text-center">
+        <Modal
+          onClose={() => setIsModalVisible(false)}
+          visible={isModalVisible()}
+        >
+          <Slider
+            controls={true}
+            controlsPosition="normal"
+            autoplay={false}
+            showArrowsMobile={true}
+            initialSlide={initialSlide()}
+          >
+            <div
+              class="my-8 h-[400px] w-full bg-cover bg-left bg-no-repeat sm:h-[500px] md:h-[700px]"
+              style={{ 'background-image': `url(${mosteiros_bike})` }}
+            ></div>
+            <div
+              class="my-8 h-[400px] w-full bg-cover bg-center bg-no-repeat sm:h-[500px] md:h-[700px]"
+              style={{ 'background-image': `url(${bikes_old_guy})` }}
+            ></div>
+            <div
+              class="my-8 h-[400px] w-full bg-cover bg-center bg-no-repeat sm:h-[500px] md:h-[700px]"
+              style={{ 'background-image': `url(${bikes_camping})` }}
+            ></div>
+            <div
+              class="my-8 h-[400px] w-full bg-cover bg-center bg-no-repeat sm:h-[500px] md:h-[700px]"
+              style={{ 'background-image': `url(${pickup_hitchhike})` }}
+            ></div>
+            <div
+              class="my-8 h-[400px] w-full bg-cover bg-center bg-no-repeat sm:h-[500px] md:h-[700px]"
+              style={{ 'background-image': `url(${coast_view})` }}
+            ></div>
+            <div
+              class="my-8 h-[400px] w-full bg-cover bg-center bg-no-repeat sm:h-[500px] md:h-[700px]"
+              style={{ 'background-image': `url(${mosteiros})` }}
+            ></div>
+            <div
+              class="my-8 h-[400px] w-full bg-cover bg-center bg-no-repeat sm:h-[500px] md:h-[700px]"
+              style={{ 'background-image': `url(${jallas_forest})` }}
+            ></div>
+            <div
+              class="my-8 h-[400px] w-full bg-cover bg-center bg-no-repeat sm:h-[500px] md:h-[700px]"
+              style={{ 'background-image': `url(${ju_bike})` }}
+            ></div>
+            <div
+              class="my-8 h-[400px] w-full bg-cover bg-center bg-no-repeat sm:h-[500px] md:h-[700px]"
+              style={{ 'background-image': `url(${coast_2})` }}
+            ></div>
+          </Slider>
+        </Modal>
       </div>
     </>
   );

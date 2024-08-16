@@ -10,7 +10,7 @@ export const BikepackingInTheAzoresPart4 = () => {
   return (
     <>
       <div
-        class="mb-12 flex h-[200px] sm:h-[500px] w-full flex-col bg-black bg-cover bg-center px-12 pt-8 sm:pt-4 md:h-[1068px] md:px-16 md:pt-28"
+        class="mb-12 flex h-[200px] w-full flex-col bg-black bg-cover bg-center px-12 pt-8 sm:h-[500px] sm:pt-4 md:h-[1068px] md:px-16 md:pt-28"
         style={{ 'background-image': `url(${biking})` }}
       ></div>
 
@@ -82,11 +82,11 @@ export const BikepackingInTheAzoresPart4 = () => {
 
       <div class="container mx-auto my-12 flex flex-col gap-4 sm:flex-row">
         <div
-          class="h-[200px] sm:h-[500px] w-full flex-col bg-cover bg-center bg-no-repeat"
+          class="h-[200px] w-full flex-col bg-cover bg-center bg-no-repeat sm:h-[500px]"
           style={{ 'background-image': `url(${ju_biking})` }}
         ></div>
         <div
-          class="h-[200px] sm:h-[500px] w-full flex-col bg-cover bg-center bg-no-repeat"
+          class="h-[200px] w-full flex-col bg-cover bg-center bg-no-repeat sm:h-[500px]"
           style={{ 'background-image': `url(${ja_biking})` }}
         ></div>
       </div>
@@ -153,6 +153,7 @@ export const BikepackingInTheAzoresPart4 = () => {
         + Photos
       </Button>
 
+      {/* TODO: refactor later */}
       <div class="container mx-auto my-12 flex flex-col justify-between gap-8 px-4 sm:max-w-[600px] sm:flex-row sm:gap-16">
         <A
           class="text-center font-futuraMedium text-headingM leading-[26px] text-red"

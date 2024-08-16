@@ -99,6 +99,7 @@ export const BikepackingInTheAzoresPart3 = () => {
         + Photos
       </Button>
 
+      {/* TODO: refactor later */}
       <div class="container mx-auto my-12 flex flex-col justify-between gap-8 px-4 sm:max-w-[600px] sm:flex-row sm:gap-16">
         <A
           class="text-center font-futuraMedium text-headingM leading-[26px] text-red"

@@ -1,3 +1,4 @@
+import { A } from '@solidjs/router';
 import { Button } from '../components/button';
 import { Slider } from '../components/slider';
 import { HeroSlide1 } from '../components/slides/hero/hero-slide-1';
@@ -9,18 +10,8 @@ import brand3 from '../components/data/images/brands/OneUp-Logo-Border-1000px.pn
 import brand4 from '../components/data/images/brands/chromag-bikes-seeklogo-01.png';
 import brand1 from '../components/data/images/brands/commencal-logo-vector-01.png';
 import brand2 from '../components/data/images/brands/poc-sports-logo-vector-01.png';
-import { A } from '@solidjs/router';
-import { Modal } from '../components/modal';
-import { createSignal } from 'solid-js';
 
 export const Home = () => {
-  const [isModalVisible, setIsModalVisible] = createSignal(false);
-
-  const handleOnClickOpenModal = () => {
-    setIsModalVisible(true);
-    document.body.style.overflowY = 'hidden';
-  };
-
   return (
     <>
       <Slider controls={true} controlsPosition="hero" autoplay={true}>
@@ -82,20 +73,6 @@ export const Home = () => {
           Contact us
         </Button>
       </div>
-
-      {/* <div class="container mx-auto my-8 px-4 text-center">
-        <button onClick={handleOnClickOpenModal}>click</button>
-        <Modal
-          onClose={() => setIsModalVisible(false)}
-          visible={isModalVisible()}
-        >
-          <Slider controls={true} controlsPosition='normal' autoplay={false}>
-            <HeroSlide1 />
-            <HeroSlide2 />
-            <HeroSlide3 />
-          </Slider>
-        </Modal>
-      </div> */}
     </>
   );
 };

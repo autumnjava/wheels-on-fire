@@ -131,6 +131,7 @@ export const WhatWeOffer = () => {
             slidesPerView={1}
             dotsColor="red"
             autoplay={true}
+            showArrowsMobile={true}
           >
             <BikeSlide image={imageBike1} />
             <BikeSlide image={imageBike2} />
