@@ -26,7 +26,7 @@ export const Modal = (props: any) => {
             </button>
           </div>
 
-          <div class="mx-auto my-8 sm:my-16">{props.children}</div>
+          <div class="mx-auto my-4 sm:my-16">{props.children}</div>
         </div>
       </Show>
     </Portal>
