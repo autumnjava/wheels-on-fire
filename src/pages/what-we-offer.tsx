@@ -23,13 +23,13 @@ export const WhatWeOffer = () => {
         <p class="hidden sm:block">3-4 hrs</p>
       </div>
 
-      <div class="what-we-offer-red my-4 flex justify-center whitespace-nowrap text-center text-red">
+      {/* <div class="what-we-offer-red my-4 flex justify-center whitespace-nowrap text-center text-red">
         <p>* Min. 2 ppl</p>
         <p class="ml-2">|</p>
         <p class="ml-2">* Max. 3 ppl</p>
-      </div>
+      </div> */}
       <div class="what-we-offer-red">
-        <p class="text-red">* P/rider - 65€</p>
+        {/* <p class="text-red">* P/rider - 65€</p> */}
         <p class="text-red">* Bike Rental - 55€</p>
       </div>
     </>
@@ -46,14 +46,14 @@ export const WhatWeOffer = () => {
         <p class="hidden sm:block">5-6 hrs</p>
       </div>
 
-      <div class="what-we-offer-red my-4 flex justify-center whitespace-nowrap text-center text-red">
+      {/* <div class="what-we-offer-red my-4 flex justify-center whitespace-nowrap text-center text-red">
         <p>* Min. 2 ppl</p>
         <p class="ml-2">|</p>
         <p class="ml-2">* Max. 3 ppl</p>
-      </div>
+      </div> */}
 
       <div class="what-we-offer-red">
-        <p class="text-red">* P/rider - 85€</p>
+        {/* <p class="text-red">* P/rider - 85€</p> */}
         <p class="text-red">* Bike Rental - 75€</p>
       </div>
     </>
