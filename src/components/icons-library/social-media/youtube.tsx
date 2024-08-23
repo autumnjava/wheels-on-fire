@@ -6,7 +6,7 @@ const defaultProps: SvgIconProps = {
   width: '24px',
   height: '24px',
   viewBox: '0 0 576 512',
-  fill: 'red',
+  fill: '#e61e29',
 };
 
 export const YoutubeIcon = (componentProps: SvgIconProps) => {

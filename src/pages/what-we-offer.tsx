@@ -31,7 +31,7 @@ export const WhatWeOffer = () => {
         <p class="font-futuraMedium text-[19px] uppercase leading-[14px] sm:text-headingL sm:leading-[45px]">
           Got your own bike?
         </p>
-        <p class="my-2 font-futuraMedium text-[13px] leading-[110%] text-red sm:text-[20px] sm:leading-[25px]">
+        <p class="my-2 font-futuraMedium text-[13px] leading-[110%] text-red sm:text-[24px]">
           Price p/ person - 65€
         </p>
       </div>
@@ -39,14 +39,14 @@ export const WhatWeOffer = () => {
         <p>-</p>
       </div>
       <div class="my-2 flex justify-center whitespace-nowrap text-center ">
-        <p class="font-futuraMedium text-[19px] leading-[14px] sm:text-headingL sm:leading-[45px]">
-          * Min. 2 ppl
+        <p class="font-futuraMedium text-[14px] leading-[110%] sm:text-headingM">
+          Min. 2 ppl
         </p>
-        <p class="ml-2 font-futuraMedium text-[19px] leading-[14px] sm:text-headingL sm:leading-[45px]">
+        <p class="ml-2 font-futuraMedium text-[14px] leading-[110%] sm:text-headingM">
           |
         </p>
-        <p class="ml-2 font-futuraMedium text-[19px] leading-[14px] sm:text-headingL sm:leading-[45px]">
-          * Max. 3 ppl
+        <p class="ml-2 font-futuraMedium text-[14px] leading-[110%] sm:text-headingM">
+          Max. 3 ppl
         </p>
       </div>
       <div class="my-4">
@@ -79,7 +79,7 @@ export const WhatWeOffer = () => {
         <p class="font-futuraMedium text-[19px] uppercase leading-[14px] sm:text-headingL sm:leading-[45px]">
           Got your own bike?
         </p>
-        <p class="my-2 font-futuraMedium text-[13px] leading-[110%] text-red sm:text-[20px] sm:leading-[25px]">
+        <p class="my-2 font-futuraMedium text-[13px] leading-[110%] text-red sm:text-[24px]">
           Price p/ person - 85€
         </p>
       </div>
@@ -87,14 +87,14 @@ export const WhatWeOffer = () => {
         <p>-</p>
       </div>
       <div class="my-2 flex justify-center whitespace-nowrap text-center ">
-        <p class="font-futuraMedium text-[19px] leading-[14px] sm:text-headingL sm:leading-[45px]">
-          * Min. 2 ppl
+        <p class="font-futuraMedium text-[14px] leading-[110%] sm:text-headingM">
+          Min. 2 ppl
         </p>
-        <p class="ml-2 font-futuraMedium text-[19px] leading-[14px] sm:text-headingL sm:leading-[45px]">
+        <p class="ml-2 font-futuraMedium text-[14px] leading-[110%] sm:text-headingM">
           |
         </p>
-        <p class="ml-2 font-futuraMedium text-[19px] leading-[14px] sm:text-headingL sm:leading-[45px]">
-          * Max. 3 ppl
+        <p class="ml-2 font-futuraMedium text-[14px] leading-[110%] sm:text-headingM">
+          Max. 3 ppl
         </p>
       </div>
       <div class="my-4">
@@ -130,14 +130,14 @@ export const WhatWeOffer = () => {
         <p>-</p>
       </div>
       <div class="my-2 flex justify-center whitespace-nowrap text-center ">
-        <p class="font-futuraMedium text-[19px] leading-[14px] sm:text-headingL sm:leading-[45px]">
-          * Min. 2 ppl
+        <p class="font-futuraMedium text-[14px] leading-[110%] sm:text-headingM">
+          Min. 2 ppl
         </p>
-        <p class="ml-2 font-futuraMedium text-[19px] leading-[14px] sm:text-headingL sm:leading-[45px]">
+        <p class="ml-2 font-futuraMedium text-[14px] leading-[110%] sm:text-headingM">
           |
         </p>
-        <p class="ml-2 font-futuraMedium text-[19px] leading-[14px] sm:text-headingL sm:leading-[45px]">
-          * Max. 3 ppl
+        <p class="ml-2 font-futuraMedium text-[14px] leading-[110%] sm:text-headingM">
+          Max. 3 ppl
         </p>
       </div>
       <div class="my-4">
@@ -188,16 +188,17 @@ export const WhatWeOffer = () => {
         </h2>
       </div>
 
-      <div class="my-16 w-full border-t border-red text-center md:my-16">
-        <div class="w-[fit-content] bg-red px-8 py-1 font-futuraMedium text-[16px] uppercase leading-[100%] text-white sm:px-4 sm:text-headingM sm:leading-[27px]">
+      <div class="my-10 w-full border-t border-red text-center md:my-16">
+        <div class="w-[fit-content] bg-red px-4 py-1 font-futuraMedium text-[16px] uppercase leading-[100%] text-white sm:px-4 sm:text-headingM sm:leading-[27px]">
           What we offer
         </div>
-        <div class="mx-auto my-8 px-4">
+        <div class="mx-auto my-10 px-4">
           <h3 class="font-futuraExtraBold text-headingXL uppercase leading-[100%]">
-            Either in for a half, full, or a couple of <br /> days you'll sure
-            feel your wheels on fire!
+            Either in for a half,
+            <br class="block sm:hidden" /> full, or a couple of <br /> days
+            you'll sure feel your wheels on fire!
           </h3>
-          <p class="my-2 font-futuraMedium text-[19px] leading-[14px] sm:text-headingL sm:leading-[45px]">
+          <p class="my-4 font-futuraMedium text-[19px] leading-[14px] sm:text-headingL sm:leading-[45px]">
             * Ride will be adjusted to your needs & skills*
           </p>
 
@@ -243,8 +244,8 @@ export const WhatWeOffer = () => {
         {oneDayPlus()}
       </ExpandableContainer>
 
-      <div class="my-8 mt-16 flex w-full flex-col border-t border-red md:my-16">
-        <div class="w-[fit-content] bg-red px-8 py-1 font-futuraMedium text-[16px] uppercase leading-[100%] text-white sm:px-4 sm:text-headingM sm:leading-[27px]">
+      <div class="my-10 mt-10 flex w-full flex-col border-t border-red md:my-16">
+        <div class="w-[fit-content] bg-red px-4 py-1 font-futuraMedium text-[16px] uppercase leading-[100%] text-white sm:px-4 sm:text-headingM sm:leading-[27px]">
           Customize your trip
         </div>
         <div class="mx-auto max-w-[650px] p-4 pt-12 text-center md:pt-8 [&>*:not(:first-child)]:my-2">
@@ -267,8 +268,8 @@ export const WhatWeOffer = () => {
         </div>
       </div>
 
-      <div class="my-8 w-full border-t border-red text-center md:my-16">
-        <div class="w-[fit-content] bg-red px-8 py-1 font-futuraMedium text-[16px] uppercase leading-[100%] text-white sm:px-4 sm:text-headingM sm:leading-[27px]">
+      <div class="my-10 w-full border-t border-red text-center md:my-16">
+        <div class="w-[fit-content] bg-red px-4 py-1 font-futuraMedium text-[16px] uppercase leading-[100%] text-white sm:px-4 sm:text-headingM sm:leading-[27px]">
           Private tour
         </div>
         <div class="mt-8 px-4 md:m-4 md:mt-4">
@@ -281,8 +282,8 @@ export const WhatWeOffer = () => {
         </div>
       </div>
 
-      <div class="my-8 w-full border-t border-red text-center md:my-16">
-        <div class="w-[fit-content] bg-red px-8 py-1 font-futuraMedium text-[16px] uppercase leading-[100%] text-white sm:px-4 sm:text-headingM sm:leading-[27px]">
+      <div class="my-10 w-full border-t border-red text-center md:my-16">
+        <div class="w-[fit-content] bg-red px-4 py-1 font-futuraMedium text-[16px] uppercase leading-[100%] text-white sm:px-4 sm:text-headingM sm:leading-[27px]">
           Bike rental | shuttle
         </div>
         <div class="mt-8 px-4 md:m-4 md:mt-4">
@@ -296,8 +297,8 @@ export const WhatWeOffer = () => {
         </div>
       </div>
 
-      <div class="my-8 w-full border-t border-red md:my-16">
-        <div class="relative z-10 w-[fit-content] bg-red px-8 py-1 font-futuraMedium text-[16px] uppercase leading-[100%] text-white sm:px-4 sm:text-headingM sm:leading-[27px] md:static">
+      <div class="my-10 w-full border-t border-red md:my-16">
+        <div class="relative z-10 w-[fit-content] bg-red px-4 py-1 font-futuraMedium text-[16px] uppercase leading-[100%] text-white sm:px-4 sm:text-headingM sm:leading-[27px] md:static">
           The beasts
         </div>
         <div class="pt-8 md:m-8 md:pt-4">
@@ -307,6 +308,7 @@ export const WhatWeOffer = () => {
             dotsColor="red"
             autoplay={true}
             showArrowsMobile={true}
+            showDots={false}
           >
             <BikeSlide image={imageBike1} />
             <BikeSlide image={imageBike2} />
@@ -339,7 +341,7 @@ export const WhatWeOffer = () => {
         </div>
       </div>
 
-      <div class="my-8 w-full border-t border-red text-center md:my-16">
+      <div class="mt-10 w-full border-t border-red text-center md:my-16">
         <div class="w-[fit-content] bg-red px-8 py-1 font-futuraMedium text-[16px] uppercase leading-[100%] text-white sm:px-4 sm:text-headingM sm:leading-[27px]">
           Sizes
         </div>

@@ -5,7 +5,7 @@ import { SvgIconProps } from './svg-icon.d';
 const defaultProps: SvgIconProps = {
   height: '31px',
   width: '20px',
-  fill: 'red',
+  fill: '#e61e29',
   viewBox: '0 0 448 512',
 };
 

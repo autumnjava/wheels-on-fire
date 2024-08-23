@@ -37,9 +37,7 @@ export const BikepackingInTheAzoresPart1 = () => {
           rel="noopener noreferrer"
         >
           <PlayIcon
-            class="absolute left-0 right-0 top-1/2 mx-auto -translate-y-1/2"
-            height="50"
-            width="50"
+            class="absolute left-0 right-0 top-1/2 mx-auto -translate-y-1/2 w-[50px] h-[50px] sm:w-[100px] sm:h-[100px]"
           />
         </A>
       </div>

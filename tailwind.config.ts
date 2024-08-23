@@ -8,7 +8,7 @@ const config: Config = {
       white: '#FFFFFF',
       dark: '#333333',
       transparent: 'transparent',
-      red: '#D40E1D',
+      red: '#e61e29',
       lightOliveGreen: '#d5caa5',
       gray: {
         200: '#e5e7eb',
