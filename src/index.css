@@ -256,6 +256,12 @@ label {
   }
 }
 
+@media screen and (max-width: 640px) {
+  .hidden-mobile-only {
+    display: none;
+  }
+}
+
 .what-we-offer-container {
   background-size: cover;
   padding-top: 0px;

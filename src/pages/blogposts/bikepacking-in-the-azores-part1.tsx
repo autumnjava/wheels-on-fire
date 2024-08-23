@@ -457,45 +457,44 @@ export const BikepackingInTheAzoresPart1 = () => {
         >
           <Slider
             controls={true}
-            controlsPosition="normal"
             autoplay={false}
             showArrowsMobile={true}
             initialSlide={initialSlide()}
           >
             <div
-              class="my-8 h-[400px] w-full bg-cover bg-left bg-no-repeat sm:h-[500px] md:h-[700px]"
+              class="mt-8 h-[400px] w-full bg-cover bg-left bg-no-repeat sm:h-[500px] md:h-[700px]"
               style={{ 'background-image': `url(${mosteiros_bike})` }}
             ></div>
             <div
-              class="my-8 h-[400px] w-full bg-cover bg-center bg-no-repeat sm:h-[500px] md:h-[700px]"
+              class="mt-8 h-[400px] w-full bg-cover bg-center bg-no-repeat sm:h-[500px] md:h-[700px]"
               style={{ 'background-image': `url(${bikes_old_guy})` }}
             ></div>
             <div
-              class="my-8 h-[400px] w-full bg-cover bg-center bg-no-repeat sm:h-[500px] md:h-[700px]"
+              class="mt-8 h-[400px] w-full bg-cover bg-center bg-no-repeat sm:h-[500px] md:h-[700px]"
               style={{ 'background-image': `url(${bikes_camping})` }}
             ></div>
             <div
-              class="my-8 h-[400px] w-full bg-cover bg-center bg-no-repeat sm:h-[500px] md:h-[700px]"
+              class="mt-8 h-[400px] w-full bg-cover bg-center bg-no-repeat sm:h-[500px] md:h-[700px]"
               style={{ 'background-image': `url(${pickup_hitchhike})` }}
             ></div>
             <div
-              class="my-8 h-[400px] w-full bg-cover bg-center bg-no-repeat sm:h-[500px] md:h-[700px]"
+              class="mt-8 h-[400px] w-full bg-cover bg-center bg-no-repeat sm:h-[500px] md:h-[700px]"
               style={{ 'background-image': `url(${coast_view})` }}
             ></div>
             <div
-              class="my-8 h-[400px] w-full bg-cover bg-center bg-no-repeat sm:h-[500px] md:h-[700px]"
+              class="mt-8 h-[400px] w-full bg-cover bg-center bg-no-repeat sm:h-[500px] md:h-[700px]"
               style={{ 'background-image': `url(${mosteiros})` }}
             ></div>
             <div
-              class="my-8 h-[400px] w-full bg-cover bg-center bg-no-repeat sm:h-[500px] md:h-[700px]"
+              class="mt-8 h-[400px] w-full bg-cover bg-center bg-no-repeat sm:h-[500px] md:h-[700px]"
               style={{ 'background-image': `url(${jallas_forest})` }}
             ></div>
             <div
-              class="my-8 h-[400px] w-full bg-cover bg-center bg-no-repeat sm:h-[500px] md:h-[700px]"
+              class="mt-8 h-[400px] w-full bg-cover bg-center bg-no-repeat sm:h-[500px] md:h-[700px]"
               style={{ 'background-image': `url(${ju_bike})` }}
             ></div>
             <div
-              class="my-8 h-[400px] w-full bg-cover bg-center bg-no-repeat sm:h-[500px] md:h-[700px]"
+              class="mt-8 h-[400px] w-full bg-cover bg-center bg-no-repeat sm:h-[500px] md:h-[700px]"
               style={{ 'background-image': `url(${coast_2})` }}
             ></div>
           </Slider>

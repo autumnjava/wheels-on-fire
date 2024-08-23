@@ -308,7 +308,7 @@ export const WhatWeOffer = () => {
             dotsColor="red"
             autoplay={true}
             showArrowsMobile={true}
-            showDots={false}
+            hideDotsMobile={true}
           >
             <BikeSlide image={imageBike1} />
             <BikeSlide image={imageBike2} />
@@ -341,7 +341,7 @@ export const WhatWeOffer = () => {
         </div>
       </div>
 
-      <div class="mt-10 w-full border-t border-red text-center md:my-16">
+      <div class="mt-10 w-full border-t border-red text-center md:mt-16">
         <div class="w-[fit-content] bg-red px-8 py-1 font-futuraMedium text-[16px] uppercase leading-[100%] text-white sm:px-4 sm:text-headingM sm:leading-[27px]">
           Sizes
         </div>

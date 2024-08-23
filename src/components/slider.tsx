@@ -24,7 +24,7 @@ type SliderProps = {
   controlsPosition?: 'hero' | 'normal';
   dotsColor?: 'red' | 'white';
   showArrowsMobile?: boolean;
-  showDots?: boolean;
+  hideDotsMobile?: boolean;
   initialSlide?: number;
 };
 
@@ -33,7 +33,7 @@ const defaultProps: SliderProps = {
   controlsPosition: 'normal',
   dotsColor: 'white',
   showArrowsMobile: false,
-  showDots: true,
+  hideDotsMobile: false,
   initialSlide: 0,
 };
 
@@ -120,16 +120,17 @@ export const Slider = (componentProps: SliderProps) => {
   const moveTo = (idx: number) => slider?.moveToIdx(idx);
 
   return (
-    <div>
+    <div class="relative">
       <div
         ref={sliderContainer}
         id="my-keen-slider"
-        class="keen-slider relative"
+        class="keen-slider"
       >
         <For each={resolvedChildren()}>
           {(child) => <div class="keen-slider__slide">{child}</div>}
         </For>
 
+      </div>
         <Show when={props.controls}>
           <button
             onClick={prev}
@@ -158,28 +159,26 @@ export const Slider = (componentProps: SliderProps) => {
             />
           </button>
 
-          <Show when={props.showDots}>
-            <div
-              class={clsx({
-                'absolute bottom-[30px] left-1/2 -translate-x-1/2 -translate-y-1/2 sm:bottom-[50px]':
-                  props.controlsPosition === 'hero',
-                'absolute bottom-[1px] left-1/2 -translate-x-1/2':
-                  props.controlsPosition === 'normal',
-              })}
-            >
-              <For each={resolvedChildren()}>
-                {(_, idx) => (
-                  <button
-                    onClick={() => moveTo(idx())}
-                    class={`dot border ${clsx(props.dotsColor === 'white' ? 'border-white' : 'border-red')} ${currentSlide() === idx() && `active ${clsx(props.dotsColor === 'white' ? '!bg-white' : '!bg-red')}`}`}
-                    aria-label={`Go to slide ${idx() + 1}`}
-                  ></button>
-                )}
-              </For>
-            </div>
-          </Show>
+          <div
+            class={clsx({
+              'hidden-mobile-only': props.hideDotsMobile,
+              'absolute bottom-[30px] left-1/2 -translate-x-1/2 -translate-y-1/2 sm:bottom-[50px]':
+                props.controlsPosition === 'hero',
+              'my-6 flex justify-center':
+                props.controlsPosition === 'normal',
+            })}
+          >
+            <For each={resolvedChildren()}>
+              {(_, idx) => (
+                <button
+                  onClick={() => moveTo(idx())}
+                  class={`dot block border ${clsx(props.dotsColor === 'white' ? 'border-white' : 'border-red')} ${currentSlide() === idx() && `active ${clsx(props.dotsColor === 'white' ? '!bg-white' : '!bg-red')}`}`}
+                  aria-label={`Go to slide ${idx() + 1}`}
+                ></button>
+              )}
+            </For>
+          </div>
         </Show>
-      </div>
     </div>
   );
 };
