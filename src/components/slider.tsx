@@ -121,64 +121,58 @@ export const Slider = (componentProps: SliderProps) => {
 
   return (
     <div class="relative">
-      <div
-        ref={sliderContainer}
-        id="my-keen-slider"
-        class="keen-slider"
-      >
+      <div ref={sliderContainer} id="my-keen-slider" class="keen-slider">
         <For each={resolvedChildren()}>
           {(child) => <div class="keen-slider__slide">{child}</div>}
         </For>
-
       </div>
-        <Show when={props.controls}>
-          <button
-            onClick={prev}
-            class={clsx('hidden sm:block', {
-              '!block': props.showArrowsMobile,
+      <Show when={props.controls}>
+        <button
+          onClick={prev}
+          class={clsx('hidden sm:block', {
+            '!block': props.showArrowsMobile,
+          })}
+        >
+          <ChevronLeftIcon
+            class={clsx('absolute left-2 top-1/2 opacity-70', {
+              'fill-red': props.controlsPosition === 'normal',
+              'fill-white': props.dotsColor === 'white',
             })}
-          >
-            <ChevronLeftIcon
-              class={clsx('absolute left-2 top-1/2 opacity-70', {
-                'fill-red': props.controlsPosition === 'normal',
-                'fill-white': props.dotsColor === 'white',
-              })}
-            />
-          </button>
-          <button
-            onClick={next}
-            class={clsx('hidden sm:block', {
-              '!block': props.showArrowsMobile,
+          />
+        </button>
+        <button
+          onClick={next}
+          class={clsx('hidden sm:block', {
+            '!block': props.showArrowsMobile,
+          })}
+        >
+          <ChevronRightIcon
+            class={clsx('absolute right-2 top-1/2 opacity-70', {
+              'fill-red': props.controlsPosition === 'normal',
+              'fill-white': props.dotsColor === 'white',
             })}
-          >
-            <ChevronRightIcon
-              class={clsx('absolute right-2 top-1/2 opacity-70', {
-                'fill-red': props.controlsPosition === 'normal',
-                'fill-white': props.dotsColor === 'white',
-              })}
-            />
-          </button>
+          />
+        </button>
 
-          <div
-            class={clsx({
-              'hidden-mobile-only': props.hideDotsMobile,
-              'absolute bottom-[30px] left-1/2 -translate-x-1/2 -translate-y-1/2 sm:bottom-[50px]':
-                props.controlsPosition === 'hero',
-              'my-6 flex justify-center':
-                props.controlsPosition === 'normal',
-            })}
-          >
-            <For each={resolvedChildren()}>
-              {(_, idx) => (
-                <button
-                  onClick={() => moveTo(idx())}
-                  class={`dot block border ${clsx(props.dotsColor === 'white' ? 'border-white' : 'border-red')} ${currentSlide() === idx() && `active ${clsx(props.dotsColor === 'white' ? '!bg-white' : '!bg-red')}`}`}
-                  aria-label={`Go to slide ${idx() + 1}`}
-                ></button>
-              )}
-            </For>
-          </div>
-        </Show>
+        <div
+          class={clsx({
+            'hidden-mobile-only': props.hideDotsMobile,
+            'absolute bottom-[30px] left-1/2 -translate-x-1/2 -translate-y-1/2 sm:bottom-[50px]':
+              props.controlsPosition === 'hero',
+            'my-6 flex justify-center': props.controlsPosition === 'normal',
+          })}
+        >
+          <For each={resolvedChildren()}>
+            {(_, idx) => (
+              <button
+                onClick={() => moveTo(idx())}
+                class={`dot block border ${clsx(props.dotsColor === 'white' ? 'border-white' : 'border-red')} ${currentSlide() === idx() && `active ${clsx(props.dotsColor === 'white' ? '!bg-white' : '!bg-red')}`}`}
+                aria-label={`Go to slide ${idx() + 1}`}
+              ></button>
+            )}
+          </For>
+        </div>
+      </Show>
     </div>
   );
 };
