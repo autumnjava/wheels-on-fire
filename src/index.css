@@ -269,13 +269,23 @@ label {
   background-clip: content-box;
   background-repeat: no-repeat;
 
-  padding-top: 78px;
+  padding-top: 24px;
   /* padding-left: 74px; */
 }
 
 .what-we-offer-content {
-  margin-top: -78px;
+  margin-top: -24px;
   /* margin-left: -74px; */
+}
+
+@media screen and (min-width: 640px) {
+  .what-we-offer-container {
+    padding-top: 49px;
+  }
+
+  .what-we-offer-content {
+    margin-top: -49px;
+  }
 }
 
 @media screen and (min-width: 768px) {

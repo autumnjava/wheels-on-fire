@@ -31,7 +31,7 @@ export const WhatWeOffer = () => {
         <p class="font-futuraMedium text-[19px] uppercase leading-[14px] sm:text-headingL sm:leading-[45px]">
           Got your own bike?
         </p>
-        <p class="my-2 font-futuraMedium text-[13px] leading-[110%] text-red sm:text-[24px]">
+        <p class="my-2 font-futuraMedium text-[14px] leading-[110%] text-red sm:text-[24px]">
           Price p/ person - 65€
         </p>
       </div>
@@ -79,7 +79,7 @@ export const WhatWeOffer = () => {
         <p class="font-futuraMedium text-[19px] uppercase leading-[14px] sm:text-headingL sm:leading-[45px]">
           Got your own bike?
         </p>
-        <p class="my-2 font-futuraMedium text-[13px] leading-[110%] text-red sm:text-[24px]">
+        <p class="my-2 font-futuraMedium text-[14px] leading-[110%] text-red sm:text-[24px]">
           Price p/ person - 85€
         </p>
       </div>
@@ -162,7 +162,7 @@ export const WhatWeOffer = () => {
       <hr />
 
       <div
-        class="what-we-offer-container mt-6 min-h-[330px] bg-cover bg-center bg-origin-content sm:h-[450px] sm:bg-[30%] md:h-fit xl:h-[850px]"
+        class="what-we-offer-container mt-6 min-h-[330px] bg-cover bg-center bg-origin-content sm:h-[400px] sm:bg-[30%] md:h-fit xl:h-[850px]"
         style={{ 'background-image': `url(${image1})` }}
       >
         <div class="what-we-offer-content">
@@ -170,7 +170,7 @@ export const WhatWeOffer = () => {
             What <br /> we offer
           </h1>
 
-          <h2 class="transparent-overlay hidden p-4 text-headingWhatWeOfferSub sm:block md:max-w-[180px] lg:max-w-[250px]">
+          <h2 class="transparent-overlay hidden p-4 text-headingWhatWeOfferSub md:block md:max-w-[180px] lg:max-w-[250px]">
             We want to bring you and your friends out on a bike adventure and
             show the island from a different perspective. Doesnʼt matter if itʼs
             your first time out on a bike trail or if you are a full on dirt
@@ -180,7 +180,7 @@ export const WhatWeOffer = () => {
       </div>
 
       <div>
-        <h2 class="p-4 text-center text-headingWhatWeOfferSub leading-[28px] sm:hidden md:max-w-[180px] lg:max-w-[250px]">
+        <h2 class="p-4 text-center text-headingWhatWeOfferSub leading-[28px] md:hidden md:max-w-[180px] lg:max-w-[250px]">
           We want to bring you and your friends out on a bike adventure and show
           the island from a different perspective. Doesnʼt matter if itʼs your
           first time out on a bike trail or if you are a full on dirt shredder,
