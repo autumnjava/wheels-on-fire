@@ -61,50 +61,41 @@ export const SanityBlogPost = () => {
 
   return (
     <>
-      <div class="container mx-auto px-4 text-center">
-        <div class="relative inline-block">
-          <h1 class="text-front text-headingXXXL tracking-wider text-black">
-            Blog
-          </h1>
-          <h1 class="black-text-outline text-back text-headingXXXL tracking-wider text-red">
-            Blog
-          </h1>
-        </div>
-      </div>
-
-      <hr />
-
-      <div class="text-center">
-        {content()?.map((post: any) => (
-          <div class="post">
-            <h2>{post.title}</h2>
-            {post.mainImage && post.mainImage.asset && (
-              <img
-                src={post.mainImage.asset.url}
-                alt={post.title}
-                class="post-image mx-auto"
-                width="300px"
-                height="300px"
-              />
-            )}
-
+      {content()?.map((post: any) => (
+        <div class="text-center">
+          {post.mainImage && post.mainImage.asset && (
             <div
-              class="post-body"
-              innerHTML={toHTML(post.body, {
-                components: myPortableTextComponents,
-              })}
-            />
+              class="relative mb-12 flex h-[300px] w-full flex-col bg-black bg-cover bg-center px-12 pt-8 sm:h-[500px] sm:pt-4 md:h-[868px] md:px-16 md:pt-28"
+              style={{
+                'background-image': `url(${post.mainImage.asset.url})`,
+              }}
+            ></div>
+          )}
 
-            <div class="post-author">By: {post.author.name}</div>
-            <div class="post-categories">
-              Categories:{' '}
-              {post.categories
-                .map((category: any) => category.title)
-                .join(', ')}
-            </div>
+          <div class="mx-auto my-12 px-4 text-center [&>*]:my-4">
+            <h1 class="font-futura text-headingXL font-bold uppercase">
+              {post.title}
+            </h1>
+            <h2 class="font-futuraMedium text-headingXL">
+              Subtitle will be here (if exists)
+            </h2>
           </div>
-        ))}
-      </div>
+
+          <hr />
+          <div
+            class="post-body container mx-auto my-12 max-w-[1040px] px-4 sm:my-12 [&>*]:my-4"
+            innerHTML={toHTML(post.body, {
+              components: myPortableTextComponents,
+            })}
+          />
+
+          <div class="post-author my-">By: {post.author.name}</div>
+          <div class="post-categories">
+            Categories:{' '}
+            {post.categories.map((category: any) => category.title).join(', ')}
+          </div>
+        </div>
+      ))}
     </>
   );
 };
