@@ -202,7 +202,7 @@ export const WhatWeOffer = () => {
             * Ride will be adjusted to your needs & skills*
           </p>
 
-          <div class="mx-auto mt-8 hidden max-w-[1070px] gap-4 text-center lg:grid lg:grid-cols-3">
+          <div class="mx-auto mt-8 hidden max-w-[1070px] gap-8 text-center lg:grid lg:grid-cols-3">
             <div>
               <div class="mx-auto w-[fit-content] bg-red px-4 py-2 uppercase text-white">
                 <h4 class="font-futuraMedium text-headingS uppercase">
