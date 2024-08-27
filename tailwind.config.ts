@@ -62,8 +62,8 @@ const config: Config = {
         DEFAULT: '0.3px',
       },
       screens: {
-        'wider': '900px',
-        
+        wider: '900px',
+        slighlySmallerThanSM: '400px',
       },
     },
   },

@@ -128,7 +128,7 @@ hr {
 @media screen and (max-width: 640px) {
   .what-we-offer p,
   .what-we-offer-red p {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 110%;
   }
 }
@@ -265,7 +265,6 @@ label {
 }
 
 .what-we-offer-container {
-  background-size: cover;
   padding-top: 0px;
   padding-left: 0px;
   background-clip: content-box;

@@ -9,14 +9,19 @@ import { InstagramIcon } from '../components/icons-library/social-media/instagra
 import { YoutubeIcon } from '../components/icons-library/social-media/youtube';
 import whatsAppIcon from '../components/data/images/whatsapp.png';
 
+type SubjectType = {
+  value: string;
+  label: string;
+};
+
 export const GetInTouch = () => {
   const [firstName, setFirstName] = createSignal('');
   const [lastName, setLastName] = createSignal('');
   const [email, setEmail] = createSignal('');
   const [comment, setComment] = createSignal('');
   const [isSucess, setIsSuccess] = createSignal(false);
-  const [subject, setSubject] = createSignal('');
-  const [errorMessage, setErrorMessage] = createSignal({}) as any;
+  const [subject, setSubject] = createSignal({} as SubjectType);
+  const [errorMessage, setErrorMessage] = createSignal({} as any);
 
   const subjectOptions = [
     { value: 'halfDay', label: 'Half day' },
@@ -30,7 +35,7 @@ export const GetInTouch = () => {
   const handleSubmit = async (event: any) => {
     event.preventDefault();
 
-    if (!subject()) {
+    if (!subject().value) {
       setErrorMessage({ text: 'Please select a subject!' });
       return;
     }
@@ -38,7 +43,7 @@ export const GetInTouch = () => {
     const templateParams = {
       from_name: `${firstName()} ${lastName()} `,
       from_email: email(),
-      subject: subject(),
+      subject: subject().label,
       message: comment(),
     };
 
@@ -48,6 +53,7 @@ export const GetInTouch = () => {
         'template_9kr5gbo',
         templateParams
       );
+
       console.log('SUCCESS!', response.status, response.text);
       setIsSuccess(true);
     } catch (error) {
@@ -79,8 +85,9 @@ export const GetInTouch = () => {
         </h1>
 
         <h2 class="mx-auto text-[1.05rem] leading-[110%] sm:text-headingL sm:leading-[100%]">
-          To make the most of your trip, for bookings<br class="block sm:hidden" /> and other questions,
-          please contact us on
+          To make the most of your trip, for bookings
+          <br class="block sm:hidden" /> and other questions, please contact us
+          on
           <br />
           WhatsApp:{' '}
           <A aria-label="Chat on WhatsApp" href="https://wa.me/351915797870">
@@ -122,7 +129,7 @@ export const GetInTouch = () => {
             <div class="lg:flex lg:justify-between">
               <div>
                 <label for="name">Name:</label>
-                <div class="flex flex-col gap-4 sm:gap-8 flex-wrap md:flex-row">
+                <div class="flex flex-col flex-wrap gap-4 sm:gap-8 md:flex-row">
                   <input
                     type="text"
                     id="firstName"
@@ -163,18 +170,22 @@ export const GetInTouch = () => {
 
             <div class="my-6">
               <ExpandableContainer
-                heading="Select subject"
-                extraCss="text-white !py-2 bg-red"
+                heading={subject().label || 'Select subject'}
+                extraCss="text-white !py-1 bg-red"
                 headingCss="text-[16px]"
               >
-                <div class="expandable-options [&>*]:my-2">
+                <div class="expandable-options [&>*]:!my-1">
                   <For each={subjectOptions}>
                     {(option) => (
                       <p
-                        onClick={() => setSubject(option.value)}
-                        class={clsx({
-                          'bg-red bg-opacity-50': subject() === option.value,
-                        })}
+                        onClick={() => setSubject(option)}
+                        class={clsx(
+                          {
+                            'bg-red bg-opacity-50':
+                              subject().value === option.value,
+                          },
+                          '!py-2'
+                        )}
                       >
                         {option.label}
                       </p>
@@ -218,9 +229,7 @@ export const GetInTouch = () => {
             Wanna see more of what we're up to?
           </h3>
 
-          <h4 class="mt-4 text-headingL uppercase">
-            Check us on
-          </h4>
+          <h4 class="mt-4 text-headingL uppercase">Check us on</h4>
           <div class="mt-2 flex justify-center">
             <A
               href="https://www.instagram.com/wheelsonfireazores"
