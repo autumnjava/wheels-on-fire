@@ -18,7 +18,7 @@ const config: Config = {
     },
     fontFamily: {
       futura: 'Futura, sans-serif',
-      futuraBold: 'Futura-Bold, sans-serif',
+      futuraBold: 'Futura-Bold, Futura, sans-serif',
       futuraExtraBold: 'Futura-CondensedExtraBold, Futura, sans-serif',
       futuraMedium: 'Futura-CondensedMedium, Futura, sans-serif',
       andaleMono: 'AndaleMono, sans-serif',
