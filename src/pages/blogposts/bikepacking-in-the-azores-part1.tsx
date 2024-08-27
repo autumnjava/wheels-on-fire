@@ -25,6 +25,7 @@ export const BikepackingInTheAzoresPart1 = () => {
     setIsModalVisible(true);
     document.body.style.overflowY = 'hidden';
   };
+
   return (
     <>
       <div
@@ -36,9 +37,7 @@ export const BikepackingInTheAzoresPart1 = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <PlayIcon
-            class="absolute left-0 right-0 top-1/2 mx-auto -translate-y-1/2 w-[50px] h-[50px] sm:w-[100px] sm:h-[100px]"
-          />
+          <PlayIcon class="absolute left-0 right-0 top-1/2 mx-auto h-[50px] w-[50px] -translate-y-1/2 sm:h-[100px] sm:w-[100px]" />
         </A>
       </div>
 

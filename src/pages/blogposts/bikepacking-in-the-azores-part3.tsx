@@ -1,5 +1,7 @@
 import { A } from '@solidjs/router';
-import { Button } from '../../components/button';
+import { createSignal } from 'solid-js';
+import { Modal } from '../../components/modal';
+import { Slider } from '../../components/slider';
 
 // images
 import posing from '../../components/data/images/18.jpg';
@@ -7,14 +9,24 @@ import surfing from '../../components/data/images/20.jpg';
 import mountainView from '../../components/data/images/23.jpg';
 
 export const BikepackingInTheAzoresPart3 = () => {
+  const [isModalVisible, setIsModalVisible] = createSignal(false);
+  const [initialSlide, setIinitialSlide] = createSignal(0);
+
+  const handleOnClickOpenModal = (initialSlide: number) => {
+    setIinitialSlide(initialSlide);
+    setIsModalVisible(true);
+    document.body.style.overflowY = 'hidden';
+  };
+
   return (
     <>
       <div
-        class="mb-12 flex h-[200px] sm:h-[500px] w-full flex-col bg-black bg-cover bg-center px-12 pt-8 sm:pt-4 md:h-[868px] md:px-16 md:pt-28"
+        class="mb-4 flex h-[200px] w-full cursor-pointer flex-col bg-black bg-cover bg-center px-12 pt-8 sm:mb-12 sm:h-[500px] sm:pt-4 md:h-[868px] md:px-16 md:pt-28"
         style={{ 'background-image': `url(${mountainView})` }}
+        onClick={() => handleOnClickOpenModal(0)}
       ></div>
 
-      <div class="container mx-auto my-12 max-w-[1040px] px-4">
+      <div class="container mx-auto my-4 max-w-[1040px] px-4 sm:my-12">
         <div class="gap-4 space-y-4 sm:columns-2">
           <p>
             This time I managed to bike up the first big hill from Velas without
@@ -75,7 +87,7 @@ export const BikepackingInTheAzoresPart3 = () => {
           </p>
         </div>
 
-        <h3 class="my-8 text-center font-futuraMedium text-headingL">
+        <h3 class="my-4 text-center font-futuraMedium text-headingL sm:my-12">
           The beauty of this place is hard to describe in words, when you sit on
           your surfboard waiting for the next wave and just observe the scenario
           around you is so magical. Specially when you’ve made your way here by
@@ -84,23 +96,28 @@ export const BikepackingInTheAzoresPart3 = () => {
         </h3>
       </div>
 
-      <div class="container mx-auto my-12 flex flex-col gap-4 sm:flex-row">
+      <div class="container mx-auto my-4 grid gap-4 sm:my-12 sm:grid-cols-2">
         <div
-          class="h-[200px] sm:h-[500px] w-full flex-col bg-cover bg-center bg-no-repeat"
+          class="h-[200px] w-full cursor-pointer flex-col bg-cover bg-center bg-no-repeat sm:h-[500px]"
           style={{ 'background-image': `url(${posing})` }}
+          onClick={() => handleOnClickOpenModal(1)}
         ></div>
         <div
-          class="h-[200px] sm:h-[500px] w-full flex-col bg-cover bg-center bg-no-repeat"
+          class="h-[200px] w-full cursor-pointer flex-col bg-cover bg-center bg-no-repeat sm:h-[500px]"
           style={{ 'background-image': `url(${surfing})` }}
+          onClick={() => handleOnClickOpenModal(2)}
         ></div>
       </div>
 
-      <Button url="#" customClass="block mx-auto !my-8">
+      <button
+        class="mx-auto mt-8 block bg-red px-[13px] py-[2px] text-white sm:px-[13px] sm:py-[5px]"
+        onClick={() => handleOnClickOpenModal(2)}
+      >
         + Photos
-      </Button>
+      </button>
 
       {/* TODO: refactor later */}
-      <div class="container mx-auto my-12 flex flex-col justify-between gap-8 px-4 sm:max-w-[600px] sm:flex-row sm:gap-16">
+      <div class="container mx-auto my-4 flex flex-col justify-between gap-8 px-4 sm:my-12 sm:max-w-[600px] sm:flex-row sm:gap-16">
         <A
           class="text-center font-futuraMedium text-headingM leading-[26px] text-red"
           href="/our-adventures/bikepacking-in-the-azores/1"
@@ -134,6 +151,33 @@ export const BikepackingInTheAzoresPart3 = () => {
           <span class="dot border border-red" />
           <h3>Pico</h3>
         </A>
+      </div>
+
+      <div class="container mx-auto my-8 px-4 text-center">
+        <Modal
+          onClose={() => setIsModalVisible(false)}
+          visible={isModalVisible()}
+        >
+          <Slider
+            controls={true}
+            autoplay={false}
+            showArrowsMobile={true}
+            initialSlide={initialSlide()}
+          >
+            <div
+              class="mt-8 h-[400px] w-full bg-cover bg-left bg-no-repeat sm:h-[500px] md:h-[700px]"
+              style={{ 'background-image': `url(${mountainView})` }}
+            ></div>
+            <div
+              class="mt-8 h-[400px] w-full bg-cover bg-center bg-no-repeat sm:h-[500px] md:h-[700px]"
+              style={{ 'background-image': `url(${posing})` }}
+            ></div>
+            <div
+              class="mt-8 h-[400px] w-full bg-cover bg-center bg-no-repeat sm:h-[500px] md:h-[700px]"
+              style={{ 'background-image': `url(${surfing})` }}
+            ></div>
+          </Slider>
+        </Modal>
       </div>
     </>
   );

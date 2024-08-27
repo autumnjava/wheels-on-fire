@@ -1,5 +1,7 @@
 import { A } from '@solidjs/router';
-import { Button } from '../../components/button';
+import { createSignal } from 'solid-js';
+import { Modal } from '../../components/modal';
+import { Slider } from '../../components/slider';
 
 // images
 import view from '../../components/data/images/13.jpg';
@@ -8,20 +10,31 @@ import bike2 from '../../components/data/images/15.faial_banshee.jpg';
 import biking from '../../components/data/images/16.jpg';
 
 export const BikepackingInTheAzoresPart2 = () => {
+  const [isModalVisible, setIsModalVisible] = createSignal(false);
+  const [initialSlide, setIinitialSlide] = createSignal(0);
+
+  const handleOnClickOpenModal = (initialSlide: number) => {
+    setIinitialSlide(initialSlide);
+    setIsModalVisible(true);
+    document.body.style.overflowY = 'hidden';
+  };
+
   return (
     <>
-      <div class="container mx-auto my-12 flex flex-col gap-4 sm:flex-row">
+      <div class="container mx-auto my-4 grid gap-4 sm:my-12 sm:grid-cols-2">
         <div
-          class="h-[200px] sm:h-[500px] w-full bg-cover bg-center bg-no-repeat"
+          class="h-[200px] w-full cursor-pointer bg-cover bg-center bg-no-repeat sm:h-[500px]"
           style={{ 'background-image': `url(${biking})` }}
+          onClick={() => handleOnClickOpenModal(0)}
         ></div>
         <div
-          class="h-[200px] sm:h-[500px] w-full bg-cover bg-center bg-no-repeat"
+          class="h-[200px] w-full cursor-pointer bg-cover bg-center bg-no-repeat sm:h-[500px]"
           style={{ 'background-image': `url(${view})` }}
+          onClick={() => handleOnClickOpenModal(1)}
         ></div>
       </div>
 
-      <div class="container mx-auto my-12 max-w-[1040px] px-4">
+      <div class="container mx-auto my-4 max-w-[1040px] px-4 sm:my-12">
         <div class="gap-4 space-y-4 sm:columns-2">
           <h3 class="!mt-0 mb-4 block !break-inside-avoid font-futuraMedium text-headingL sm:hidden">
             We reached the peak of the route and for a moment the fog
@@ -29,7 +42,7 @@ export const BikepackingInTheAzoresPart2 = () => {
             appeared in front of us. Sweaty, tired and wet in one second it all
             makes sense why you go through what you do.
           </h3>
-          <p>
+          <p class="sm:!mt-0">
             The local bike shop managed to patch up my bike with a new
             derailleur but they did not have a replacement for the brake lever,
             they just had some scrap parts and made my front brake kinda work
@@ -91,18 +104,20 @@ export const BikepackingInTheAzoresPart2 = () => {
         </div>
       </div>
 
-      <div class="container mx-auto my-12 flex flex-col gap-4 sm:flex-row">
+      <div class="container mx-auto my-4 grid gap-4 sm:my-12 sm:grid-cols-2">
         <div
-          class="h-[200px] sm:h-[500px] w-full bg-cover bg-center bg-no-repeat"
+          class="h-[200px] w-full bg-cover bg-center cursor-pointer bg-no-repeat sm:h-[500px]"
           style={{ 'background-image': `url(${bike1})` }}
+          onClick={() => handleOnClickOpenModal(2)}
         ></div>
         <div
-          class="h-[200px] sm:h-[500px] w-full bg-cover bg-center bg-no-repeat"
+          class="h-[200px] w-full bg-cover bg-center cursor-pointer bg-no-repeat sm:h-[500px]"
           style={{ 'background-image': `url(${bike2})` }}
+          onClick={() => handleOnClickOpenModal(3)}
         ></div>
       </div>
 
-      <div class="container mx-auto my-12 max-w-[1040px] px-4">
+      <div class="container mx-auto my-4 max-w-[1040px] px-4 sm:my-12">
         <div class="gap-4 space-y-4 sm:columns-2">
           <p>
             The west part of the island had a lot to offer and see. First we had
@@ -140,12 +155,15 @@ export const BikepackingInTheAzoresPart2 = () => {
         </div>
       </div>
 
-      <Button url="#" customClass="block mx-auto !my-8">
+      <button
+        class="mx-auto mt-8 block bg-red px-[13px] py-[2px] text-white sm:px-[13px] sm:py-[5px]"
+        onClick={() => handleOnClickOpenModal(3)}
+      >
         + Photos
-      </Button>
+      </button>
 
       {/* TODO: refactor later */}
-      <div class="container mx-auto my-12 flex flex-col justify-between gap-8 px-4 sm:max-w-[600px] sm:flex-row sm:gap-16">
+      <div class="container mx-auto my-4 flex flex-col justify-between gap-8 px-4 sm:my-12 sm:max-w-[600px] sm:flex-row sm:gap-16">
         <A
           class="text-center font-futuraMedium text-headingM leading-[26px] text-red"
           href="/our-adventures/bikepacking-in-the-azores/1"
@@ -179,6 +197,37 @@ export const BikepackingInTheAzoresPart2 = () => {
           <span class="dot border border-red" />
           <h3>Pico</h3>
         </A>
+      </div>
+
+      <div class="container mx-auto my-8 px-4 text-center">
+        <Modal
+          onClose={() => setIsModalVisible(false)}
+          visible={isModalVisible()}
+        >
+          <Slider
+            controls={true}
+            autoplay={false}
+            showArrowsMobile={true}
+            initialSlide={initialSlide()}
+          >
+            <div
+              class="mt-8 h-[400px] w-full bg-cover bg-left bg-no-repeat sm:h-[500px] md:h-[700px]"
+              style={{ 'background-image': `url(${biking})` }}
+            ></div>
+            <div
+              class="mt-8 h-[400px] w-full bg-cover bg-center bg-no-repeat sm:h-[500px] md:h-[700px]"
+              style={{ 'background-image': `url(${view})` }}
+            ></div>
+            <div
+              class="mt-8 h-[400px] w-full bg-cover bg-center bg-no-repeat sm:h-[500px] md:h-[700px]"
+              style={{ 'background-image': `url(${bike1})` }}
+            ></div>
+            <div
+              class="mt-8 h-[400px] w-full bg-cover bg-center bg-no-repeat sm:h-[500px] md:h-[700px]"
+              style={{ 'background-image': `url(${bike2})` }}
+            ></div>
+          </Slider>
+        </Modal>
       </div>
     </>
   );
