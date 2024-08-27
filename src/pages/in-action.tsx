@@ -24,7 +24,7 @@ export const InAction = () => {
       <hr class="my-8" />
 
       <div class="container mx-auto mb-6 mt-6 text-center sm:mt-16">
-        <h2 class="font-futuraExtraBold text-headingXL font-bold uppercase">
+        <h2 class="font-futuraExtraBold text-headingXL uppercase">
           You ride. <br class="sm:hidden" /> We pick you up. <br /> We got you
           all set up.
         </h2>

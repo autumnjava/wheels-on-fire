@@ -13,7 +13,7 @@ export const NavLinks = (props: NavProps) => {
       <A
         href={item.href}
         class={clsx(
-          'font-futuraExtraBold text-navMenu font-bold uppercase',
+          'font-futuraExtraBold text-navMenu uppercase',
           props.linkClass
         )}
         activeClass="underline underline-offset-[6px]"

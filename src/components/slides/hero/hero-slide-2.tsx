@@ -9,7 +9,7 @@ export const HeroSlide2 = (props: HeroProps) => {
       class="mb-8 flex h-[270px] w-full flex-col bg-black bg-cover bg-center px-4 pt-[10%] brightness-75 sm:px-12 md:h-[768px] md:px-16 xl:pt-[5%] 2xl:pt-[2%]"
       style={{ 'background-image': `url(${bgImage})` }}
     >
-      <q class="text-outline sm:text-outline-thicker block whitespace-nowrap font-futuraBold text-heroHeadingXL font-bold uppercase tracking-widest">
+      <q class="text-outline sm:text-outline-thicker block whitespace-nowrap font-futuraBold text-heroHeadingXL uppercase tracking-widest">
         {' '}
         Forget the
         <br />

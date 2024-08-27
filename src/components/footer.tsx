@@ -40,7 +40,7 @@ export const Footer = () => {
         <div class={clsx('mx-auto max-w-[208px]', columnStyle)}>
           <hr class="mx-auto w-[50%] border-gray" />
           <p class="text-center font-futuraMedium">
-            <span class="font-futura font-bold text-red">WHEELS ON FIRE </span>{' '}
+            <span class="font-futuraBold text-red">WHEELS ON FIRE </span>{' '}
             is a MTB guide & shuttle company based in the island of São Miguel,
             Azores
           </p>

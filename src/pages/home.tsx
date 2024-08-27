@@ -21,7 +21,7 @@ export const Home = () => {
       </Slider>
 
       <div class="container mx-auto my-4 px-4">
-        <h2 class="mb-4 text-center font-futuraExtraBold text-headingL font-bold uppercase">
+        <h2 class="mb-4 text-center font-futuraExtraBold text-headingL uppercase">
           Brands that support us
         </h2>
         <div class="flex items-center justify-evenly">
@@ -59,7 +59,7 @@ export const Home = () => {
       <hr class="mt-8" />
 
       <div class="container mx-auto mb-4 mt-8 px-4 text-center sm:mb-[24px] sm:mt-[94px]">
-        <h2 class="font-futuraExtraBold text-headingXL font-bold uppercase">
+        <h2 class="font-futuraExtraBold text-headingXL uppercase">
           You ride.
           <br class="block md:hidden" /> We pick you up.
           <br />

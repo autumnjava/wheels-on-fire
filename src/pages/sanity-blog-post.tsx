@@ -73,7 +73,7 @@ export const SanityBlogPost = () => {
           )}
 
           <div class="mx-auto my-12 px-4 text-center [&>*]:my-4">
-            <h1 class="font-futura text-headingXL font-bold uppercase">
+            <h1 class="font-futuraBold text-headingXL uppercase">
               {post.title}
             </h1>
             <h2 class="font-futuraMedium text-headingXL">
