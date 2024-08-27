@@ -10,7 +10,7 @@ export const HeroSlide1 = (props: HeroProps) => {
       style={{ 'background-image': `url(${bgImage})` }}
     >
       <div class="sm:max-w-[490px]">
-        <p class="font-futura text-[1.3rem] font-thick uppercase tracking-wider text-white sm:text-headingXXL">
+        <p class="font-futuraBold text-[1.3rem] font-thick uppercase tracking-wider text-white sm:text-headingXXL">
           S. Miguel <br /> in action - <br /> exploring <br /> the cool <br />{' '}
           trails on <br /> the island
         </p>

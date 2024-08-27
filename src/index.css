@@ -16,13 +16,15 @@
   font-display: swap;
   font-style: normal;
   font-stretch: condensed;
+  font-weight: bold;
 }
 
 @font-face {
   font-family: 'Futura-Bold';
-  src: url('./fonts/Futura-bold.ttf');
+  src: url('./fonts/Futura-bold.woff') format('woff');
   font-display: swap;
   font-style: normal;
+  font-weight: bold;
 }
 
 @font-face {
