@@ -28,12 +28,12 @@ export const WhatWeOffer = () => {
         </p>
       </div>
       <div class="mb-2 mt-4">
-        <p class="font-futuraMedium text-[19px] uppercase leading-[14px] sm:text-headingL sm:leading-[45px]">
+        <p class="font-futuraMedium text-[19px] uppercase leading-[120%] sm:text-headingL sm:leading-[45px]">
           Got your own bike?
         </p>
-        <div class="what-we-offer-red justify-center text-center text-red">
-          <p>Price p/ person - 65€</p>
-        </div>
+      </div>
+      <div class="what-we-offer-red my-2 justify-center text-center text-red">
+        <p>Price p/ person - 65€</p>
       </div>
       <div class="what-we-offer-red my-2 justify-center text-center text-red">
         <p>-</p>
@@ -70,12 +70,12 @@ export const WhatWeOffer = () => {
         </p>
       </div>
       <div class="mb-2 mt-4">
-        <p class="font-futuraMedium text-[19px] uppercase leading-[14px] sm:text-headingL sm:leading-[45px]">
+        <p class="font-futuraMedium text-[19px] uppercase leading-[120%] sm:text-headingL sm:leading-[45px]">
           Got your own bike?
         </p>
-        <div class="what-we-offer-red justify-center text-center text-red">
-          <p>Price p/ person - 85€</p>
-        </div>
+      </div>
+      <div class="what-we-offer-red my-2 justify-center text-center text-red">
+        <p>Price p/ person - 85€</p>
       </div>
       <div class="what-we-offer-red my-2 justify-center text-center text-red">
         <p>-</p>
@@ -107,7 +107,7 @@ export const WhatWeOffer = () => {
         </p>
       </div>
 
-      <div class="what-we-offer my-4">
+      <div class="what-we-offer mb-2 mt-4">
         <p>- Guided tour</p>
         <p>- 5-6 hrs ride</p>
         <p>- Shuttle Service</p>
