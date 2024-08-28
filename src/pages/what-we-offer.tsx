@@ -15,8 +15,8 @@ export const WhatWeOffer = () => {
   const halfDay = () => (
     <>
       <div class="what-we-offer my-4">
-        <p class="">- Guided tour</p>
-        <p class="">- 3-4 hrs ride</p>
+        <p>- Guided tour</p>
+        <p>- 3-4 hrs ride</p>
         <p>- Shuttle Service</p>
         <p>- Pick up - Drop off</p>
       </div>
@@ -31,25 +31,19 @@ export const WhatWeOffer = () => {
         <p class="font-futuraMedium text-[19px] uppercase leading-[14px] sm:text-headingL sm:leading-[45px]">
           Got your own bike?
         </p>
-        <p class="my-2 font-futuraMedium text-[16px] leading-[110%] text-red sm:text-[24px]">
-          Price p/ person - 65€
-        </p>
+        <div class="what-we-offer-red justify-center text-center text-red">
+          <p>Price p/ person - 65€</p>
+        </div>
       </div>
       <div class="what-we-offer-red my-2 justify-center text-center text-red">
         <p>-</p>
       </div>
-      <div class="my-2 flex justify-center whitespace-nowrap text-center ">
-        <p class="font-futuraMedium text-[16px] leading-[110%] sm:text-headingM">
-          Min. 2 ppl
-        </p>
-        <p class="ml-2 font-futuraMedium text-[16px] leading-[110%] sm:text-headingM">
-          |
-        </p>
-        <p class="ml-2 font-futuraMedium text-[16px] leading-[110%] sm:text-headingM">
-          Max. 3 ppl
-        </p>
+      <div class="what-we-offer-red my-2 flex justify-center whitespace-nowrap text-center [&>*]:mx-2">
+        <p>Min. 2 ppl</p>
+        <p>|</p>
+        <p>Max. 3 ppl</p>
       </div>
-      <div class="my-4">
+      <div class="my-6">
         <Button
           url="/get-in-touch"
           customClass="block mx-auto !my-4 what-we-offer-get-in-touch uppercase"
@@ -63,8 +57,8 @@ export const WhatWeOffer = () => {
   const fullDay = () => (
     <>
       <div class="what-we-offer my-4">
-        <p class="">- Guided tour</p>
-        <p class="">- 5-6 hrs ride</p>
+        <p>- Guided tour</p>
+        <p>- 5-6 hrs ride</p>
         <p>- Shuttle Service</p>
         <p>- Pick up - Drop off</p>
       </div>
@@ -79,25 +73,19 @@ export const WhatWeOffer = () => {
         <p class="font-futuraMedium text-[19px] uppercase leading-[14px] sm:text-headingL sm:leading-[45px]">
           Got your own bike?
         </p>
-        <p class="my-2 font-futuraMedium text-[16px] leading-[110%] text-red sm:text-[24px]">
-          Price p/ person - 85€
-        </p>
+        <div class="what-we-offer-red justify-center text-center text-red">
+          <p>Price p/ person - 85€</p>
+        </div>
       </div>
       <div class="what-we-offer-red my-2 justify-center text-center text-red">
         <p>-</p>
       </div>
-      <div class="my-2 flex justify-center whitespace-nowrap text-center ">
-        <p class="font-futuraMedium text-[16px] leading-[110%] sm:text-headingM">
-          Min. 2 ppl
-        </p>
-        <p class="ml-2 font-futuraMedium text-[16px] leading-[110%] sm:text-headingM">
-          |
-        </p>
-        <p class="ml-2 font-futuraMedium text-[16px] leading-[110%] sm:text-headingM">
-          Max. 3 ppl
-        </p>
+      <div class="what-we-offer-red my-2 flex justify-center whitespace-nowrap text-center [&>*]:mx-2">
+        <p>Min. 2 ppl</p>
+        <p>|</p>
+        <p>Max. 3 ppl</p>
       </div>
-      <div class="my-4">
+      <div class="my-6">
         <Button
           url="/get-in-touch"
           customClass="block mx-auto !my-4 what-we-offer-get-in-touch uppercase"
@@ -121,7 +109,7 @@ export const WhatWeOffer = () => {
 
       <div class="what-we-offer my-4">
         <p>- Guided tour</p>
-        <p class="">- 5-6 hrs ride</p>
+        <p>- 5-6 hrs ride</p>
         <p>- Shuttle Service</p>
         <p>- Pick up - Drop off</p>
       </div>
@@ -129,18 +117,12 @@ export const WhatWeOffer = () => {
       <div class="what-we-offer-red my-2 justify-center text-center text-red">
         <p>-</p>
       </div>
-      <div class="my-2 flex justify-center whitespace-nowrap text-center ">
-        <p class="font-futuraMedium text-[16px] leading-[110%] sm:text-headingM">
-          Min. 2 ppl
-        </p>
-        <p class="ml-2 font-futuraMedium text-[16px] leading-[110%] sm:text-headingM">
-          |
-        </p>
-        <p class="ml-2 font-futuraMedium text-[16px] leading-[110%] sm:text-headingM">
-          Max. 3 ppl
-        </p>
+      <div class="what-we-offer-red my-2 flex justify-center whitespace-nowrap text-center [&>*]:mx-2">
+        <p>Min. 2 ppl</p>
+        <p>|</p>
+        <p>Max. 3 ppl</p>
       </div>
-      <div class="my-4">
+      <div class="my-6">
         <Button
           url="/get-in-touch"
           customClass="block mx-auto !my-4 what-we-offer-get-in-touch uppercase"
@@ -162,7 +144,7 @@ export const WhatWeOffer = () => {
       <hr />
 
       <div
-        class="what-we-offer-container slighlySmallerThanSM:min-h-[350px] mt-6 min-h-[230px] bg-cover bg-[30%] bg-origin-content sm:h-[400px] md:h-fit xl:h-[850px]"
+        class="what-we-offer-container mt-6 min-h-[230px] bg-cover bg-[30%] bg-origin-content slighlySmallerThanSM:min-h-[350px] sm:h-[400px] md:h-fit xl:h-[850px]"
         style={{ 'background-image': `url(${image1})` }}
       >
         <div class="what-we-offer-content">
@@ -202,7 +184,7 @@ export const WhatWeOffer = () => {
             * Ride will be adjusted to your needs & skills*
           </p>
 
-          <div class="mx-auto mt-8 hidden max-w-[1070px] gap-8 text-center lg:grid lg:grid-cols-3">
+          <div class="mx-auto mt-8 hidden max-w-[1270px] gap-8 text-center lg:grid lg:grid-cols-3">
             <div>
               <div class="mx-auto w-[fit-content] bg-red px-4 py-2 uppercase text-white">
                 <h4 class="font-futuraMedium text-headingS uppercase">

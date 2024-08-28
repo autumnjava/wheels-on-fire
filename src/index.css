@@ -116,7 +116,7 @@ hr {
 .what-we-offer p {
   font-family: AndaleMonoBold, sans-serif;
   font-size: 18px;
-  line-height: 25px;
+  line-height: 110%;
 }
 
 .what-we-offer-red p {
@@ -125,10 +125,16 @@ hr {
   line-height: 110%;
 }
 
+@media screen and (max-width: 1280px) {
+  .what-we-offer-red p {
+    font-size: 22px;
+  }
+}
+
 @media screen and (max-width: 640px) {
   .what-we-offer p,
   .what-we-offer-red p {
-    font-size: 16px;
+    font-size: 18px;
     line-height: 110%;
   }
 }
@@ -148,12 +154,9 @@ button {
 }
 
 @media screen and (max-width: 640px) {
-  button {
-    font-size: 13px;
-  }
-
+  button,
   button.what-we-offer-get-in-touch {
-    font-size: 11px;
+    font-size: 14px;
   }
 }
 
