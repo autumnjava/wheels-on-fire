@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { Show, createSignal, mergeProps } from 'solid-js';
+import { Show, createEffect, createSignal, mergeProps, on } from 'solid-js';
 import { ChevronDownIcon } from './icons-library/chevron-down';
 
 const defaultProps = {
@@ -13,6 +13,7 @@ type ExpandableProps = {
   customCss?: string;
   extraCss?: string;
   headingCss?: string;
+  onClose?: any;
 };
 
 export const ExpandableContainer = (componentProps: ExpandableProps) => {
@@ -22,6 +23,16 @@ export const ExpandableContainer = (componentProps: ExpandableProps) => {
   const handleClick = () => {
     isOpen() ? setIsOpen(false) : setIsOpen(true);
   };
+
+  createEffect(
+    on(
+      () => props.onClose,
+      () => setIsOpen(false),
+      {
+        defer: true,
+      }
+    )
+  );
 
   return (
     <div class={props.customCss}>

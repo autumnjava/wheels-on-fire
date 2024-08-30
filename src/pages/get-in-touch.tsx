@@ -22,6 +22,7 @@ export const GetInTouch = () => {
   const [isSucess, setIsSuccess] = createSignal(false);
   const [subject, setSubject] = createSignal({} as SubjectType);
   const [errorMessage, setErrorMessage] = createSignal({} as any);
+  const [expandableOpen, setExpandableOpen] = createSignal(false);
 
   const subjectOptions = [
     { value: 'halfDay', label: 'Half day' },
@@ -67,6 +68,11 @@ export const GetInTouch = () => {
       publicKey: 'xiKB2qC-EzY13ebzX',
     });
   });
+
+  const handleSubjectClick = (subject: SubjectType) => {
+    setSubject(subject);
+    setExpandableOpen((prev) => !prev);
+  };
 
   return (
     <>
@@ -173,12 +179,13 @@ export const GetInTouch = () => {
                 heading={subject().label || 'Select subject'}
                 extraCss="text-white !py-1 bg-red"
                 headingCss="text-[16px]"
+                onClose={expandableOpen()}
               >
                 <div class="expandable-options [&>*]:!my-1">
                   <For each={subjectOptions}>
                     {(option) => (
                       <p
-                        onClick={() => setSubject(option)}
+                        onClick={() => handleSubjectClick(option)}
                         class={clsx(
                           {
                             'bg-red bg-opacity-50':
