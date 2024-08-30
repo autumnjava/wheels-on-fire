@@ -29,12 +29,12 @@ export const Footer = () => {
           <nav class="flex flex-wrap justify-center">
             <NavLinks linkClass="text-nowrap px-[14px] font-futuraExtraBold uppercase text-white leading-[28px] no-underline" />
           </nav>
-          <div class="font-futuraMedium text-[15px] uppercase leading-[26px]">
+          {/* <div class="font-futuraMedium text-[15px] uppercase leading-[26px]">
             <A class="mr-4 " href="#">
               Legal
             </A>
             <A href="#">General terms</A>
-          </div>
+          </div> */}
         </div>
 
         <div class={clsx('mx-auto max-w-[208px]', columnStyle)}>
