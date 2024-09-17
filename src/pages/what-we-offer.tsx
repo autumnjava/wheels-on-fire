@@ -222,8 +222,13 @@ export const WhatWeOffer = () => {
             <p>Price p/ person - 20€</p>
           </div>
 
-          <div class="what-we-offer mt-4 mb-2">
-            <p class="!text-[16px]">Includes 2x 50 cl bottle of water, 1 hamburger ( veggie <br /> or meat option ), 2 energetic bars, a fruit</p>
+          <div class="what-we-offer mb-2 mt-4">
+            <p class="!text-[14px] sm:!text-[16px]">
+              Includes 2x 50 cl bottle of water, <br class="block sm:hidden" />{' '}
+              1 hamburger ( veggie <br class="hidden sm:block" /> or meat option
+              ),
+              <br class="block sm:hidden" /> 2 energetic bars, a fruit
+            </p>
           </div>
           <div class="what-we-offer-red justify-center text-center text-red">
             <p class="!text-[18px]">*please mention any allergies</p>

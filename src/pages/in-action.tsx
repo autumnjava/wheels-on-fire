@@ -1,12 +1,28 @@
+import { A } from '@solidjs/router';
+import { createResource } from 'solid-js';
 import { Button } from '../components/button';
+import { client } from '../utils/sanity/client';
 
 export const InAction = () => {
+  const fetchContent = async () => {
+    const CONTENT_QUERY = `*[_type == "video"] {
+      ...,
+      videoImage {
+        ...,
+        asset->
+      },
+    }`;
+    return await client.fetch(CONTENT_QUERY);
+  };
+
+  const [content] = createResource(fetchContent);
+
   return (
     <>
       <hr />
 
       <div class="container mx-auto mt-6 px-4 text-center">
-        <h1 class="text-outline relative block pl-4 text-headingXXXL tracking-wider">
+        <h1 class="text-outline relative block text-headingXXXL tracking-wider">
           In action!
         </h1>
 
@@ -19,7 +35,24 @@ export const InAction = () => {
 
       <hr class="my-8" />
 
-      <div class="text-center font-futuraMedium">Content coming soon</div>
+      <div class="container mx-auto my-8 grid max-w-[1200px] gap-8 px-4 sm:grid-cols-3">
+        {content()?.map((post: any) => (
+          <A href={post.videoLink} target="_blank" rel="noopener noreferrer">
+            <div
+              class="h-[180px] w-full bg-black bg-cover bg-right sm:h-[250px]"
+              style={{
+                'background-image': `url(${post.videoImage.asset.url})`,
+              }}
+            ></div>
+
+            <div class="my-4">
+              <h3 class="font-futura text-[20px] font-thick uppercase leading-[100%] sm:text-[27px]">
+                {post.title}
+              </h3>
+            </div>
+          </A>
+        ))}
+      </div>
 
       <hr class="my-8" />
 
