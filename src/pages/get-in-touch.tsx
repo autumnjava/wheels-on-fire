@@ -27,8 +27,8 @@ export const GetInTouch = () => {
   const subjectOptions = [
     { value: 'halfDay', label: 'Half day' },
     { value: 'fullDay', label: 'Full day' },
-    { value: 'oneDayPlus', label: '1 day +' },
     { value: 'privateGuidedTour', label: 'Private guided tour' },
+    { value: 'customizeYourDay', label: 'Customize your day' },
     { value: 'bikeRental', label: 'Bike rental' },
     { value: 'shuttle', label: 'Shuttle' },
   ];

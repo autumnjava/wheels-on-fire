@@ -219,15 +219,15 @@ export const BikepackingInTheAzoresPart4 = () => {
             initialSlide={initialSlide()}
           >
             <div
-              class="mt-8 h-[400px] w-full bg-cover bg-left bg-no-repeat sm:h-[500px] md:h-[700px]"
+              class="mt-8 h-[400px] w-full bg-cover bg-center bg-no-repeat sm:h-[500px] md:h-[800px]"
               style={{ 'background-image': `url(${biking})` }}
             ></div>
             <div
-              class="mt-8 h-[400px] w-full bg-cover bg-center bg-no-repeat sm:h-[500px] md:h-[700px]"
+              class="mt-8 h-[400px] w-full bg-cover bg-center bg-no-repeat sm:h-[500px] md:h-[800px]"
               style={{ 'background-image': `url(${ju_biking})` }}
             ></div>
             <div
-              class="mt-8 h-[400px] w-full bg-cover bg-center bg-no-repeat sm:h-[500px] md:h-[700px]"
+              class="mt-8 h-[400px] w-full bg-cover bg-bottom bg-no-repeat sm:h-[500px] md:h-[800px]"
               style={{ 'background-image': `url(${ja_biking})` }}
             ></div>
           </Slider>

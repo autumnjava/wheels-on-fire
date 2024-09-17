@@ -33,7 +33,7 @@ export const BikepackingInTheAzoresPart1 = () => {
         style={{ 'background-image': `url(${ju_faial})` }}
       >
         <A
-          href="https://www.youtube.com/@wheelsonfireazores"
+          href="https://www.youtube.com/watch?v=XqkRExdx120&ab_channel=WheelsonFire"
           target="_blank"
           rel="noopener noreferrer"
         >

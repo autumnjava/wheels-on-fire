@@ -141,10 +141,9 @@ export const AboutUs = () => {
                 surf dream and from then on I just knew that this was where in
                 the world I wanted to be. Biking has also always been a big part
                 of my life wherever I was, from working as a bike messenger,
-                bikepacking or riding downhill and being out in the nature with
-                my bike is what I enjoy the most. Not only biking but also
-                creating, building and maintaining the bike trails is something
-                I really like spending my time on.
+                bikepacking or riding downhill, I always enjoy riding my bike.
+                Not only biking but also creating, building and maintaining the
+                bike trails is something I really like spending my time on.
               </p>
               <p>
                 After discovering the Azores by bike. Me and my partner Juliana

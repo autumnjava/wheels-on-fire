@@ -96,42 +96,42 @@ export const WhatWeOffer = () => {
     </>
   );
 
-  const oneDayPlus = () => (
-    <>
-      <div class="what-we-offer my-4">
-        <p>
-          Join us for a good
-          <br class="hidden md:block" /> ride! <br class="block md:hidden" />
-          Guided tour on
-          <br class="hidden md:block" /> multiple locations.
-        </p>
-      </div>
+  // const oneDayPlus = () => (
+  //   <>
+  //     <div class="what-we-offer my-4">
+  //       <p>
+  //         Join us for a good
+  //         <br class="hidden md:block" /> ride! <br class="block md:hidden" />
+  //         Guided tour on
+  //         <br class="hidden md:block" /> multiple locations.
+  //       </p>
+  //     </div>
 
-      <div class="what-we-offer mb-2 mt-4">
-        <p>- Guided tour</p>
-        <p>- 5-6 hrs ride</p>
-        <p>- Shuttle Service</p>
-        <p>- Pick up - Drop off</p>
-      </div>
+  //     <div class="what-we-offer mb-2 mt-4">
+  //       <p>- Guided tour</p>
+  //       <p>- 5-6 hrs ride</p>
+  //       <p>- Shuttle Service</p>
+  //       <p>- Pick up - Drop off</p>
+  //     </div>
 
-      <div class="what-we-offer-red my-2 justify-center text-center text-red">
-        <p>-</p>
-      </div>
-      <div class="what-we-offer-red my-2 flex justify-center whitespace-nowrap text-center [&>*]:mx-2">
-        <p>Min. 2 ppl</p>
-        <p>|</p>
-        <p>Max. 3 ppl</p>
-      </div>
-      <div class="my-6">
-        <Button
-          url="/get-in-touch"
-          customClass="block mx-auto !my-4 what-we-offer-get-in-touch uppercase"
-        >
-          Book now
-        </Button>
-      </div>
-    </>
-  );
+  //     <div class="what-we-offer-red my-2 justify-center text-center text-red">
+  //       <p>-</p>
+  //     </div>
+  //     <div class="what-we-offer-red my-2 flex justify-center whitespace-nowrap text-center [&>*]:mx-2">
+  //       <p>Min. 2 ppl</p>
+  //       <p>|</p>
+  //       <p>Max. 3 ppl</p>
+  //     </div>
+  //     <div class="my-6">
+  //       <Button
+  //         url="/get-in-touch"
+  //         customClass="block mx-auto !my-4 what-we-offer-get-in-touch uppercase"
+  //       >
+  //         Book now
+  //       </Button>
+  //     </div>
+  //   </>
+  // );
 
   const BikeSlide = (props: { image: string }) => (
     <div class="bg-white px-8">
@@ -184,7 +184,7 @@ export const WhatWeOffer = () => {
             * Ride will be adjusted to your needs & skills*
           </p>
 
-          <div class="mx-auto mt-8 hidden max-w-[1270px] gap-8 text-center lg:grid lg:grid-cols-3">
+          <div class="mx-auto mt-8 hidden justify-center gap-12 text-center lg:flex">
             <div>
               <div class="mx-auto w-[fit-content] bg-red px-4 py-2 uppercase text-white">
                 <h4 class="font-futuraMedium text-headingS uppercase">
@@ -204,14 +204,29 @@ export const WhatWeOffer = () => {
               {fullDay()}
             </div>
 
-            <div>
+            {/* <div>
               <div class="mx-auto w-[fit-content] bg-red px-4 py-2 uppercase text-white">
                 <h4 class="font-futuraMedium text-headingS uppercase">
                   1 day +
                 </h4>
               </div>
               {oneDayPlus()}
-            </div>
+            </div> */}
+          </div>
+          <div class="mb-2 mt-4">
+            <p class="font-futuraMedium text-[19px] uppercase leading-[120%] sm:text-headingL sm:leading-[45px]">
+              Need a snack for the day?
+            </p>
+          </div>
+          <div class="what-we-offer-red my-2 justify-center text-center text-red">
+            <p>Price p/ person - 20€</p>
+          </div>
+
+          <div class="what-we-offer mt-4 mb-2">
+            <p class="!text-[16px]">Includes 2x 50 cl bottle of water, 1 hamburger ( veggie <br /> or meat option ), 2 energetic bars, a fruit</p>
+          </div>
+          <div class="what-we-offer-red justify-center text-center text-red">
+            <p class="!text-[18px]">*please mention any allergies</p>
           </div>
         </div>
       </div>
@@ -222,9 +237,9 @@ export const WhatWeOffer = () => {
       <ExpandableContainer heading="full day" customCss="block lg:hidden">
         {fullDay()}
       </ExpandableContainer>
-      <ExpandableContainer heading="1 day +" customCss="block lg:hidden">
+      {/* <ExpandableContainer heading="1 day +" customCss="block lg:hidden">
         {oneDayPlus()}
-      </ExpandableContainer>
+      </ExpandableContainer> */}
 
       <div class="my-10 mt-10 flex w-full flex-col border-t border-red md:my-16">
         <div class="w-[fit-content] bg-red px-4 py-1 font-futuraMedium text-[16px] uppercase leading-[100%] text-white sm:px-4 sm:text-headingM sm:leading-[27px]">
@@ -314,12 +329,21 @@ export const WhatWeOffer = () => {
             or dynamism thanks to a specific insert.
           </h4>
 
-          <Button
-            url="https://www.commencal.com/us/en/commencal-clash-ride-dirt-new-rockshox/22CLASHRIRS.html"
-            customClass="block mx-auto !my-8"
-          >
-            Check more here
-          </Button>
+          <div class="flex justify-center gap-8">
+            <Button
+              url="https://www.commencal.com/us/en/commencal-clash-ride-dirt-new-rockshox/22CLASHRIRS.html"
+              customClass="block !my-8"
+            >
+              Check more here
+            </Button>
+
+            <Button
+              url="https://www.youtube.com/@wheelsonfireazores"
+              customClass="block !my-8"
+            >
+              Check video
+            </Button>
+          </div>
         </div>
       </div>
 

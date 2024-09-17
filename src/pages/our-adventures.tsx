@@ -1,5 +1,4 @@
 import { A } from '@solidjs/router';
-import { Button } from '../components/button';
 
 // images
 import desertTrainFoto from '../components/data/images/desert-train-photo.png';
@@ -27,8 +26,12 @@ export const OurAdventures = () => {
 
       <hr class="mt-8" />
 
-      <A href="/our-adventures/bikepacking-in-the-azores/1">
-        <div class="container mx-auto my-8 flex flex-col gap-8 px-4 sm:flex-row">
+      <div class="container mx-auto my-8 flex flex-col gap-8 px-4 sm:flex-row">
+        <A
+          href="https://www.youtube.com/watch?v=XqkRExdx120&ab_channel=WheelsonFire"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <div
             class="relative h-[180px] w-full bg-cover bg-center sm:h-[328px] sm:w-[525px]"
             style={{ 'background-image': `url(${bikepackingInTheAzoresFoto})` }}
@@ -39,8 +42,10 @@ export const OurAdventures = () => {
               width="50"
             />
           </div>
+        </A>
 
-          <div class="sm:w-[30%] [&>*:not(:first-child)]:my-4">
+        <div class="sm:w-[30%] [&>*:not(:first-child)]:my-4">
+          <A href="/our-adventures/bikepacking-in-the-azores/1">
             <h3 class="font-futura text-[20px] font-thick uppercase leading-[100%] sm:text-[27px]">
               Bikepacking in the Azores
             </h3>
@@ -54,12 +59,12 @@ export const OurAdventures = () => {
             </p>
             <hr class="my-8 w-[5%]" />
             <h4 class="!my-0 !normal-case">Film & Photos by us.</h4>
-          </div>
+          </A>
         </div>
-      </A>
+      </div>
 
       <A
-        href="https://www.youtube.com/watch?v=4iYAmrZAx18"
+        href="https://www.youtube.com/watch?v=4iYAmrZAx18&ab_channel=WheelsonFire"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -88,12 +93,6 @@ export const OurAdventures = () => {
           </div>
         </div>
       </A>
-
-      <div>
-        <Button url="#" customClass="mt-2 block mx-auto">
-          More
-        </Button>
-      </div>
     </>
   );
 };
