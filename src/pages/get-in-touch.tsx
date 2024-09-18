@@ -28,7 +28,7 @@ export const GetInTouch = () => {
     { value: 'halfDay', label: 'Half day' },
     { value: 'fullDay', label: 'Full day' },
     { value: 'privateGuidedTour', label: 'Private guided tour' },
-    { value: 'customizeYourDay', label: 'Customize your day' },
+    { value: 'customizeYourTrip', label: 'Customize your trip' },
     { value: 'bikeRental', label: 'Bike rental' },
     { value: 'shuttle', label: 'Shuttle' },
   ];

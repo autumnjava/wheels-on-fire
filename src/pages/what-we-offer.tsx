@@ -334,17 +334,17 @@ export const WhatWeOffer = () => {
             or dynamism thanks to a specific insert.
           </h4>
 
-          <div class="flex justify-center gap-8">
+          <div class="flex justify-center">
             <Button
               url="https://www.commencal.com/us/en/commencal-clash-ride-dirt-new-rockshox/22CLASHRIRS.html"
-              customClass="block !my-8"
+              customClass="block !my-8 !mx-4"
             >
               Check more here
             </Button>
 
             <Button
               url="https://www.youtube.com/@wheelsonfireazores"
-              customClass="block !my-8"
+              customClass="block !my-8 !mx-4"
             >
               Check video
             </Button>

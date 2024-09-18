@@ -46,7 +46,7 @@ export const InAction = () => {
             ></div>
 
             <div class="my-4">
-              <h3 class="font-futura text-[20px] font-thick uppercase leading-[100%] sm:text-[27px]">
+              <h3 class="font-futura text-[15px] font-thick uppercase leading-[100%] sm:text-[27px]">
                 {post.title}
               </h3>
             </div>

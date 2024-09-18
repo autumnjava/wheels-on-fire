@@ -26,7 +26,7 @@ export const OurAdventures = () => {
 
       <hr class="mt-8" />
 
-      <div class="container mx-auto my-8 flex flex-col gap-8 px-4 sm:flex-row">
+      <div class="container mx-auto my-8 flex flex-col gap-4 sm:gap-8 px-4 sm:flex-row">
         <A
           href="https://www.youtube.com/watch?v=XqkRExdx120&ab_channel=WheelsonFire"
           target="_blank"
@@ -44,23 +44,24 @@ export const OurAdventures = () => {
           </div>
         </A>
 
-        <div class="sm:w-[30%] [&>*:not(:first-child)]:my-4">
-          <A href="/our-adventures/bikepacking-in-the-azores/1">
-            <h3 class="font-futura text-[20px] font-thick uppercase leading-[100%] sm:text-[27px]">
-              Bikepacking in the Azores
-            </h3>
-            <p>
-              In the spring of 2023 we packed our passion in life and shipped it
-              over to São Miguel - 2 enduro bicycles, 2 surf boards and a bike
-              trailer.
-              <br />
-              <br />
-              We did 4 islands in 2 months and a half.
-            </p>
-            <hr class="my-8 w-[5%]" />
-            <h4 class="!my-0 !normal-case">Film & Photos by us.</h4>
-          </A>
-        </div>
+        <A
+          href="/our-adventures/bikepacking-in-the-azores/1"
+          class="sm:w-[30%] [&>*:not(:first-child)]:my-4"
+        >
+          <h3 class="font-futura text-[17px] font-thick uppercase leading-[100%] sm:text-[27px]">
+            Bikepacking in the Azores
+          </h3>
+          <p>
+            In the spring of 2023 we packed our passion in life and shipped it
+            over to São Miguel - 2 enduro bicycles, 2 surf boards and a bike
+            trailer.
+            <br />
+            <br />
+            We did 4 islands in 2 months and a half.
+          </p>
+          <hr class="my-8 w-[5%]" />
+          <h4 class="!my-0 !normal-case">Film & Photos by us.</h4>
+        </A>
       </div>
 
       <A
@@ -68,7 +69,7 @@ export const OurAdventures = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <div class="container mx-auto my-8 flex flex-col gap-8 px-4 sm:flex-row">
+        <div class="container mx-auto my-8 flex flex-col gap-4 sm:gap-8 px-4 sm:flex-row">
           <div
             class="relative h-[180px] w-full bg-cover bg-center sm:h-[328px] sm:w-[525px]"
             style={{ 'background-image': `url(${desertTrainFoto})` }}
@@ -81,7 +82,7 @@ export const OurAdventures = () => {
           </div>
 
           <div class="sm:w-[30%] [&>*:not(:first-child)]:my-4">
-            <h3 class="font-futura text-[20px] font-thick uppercase leading-[100%] sm:text-[27px]">
+            <h3 class="font-futura text-[17px] font-thick uppercase leading-[100%] sm:text-[27px]">
               The desert train
             </h3>
             <p>
