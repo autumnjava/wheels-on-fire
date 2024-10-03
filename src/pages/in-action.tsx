@@ -35,11 +35,11 @@ export const InAction = () => {
 
       <hr class="my-8" />
 
-      <div class="container mx-auto my-8 grid max-w-[1200px] gap-8 px-4 sm:grid-cols-3">
+      <div class="container mx-auto my-8 grid max-w-[1300px] gap-8 px-4 sm:grid-cols-3">
         {content()?.map((post: any) => (
           <A href={post.videoLink} target="_blank" rel="noopener noreferrer">
             <div
-              class="h-[180px] w-full bg-black bg-cover bg-right sm:h-[250px]"
+              class="h-[160px] w-full bg-contain bg-no-repeat bg-left sm:h-[250px]"
               style={{
                 'background-image': `url(${post.videoImage.asset.url})`,
               }}
