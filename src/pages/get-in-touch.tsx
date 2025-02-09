@@ -78,7 +78,7 @@ export const GetInTouch = () => {
     <>
       <hr />
 
-      <A aria-label="Chat on WhatsApp" href="https://wa.me/351915797870">
+      <A aria-label="Chat on WhatsApp" href="https://wa.me/351933549537">
         <img
           src={whatsAppIcon}
           class="fixed bottom-6 right-6 z-10 w-[50px] sm:w-[100px]"
@@ -96,8 +96,8 @@ export const GetInTouch = () => {
           on
           <br />
           WhatsApp:{' '}
-          <A aria-label="Chat on WhatsApp" href="https://wa.me/351915797870">
-            <span class="text-red">+351 915 797 870</span>
+          <A aria-label="Chat on WhatsApp" href="https://wa.me/351933549537">
+            <span class="text-red">+351 933 549 537</span>
           </A>
           ,<br class="block sm:hidden" /> email:{' '}
           <span class="text-red">wheelsonfireazores@gmail.com</span>
