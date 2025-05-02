@@ -237,7 +237,7 @@ export const GetInTouch = () => {
           </h3>
 
           <h4 class="mt-4 text-headingL uppercase">Check us on</h4>
-          <div class="mt-2 flex justify-center">
+          <div class="mt-2 flex justify-center md:mb-[80px] mb-[40px]">
             <A
               href="https://www.instagram.com/wheelsonfireazores"
               target="_blank"
