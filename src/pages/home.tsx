@@ -20,41 +20,14 @@ export const Home = () => {
         <HeroSlide3 />
       </Slider>
 
-      <div class="container mx-auto my-4 px-4">
-        <h2 class="mb-4 text-center font-futuraExtraBold text-headingL uppercase">
-          Brands that support us
-        </h2>
-        <div class="flex items-center justify-evenly">
-          <A
-            href="https://www.commencal.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src={brand1} class="w-[103px] md:w-[153px]" />
-          </A>
-          <A
-            href="https://poc.com/en"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src={brand2} class="w-[24px] md:w-[64px]" />
-          </A>
-          <A
-            href="https://www.oneupcomponents.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src={brand3} class="w-[33px] md:w-[73px]" />
-          </A>
-          <A
-            href="https://chromagbikes.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src={brand4} class="w-[23px] md:w-[63px]" />
-          </A>
-        </div>
-      </div>
+      
+
+      {/* Google reviews widget */}
+      
+      <hr class="mt-8 border-none" />
+
+      <div class="elfsight-app-c4e74546-6720-4e9d-b915-19362727499c" data-elfsight-app-lazy></div>
+      
 
       <hr class="mt-8" />
 
@@ -67,12 +40,15 @@ export const Home = () => {
         </h2>
       </div>
 
-      <div class="container mx-auto px-4 text-center">
+      <div class="container mx-auto px-4 text-center mb-12">
         <h3 class="text-headingL uppercase">Get in touch</h3>
         <Button url="/get-in-touch" customClass="sm:mt-[20px] !mt-2 !px-[10px]">
           Contact us
         </Button>
       </div>
+      
+       {/* Instagram widget */}
+      <div class="elfsight-app-2365f321-6e8c-49fd-8cc1-06cc111a13d1" data-elfsight-app-lazy></div>
     </>
   );
 };

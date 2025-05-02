@@ -63,7 +63,7 @@ export const InAction = () => {
         </h2>
       </div>
 
-      <div class="container mx-auto my-6 text-center">
+      <div class="container mx-auto my-6 text-center md:mb-[80px] mb-[40px]">
         <h3 class="text-headingL uppercase">Get in touch</h3>
         <Button url="/get-in-touch" customClass="sm:mt-[20px] !mt-4">
           Contact us

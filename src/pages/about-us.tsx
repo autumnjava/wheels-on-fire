@@ -126,7 +126,7 @@ export const AboutUs = () => {
 
         <div class="flex flex-col-reverse text-center md:flex-row">
           <div class="border-r border-r-red px-12 text-center md:w-1/2 md:px-16">
-            <div class="mx-auto max-w-[482px] [&>*:not(:first-child)]:my-4">
+            <div class="mx-auto max-w-[482px] [&>*:not(:first-child)]:my-4 md:mb-[80px] mb-[40px]">
               <h3 class="font-futuraExtraBold text-headingL font-bold sm:font-futura">
                 Jallas
               </h3>
@@ -157,7 +157,7 @@ export const AboutUs = () => {
           <hr class="my-10 block md:hidden" />
 
           <div class="px-12 text-center md:w-1/2 md:px-16">
-            <div class="mx-auto max-w-[482px] [&>*:not(:first-child)]:my-4">
+            <div class="mx-auto max-w-[482px] [&>*:not(:first-child)]:my-4 md:mb-[80px] mb-[40px]">
               <h3 class="font-futuraExtraBold text-headingL font-bold sm:font-futura">
                 Juliana
               </h3>
