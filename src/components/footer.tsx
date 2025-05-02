@@ -7,10 +7,55 @@ import { NavLinks } from './nav-links';
 //logo
 import logo from './data/images/wheelsonfire_icon-05.png';
 
+// brand logos
+import brand3 from '../components/data/images/brands/OneUp-Logo-Border-1000px_white.png';
+import brand4 from '../components/data/images/brands/chromag-bikes-seeklogo-01_white.png';
+import brand1 from '../components/data/images/brands/commencal-logo-vector-01_white.png';
+import brand2 from '../components/data/images/brands/poc-sports-logo-vector-01_white.png';
+
 export const Footer = () => {
   const columnStyle = 'flex flex-col justify-evenly [&>*]:my-2';
   return (
     <footer class="mt-auto w-full items-center bg-black text-center text-white">
+        
+      <div class="container mx-auto my-12 px-4">
+        <h2 class="mb-4 text-center font-futuraExtraBold text-headingL uppercase">
+          Brands that support us
+        </h2>
+        <div class="flex items-center justify-evenly">
+          <A
+            href="https://www.commencal.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={brand1} class="w-[103px] md:w-[153px]" />
+          </A>
+          <A
+            href="https://poc.com/en"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={brand2} class="w-[24px] md:w-[64px]" />
+          </A>
+          <A
+            href="https://www.oneupcomponents.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={brand3} class="w-[33px] md:w-[73px]" />
+          </A>
+          <A
+            href="https://chromagbikes.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={brand4} class="w-[23px] md:w-[63px]" />
+          </A>
+        </div>
+      </div>
+
+      <hr class="mx-auto w-[100%] border-gray/30" />
+
       <div class="mx-auto py-4 lg:container md:grid md:grid-cols-footer">
         <div class="w-auto content-center">
           <A href="/">
@@ -21,6 +66,7 @@ export const Footer = () => {
             />
           </A>
         </div>
+
         <div class={clsx('mx-auto max-w-[420px]', columnStyle)}>
           <p class="font-andaleMonoBold text-[15px] leading-[26px]">
             MTB TOURS SÃO MIGUEL AZORES
@@ -73,7 +119,7 @@ export const Footer = () => {
 
           <hr class="mx-auto w-[33%] border-gray" />
 
-          <p class="font-futuraMedium text-[12px]">© WHEELS ON FIRE | 2024</p>
+          <p class="font-futuraMedium text-[12px]">© WHEELS ON FIRE | { new Date().getFullYear() }</p>
         </div>
       </div>
     </footer>
