@@ -22,15 +22,13 @@ export const Home = () => {
 
       
 
-      
+      {/* Google reviews widget */}
       
       <hr class="mt-8 border-none" />
+
+      <div class="elfsight-app-c4e74546-6720-4e9d-b915-19362727499c" data-elfsight-app-lazy></div>
       
-      {/* Google reviews widget */}
-      <div class="mx-6">
-        <div class="elfsight-app-c4e74546-6720-4e9d-b915-19362727499c" data-elfsight-app-lazy></div>
-      </div>
-      
+
       <hr class="mt-8" />
 
       <div class="container mx-auto mb-4 mt-8 px-4 text-center sm:mb-[24px] sm:mt-[94px]">
