@@ -39,8 +39,6 @@ export const WhatWeOffer = () => {
         <p>-</p>
       </div>
       <div class="what-we-offer-red my-2 flex justify-center whitespace-nowrap text-center [&>*]:mx-2">
-        <p>Min. 2 ppl</p>
-        <p>|</p>
         <p>Max. 3 ppl</p>
       </div>
       <div class="my-6">
@@ -81,8 +79,6 @@ export const WhatWeOffer = () => {
         <p>-</p>
       </div>
       <div class="what-we-offer-red my-2 flex justify-center whitespace-nowrap text-center [&>*]:mx-2">
-        <p>Min. 2 ppl</p>
-        <p>|</p>
         <p>Max. 3 ppl</p>
       </div>
       <div class="my-6">

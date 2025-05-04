@@ -21,13 +21,13 @@ export const Home = () => {
       </Slider>
 
       
-
-      {/* Google reviews widget */}
-      
       <hr class="mt-8 border-none" />
 
-      <div class="elfsight-app-c4e74546-6720-4e9d-b915-19362727499c" data-elfsight-app-lazy></div>
       
+      <div class='mx-6'>
+        {/* Google reviews widget */}
+        <div class="elfsight-app-c4e74546-6720-4e9d-b915-19362727499c" data-elfsight-app-lazy></div>
+      </div>
 
       <hr class="mt-8" />
 
