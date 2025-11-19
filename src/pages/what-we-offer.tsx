@@ -33,7 +33,7 @@ export const WhatWeOffer = () => {
         </p>
       </div>
       <div class="what-we-offer-red my-2 justify-center text-center text-red">
-        <p>Price p/ person - 65€</p>
+        <p>Price p/ person - 95€</p>
       </div>
       <div class="what-we-offer-red my-2 justify-center text-center text-red">
         <p>-</p>
@@ -73,7 +73,7 @@ export const WhatWeOffer = () => {
         </p>
       </div>
       <div class="what-we-offer-red my-2 justify-center text-center text-red">
-        <p>Price p/ person - 85€</p>
+        <p>Price p/ person - 120€</p>
       </div>
       <div class="what-we-offer-red my-2 justify-center text-center text-red">
         <p>-</p>
@@ -209,6 +209,7 @@ export const WhatWeOffer = () => {
               {oneDayPlus()}
             </div> */}
           </div>
+          {/*
           <div class="mb-2 mt-4">
             <p class="font-futuraMedium text-[19px] uppercase leading-[120%] sm:text-headingL sm:leading-[45px]">
               Need a snack for the day?
@@ -229,6 +230,7 @@ export const WhatWeOffer = () => {
           <div class="what-we-offer-red justify-center text-center text-red">
             <p class="!text-[18px]">*please mention any allergies</p>
           </div>
+          */}
         </div>
       </div>
 
@@ -265,7 +267,7 @@ export const WhatWeOffer = () => {
           </Button>
         </div>
       </div>
-
+      
       <div class="my-10 w-full border-t border-red text-center md:my-16">
         <div class="w-[fit-content] bg-red px-4 py-1 font-futuraMedium text-[16px] uppercase leading-[100%] text-white sm:px-4 sm:text-headingM sm:leading-[27px]">
           Private tour
@@ -280,6 +282,7 @@ export const WhatWeOffer = () => {
         </div>
       </div>
 
+      {/* 
       <div class="my-10 w-full border-t border-red text-center md:my-16">
         <div class="w-[fit-content] bg-red px-4 py-1 font-futuraMedium text-[16px] uppercase leading-[100%] text-white sm:px-4 sm:text-headingM sm:leading-[27px]">
           Bike rental | shuttle
@@ -294,6 +297,7 @@ export const WhatWeOffer = () => {
           </Button>
         </div>
       </div>
+      */}
 
       <div class="my-10 w-full border-t border-red md:my-16">
         <div class="relative z-10 w-[fit-content] bg-red px-4 py-1 font-futuraMedium text-[16px] uppercase leading-[100%] text-white sm:px-4 sm:text-headingM sm:leading-[27px] md:static">
