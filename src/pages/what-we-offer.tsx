@@ -24,7 +24,7 @@ export const WhatWeOffer = () => {
       <div class="what-we-offer-red my-4 justify-center text-center text-red">
         <p>
           Price p/person (with bike + protection gear -<br /> helmet, knee pads
-          and gloves) - 120€
+          and gloves) - 150€
         </p>
       </div>
       <div class="mb-2 mt-4">
@@ -64,7 +64,7 @@ export const WhatWeOffer = () => {
       <div class="what-we-offer-red my-4 justify-center text-center text-red">
         <p>
           Price p/person (with bike + protection gear -<br /> helmet, knee pads
-          and gloves) - 160€
+          and gloves) - 180€
         </p>
       </div>
       <div class="mb-2 mt-4">
