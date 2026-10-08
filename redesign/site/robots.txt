@@ -1,3 +1,4 @@
-# Design proposal for client review. Not the live Wheels on Fire site.
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://www.wheelsonfireazores.com/sitemap.xml
