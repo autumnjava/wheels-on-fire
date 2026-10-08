@@ -1,0 +1,823 @@
+<!doctype html>
+<html lang="en" class="preloading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Design proposal for client review — must not be indexed as the live site. -->
+<meta name="robots" content="noindex,nofollow">
+<title>Wheels on Fire — MTB Tours São Miguel, Azores</title>
+<!--
+  WHEELS ON FIRE — Homepage design proposal v2
+  Direction: "Volcanic editorial" — poster-scale condensed type, dark/light alternating grounds,
+  single red accent #e61e29, mono metadata strips, raw action photography.
+  v2 adds: red preloader (wheel spin → brake → flames → wordmark line-draw → curtain),
+  Awwwards-style fullscreen menu, scroll-reactive wheel logo in the header, Instagram section,
+  taller marquee, left-stacked hero CTAs, tighter display tracking (-0.03em).
+  NOTE: review quotes are SAMPLE content — wire to the live Google Reviews feed in production.
+-->
+<link rel="stylesheet" href="assets/preloader.css">
+<link rel="stylesheet" href="assets/tour-colours.css">
+<link rel="stylesheet" href="assets/tour-card.css">
+<link rel="stylesheet" href="assets/bike-spec.css">
+<link rel="stylesheet" href="/assets/cta.css">
+<link rel="stylesheet" href="/assets/rail.css">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/assets/chrome.css">
+<style>
+/* ============ FONTS (brand files from repo) ============ */
+/* Each file is a single cut that ALREADY is its bold. Declaring the 400-700
+   range maps a heading's default weight:700 onto the real file instead of
+   letting the browser fake it — faux bold smears the glyphs, which doubles and
+   breaks every -webkit-text-stroke outline. */
+@font-face{font-family:'FuturaXB';src:url('assets/fonts/Futura-Condensed-Extra-Bold.otf') format('opentype');font-weight:400 700;font-display:swap}
+@font-face{font-family:'FuturaMd';src:url('assets/fonts/Futura-Condensed-Medium.otf') format('opentype');font-weight:400 700;font-display:swap}
+@font-face{font-family:'Futura';src:url('assets/fonts/Futura-Bold.woff') format('woff');font-weight:700;font-display:swap}
+@font-face{font-family:'Andale';src:url('assets/fonts/ANDALEMO.TTF') format('truetype');font-weight:400 700;font-display:swap}
+@font-face{font-family:'AndaleB';src:url('assets/fonts/ANDALEBMO.TTF') format('truetype');font-weight:400 700;font-display:swap}
+
+/* ============ TOKENS ============ */
+
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--cream);font-family:var(--mono);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--red);color:var(--cream)}
+
+/* ============ TYPE UTILITIES ============ */
+.disp{font-family:var(--disp);font-weight:700;text-transform:uppercase;line-height:.84;letter-spacing:-0.03em}
+/* A line-height of .84 is an optical setting for display type at 100px and up,
+   where the cap height fills the line and the tightness reads as deliberate.
+   At the 34-44px these headings fall to on a phone the lines nearly touch, so
+   the ratio opens up as the type gets smaller. */
+@media (max-width:640px){ .disp{line-height:.95} }
+
+/* Same treatment as CLASH in the Our Bikes hero: a hairline stroke that stays
+   thin at poster scale, and a touch more letter-spacing so the outlines of
+   neighbouring glyphs never collide. */
+.outline-c,.outline-i{letter-spacing:-0.02em}
+.outline-c{color:var(--cream)}
+.outline-i{color:var(--ink)}
+.kicker{display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase}
+.kicker::before{content:'';width:10px;height:10px;background:var(--red);flex:none}
+
+/* ============ BUTTONS ============ */
+.btn{display:inline-flex;align-items:center;gap:14px;font-family:var(--med);text-transform:uppercase;letter-spacing:.08em;font-size:15px;padding:14px 26px;border:1px solid;cursor:pointer;position:relative;overflow:hidden;transition:color .28s ease;isolation:isolate}
+.btn::after{content:'';position:absolute;inset:0;transform:translateY(101%);transition:transform .28s cubic-bezier(.65,0,.35,1);z-index:-1}
+.btn:hover::after{transform:translateY(0)}
+.btn .arr{width:26px;height:19px;flex:none;transition:transform .28s cubic-bezier(.22,1,.36,1)}
+.btn:hover .arr{transform:translateX(6px)}
+.btn .arr-out{width:17px;height:17px}
+.btn:hover .arr-out{transform:translate(3px,-3px)}
+.btn-red{background:var(--red);border-color:var(--red);color:var(--cream)}
+.btn-red::after{background:var(--cream)}
+.btn-red:hover{color:var(--ink)}
+.btn-ghost-c{background:transparent;border-color:rgba(241,237,228,.5);color:var(--cream)}
+.btn-ghost-c::after{background:var(--cream)}
+.btn-ghost-c:hover{color:var(--ink);border-color:var(--cream)}
+.btn-ghost-i{background:transparent;border-color:rgba(20,17,15,.45);color:var(--ink)}
+/* ---------- when a feed does not answer ----------
+   The Instagram posts and the Google reviews come from the client's Elfsight
+   subscription (assets/social.js). That can be down, rate-limited, or simply
+   out of views for the month on the free plan. None of that is the visitor's
+   problem, so the section says one plain line and hands them the real thing
+   instead of leaving a hole where a rail used to be. */
+.score-n{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--ink-dim);margin-top:6px}
+.social-empty{border:1px solid rgba(20,17,15,.18);background:rgba(20,17,15,.03);
+  padding:clamp(34px,5vw,56px) clamp(26px,4vw,42px);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;gap:clamp(18px,2.6vw,24px);min-height:clamp(180px,24vw,240px)}
+.social-empty p{font-family:var(--mono);font-size:13px;line-height:1.6;color:var(--ink-dim);max-width:46ch}
+@media (max-width:640px){ .social-empty{align-self:stretch} .social-empty .btn{width:100%;justify-content:center} }
+.btn-ghost-i::after{background:var(--ink)}
+.btn-ghost-i:hover{color:var(--cream);border-color:var(--ink)}
+
+/* ============ PRELOADER ============ */
+
+/* ============ HEADER — page overrides ============
+   The shared header and menu are assets/chrome.css. The homepage is the
+   entrance, so it leads with the full wordmark at more than twice the size
+   the interior pages use, and drops to the mini mark on scroll like the rest. */
+.logo-full{height:clamp(104px,13vw,168px);width:auto;transition:height .35s ease}
+.logo-mini{display:none;align-items:center;gap:13px}
+/* The homepage sets its own logo rules after chrome.css, so the phone switch
+   has to be repeated here or the inline display:none wins on order. */
+@media (max-width:640px){.logo-full{display:none}.logo-mini{display:flex}}
+.lm-mark .lm-tire{will-change:transform}
+
+/* ============ HERO ============ */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+.hero-media{position:absolute;inset:-12% 0;z-index:0}
+.hero-media img,.hero-media video{width:100%;height:100%;object-fit:cover;object-position:center 38%}
+.hero-shade{position:absolute;inset:0;z-index:1;background:
+  radial-gradient(95% 95% at 12% 106%, rgba(20,17,15,.88) 0%, rgba(20,17,15,.72) 32%,
+    rgba(20,17,15,.30) 60%, rgba(20,17,15,0) 80%)}
+/* The homepage hero is the one that does not use .page-head, so it states the
+   same shadow here: contrast at the glyph edges instead of over the picture. */
+.hero-content{position:relative;z-index:3;padding:0 var(--pad) clamp(96px,15vh,190px);
+  text-shadow:0 1px 2px rgba(20,17,15,.55), 0 2px 18px rgba(20,17,15,.4)}
+.hero-meta{display:flex;justify-content:space-between;gap:16px;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--cream);border-bottom:1px solid rgba(241,237,228,.28);padding-bottom:14px;margin-bottom:clamp(16px,2.5vh,30px)}
+.hero-meta b{color:var(--red);font-weight:400}
+.hero h1{font-size:var(--fs-display)}
+.hero-rule{border:0;border-top:1px solid rgba(241,237,228,.3);margin:clamp(16px,2.6vh,28px) 0 clamp(14px,2.2vh,22px)}
+.hero-bottom{display:flex;align-items:flex-end;justify-content:flex-start;gap:clamp(24px,3.4vw,52px);flex-wrap:wrap}
+.hero-copy{flex:0 1 auto;max-width:52ch;font-size:14px;color:var(--cream-dim)}
+.hero-copy strong{color:var(--cream);font-weight:400}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;flex:none}
+@media (max-width:640px){
+  .hero-meta{font-size:10px;letter-spacing:.12em}
+  .hero-meta span:last-child{display:none}
+  .hero-copy{font-size:13px}
+}
+
+/* ============ MARQUEE ============ */
+.marquee{background:var(--red);color:var(--cream);overflow:hidden;transform:rotate(-1.3deg) scale(1.02);margin:clamp(-46px,-4vh,-26px) 0 0;position:relative;z-index:5}
+.marquee-track{display:flex;white-space:nowrap;width:max-content;animation:mq 30s linear infinite}
+.marquee-chunk{display:flex;align-items:center;padding:clamp(18px,2.6vh,30px) 0}
+.marquee-chunk span{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:-0.02em;font-size:clamp(26px,4vw,54px);padding:0 28px}
+.marquee-chunk .mq-o{color:transparent;-webkit-text-stroke:1.6px var(--cream)}
+.marquee-chunk i{font-style:normal;font-family:var(--mono);font-size:18px}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* ============ LIGHT SECTIONS BASE ============ */
+.light{background:var(--cream);color:var(--ink)}
+.section{padding:clamp(64px,10vh,130px) var(--pad)}
+.label-row{display:flex;align-items:center;gap:18px;margin-bottom:clamp(30px,5vh,54px);flex-wrap:wrap}
+.label-row .idx{white-space:nowrap}
+.label-row .kicker{color:var(--ink);flex:none}
+.light .label-row .rule{flex:1;height:1px;background:var(--line-l)}
+.label-row .idx{font-family:var(--mono);font-size:12px;color:var(--ink-dim)}
+
+
+/* ============ RIDE — the named trails and the machine ============
+   The two things a rider actually cares about: where it goes, and what they
+   will be sitting on. Dark ground so it breaks the run of cream sections,
+   and both halves point out to their own page. */
+.ride{background:var(--ink);color:var(--cream);position:relative;overflow:hidden}
+.ride .label-row .rule{flex:1;height:1px;background:var(--line-d)}
+.ride .label-row .kicker{color:var(--cream)}
+.ride .label-row .idx{color:var(--cream-dim)}
+.ride h2{font-size:var(--fs-display-col)}
+.ride h2 .dot{color:var(--red)}
+
+.ride-top{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(28px,5vw,80px);
+  align-items:center}
+/* the second label inside the dark block needs the air a section break gives */
+.ride-lab-2{margin-top:clamp(64px,10vh,130px)}
+
+/* the spec strip is assets/bike-spec.css, shared with the Our Bikes page */
+
+/* the machine, brand set vertically beside it — same move as the Our Bikes page */
+.ride-bike{position:relative}
+.ride-brand{position:absolute;z-index:2;right:0;top:8%;height:clamp(30px,3.4vw,48px);
+  transform-origin:center;transform:rotate(90deg);opacity:.75}
+.ride-machine{width:100%;filter:drop-shadow(0 30px 50px rgba(0,0,0,.5))}
+
+/* Same card as the Tours page: each trail carries its own ground colour, dark
+   ink on top, number and bike-type badges over the photo. A rider who lands
+   here and then opens Tours should recognise the same object. */
+@media (max-width:900px){
+  .ride-top{grid-template-columns:1fr}
+  .ride-brand{display:none}
+}
+
+/* ============ ABOUT ============ */
+.about{position:relative;overflow:hidden;padding-bottom:clamp(80px,12vh,150px)}
+/* Text left, the single J&J shot right. The two portraits were dropped. */
+.about-grid{display:grid;grid-template-columns:5fr 6fr;gap:clamp(32px,5vw,80px);align-items:center}
+.about-shot img{width:100%;aspect-ratio:4/3.4;object-fit:cover}
+.about-quote{font-size:var(--fs-display-col);margin-bottom:28px}
+.about-quote .q{color:var(--red)}
+.about-copy{color:var(--ink-dim);font-size:14px;max-width:46ch;margin-bottom:18px}
+.about-copy strong{color:var(--ink);font-weight:400}
+.about-stats{display:flex;gap:0;border-top:1px solid var(--line-l);border-bottom:1px solid var(--line-l);margin:34px 0;flex-wrap:wrap}
+.stat{flex:1;min-width:130px;padding:20px 24px;border-right:1px solid var(--line-l)}
+.stat:first-child{padding-left:0}
+.stat:last-child{border-right:0}
+.stat b{display:block;font-family:var(--disp);letter-spacing:-0.02em;font-size:clamp(28px,3vw,44px);font-weight:700;color:var(--red);line-height:1}
+.stat span{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-dim)}
+.about-collage{position:relative}
+/* The group shot is landscape, so the main frame is too. */
+.about-collage .img-main{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+/* The two portraits ride up over the bottom of the group shot, keeping the
+   cream-border-and-red-outline cue the single overlay used to carry. */
+.collage-pair{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.6vw,22px);
+  width:80%;position:relative;z-index:2;margin:clamp(-64px,-6vw,-32px) 0 0 clamp(14px,3vw,44px)}
+.who{margin:0}
+.who img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;
+  border:4px solid var(--cream);outline:2px solid var(--red)}
+.who figcaption{margin-top:12px;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-dim)}
+.about-bg-word{position:absolute;left:-2vw;bottom:-4vw;font-size:clamp(120px,22vw,320px);color:transparent;-webkit-text-stroke:1px rgba(20,17,15,.10);pointer-events:none;user-select:none;white-space:nowrap}
+@media (max-width:900px){
+  .about-grid{grid-template-columns:1fr}
+  .collage-pair{width:90%;margin-left:12px}
+}
+
+/* ============ BRANDS ============ */
+.brands{background:var(--ink);border-top:1px solid var(--line-d);border-bottom:1px solid var(--line-d);padding:30px var(--pad);display:flex;align-items:center;gap:clamp(24px,5vw,72px);flex-wrap:wrap}
+.brands .kicker{color:var(--cream-dim)}
+.brands-logos{display:flex;align-items:center;gap:clamp(28px,5vw,72px);flex:1;justify-content:flex-end;flex-wrap:wrap}
+.brands-logos img{height:30px;width:auto;opacity:.75;transition:opacity .25s ease}
+.brands-logos img:hover{opacity:1}
+.brands-logos img.tall{height:44px}
+/* On a phone the row has nowhere to go: the kicker takes the line and the
+   logos stack down the right edge, one per row, ragged. Below 760px the strip
+   becomes two stacked bands instead — the title, then the logos running
+   horizontally under it, scrolling if they do not fit rather than wrapping. */
+@media (max-width:760px){
+  .brands{flex-direction:column;align-items:flex-start;gap:18px;padding:26px 0}
+  .brands .kicker{padding:0 var(--pad)}
+  .brands-logos{justify-content:flex-start;flex-wrap:nowrap;width:100%;
+    overflow-x:auto;scrollbar-width:none;gap:26px;padding:0 var(--pad) 2px}
+  .brands-logos::-webkit-scrollbar{display:none}
+  .brands-logos img{flex:none;height:26px}
+  .brands-logos img.tall{height:38px}
+}
+
+/* ============ REVIEWS ============ */
+.reviews-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:clamp(36px,6vh,64px);flex-wrap:wrap}
+.reviews-head h2{font-size:var(--fs-display-col)}
+.reviews-side{display:flex;align-items:center;gap:clamp(20px,3vw,40px);flex-wrap:wrap}
+.score{text-align:right}
+.score b{display:block;font-family:var(--disp);letter-spacing:-0.02em;font-size:clamp(38px,4.4vw,60px);font-weight:700;color:var(--red);line-height:.85}
+.score .stars{color:var(--red);font-size:14px;letter-spacing:.3em;margin-top:1px}
+/* the rail itself is assets/rail.css + assets/rail.js, shared */
+.reviews-rail{display:grid;grid-auto-flow:column;grid-auto-columns:clamp(270px,30vw,400px);gap:clamp(14px,1.8vw,26px);
+  align-items:start;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;
+  padding:0 var(--pad) 4px;margin:0 calc(var(--pad) * -1);scroll-padding-inline:var(--pad)}
+.reviews-rail::-webkit-scrollbar{display:none}
+.review{scroll-snap-align:start;border-top:3px solid var(--red);background:rgba(20,17,15,.035);padding:26px 24px}
+.review .stars{color:var(--red);letter-spacing:.28em;font-size:13px;margin-bottom:16px}
+.review p{font-size:13.5px;color:var(--ink-dim);margin-bottom:20px}
+.review .who{font-family:var(--med);text-transform:uppercase;letter-spacing:.06em;font-size:16px}
+.review .who span{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--ink-dim);margin-top:4px}
+@media (max-width:860px){
+  .reviews-rail{grid-auto-columns:clamp(240px,76vw,340px)}
+}
+
+/* ============ INSTAGRAM ============ */
+.insta{padding-top:0}
+.insta-head{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;margin-bottom:clamp(30px,5vh,50px);flex-wrap:wrap}
+.insta-head h2{font-size:var(--fs-display-col)}
+.insta-head h2 .at{color:var(--red)}
+.insta-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+
+.insta-rail{display:grid;grid-auto-flow:column;grid-auto-columns:clamp(190px,23vw,320px);gap:clamp(10px,1.4vw,18px);
+  align-items:start;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;
+  padding:0 var(--pad) 4px;margin:0 calc(var(--pad) * -1);scroll-padding-inline:var(--pad)}
+.insta-rail::-webkit-scrollbar{display:none}
+.ig{position:relative;display:block;overflow:hidden;aspect-ratio:4/5;scroll-snap-align:start;background:var(--ink)}
+.ig:nth-child(2){margin-top:30px}
+.ig:nth-child(4){margin-top:48px}
+.ig img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.22,1,.36,1)}
+.ig:hover img,.ig:focus-visible img{transform:scale(1.07)}
+.ig-ov{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+  padding:20px;text-align:center;background:rgba(12,10,9,.62);opacity:0;transition:opacity .35s ease}
+.ig:hover .ig-ov,.ig:focus-visible .ig-ov{opacity:1}
+.ig-stats{display:flex;gap:26px;color:var(--cream);font-family:var(--med);font-size:21px;letter-spacing:.02em}
+.ig-stats span{display:flex;align-items:center;gap:8px}
+.ig-ico{width:22px;height:22px;flex:none}
+.ig-cap{color:var(--cream);font-family:var(--mono);font-size:13px;line-height:1.45;max-width:24ch;
+  transform:translateY(8px);transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.ig:hover .ig-cap,.ig:focus-visible .ig-cap{transform:none}
+@media (max-width:720px){
+  .insta-rail{grid-auto-columns:clamp(180px,62vw,300px)}
+  .ig:nth-child(2){margin-top:22px}
+  .ig:nth-child(4){margin-top:0}
+}
+
+/* ============ CTA ============ */
+/* the CTA band is assets/cta.css, shared */
+/* the homepage closes taller than the interior pages do */
+.cta{min-height:92svh}
+.cta-inner{padding:120px var(--pad)}
+.cta .kicker{margin-bottom:26px}
+.cta-actions{margin-top:40px}
+
+/* ============ FOOTER ============ */
+footer{background:var(--ink-2);padding:clamp(56px,9vh,110px) var(--pad) 34px;border-top:1px solid var(--line-d)}
+.foot-grid{display:grid;grid-template-columns:auto 1fr auto;gap:clamp(36px,6vw,110px);align-items:center;margin-bottom:clamp(48px,8vh,90px)}
+.foot-logo img{width:clamp(150px,24vw,340px)}
+.foot-nav{display:grid;grid-template-columns:repeat(2,max-content);gap:12px clamp(40px,5vw,90px)}
+.foot-nav a{font-family:var(--disp);font-weight:700;letter-spacing:-0.02em;text-transform:uppercase;font-size:clamp(20px,2.2vw,30px);line-height:1.15;transition:color .22s}
+.foot-nav a:hover{color:var(--red)}
+.foot-info{max-width:280px;display:flex;flex-direction:column;gap:20px}
+.foot-info p{font-size:12.5px;color:var(--cream-dim)}
+.foot-info p b{color:var(--red);font-family:var(--monob);font-weight:400}
+.foot-social{display:flex;gap:22px;font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+.foot-social a{border-bottom:1px solid var(--line-d);padding-bottom:3px;transition:color .22s,border-color .22s}
+.foot-social a:hover{color:var(--red);border-color:var(--red)}
+.foot-bottom{border-top:1px solid var(--line-d);padding-top:22px;display:flex;justify-content:space-between;gap:14px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(241,237,228,.4);flex-wrap:wrap}
+/* The bottom line holds three links — Legal, General terms and the studio —
+   in the same dim colour as the text around them, which left them looking
+   like plain words. A hairline under them says they are clickable without
+   brightening a line that is meant to sit back. */
+.foot-bottom a{text-decoration:underline;text-decoration-color:rgba(241,237,228,.28);
+  text-underline-offset:3px;transition:color .22s ease,text-decoration-color .22s ease}
+.foot-bottom a:hover{text-decoration-color:var(--cream)}
+.foot-bottom a:hover{color:var(--cream)}
+@media (max-width:900px){
+  .foot-grid{grid-template-columns:1fr;gap:44px;justify-items:start}
+  .foot-nav{grid-template-columns:1fr}
+}
+
+/* ============ GRAIN ============ */
+.grain{position:fixed;inset:0;z-index:80;pointer-events:none;opacity:.05;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ============ REVEALS ============ */
+[data-reveal]{opacity:0;transform:translateY(42px)}
+.no-anim [data-reveal]{opacity:1 !important;transform:none !important}
+/* fallback when GSAP can't run: the split panels simply sit open */
+.no-anim .menu-overlay.open .mo-panel{clip-path:inset(0)}
+
+/* ============ REDUCED MOTION (mandatory) ============ */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}
+  [data-reveal]{opacity:1 !important;transform:none !important}
+  .marquee-track{animation:none !important}
+  .menu-overlay.open .mo-panel{clip-path:inset(0)}
+}
+</style>
+<noscript><style>#preloader{display:none}html.preloading{overflow:auto}[data-reveal]{opacity:1;transform:none}</style></noscript>
+<link rel="stylesheet" href="/assets/picture.css">
+</head>
+<body>
+<!-- the preloader, shared with the tour pages — mounted before anything paints -->
+<script src="assets/preloader.js"></script>
+<script>WOF_PRE.mount();</script>
+
+<!-- ================= PRELOADER ================= -->
+<!-- icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-arr" viewBox="0 0 32 24">
+    <path d="M1 12h29M20 2l10 10-10 10" fill="none" stroke="currentColor" stroke-width="2.2"
+          stroke-linecap="square" stroke-linejoin="miter"/>
+  </symbol>
+  <symbol id="i-arr-l" viewBox="0 0 32 24">
+    <path d="M31 12H2M12 2 2 12l10 10" fill="none" stroke="currentColor" stroke-width="2.2"
+          stroke-linecap="square" stroke-linejoin="miter"/>
+  </symbol>
+  <symbol id="i-arr-out" viewBox="0 0 24 24">
+    <path d="M5 19 19 5M8 5h11v11" fill="none" stroke="currentColor" stroke-width="2.2"
+          stroke-linecap="square" stroke-linejoin="miter"/>
+  </symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24">
+    <path d="M12 21S3 14.6 3 8.9A5 5 0 0 1 12 6a5 5 0 0 1 9 2.9C21 14.6 12 21 12 21Z"
+          fill="currentColor"/>
+  </symbol>
+  <symbol id="i-comment" viewBox="0 0 24 24">
+    <path d="M21 11.5a8 8 0 0 1-8.5 8 9 9 0 0 1-3.8-.8L3 21l2.3-5.1A8 8 0 0 1 12.5 3.5a8 8 0 0 1 8.5 8Z"
+          fill="none" stroke="currentColor" stroke-width="2"/>
+  </symbol>
+</svg>
+
+
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ================= HEADER ================= -->
+<header id="header">
+  <button class="menu-btn" id="menuToggle" aria-label="Menu" aria-expanded="false" aria-controls="menuOverlay">
+    <span class="bars" aria-hidden="true"><span></span><span></span></span>
+    <span class="label" aria-hidden="true"><span class="l-menu">Menu</span><span class="l-close">Close</span></span>
+  </button>
+  <a href="/index.html" class="logo-badge" aria-label="Wheels on Fire — home">
+    <img class="logo-full" src="/assets/wheelsonfire_white-01.png" alt="Wheels on Fire">
+    <span class="logo-mini" aria-hidden="true"><span class="lm-mark">
+      <img class="lm-tire" id="lmTire" src="/assets/logo-tire.png" alt="">
+      <img class="lm-flames" src="/assets/logo-flames.png" alt="">
+      <img class="lm-word" src="/assets/logo-word.png" alt=""></span></span>
+  </a>
+  <a href="/contact.html" class="btn btn-red">Get in touch</a>
+</header>
+
+<!-- ================= MENU OVERLAY ================= -->
+<div class="menu-overlay" id="menuOverlay" role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="mo-panel mo-nav"><div class="mo-inner">
+    <nav class="mo-links" aria-label="Main">
+      <a href="/index.html" data-menu-link aria-current="page" data-shot="0"><span>Home</span></a>
+      <a href="/about-us.html" data-menu-link data-shot="1"><span>About us</span></a>
+      <a href="/tours.html" data-menu-link data-shot="2"><span>Tours &amp; Packages</span></a>
+      <a href="/bikes.html" data-menu-link data-shot="3"><span>Our bikes</span></a>
+      <a href="/our-adventures.html" data-menu-link data-shot="4"><span>Our adventures</span></a>
+      <a href="/contact.html" data-menu-link data-shot="5"><span>Get in touch</span></a>
+    </nav>
+    <div class="mo-side">
+      <div><p class="lbl">Bookings</p>
+        <p><a href="mailto:wheelsonfireazores@gmail.com">wheelsonfireazores@gmail.com</a></p>
+        </div>
+      <div><p class="lbl">Follow</p>
+        <p><a href="https://www.instagram.com/wheelsonfireazores" target="_blank" rel="noopener noreferrer">Instagram<svg class="ico-out" aria-hidden="true"><use href="#i-arr-out"/></svg></a>
+        &nbsp; <a href="https://www.youtube.com/@wheelsonfireazores" target="_blank" rel="noopener noreferrer">YouTube<svg class="ico-out" aria-hidden="true"><use href="#i-arr-out"/></svg></a></p></div>
+    </div>
+  </div></div>
+  <div class="mo-panel mo-visual" aria-hidden="true">
+    <div class="mo-shots" id="moShots">
+      <picture><source type="image/avif" srcset="/assets/hero-poster.avif"><img class="on" src="/assets/hero-poster.jpg" alt="" data-cap="MTB adventures — S. Miguel"></picture>
+      <picture><source type="image/avif" srcset="/assets/jj-trail.avif"><img src="/assets/jj-trail.jpg" alt="" data-cap="Jallas &amp; Juliana — in the green"></picture>
+      <picture><source type="image/avif" srcset="/assets/tours-hero.avif"><img src="/assets/tours-hero.jpg" alt="" data-cap="Tours &amp; packages — out on the trail"></picture>
+      <picture><source type="image/avif" srcset="/assets/tours/westside-1.avif"><img src="/assets/tours/westside-1.jpg" alt="" data-cap="Westside — down to the sea"></picture>
+      <picture><source type="image/avif" srcset="/assets/red-road.avif"><img src="/assets/red-road.jpg" alt="" data-cap="Bikepacking the Azores"></picture>
+      <picture><source type="image/avif" srcset="/assets/cta-truck.avif"><img src="/assets/cta-truck.jpg" alt="" data-cap="The shuttle — river ford"></picture>
+    </div>
+    <p class="mo-shot-cap" id="moCap">MTB adventures — S. Miguel</p>
+  </div>
+</div>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="hero-media" data-parallax aria-hidden="true">
+    <!-- Seamless-loop hero clip (client's own footage, crossfade-looped so the
+         seam is invisible). Muted + playsinline so it autoplays everywhere;
+         the poster covers the load and any autoplay-blocked case. -->
+    <video class="hero-video" autoplay muted loop playsinline preload="auto"
+           poster="assets/hero-poster.jpg">
+      <source src="assets/hero-loop.webm" type="video/webm">
+      <source src="assets/hero-loop.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-shade" aria-hidden="true"></div>
+
+
+  <div class="hero-content">
+    <div class="hero-meta" data-reveal>
+      <span>S. Miguel Island <b>·</b> Azores <b>·</b> Portugal</span>
+      <span>Guided MTB <b>+</b> EMTB tours</span>
+    </div>
+
+    <h1 class="disp" data-reveal>
+      MTB<br>
+      Adventures
+    </h1>
+
+    <hr class="hero-rule" data-reveal>
+
+    <div class="hero-bottom">
+      <p class="hero-copy" data-reveal>
+        <strong>Adventure is for all.</strong> First time on a trail or full-on dirt shredder —
+        we show you the island from a different perspective.
+      </p>
+      <!-- One way in, not two. The hero asked people to choose between booking
+           and looking before they had seen anything; the tours are the answer to
+           both, and the CTA band at the foot of the page still says Book now. -->
+      <div class="hero-ctas" data-reveal>
+        <a class="btn btn-red" href="#tours">Explore tours <svg class="arr" aria-hidden="true"><use href="#i-arr"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TOURS + BIKES ============
+     The rides come first — they are what a visitor is here to look at — and
+     the machine they go out on follows. One dark ground under both. -->
+<section class="section ride" id="tours">
+  <div class="label-row" data-reveal>
+    <p class="kicker">Ride with us</p>
+    <div class="rule"></div>
+  </div>
+
+  <div class="rail-head">
+    <h2 class="disp" data-reveal>Our tours</h2>
+    <div class="rail-actions" data-reveal>
+      <div class="rail-nav">
+        <button class="rail-btn on-dark" id="trailPrev" type="button" aria-label="Previous tours" aria-controls="trailRail">
+          <svg aria-hidden="true"><use href="#i-arr-l"/></svg>
+        </button>
+        <button class="rail-btn on-dark" id="trailNext" type="button" aria-label="Next tours" aria-controls="trailRail">
+          <svg aria-hidden="true"><use href="#i-arr"/></svg>
+        </button>
+      </div>
+      <a class="btn btn-ghost-c" href="tours.html">All tours &amp; packages <svg class="arr" aria-hidden="true"><use href="#i-arr"/></svg></a>
+    </div>
+  </div>
+
+  <div class="tour-rail" id="trailRail" data-reveal>
+  </div>
+
+  <div class="label-row ride-lab-2" data-reveal>
+    <p class="kicker">The beasts</p>
+    <div class="rule"></div>
+  </div>
+
+  <div class="ride-top">
+    <div class="ride-copy">
+      <h2 class="disp" data-reveal>Our bikes</h2>
+
+      <dl class="spec" data-reveal>
+        <div><dt>Travel</dt><dd>170</dd></div>
+        <div><dt>Wheels</dt><dd>27.5</dd></div>
+        <div><dt>Sizes</dt><dd>M / L</dd></div>
+      </dl>
+
+      <a class="btn btn-ghost-c" href="bikes.html" data-reveal>Our bikes <svg class="arr" aria-hidden="true"><use href="#i-arr"/></svg></a>
+    </div>
+
+    <div class="ride-bike" data-reveal>
+      <img class="ride-brand" src="assets/commencal-logo-vector-01_white.png" alt="Commencal">
+      <img class="ride-machine" src="assets/bike-clash.png"
+           alt="Commencal Clash Ride Dirt RockShox — 170 mm travel, 27.5 inch wheels">
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="light section about">
+  <div class="label-row" data-reveal>
+    <p class="kicker">About us</p>
+    <div class="rule"></div>
+  </div>
+
+  <div class="about-grid">
+    <div>
+      <h2 class="about-quote disp" data-reveal>We discovered the Azores by bike</h2>
+      <p class="about-copy" data-reveal>In the spring of 2023 we packed our passion in life and shipped it
+        over to São Miguel — <strong>2 enduro bicycles, 2 surf boards and a bike trailer.</strong></p>
+      <p class="about-copy" data-reveal><strong>Wheels on Fire</strong> is born, out of the burning passion
+        of riding, travelling, nature and adventure — we want to take you, your family &amp; friends to the
+        incredible trails and places that for us truly define the essence of this amazing island.</p>
+
+      <div class="about-stats" data-reveal>
+        <div class="stat"><b>4</b><span>Islands</span></div>
+        <div class="stat"><b>10</b><span>Weeks in a tent</span></div>
+        <div class="stat"><b>2</b><span>Enduro bikes</span></div>
+        <div class="stat"><b>∞</b><span>Trails to ride</span></div>
+      </div>
+
+      <a class="btn btn-ghost-i" href="about-us.html" data-reveal>Meet Jallas &amp; Juliana <svg class="arr" aria-hidden="true"><use href="#i-arr"/></svg></a>
+    </div>
+
+    <div class="about-shot" data-reveal>
+      <picture><source type="image/avif" srcset="assets/jj-coast.avif"><img src="assets/jj-coast.jpg"
+           alt="Jallas and Juliana with their loaded bikes on the coast of São Miguel"></picture>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BRANDS ================= -->
+<section class="brands">
+  <p class="kicker">Brands that support us</p>
+  <div class="brands-logos">
+    <a href="https://www.commencal.com" target="_blank" rel="noopener noreferrer" aria-label="Commencal"><img src="assets/commencal-logo-vector-01_white.png" alt="Commencal"></a>
+    <a href="https://www.pocsports.com" target="_blank" rel="noopener noreferrer" aria-label="POC"><img class="tall" src="assets/poc-sports-logo-vector-01_white.png" alt="POC"></a>
+    <a href="https://www.oneupcomponents.com" target="_blank" rel="noopener noreferrer" aria-label="OneUp Components"><img class="tall" src="assets/OneUp-Logo-Border-1000px_white.png" alt="OneUp Components"></a>
+    <a href="https://chromagbikes.com" target="_blank" rel="noopener noreferrer" aria-label="Chromag Bikes"><img class="tall" src="assets/chromag-bikes-seeklogo-01_white.png" alt="Chromag Bikes"></a>
+  </div>
+</section>
+
+<!-- ================= REVIEWS ================= -->
+<!-- SAMPLE CONTENT — replace with live Google Reviews feed -->
+<section class="light section">
+  <div class="label-row" data-reveal>
+    <p class="kicker">Google reviews</p>
+    <div class="rule"></div>
+  </div>
+
+  <div class="reviews-head">
+    <h2 class="disp" data-reveal>Riders<br>reviews</h2>
+    <div class="reviews-side" data-reveal>
+      <div class="score">
+        <b id="revScore">5.0</b>
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <!-- filled from the Google listing by assets/social.js -->
+        <span class="score-n" id="revCount"></span>
+      </div>
+      <div class="rail-nav">
+        <button class="rail-btn" id="revPrev" type="button" aria-label="Previous reviews" aria-controls="reviewsRail"><svg aria-hidden="true"><use href="#i-arr-l"/></svg></button>
+        <button class="rail-btn" id="revNext" type="button" aria-label="Next reviews" aria-controls="reviewsRail"><svg aria-hidden="true"><use href="#i-arr"/></svg></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Our own cards again. Filled at runtime from assets/social.js — the
+       Elfsight widget rendered inside its own shadow DOM and brought its own
+       layout with it, which is not this one. -->
+  <div class="reviews-rail" id="reviewsRail" data-reveal></div>
+</section>
+
+<!-- ================= INSTAGRAM ================= -->
+<section class="light section insta">
+  <div class="label-row" data-reveal>
+    <p class="kicker">Instagram</p>
+    <div class="rule"></div>
+  </div>
+
+  <div class="insta-head">
+    <h2 class="disp" data-reveal>What we're<br>up to</h2>
+    <div class="insta-actions" data-reveal>
+      <div class="rail-nav">
+        <button class="rail-btn" id="igPrev" type="button" aria-label="Previous posts" aria-controls="instaRail"><svg aria-hidden="true"><use href="#i-arr-l"/></svg></button>
+        <button class="rail-btn" id="igNext" type="button" aria-label="Next posts" aria-controls="instaRail"><svg aria-hidden="true"><use href="#i-arr"/></svg></button>
+      </div>
+      <a class="btn btn-ghost-i" href="https://www.instagram.com/wheelsonfireazores" target="_blank" rel="noopener noreferrer">@wheelsonfireazores <svg class="arr arr-out" aria-hidden="true"><use href="#i-arr-out"/></svg></a>
+    </div>
+  </div>
+
+  <!-- SAMPLE posts + engagement counts — wire to the Instagram feed in production -->
+  <!-- Our own tiles, filled at runtime from assets/social.js. -->
+  <div class="insta-rail" id="instaRail" data-reveal></div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="cta" id="book">
+  <div class="cta-media" data-parallax="12" aria-hidden="true">
+    <picture><source type="image/avif" srcset="assets/cta-truck.avif"><img src="assets/cta-truck.jpg" alt="The shuttle crossing a river ford on the way to the trailhead"></picture>
+  </div>
+  <div class="cta-shade" aria-hidden="true"></div>
+
+  <div class="cta-inner" data-parallax-up="5">
+    <h2 class="disp" data-reveal>
+      You ride.<br>
+      We got you<br>
+      <span class="l3">all set up</span>
+    </h2>
+    <div class="cta-actions" data-reveal>
+      <a class="btn btn-red" href="contact.html">Book now <svg class="arr" aria-hidden="true"><use href="#i-arr"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="foot-grid">
+    <a class="foot-logo" href="#top" aria-label="Wheels on Fire — back to top"><img src="/assets/wheelsonfire_white-01.png" alt="Wheels on Fire logo"></a>
+    <nav class="foot-nav" aria-label="Footer">
+      <a href="/about-us.html">About us</a><a href="/tours.html">Tours &amp; Packages</a>
+      <a href="/bikes.html">Our bikes</a><a href="/our-adventures.html">Our adventures</a>
+      <a href="/contact.html">Get in touch</a>
+    </nav>
+    <div class="foot-info">
+      <p><b>WHEELS ON FIRE</b> is a MTB guide &amp; shuttle company based in the island of São Miguel, Azores.</p>
+      <div class="foot-social">
+        <a href="https://www.instagram.com/wheelsonfireazores" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.youtube.com/@wheelsonfireazores" target="_blank" rel="noopener noreferrer">YouTube</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>MTB tours — São Miguel — Azores</span><span><a href="/legal.html">Legal</a> · <a href="/general-terms.html">General terms</a></span>
+    <span>Design by Juliana &amp; <a href="https://phaze.design" target="_blank" rel="noopener noreferrer">Phaze Design</a> — © Wheels on Fire 2026</span>
+  </div>
+</footer>
+
+<!-- ================= JS ================= -->
+<script src="assets/rail.js"></script>
+<script src="assets/social.js" defer></script>
+<script src="assets/picture.js"></script>
+<script src="assets/tours-data.js"></script>
+<script src="assets/tour-card.js"></script>
+<script>
+/* The tour rail is built from assets/tours-data.js — the same list the Tours
+   page, the quick view and the /tours/<id> pages use. Rename a tour there and
+   it is renamed here too, instead of being written out a second time. */
+(function(){
+  var rail = document.getElementById('trailRail');
+  if (!rail || !window.WOF_TOURS) return;
+  rail.innerHTML = window.WOF_TOURS.map(WOF_CARD.html).join('');
+})();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const coarse  = window.matchMedia('(pointer: coarse)').matches;
+  const docEl   = document.documentElement;
+  const pre     = document.getElementById('preloader');
+
+  /* ---------- Header state + scroll-reactive wheel ---------- */
+  const header = document.getElementById('header');
+  const lmSpin = document.getElementById('lmTire');
+  let ticking = false;
+  const onScroll = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      header.classList.toggle('scrolled', window.scrollY > 60);
+      if (lmSpin && !reduced) lmSpin.style.transform = 'rotate(' + (window.scrollY * 0.4 % 360) + 'deg)';
+      ticking = false;
+    });
+  };
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  /* ---------- Menu overlay ---------- */
+  const overlay = document.getElementById('menuOverlay');
+  const toggle  = document.getElementById('menuToggle');
+  const shots   = [...document.querySelectorAll('#moShots img')];
+  const cap     = document.getElementById('moCap');
+  const links   = [...overlay.querySelectorAll('[data-menu-link]')];
+  let menuTl = null, menuBusy = false;
+
+  /* hovering a link swaps the photo on the other half */
+  links.forEach(a => {
+    const show = () => {
+      const i = +a.dataset.shot;
+      shots.forEach((img, n) => img.classList.toggle('on', n === i));
+      cap.textContent = shots[i].dataset.cap;
+    };
+    a.addEventListener('mouseenter', show);
+    a.addEventListener('focus', show);
+  });
+
+  /* ---------- horizontal rails (tours + Instagram) ----------
+     Both rails behave identically, so they share one wiring: a page of two
+     tiles per click, and arrows that disable themselves at each end. */
+  /* assets/rail.js — the same wiring the tour pages use */
+  WOF_RAIL.wire('trailRail',   'trailPrev', 'trailNext', '.card');
+  WOF_RAIL.wire('reviewsRail', 'revPrev',   'revNext',   '.review');
+  WOF_RAIL.wire('instaRail',   'igPrev',    'igNext',    '.ig');
+
+
+  const isOpen = () => toggle.getAttribute('aria-expanded') === 'true';
+
+  const canAnimate = !reduced && typeof gsap !== 'undefined';
+
+  const setMenu = (open) => {
+    if (menuBusy || open === isOpen()) return;
+    toggle.setAttribute('aria-expanded', open);
+    docEl.style.overflow = open ? 'hidden' : '';
+    document.body.classList.toggle('menu-open', open);
+
+    /* no GSAP / reduced motion → plain show-hide, handled by .no-anim CSS */
+    if (!canAnimate){ overlay.classList.toggle('open', open); return; }
+
+    menuBusy = true;
+    if (!menuTl){
+      /* built once, played forward to open and reversed to close */
+      overlay.classList.add('open');
+      menuTl = gsap.timeline({paused:true,
+        onReverseComplete(){ overlay.classList.remove('open'); menuBusy = false; },
+        onComplete(){ menuBusy = false; }
+      })
+        .to('.mo-nav',    {clipPath:'inset(0 0 0% 0)', duration:.6, ease:'expo.inOut'})
+        .to('.mo-visual', {clipPath:'inset(0 0 0% 0)', duration:.6, ease:'expo.inOut'}, .08)
+        .from(links,      {y:34, opacity:0, duration:.55, ease:'power3.out', stagger:.055}, .32)
+        .from('.mo-side', {y:16, opacity:0, duration:.45, ease:'power2.out'}, .5)
+        .from('.mo-shot-cap', {opacity:0, duration:.4}, .55);
+    }
+
+    if (open){ overlay.classList.add('open'); menuTl.play(); }
+    else     { menuTl.reverse(); }
+  };
+
+  toggle.addEventListener('click', () => setMenu(!isOpen()));
+  links.forEach(a => a.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && isOpen()) setMenu(false); });
+
+  /* ---------- No animation path ---------- */
+  const killPre = () => { if (pre) pre.remove(); docEl.classList.remove('preloading'); };
+  if (reduced || typeof gsap === 'undefined'){
+    document.body.classList.add('no-anim');
+    killPre();
+    return;
+  }
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ---------- Page animations (run after preloader) ---------- */
+  const initPage = () => {
+    document.querySelectorAll('[data-reveal]').forEach(el => {
+      gsap.fromTo(el,
+        {y:42, opacity:0},
+        {y:0, opacity:1, duration:.9, ease:'power3.out',
+         scrollTrigger:{trigger:el, start:'top 97%', once:true}}
+      );
+    });
+    if (!coarse){
+      /* assets/parallax.js — the same layers the other pages use */
+      if (window.WOF_PARA) WOF_PARA.wire(document);
+    }
+    ScrollTrigger.refresh();
+  };
+
+  /* ---------- Preloader ----------
+     The build, the count and the curtain all live in assets/preloader.js,
+     shared with the tour pages. Here we only say what this page is waiting
+     for: the hero loop, buffered enough to run the moment it is uncovered. */
+  const heroVid = document.querySelector('.hero-video');
+  WOF_PRE.run({
+    hold: 4, cap: 6,
+    ready:  () => !heroVid || heroVid.readyState >= 3,   // HAVE_FUTURE_DATA
+    onOpen: () => { if (heroVid) heroVid.play().catch(() => {}); },
+    onDone: initPage
+  });
+})();
+</script>
+<script>
+/* Autoplay nudge: muted inline video should start on its own, but the
+   preloader and some autoplay policies can leave it paused. Retry play()
+   on load and when the tab becomes visible again. */
+(function(){
+  var v = document.querySelector('.hero-video');
+  if (!v) return;
+  var kick = function(){ var p = v.play(); if (p && p.catch) p.catch(function(){}); };
+  kick();
+  window.addEventListener('load', kick);
+  document.addEventListener('visibilitychange', function(){ if (!document.hidden) kick(); });
+  /* once more after the preloader curtain has cleared */
+  setTimeout(kick, 4600);
+})();
+</script>
+</body>
+</html>

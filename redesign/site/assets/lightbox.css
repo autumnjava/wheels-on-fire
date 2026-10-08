@@ -1,0 +1,50 @@
+/* ============================================================
+   WHEELS ON FIRE — lightbox, shared.
+
+   Moved out of article.css so the tour galleries open in the same
+   viewer the articles use, instead of dumping the raw file in a new tab.
+   Behaviour for galleries: assets/lightbox.js
+   ============================================================ */
+.lb{position:fixed;inset:0;z-index:120;display:grid;grid-template-rows:auto 1fr auto;
+  background:rgba(8,7,6,.96);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  opacity:0;pointer-events:none;transition:opacity .3s ease}
+.lb.open{opacity:1;pointer-events:auto}
+.lb[hidden]{display:none}
+.lb-bar{display:flex;justify-content:space-between;align-items:center;gap:16px;
+  padding:16px var(--pad);border-bottom:1px solid var(--line-d)}
+.lb-ctx{font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--cream-dim)}
+.lb-ctx b{color:var(--cream);font-weight:400}
+.lb-close{display:flex;align-items:center;gap:12px;background:none;border:0;color:var(--cream);cursor:pointer;
+  font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase}
+.lb-close .x{position:relative;width:20px;height:20px;flex:none}
+.lb-close .x span{position:absolute;top:9px;left:0;width:20px;height:2px;background:var(--red);transition:transform .3s ease}
+.lb-close .x span:first-child{transform:rotate(45deg)}
+.lb-close .x span:last-child{transform:rotate(-45deg)}
+.lb-close:hover .x span:first-child{transform:rotate(135deg)}
+.lb-close:hover .x span:last-child{transform:rotate(45deg)}
+/* The explicit minmax(0,1fr) tracks are load-bearing, not tidiness. Without
+   them the stage's single implicit row is auto-sized by its content, so the
+   image's `max-height:100%` has nothing definite to resolve against and is
+   dropped: a tall photograph rendered at full height and was clipped by the
+   stage. A 1678x2000 frame came out 1111px tall in a 657px stage. With the
+   tracks the row is a definite fraction of the stage and the photo fits. */
+.lb-stage{position:relative;display:grid;grid-template-rows:minmax(0,1fr);
+  grid-template-columns:minmax(0,1fr);place-items:center;
+  padding:clamp(14px,3vh,32px) var(--pad);min-height:0}
+.lb-stage img{max-width:100%;max-height:100%;object-fit:contain}
+.lb-frame{width:min(100%,1400px);aspect-ratio:16/9;border:0;background:#000}
+.lb-nav{position:absolute;top:50%;translate:0 -50%;width:54px;height:54px;border:1px solid rgba(241,237,228,.32);
+  background:rgba(12,10,9,.55);color:var(--cream);display:grid;place-items:center;cursor:pointer;
+  transition:background-color .25s ease,color .25s ease,border-color .25s ease,opacity .25s ease}
+.lb-nav svg{width:24px;height:18px}
+.lb-nav:hover:not(:disabled){background:var(--cream);color:var(--ink);border-color:var(--cream)}
+.lb-nav:disabled{opacity:.22;cursor:default}
+.lb-prev{left:calc(var(--pad) * .3)}
+.lb-next{right:calc(var(--pad) * .3)}
+.lb-foot{padding:14px var(--pad) 22px;border-top:1px solid var(--line-d);display:flex;
+  justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap}
+.lb-cap{font-size:13px;color:var(--cream-dim);max-width:70ch}
+.lb-out{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--cream-dim);border-bottom:1px solid var(--line-d);padding-bottom:3px;white-space:nowrap}
+.lb-out:hover{color:var(--cream)}
+@media (max-width:640px){.lb-nav{width:44px;height:44px}.lb-prev{left:6px}.lb-next{right:6px}}

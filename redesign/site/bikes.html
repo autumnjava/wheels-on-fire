@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Design proposal for client review — must not be indexed as the live site. -->
+<meta name="robots" content="noindex,nofollow">
+<title>Our Bikes — Wheels on Fire</title>
+<!--
+  WHEELS ON FIRE — Our Bikes
+
+  Signature move (from the three references): the bike's name is set at poster
+  scale BEHIND the cut-out bike, which occludes its middle. On scroll the type
+  and the bike separate — type drifts up at depth-2, bike settles at depth-3.
+
+  Depth assignment
+    0  section photo / gradient      parallax .10
+    1  atmospheric glow              parallax .25   aria-hidden
+    2  giant bike name               parallax .50   aria-hidden
+    3  bike cut-out                  parallax .80
+    4  copy, spec strips, controls   parallax 1.00
+    5  grain                         fixed
+
+  Assets
+    bike-clash.png        the client's own cut-out (4173x2278), resized to 2000.
+    bike-darco-olive.png  the client's own cut-out (4243x2278), resized to 2000.
+    clash-*.jpg           six component crops off bike-clash, composited on the
+    darco-*.jpg           six off bike-darco-olive — cream so the tiles need no
+                          blend trick and carry no white edge.
+    clash-ride.mp4        11 s from the client's commencal_jallas_short.mp4
+                          (18-29 s), 1440 wide, no audio, 3.3 MB. Plays only
+                          while on screen.
+    darco-studio.jpg      Chromag's studio shot, background kept — it IS the shot.
+
+  STILL MISSING
+    A dark-grey Darco cut-out. The colour swap is written and parked; restore it
+    when the PNG lands. Clash geometry is not in the client's PDF either, which
+    is why neither bike carries a geometry table.
+
+  DATA PROVENANCE
+    Commencal: travel, wheel size, sizing and the description are the client's,
+    from wof_ourbikes.pdf. Component names are read off the render.
+    Chromag:   travel, materials and the press quote are from
+               chromagbikes.com/products/darco.
+    The Darco is in here to give the page a second bike — the client still needs
+    to confirm it is actually in the fleet.
+-->
+<link rel="stylesheet" href="assets/page-head.css">
+<link rel="stylesheet" href="assets/bike-spec.css">
+<link rel="stylesheet" href="/assets/cta.css">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/assets/chrome.css">
+<style>
+/* ============ FONTS ============ */
+/* Each file is a single cut that ALREADY is its bold. Declaring the 400-700
+   range maps a heading's default weight:700 onto the real file instead of
+   letting the browser fake it — faux bold smears the glyphs, which doubles and
+   breaks every -webkit-text-stroke outline. */
+@font-face{font-family:'FuturaXB';src:url('assets/fonts/Futura-Condensed-Extra-Bold.otf') format('opentype');font-weight:400 700;font-display:swap}
+@font-face{font-family:'FuturaMd';src:url('assets/fonts/Futura-Condensed-Medium.otf') format('opentype');font-weight:400 700;font-display:swap}
+@font-face{font-family:'Futura';src:url('assets/fonts/Futura-Bold.woff') format('woff');font-weight:700;font-display:swap}
+@font-face{font-family:'Andale';src:url('assets/fonts/ANDALEMO.TTF') format('truetype');font-weight:400 700;font-display:swap}
+@font-face{font-family:'AndaleB';src:url('assets/fonts/ANDALEBMO.TTF') format('truetype');font-weight:400 700;font-display:swap}
+
+/* ============ TOKENS ============ */
+/* on top of assets/tokens.css */
+:root{--sand:#a89178;--olive:#6b7245}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--cream);font-family:var(--mono);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
+body.locked{overflow:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--red);color:var(--cream)}
+.disp{font-family:var(--disp);font-weight:700;text-transform:uppercase;line-height:.84;letter-spacing:-0.03em}
+/* A line-height of .84 is an optical setting for display type at 100px and up,
+   where the cap height fills the line and the tightness reads as deliberate.
+   At the 34-44px these headings fall to on a phone the lines nearly touch, so
+   the ratio opens up as the type gets smaller. */
+@media (max-width:640px){ .disp{line-height:.95} }
+
+/* Same treatment as CLASH in the hero below: a hairline stroke that stays thin
+   at poster scale, and a touch more letter-spacing so the outlines of
+   neighbouring glyphs never collide. */
+.outline-c,.outline-i{letter-spacing:-0.02em}
+.outline-c{color:var(--cream)}
+.outline-i{color:var(--ink)}
+.kicker{display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase}
+.kicker::before{content:'';width:10px;height:10px;background:var(--red);flex:none}
+
+/* ============ BUTTONS ============ */
+.btn{display:inline-flex;align-items:center;gap:14px;font-family:var(--med);text-transform:uppercase;letter-spacing:.08em;font-size:15px;padding:14px 26px;border:1px solid;cursor:pointer;position:relative;overflow:hidden;transition:color .28s ease;isolation:isolate}
+.btn::after{content:'';position:absolute;inset:0;transform:translateY(101%);transition:transform .28s cubic-bezier(.65,0,.35,1);z-index:-1}
+.btn:hover::after{transform:translateY(0)}
+.btn .arr{width:26px;height:19px;flex:none;transition:transform .28s cubic-bezier(.22,1,.36,1)}
+.btn:hover .arr{transform:translateX(6px)}
+.btn-red{background:var(--red);border-color:var(--red);color:var(--cream)}
+.btn-red::after{background:var(--cream)}
+.btn-red:hover{color:var(--ink)}
+.btn-ghost-i{background:transparent;border-color:rgba(20,17,15,.45);color:var(--ink)}
+.btn-ghost-i::after{background:var(--ink)}
+.btn-ghost-i:hover{color:var(--cream);border-color:var(--ink)}
+.btn-ghost-c{background:transparent;border-color:var(--line-d);color:var(--cream)}
+.btn-ghost-c::after{background:var(--cream)}
+.btn-ghost-c:hover{color:var(--ink);border-color:var(--cream)}
+
+/* the header and the menu are assets/chrome.css, shared */
+
+/* ============ HERO — a cinematic band, not a full screen ============
+   Short on purpose: the header is only the breadcrumb and the page name, so a
+   full-height photo was mostly empty. Height comes from page-head.css, shared
+   with the other interior pages. */
+.bh{position:relative;min-height:var(--page-hero-h,60svh);display:flex;align-items:flex-end;
+  overflow:hidden;background:var(--ink-2)}
+.bh-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+/* The client's own footage, so it is left to be seen: a flat 10% over the whole
+   frame instead of the two stacked ramps that used to sit at .62 on top and .92
+   on the bottom. Flat has no shape, and the contrast the title needs is carried
+   by its own shadow below — the same pair the CTA band uses. */
+.bh-shade{position:absolute;inset:0;z-index:1;background:rgba(12,10,9,.10)}
+.bh-inner .page-head{text-shadow:0 1px 2px rgba(12,10,9,.55), 0 0 8px rgba(12,10,9,.45),
+  0 0 22px rgba(12,10,9,.35), 0 0 60px rgba(12,10,9,.25)}
+.bh-inner{position:relative;z-index:2;width:100%;padding:0 var(--pad) clamp(40px,7vh,84px)}
+.bh-inner h1{font-size:var(--fs-display);color:var(--cream)}
+
+/* ============ SECTIONS ============ */
+.light{background:var(--cream);color:var(--ink)}
+.section{padding:clamp(58px,9vh,120px) var(--pad)}
+.label-row{display:flex;align-items:center;gap:18px;margin-bottom:clamp(28px,4.5vh,50px);flex-wrap:wrap}
+.label-row .kicker{flex:none}
+.light .label-row .rule{flex:1;height:1px;background:var(--line-l)}
+.dark .label-row .rule{flex:1;height:1px;background:var(--line-d)}
+.label-row .idx{font-family:var(--mono);font-size:12px;white-space:nowrap}
+.light .label-row .idx{color:var(--ink-dim)}
+.dark .label-row .idx{color:var(--cream-dim)}
+
+/* ============ BRANDS ============ */
+.brands{background:var(--ink);border-top:1px solid var(--line-d);border-bottom:1px solid var(--line-d);padding:30px var(--pad);display:flex;align-items:center;gap:clamp(24px,5vw,72px);flex-wrap:wrap}
+.brands .kicker{color:var(--cream-dim)}
+.brands-logos{display:flex;align-items:center;gap:clamp(28px,5vw,72px);flex:1;justify-content:flex-end;flex-wrap:wrap}
+.brands-logos img{height:30px;width:auto;opacity:.75;transition:opacity .25s ease}
+.brands-logos img:hover{opacity:1}
+.brands-logos img.tall{height:44px}
+/* On a phone the row has nowhere to go: the kicker takes the line and the
+   logos stack down the right edge, one per row, ragged. Below 760px the strip
+   becomes two stacked bands instead — the title, then the logos running
+   horizontally under it, scrolling if they do not fit rather than wrapping. */
+@media (max-width:760px){
+  .brands{flex-direction:column;align-items:flex-start;gap:18px;padding:26px 0}
+  .brands .kicker{padding:0 var(--pad)}
+  .brands-logos{justify-content:flex-start;flex-wrap:nowrap;width:100%;
+    overflow-x:auto;scrollbar-width:none;gap:26px;padding:0 var(--pad) 2px}
+  .brands-logos::-webkit-scrollbar{display:none}
+  .brands-logos img{flex:none;height:26px}
+  .brands-logos img.tall{height:38px}
+}
+
+/* ============ BIKE STAGE — the machine, in full ============ */
+.stage{position:relative;overflow:hidden;padding:clamp(40px,7vh,90px) 0 clamp(30px,5vh,70px)}
+/* same gutter as every other section — the extra left inset existed only
+   for the vertical brand spine, which this layout no longer has */
+.stage-inner{position:relative;padding:0 var(--pad)}
+/* Name and bike share a wrapper so the overlap is a fixed share of the type
+   size, not whatever the surrounding layout happens to leave. The bike hides
+   the lower ~40% of the letterforms; the top stays readable. */
+.stage-art{position:relative;margin-top:clamp(30px,5vh,64px)}
+.stage-bike{position:relative;z-index:2;width:min(96%,1220px);margin:0 auto;
+  filter:drop-shadow(0 34px 54px rgba(0,0,0,.45))}
+.light .stage-bike{filter:drop-shadow(0 34px 48px rgba(20,17,15,.28))}
+/* Anchored near the top of the section rather than centred, so it reads as a
+   masthead on the stage instead of floating beside the bike. */
+.stage-brand{position:absolute;z-index:3;right:calc(var(--pad) * -.1);top:6%;
+  transform-origin:center;transform:rotate(90deg);
+  height:clamp(34px,4vw,56px);opacity:.9}
+/* Chromag's is a compact bear mark, not a wordmark — it needs more height than
+   the Commencal lettering to carry the same weight on the page. */
+#darco .stage-brand{height:clamp(46px,5vw,72px)}
+.light .stage-brand{filter:invert(1)}
+@media (max-width:860px){.stage-brand{display:none}}
+
+/* the spec strip is assets/bike-spec.css, shared with the homepage */
+
+/* two-column write-up */
+.bike-copy{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(26px,5vw,90px);margin-top:clamp(34px,6vh,72px);align-items:start}
+.bike-copy h2{font-size:var(--fs-display-col);margin-bottom:18px}
+.bike-copy h2 .ac{color:var(--accent)}
+.bike-copy p{font-size:14.5px;color:var(--cream-dim);max-width:52ch;margin-bottom:16px}
+.light .bike-copy p{color:var(--ink-dim)}
+.pullq{border-left:2px solid var(--accent);padding-left:20px;margin:26px 0}
+.pullq q{font-family:var(--med);font-size:clamp(18px,2.1vw,27px);line-height:1.28;display:block;text-transform:uppercase;letter-spacing:.01em;quotes:none}
+.pullq cite{display:block;font-style:normal;font-size:14px;line-height:1.5;color:var(--cream-dim);margin-top:14px;font-family:var(--mono)}
+.light .pullq cite{color:var(--ink-dim)}
+@media (max-width:860px){.bike-copy{grid-template-columns:1fr}}
+
+/* size picker */
+.sizes{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.sizes button{background:none;border:1px solid var(--line-d);color:inherit;cursor:pointer;
+  padding:12px 18px;font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+  transition:border-color .25s ease,color .25s ease,background-color .25s ease}
+.light .sizes button{border-color:var(--line-l)}
+.sizes button b{font-family:var(--disp);font-weight:700;font-size:20px;letter-spacing:0;margin-right:10px}
+.sizes button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--ink)}
+.sizes button:hover{border-color:var(--accent)}
+
+/* colour switch (a real Chromag option, not decoration) */
+.swatches{display:flex;gap:14px;align-items:center;margin-top:18px}
+.swatches .chip{width:30px;height:30px;border:1px solid var(--line-l);display:block}
+.swatch-name{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-dim)}
+
+/* ============ COMPONENT GRID ============ */
+.comps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-l)}
+.comp{background:var(--cream);position:relative;overflow:hidden}
+/* Crops are composited onto the cream when they are generated, so no blend
+   trick is needed and the tiles carry no white edge. */
+.comp figure{margin:0;overflow:hidden;background:var(--cream)}
+.comp img{width:100%;aspect-ratio:4/3;object-fit:cover;
+  transition:transform .7s cubic-bezier(.22,1,.36,1)}
+.comp:hover img{transform:scale(1.06)}
+.comp figcaption{padding:clamp(14px,2vh,22px) clamp(14px,1.8vw,24px)}
+.comp .no{font-family:var(--mono);font-size:10.5px;letter-spacing:.24em;color:var(--red)}
+.comp h3{font-family:var(--disp);font-weight:700;text-transform:uppercase;font-size:clamp(20px,2.2vw,30px);letter-spacing:-0.02em;line-height:.95;margin:8px 0 6px}
+.comp p{font-size:12.5px;color:var(--ink-dim)}
+@media (max-width:900px){.comps{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.comps{grid-template-columns:1fr}}
+
+/* ============ MEDIA BANDS ============ */
+
+/* ============ STUDIO BREAK ============ */
+.studio{position:relative;min-height:82svh;display:flex;align-items:center;overflow:hidden;background:var(--ink-2)}
+.studio-media{position:absolute;inset:-8% 0;z-index:0}
+.studio-media img{width:100%;height:100%;object-fit:cover;object-position:center}
+.studio-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(12,10,9,.82) 0%,rgba(12,10,9,.34) 45%,rgba(12,10,9,.06) 100%)}
+.studio-inner{position:relative;z-index:2;padding:clamp(60px,10vh,120px) var(--pad);max-width:760px}
+.studio-inner h2{font-size:clamp(34px,4.6vw,72px);margin:18px 0 20px}
+.studio-inner p{color:var(--cream-dim);font-size:14.5px;max-width:48ch}
+
+/* ============ CTA / FOOTER ============ */
+/* the CTA band is assets/cta.css, shared */
+footer{background:var(--ink-2);padding:clamp(56px,9vh,110px) var(--pad) 34px;border-top:1px solid var(--line-d)}
+.foot-grid{display:grid;grid-template-columns:auto 1fr auto;gap:clamp(36px,6vw,110px);align-items:center;margin-bottom:clamp(48px,8vh,90px)}
+.foot-logo img{width:clamp(150px,24vw,340px)}
+.foot-nav{display:grid;grid-template-columns:repeat(2,max-content);gap:12px clamp(40px,5vw,90px)}
+.foot-nav a{font-family:var(--disp);font-weight:700;letter-spacing:-0.02em;text-transform:uppercase;font-size:clamp(20px,2.2vw,30px);line-height:1.15;transition:color .22s}
+.foot-nav a:hover{color:var(--red)}
+.foot-info{max-width:280px;display:flex;flex-direction:column;gap:20px}
+.foot-info p{font-size:12.5px;color:var(--cream-dim)}
+.foot-info p b{color:var(--red);font-family:var(--monob);font-weight:400}
+.foot-social{display:flex;gap:22px;font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+.foot-social a{border-bottom:1px solid var(--line-d);padding-bottom:3px}
+.foot-social a:hover{color:var(--red);border-color:var(--red)}
+.foot-bottom{border-top:1px solid var(--line-d);padding-top:22px;display:flex;justify-content:space-between;gap:14px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(241,237,228,.4);flex-wrap:wrap}
+/* The bottom line holds three links — Legal, General terms and the studio —
+   in the same dim colour as the text around them, which left them looking
+   like plain words. A hairline under them says they are clickable without
+   brightening a line that is meant to sit back. */
+.foot-bottom a{text-decoration:underline;text-decoration-color:rgba(241,237,228,.28);
+  text-underline-offset:3px;transition:color .22s ease,text-decoration-color .22s ease}
+.foot-bottom a:hover{text-decoration-color:var(--cream)}
+@media (max-width:900px){.foot-grid{grid-template-columns:1fr;gap:44px;justify-items:start}.foot-nav{grid-template-columns:1fr}}
+
+.grain{position:fixed;inset:0;z-index:80;pointer-events:none;opacity:.05;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+[data-reveal]{opacity:0;transform:translateY(42px)}
+.no-anim [data-reveal]{opacity:1 !important;transform:none !important}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}
+  [data-reveal]{opacity:1 !important;transform:none !important}
+  .menu-overlay.open .mo-panel{clip-path:inset(0)}
+}
+</style>
+<noscript><style>[data-reveal]{opacity:1;transform:none}</style></noscript>
+<link rel="stylesheet" href="/assets/picture.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-arr" viewBox="0 0 32 24"><path d="M1 12h29M20 2l10 10-10 10" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></symbol>
+  <symbol id="i-arr-out" viewBox="0 0 24 24"><path d="M5 19 19 5M8 5h11v11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></symbol>
+</svg>
+
+<div class="grain" aria-hidden="true"></div>
+
+<header id="header">
+  <button class="menu-btn" id="menuToggle" aria-label="Menu" aria-expanded="false" aria-controls="menuOverlay">
+    <span class="bars" aria-hidden="true"><span></span><span></span></span>
+    <span class="label" aria-hidden="true"><span class="l-menu">Menu</span><span class="l-close">Close</span></span>
+  </button>
+  <a href="/index.html" class="logo-badge" aria-label="Wheels on Fire — home">
+    <img class="logo-full" src="/assets/wheelsonfire_white-01.png" alt="Wheels on Fire">
+    <span class="logo-mini" aria-hidden="true"><span class="lm-mark">
+      <img class="lm-tire" id="lmTire" src="/assets/logo-tire.png" alt="">
+      <img class="lm-flames" src="/assets/logo-flames.png" alt="">
+      <img class="lm-word" src="/assets/logo-word.png" alt=""></span></span>
+  </a>
+  <a href="/contact.html" class="btn btn-red">Get in touch</a>
+</header>
+
+<div class="menu-overlay" id="menuOverlay" role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="mo-panel mo-nav"><div class="mo-inner">
+    <nav class="mo-links" aria-label="Main">
+      <a href="/index.html" data-menu-link data-shot="0"><span>Home</span></a>
+      <a href="/about-us.html" data-menu-link data-shot="1"><span>About us</span></a>
+      <a href="/tours.html" data-menu-link data-shot="2"><span>Tours &amp; Packages</span></a>
+      <a href="/bikes.html" data-menu-link aria-current="page" data-shot="3"><span>Our bikes</span></a>
+      <a href="/our-adventures.html" data-menu-link data-shot="4"><span>Our adventures</span></a>
+      <a href="/contact.html" data-menu-link data-shot="5"><span>Get in touch</span></a>
+    </nav>
+    <div class="mo-side">
+      <div><p class="lbl">Bookings</p>
+        <p><a href="mailto:wheelsonfireazores@gmail.com">wheelsonfireazores@gmail.com</a></p>
+        </div>
+      <div><p class="lbl">Follow</p>
+        <p><a href="https://www.instagram.com/wheelsonfireazores" target="_blank" rel="noopener noreferrer">Instagram<svg class="ico-out" aria-hidden="true"><use href="#i-arr-out"/></svg></a>
+        &nbsp; <a href="https://www.youtube.com/@wheelsonfireazores" target="_blank" rel="noopener noreferrer">YouTube<svg class="ico-out" aria-hidden="true"><use href="#i-arr-out"/></svg></a></p></div>
+    </div>
+  </div></div>
+  <div class="mo-panel mo-visual" aria-hidden="true">
+    <div class="mo-shots" id="moShots">
+      <picture><source type="image/avif" srcset="/assets/hero-poster.avif"><img class="on" src="/assets/hero-poster.jpg" alt="" data-cap="MTB adventures — S. Miguel"></picture>
+      <picture><source type="image/avif" srcset="/assets/jj-trail.avif"><img src="/assets/jj-trail.jpg" alt="" data-cap="Jallas &amp; Juliana — in the green"></picture>
+      <picture><source type="image/avif" srcset="/assets/tours-hero.avif"><img src="/assets/tours-hero.jpg" alt="" data-cap="Tours &amp; packages — out on the trail"></picture>
+      <picture><source type="image/avif" srcset="/assets/tours/westside-1.avif"><img src="/assets/tours/westside-1.jpg" alt="" data-cap="Westside — down to the sea"></picture>
+      <picture><source type="image/avif" srcset="/assets/red-road.avif"><img src="/assets/red-road.jpg" alt="" data-cap="Bikepacking the Azores"></picture>
+      <picture><source type="image/avif" srcset="/assets/cta-truck.avif"><img src="/assets/cta-truck.jpg" alt="" data-cap="The shuttle — river ford"></picture>
+    </div>
+    <p class="mo-shot-cap" id="moCap">MTB adventures — S. Miguel</p>
+  </div>
+</div>
+
+<!-- ============ HERO — the client's own trail footage, as a cinematic band ============ -->
+<section class="bh" id="top">
+  <video class="bh-media" id="clashVideo" autoplay muted loop playsinline preload="auto"
+         poster="assets/clash-ride-poster.jpg" aria-hidden="true">
+    <source src="assets/clash-ride.mp4" type="video/mp4">
+  </video>
+  <div class="bh-shade" aria-hidden="true"></div>
+  <div class="bh-inner">
+    <div class="page-head">
+      <nav class="crumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a><span class="sep">/</span><span class="here">Our bikes</span>
+      </nav>
+      <h1 class="disp">Our bikes</h1>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE BEASTS — the machine, in full ============ -->
+<section class="stage dark" id="clash" style="--accent:var(--sand)">
+  <div class="stage-inner">
+    <div class="label-row" data-reveal>
+      <p class="kicker">The beasts</p><div class="rule"></div>
+    </div>
+
+    <div class="bike-copy">
+      <div data-reveal>
+        <h2 class="disp">Clash Ride Dirt<br>RockShox</h2>
+
+        <dl class="spec">
+          <div><dt>Travel</dt><dd>170</dd></div>
+          <div><dt>Wheels</dt><dd>27.5</dd></div>
+          <div><dt>Sizes</dt><dd>M / L</dd></div>
+        </dl>
+
+        <p>The Clash has 170 mm of travel and 27.5" wheels, and is designed for one thing
+          and one thing only &mdash; having fun. With a look of the FRS, the freeride affiliation
+          is obvious.</p>
+        <p>In addition to descending at full gas, the Clash knows how to pedal to get to the
+          trailhead when the lift is closed. Depending on the terrain you can optimise grip
+          or dynamism thanks to a specific insert.</p>
+      </div>
+
+      <div data-reveal>
+        <div class="pullq">
+          <q>This is a really playful bike that puts a smile on your face on any terrain.</q>
+          <cite>It feels natural from the first ride, even if you only ride your home bike.</cite>
+        </div>
+        <div class="sizes" role="group" aria-label="Frame size">
+          <button type="button" aria-pressed="true" data-size="M"><b>M</b> 168 &ndash; 180 cm</button>
+          <button type="button" aria-pressed="false" data-size="L"><b>L</b> 178 &ndash; 190 cm</button>
+        </div>
+        <p id="sizeOut" style="margin-top:18px;font-size:12.5px" aria-live="polite">
+          Size <b style="color:var(--sand)">M</b> &mdash; Can fit riders with heights from 1.63cm to 1.79
+        </p>
+      </div>
+    </div>
+
+    <div class="stage-art" data-reveal>
+      <img class="stage-brand" src="assets/commencal-logo-vector-01_white.png" alt="Commencal">
+      <img class="stage-bike" data-stage-bike src="assets/bike-clash.png"
+           alt="Commencal Clash Ride Dirt RockShox in sand, side view">
+    </div>
+  </div>
+</section>
+
+<!-- ============ BRANDS ============ -->
+<section class="brands">
+  <p class="kicker">Brands that support us</p>
+  <div class="brands-logos">
+    <a href="https://www.commencal.com" target="_blank" rel="noopener noreferrer" aria-label="Commencal"><img src="assets/commencal-logo-vector-01_white.png" alt="Commencal"></a>
+    <a href="https://www.pocsports.com" target="_blank" rel="noopener noreferrer" aria-label="POC"><img class="tall" src="assets/poc-sports-logo-vector-01_white.png" alt="POC"></a>
+    <a href="https://www.oneupcomponents.com" target="_blank" rel="noopener noreferrer" aria-label="OneUp Components"><img class="tall" src="assets/OneUp-Logo-Border-1000px_white.png" alt="OneUp Components"></a>
+    <a href="https://chromagbikes.com" target="_blank" rel="noopener noreferrer" aria-label="Chromag Bikes"><img class="tall" src="assets/chromag-bikes-seeklogo-01_white.png" alt="Chromag Bikes"></a>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta" id="book">
+  <div class="cta-media" data-parallax="12" aria-hidden="true"><picture><source type="image/avif" srcset="assets/cta-truck.avif"><img src="assets/cta-truck.jpg" alt="The shuttle crossing a river ford on the way to the trailhead"></picture></div>
+  <div class="cta-shade" aria-hidden="true"></div>
+  <div class="cta-inner" data-parallax-up="5">
+    <h2 class="disp" data-reveal>You ride.<br>We got you<br><span class="l3">all set up</span></h2>
+    <div class="cta-actions">
+      <a class="btn btn-red" href="tours.html" data-reveal>See the tours <svg class="arr" aria-hidden="true"><use href="#i-arr"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <a class="foot-logo" href="#top" aria-label="Wheels on Fire — back to top"><img src="/assets/wheelsonfire_white-01.png" alt="Wheels on Fire logo"></a>
+    <nav class="foot-nav" aria-label="Footer">
+      <a href="/about-us.html">About us</a><a href="/tours.html">Tours &amp; Packages</a>
+      <a href="/bikes.html">Our bikes</a><a href="/our-adventures.html">Our adventures</a>
+      <a href="/contact.html">Get in touch</a>
+    </nav>
+    <div class="foot-info">
+      <p><b>WHEELS ON FIRE</b> is a MTB guide &amp; shuttle company based in the island of São Miguel, Azores.</p>
+      <div class="foot-social">
+        <a href="https://www.instagram.com/wheelsonfireazores" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.youtube.com/@wheelsonfireazores" target="_blank" rel="noopener noreferrer">YouTube</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>MTB tours — São Miguel — Azores</span><span><a href="/legal.html">Legal</a> · <a href="/general-terms.html">General terms</a></span>
+    <span>Design by Juliana &amp; <a href="https://phaze.design" target="_blank" rel="noopener noreferrer">Phaze Design</a> — © Wheels on Fire 2026</span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const coarse  = window.matchMedia('(pointer: coarse)').matches;
+  const docEl   = document.documentElement;
+
+  /* ---------- header ---------- */
+  const header=document.getElementById('header'), lmSpin=document.getElementById('lmTire');
+  let ticking=false;
+  const onScroll=()=>{ if(ticking)return; ticking=true;
+    requestAnimationFrame(()=>{ header.classList.toggle('scrolled', window.scrollY>60);
+      if(lmSpin&&!reduced) lmSpin.style.transform='rotate('+(window.scrollY*0.4%360)+'deg)';
+      ticking=false; }); };
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  /* ---------- menu ---------- */
+  const overlay=document.getElementById('menuOverlay'), toggle=document.getElementById('menuToggle');
+  const shots=[...document.querySelectorAll('#moShots img')], cap=document.getElementById('moCap');
+  const mlinks=[...overlay.querySelectorAll('[data-menu-link]')];
+  let menuTl=null, menuBusy=false;
+  mlinks.forEach(a=>{ const show=()=>{ const i=+a.dataset.shot;
+    shots.forEach((im,n)=>im.classList.toggle('on',n===i)); cap.textContent=shots[i].dataset.cap; };
+    a.addEventListener('mouseenter',show); a.addEventListener('focus',show); });
+  const isMenuOpen=()=>toggle.getAttribute('aria-expanded')==='true';
+  const canAnimate=!reduced && typeof gsap!=='undefined';
+  const setMenu=(open)=>{
+    if(menuBusy||open===isMenuOpen())return;
+    toggle.setAttribute('aria-expanded',open);
+    docEl.style.overflow=open?'hidden':'';
+    document.body.classList.toggle('menu-open',open);
+    if(!canAnimate){overlay.classList.toggle('open',open);return;}
+    menuBusy=true;
+    if(!menuTl){ overlay.classList.add('open');
+      menuTl=gsap.timeline({paused:true,
+        onReverseComplete(){overlay.classList.remove('open');menuBusy=false;},
+        onComplete(){menuBusy=false;}})
+        .to('.mo-nav',{clipPath:'inset(0 0 0% 0)',duration:.6,ease:'expo.inOut'})
+        .to('.mo-visual',{clipPath:'inset(0 0 0% 0)',duration:.6,ease:'expo.inOut'},.08)
+        .from(mlinks,{y:34,opacity:0,duration:.55,ease:'power3.out',stagger:.055},.32)
+        .from('.mo-side',{y:16,opacity:0,duration:.45,ease:'power2.out'},.5)
+        .from('.mo-shot-cap',{opacity:0,duration:.4},.55); }
+    if(open){overlay.classList.add('open');menuTl.play();} else {menuTl.reverse();}
+  };
+  toggle.addEventListener('click',()=>setMenu(!isMenuOpen()));
+  mlinks.forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&isMenuOpen()) setMenu(false); });
+
+  /* ---------- hero: flick through the fleet ----------
+     Numbers here are the same ones each bike's spec strip carries further down,
+     so the hero promises exactly what the section delivers. */
+  /* ---------- the trail clip only runs while it is on screen ---------- */
+  (function(){
+    var v=document.getElementById('clashVideo'); if(!v)return;
+    if(reduced){ v.removeAttribute('loop'); return; }
+    if(!('IntersectionObserver' in window)){ v.play().catch(function(){}); return; }
+    new IntersectionObserver(function(es){
+      es.forEach(function(en){
+        if(en.isIntersecting){ v.preload='auto'; v.play().catch(function(){}); }
+        else { v.pause(); }
+      });
+    },{threshold:.25}).observe(v);
+  })();
+
+  /* ---------- Clash size picker ---------- */
+  /* Same figures as the buttons above, in the client's wording. Keep the two
+     in step if either changes. */
+  const sizeCopy={M:'Size <b style="color:var(--sand)">M</b> — Can fit riders with heights from 1.63cm to 1.79',
+                  L:'Size <b style="color:var(--sand)">L</b> — Can fit riders with heights from 178cm to 190cm'};
+  const sizeOut=document.getElementById('sizeOut');
+  document.querySelectorAll('.sizes button').forEach(b=>{
+    b.addEventListener('click',()=>{
+      document.querySelectorAll('.sizes button').forEach(o=>o.setAttribute('aria-pressed', o===b));
+      sizeOut.innerHTML=sizeCopy[b.dataset.size];
+    });
+  });
+
+  /* The dark-grey swap is ready to come back the moment there is a cut-out of
+     it to the same standard as the olive one — see the note in the header. */
+
+  /* ---------- motion ---------- */
+  if(reduced || typeof gsap==='undefined'){ document.body.classList.add('no-anim'); return; }
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.querySelectorAll('[data-reveal]').forEach(el=>{
+    gsap.fromTo(el,{y:42,opacity:0},{y:0,opacity:1,duration:.9,ease:'power3.out',
+      scrollTrigger:{trigger:el,start:'top 97%',once:true}});
+  });
+
+  if(!coarse){
+    /* assets/parallax.js — the same layers the other pages use */
+    if(window.WOF_PARA) WOF_PARA.wire(document);
+  }
+})();
+</script>
+</body>
+</html>

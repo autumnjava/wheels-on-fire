@@ -1,0 +1,29 @@
+/* WHEELS ON FIRE — standalone tour pages: page-only chrome.
+
+   The design is NOT here — it comes from assets/tour-detail.css and
+   assets/tour-view.js, the same two files tours.html uses for its quick
+   view. This file carries only what a page has and a modal does not. */
+
+/* The page reads on cream. --th is still set on <html>, but it is now spent
+   on the two chips in the bar and on the accents, not on the whole ground. */
+body{background:var(--cream);color:var(--ink)}
+.tsheet{background:var(--cream);color:var(--ink)}
+
+/* the modal's Close is a link back to the index here */
+.tov-close:hover{opacity:.8}
+
+/* On a page the bar sits OVER the photo and scrolls away with it. Sticky is a
+   modal behaviour — there the sheet scrolls inside itself and the close has to
+   stay reachable; here it just covered the content on the way down. */
+.tsheet{position:relative}
+.tsheet .tov-bar{position:absolute;top:0;left:0;right:0}
+
+/* ---------- other tours ----------
+   The foot of the page used to be a prev/next pair. It is now the same rail
+   the homepage ends with — assets/rail.css + assets/rail.js, fed the same
+   card as the Tours grid — so leaving a tour offers all the others rather
+   than the two either side of it in a list nobody can see. */
+.t-more{background:var(--ink);color:var(--cream);padding:clamp(48px,7.5vh,96px) var(--pad)}
+/* the arrows and the title invert on the dark ground; the size comes from
+   assets/tour-detail.css, shared with the gallery title */
+.t-more .rail-head{margin-bottom:clamp(22px,3.4vh,36px)}

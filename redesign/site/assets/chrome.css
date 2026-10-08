@@ -1,0 +1,142 @@
+/* ============================================================
+   WHEELS ON FIRE — the header and the menu, shared.
+
+   The markup for both comes from partials/header.html and
+   partials/menu.html, stamped into every page by build-chrome.mjs. This
+   is the matching CSS, and it exists because the markup being shared
+   while the styling was not is what broke the Get in touch page: it is
+   one of four pages that carry their own CSS, it never received the
+   rules for .logo-full, and the wordmark rendered at its natural 830px
+   and pushed the whole page down the screen.
+
+   Those four pages (index, tours, bikes, contact) keep only their own
+   deliberate differences inline, after this file — the homepage, for
+   instance, leads with a much larger wordmark.
+
+   build-chrome.mjs links this file into every page it stamps, so a page
+   can never again have the markup without the styling.
+   ============================================================ */
+/* ---------- HEADER ---------- */
+/* Scoped to the page's own bar. As a bare element selector this caught any
+   <header> anywhere on the page and pinned it to the top of the window. */
+body > header{position:fixed;inset:0 0 auto 0;z-index:90;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:16px var(--pad);transition:background .35s ease, box-shadow .35s ease, padding .35s ease}
+/* The bar floats over photographs, and the hero curtains no longer darken the
+   top of the image — which is exactly where the burger and the wordmark sit.
+   So the header carries its own strip of shade: fixed to the top of the
+   viewport, gone within 150px, and only while the bar is transparent. The
+   picture below it stays open; before, the whole image paid for this.
+   position:fixed rather than absolute so the grid the header uses for its
+   three columns cannot place it as one of them. */
+
+/* and the type holds its own edge, the same way the breadcrumb does */
+.menu-btn .label{font-family:var(--monob)}
+/* No wash behind the bar — the client did not want one — so the mark and the
+   burger carry their own edge instead. Two short shadows read as an outline
+   rather than a glow: tight enough to define the shape, not wide enough to
+   show as a smudge over the photograph. */
+/* No wash behind the bar — the client did not want one — so the mark and the
+   burger carry their own. CSS drop-shadow has no spread, so three stacked
+   shadows stand in for one: a tight edge that defines the shape, a mid blur,
+   and a wide soft one that lifts the whole mark off a bright sky. Because each
+   follows the glyph's own alpha, it reads as depth around the letters rather
+   than as a patch over the photograph. */
+body > header:not(.scrolled) .menu-btn,body > header:not(.scrolled) .logo-badge{
+  filter:drop-shadow(0 1px 2px rgba(12,10,9,.34))
+         drop-shadow(0 0 20px rgba(12,10,9,.4))
+         drop-shadow(0 0 48px rgba(12,10,9,.34))}
+body > header:not(.scrolled) .menu-btn .label{
+  text-shadow:0 1px 2px rgba(12,10,9,.34), 0 0 20px rgba(12,10,9,.4), 0 0 48px rgba(12,10,9,.34)}
+
+body > header.scrolled{background:rgba(12,10,9,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line-d);padding:10px var(--pad)}
+/* The three bars are 12px tall, and without padding that was the whole tap
+   target — fine for a cursor, far under the thumb's minimum. The padding is
+   pulled back out with a negative margin so the button still lines up with the
+   page edge and nothing shifts. */
+.menu-btn{display:flex;align-items:center;gap:12px;background:none;border:0;color:var(--cream);font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;justify-self:start;
+  padding:15px 12px;margin:-15px -12px}
+.menu-btn .bars{position:relative;width:26px;height:12px;flex:none}
+.menu-btn .bars span{position:absolute;left:0;display:block;width:26px;height:2px;background:var(--cream);transition:transform .42s cubic-bezier(.65,0,.35,1), background-color .3s ease}
+.menu-btn .bars span:first-child{top:2px}
+.menu-btn .bars span:last-child{top:9px}
+.menu-btn:hover .bars span:first-child{transform:translateX(4px)}
+.menu-btn[aria-expanded="true"] .bars span{background:var(--red)}
+.menu-btn[aria-expanded="true"] .bars span:first-child{transform:translateY(3.5px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] .bars span:last-child{transform:translateY(-3.5px) rotate(-45deg)}
+.menu-btn .label{position:relative;display:grid}
+.menu-btn .label span{grid-area:1/1;display:block;transition:transform .3s ease,opacity .3s ease}
+.menu-btn[aria-expanded="true"] .label .l-menu{opacity:0;transform:translateY(-6px)}
+.menu-btn[aria-expanded="false"] .label .l-close{opacity:0;transform:translateY(6px)}
+.logo-badge{display:flex;align-items:center;justify-content:center;transition:opacity .3s ease}
+body.menu-open .logo-badge{opacity:0;pointer-events:none}
+body.menu-open header{background:transparent;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+.logo-full{height:clamp(64px,7.4vw,92px);width:auto}
+body > header.scrolled .logo-full{display:none}
+.logo-mini{display:none;align-items:center}
+body > header.scrolled .logo-mini{display:flex}
+.lm-mark{position:relative;width:56px;height:56px;flex:none}
+.lm-mark img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+body > header.scrolled .lm-mark .lm-flames{animation:flameRise .55s cubic-bezier(.22,1,.36,1) both}
+body > header.scrolled .lm-mark .lm-word{animation:wordPop .45s cubic-bezier(.34,1.56,.64,1) .18s both}
+@keyframes flameRise{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0% 0 0 0)}}
+@keyframes wordPop{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:scale(1)}}
+body > header .btn{padding:10px 18px;font-size:13px;justify-self:end}
+@media (max-width:640px){
+  .menu-btn .label{display:none}
+  header .btn{padding:9px 14px;font-size:11px;white-space:nowrap}
+  /* Nothing in the middle of the bar on arrival: at the top of a phone screen
+     the hero is doing the introducing. The mark comes back with the compact
+     header, which is the state that needs an anchor. */
+  body > header:not(.scrolled) .logo-badge{display:none}
+  /* And the grid follows it. This bar is 1fr auto 1fr, built around a mark in
+     the middle; with the mark hidden there were two items for three columns
+     and the button landed in the middle one, near the centre of the screen.
+     Two columns while it is hidden, three again once it returns. */
+  body > header:not(.scrolled){grid-template-columns:1fr auto}
+  /* what shows when it does return: the compact mark, not the wordmark */
+  .logo-full{display:none}
+  .logo-mini{display:flex}
+  .lm-mark{width:48px;height:48px}
+}
+
+/* ---------- MENU ---------- */
+.menu-overlay{position:fixed;inset:0;z-index:70;visibility:hidden;display:grid;grid-template-columns:1fr 1fr}
+.menu-overlay.open{visibility:visible}
+/* Closed by default. What opens it is page-level: site.js runs a GSAP
+   timeline over the clip-path, and contact.html — which has no site.js —
+   does it with a CSS transition of its own. Deliberately not stated here:
+   an unconditional open rule would snap the panels before GSAP could
+   animate them. */
+.mo-panel{position:relative;background:var(--ink-2);clip-path:inset(0 0 100% 0);overflow:hidden}
+.mo-shots{position:absolute;inset:0;background:var(--ink-2)}
+.mo-shots img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.04);transition:opacity .55s ease, transform .9s cubic-bezier(.22,1,.36,1)}
+.mo-shots img.on{opacity:1;transform:scale(1)}
+/* only the corner the caption sits in */
+.mo-shots::after{content:'';position:absolute;inset:0;background:
+  radial-gradient(125% 68% at 12% 106%, rgba(12,10,9,.78) 0%, rgba(12,10,9,.44) 42%, rgba(12,10,9,0) 76%)}
+.mo-shot-cap{position:absolute;z-index:2;left:clamp(18px,2.4vw,34px);bottom:clamp(18px,2.4vw,34px);
+  font-family:var(--monob);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--cream);
+  text-shadow:0 1px 2px rgba(12,10,9,.6);transition:opacity .3s ease}
+/* The panel is dark whatever the page behind it is, so it states its own
+   text colour instead of inheriting from <body>. Contact sets a cream body
+   and the menu came out dark-on-dark without this. */
+.mo-inner{position:relative;height:100%;display:flex;flex-direction:column;padding:16px var(--pad) 28px clamp(20px,3.4vw,54px);overflow:auto;color:var(--cream)}
+.mo-links{flex:1;display:flex;flex-direction:column;justify-content:center;gap:clamp(4px,1.2vh,14px);min-height:0;padding:clamp(18px,4vh,44px) 0}
+.mo-links a{display:flex;align-items:baseline;gap:18px;font-family:var(--disp);font-weight:700;letter-spacing:-0.03em;text-transform:uppercase;font-size:clamp(32px,6.2vh,72px);line-height:.95;color:var(--cream);transition:color .22s ease,transform .3s ease}
+.mo-links a i{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--red);letter-spacing:.1em}
+.mo-links a:hover,.mo-links a:focus-visible{color:var(--red);transform:translateX(10px)}
+.mo-links a[aria-current="page"]{color:var(--red)}
+.mo-side{display:flex;gap:clamp(20px,3vw,50px);flex-wrap:wrap;font-size:12.5px;color:var(--cream-dim);padding-top:18px;border-top:1px solid var(--line-d)}
+.mo-side .lbl{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--red);margin-bottom:6px}
+.mo-side a{display:inline-flex;align-items:center;border-bottom:1px solid var(--line-d);padding-bottom:2px;transition:color .2s}
+.mo-side a:hover{color:var(--cream)}
+.ico-out{width:11px;height:11px;flex:none;margin-left:5px;transition:transform .25s ease}
+a:hover > .ico-out{transform:translate(2px,-2px)}
+@media (max-width:860px){
+  .menu-overlay{grid-template-columns:1fr}
+  .mo-panel.mo-visual{display:none}
+  /* 10.5vw put the two longest items onto two lines, which made the list read
+     as eight things instead of six. The longest label is "Tours & Packages";
+     measured, it needs 34px or less at 375px and 27px or less at 320px, where
+     the fixed padding eats a bigger share of the line. 8.4vw clears both. */
+  .mo-links a{font-size:clamp(22px,min(5.4vh,8.4vw),54px);gap:12px}
+}

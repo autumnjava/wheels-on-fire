@@ -1,0 +1,24 @@
+/* ============================================================
+   WHEELS ON FIRE — the one rule every <picture> wrapper needs.
+
+   scripts/build-picture.mjs wraps each photograph so a browser too old
+   for AVIF still gets the JPEG. Without this rule that wrapper becomes
+   an inline box of its own, and any image sized against its parent —
+   the header mark, a hero, a card thumb — resolves against the wrapper
+   instead and renders at its natural size. display:contents keeps the
+   wrapper out of the box tree entirely, so the <img> lays out exactly
+   where it did before and every rule written against `img` still works.
+
+   It lives in its own file, not in site.css: four pages (index, tours,
+   bikes, contact) carry their own CSS and do not load site.css, and
+   they were left with unsized images. build-picture.mjs now links this
+   file into every page it touches, so the rule cannot go missing again.
+   ============================================================ */
+picture{display:contents}
+/* And the <source> has to be taken out with it. It is not in the UA
+   stylesheet's hidden list, so it is a block box — empty, and invisible in
+   normal flow, which is why this went unnoticed. But display:contents promotes
+   it to a child of whatever holds the <picture>, and inside a grid or a flex
+   row an empty box still claims a slot: every pair of photographs put both
+   images in column two and left column one black. */
+picture > source{display:none}

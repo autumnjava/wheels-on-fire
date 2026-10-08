@@ -1,0 +1,37 @@
+/* ============================================================
+   WHEELS ON FIRE — the bike spec strip, shared.
+
+   Travel / Wheels / Sizes, set as three figures between two hairlines.
+   ONE source for BOTH places the block appears:
+     · index.html — the Our bikes teaser on the homepage
+     · bikes.html — the Clash on the Our Bikes page
+
+   The two pages each carried their own copy (.ride-spec and .spec) and
+   they had already drifted apart. This is the copy they share.
+   ============================================================ */
+
+/* A grid rather than a flex row: the 1px gap over the rule colour is what
+   draws the dividers, so they run the full height of the tallest figure. */
+.spec{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line-d);
+  border-top:1px solid var(--line-d);border-bottom:1px solid var(--line-d);
+  margin:clamp(24px,4vh,48px) 0 clamp(26px,3.6vh,40px)}
+.spec > div{background:var(--ink);padding:clamp(16px,2.4vh,26px) clamp(12px,1.6vw,24px)}
+/* the first figure sits on the same left edge as the heading above it */
+.spec > div:first-child{padding-left:0}
+
+.spec dt{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--cream-dim);
+  margin-bottom:10px}
+.spec dd{font-family:var(--disp);font-weight:700;font-size:clamp(26px,3.4vw,46px);
+  line-height:.85;letter-spacing:-0.02em}
+
+/* on a cream section the ground and the rules invert */
+.light .spec{background:var(--line-l);border-color:var(--line-l)}
+.light .spec > div{background:var(--cream)}
+.light .spec dt{color:var(--ink-dim)}
+
+/* Three figures in two columns left the fourth cell empty, showing the divider
+   ground as a grey box beside M / L — so the last one takes the whole row. */
+@media (max-width:760px){
+  .spec{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .spec > div:last-child{grid-column:1 / -1}
+}

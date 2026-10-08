@@ -1,0 +1,14 @@
+/* ============================================================
+   WHEELS ON FIRE — the tours' ground colours.
+
+   Each tour carries one, and it is used in three unrelated places: the
+   card on the homepage rail and the Tours grid, and the tour page itself.
+   They live alone here so every one of those can load them without
+   dragging in styling it does not need — the cards lost their background
+   the moment tours.html stopped loading the detail stylesheet.
+   ============================================================ */
+:root{
+  --t-forest:#b3c2a4; --t-west:#a6b7c3; --t-volcanic:#d9c08c;
+  --t-fogo:#c89b83;   --t-ridge:#93a89c; --t-coast:#dbb0a6;
+  --t-tunnel:#b9b2a6; --t-most:#a7bfc2;
+}

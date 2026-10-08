@@ -1,0 +1,41 @@
+/* WHEELS ON FIRE — the preloader, shared.
+   Moved verbatim out of index.html so the homepage and the tour pages show
+   the same one. Behaviour lives in assets/preloader.js. */
+
+/* red from the very first paint, so there is never a pale flash before the
+   mark is mounted */
+html.preloading{overflow:hidden;background:var(--red)}
+
+#preloader{--pre-foot:calc(var(--pad) * .45);position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center}
+#preloader .curt{position:absolute;top:0;bottom:0;width:50.5%;background:var(--red)}
+#preloader .curt-l{left:0}
+#preloader .curt-r{right:0}
+.pre-stage{position:relative;z-index:2;width:clamp(230px,46vh,420px);aspect-ratio:1}
+.pre-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+#preTire{will-change:transform}
+#preFlames,#preWordBg,#preWord{clip-path:inset(100% 0 0 0)}
+/* The plate behind the wordmark is what reads as the outline around the red
+   letters. The supplied artwork was cream (#f1ede4) while every other piece of
+   the mark is pure white; logo-wordbg.png has been regenerated white and with
+   an even 7px offset (logo-wordbg-original.png keeps the original). The filter
+   stays as a guarantee if that asset is ever swapped back. */
+#preWordBg{filter:brightness(0) invert(1)}
+#preTag{opacity:0}
+.pre-count{position:absolute;z-index:2;left:var(--pad);bottom:calc(var(--pre-foot) + 26px);display:flex;align-items:flex-end;gap:6px;color:var(--cream);font-family:var(--disp);font-weight:700;letter-spacing:-0.04em;line-height:.8}
+.pre-count b{font-size:clamp(84px,17vw,230px);font-weight:400;font-variant-numeric:tabular-nums}
+.pre-count i{font-style:normal;font-size:clamp(28px,4vw,58px);opacity:.75;padding-bottom:.1em}
+/* The count and the bar share one baseline so the gap between them cannot
+   drift: measured, they were 1px apart, and with line-height .8 on an 84px
+   number the digits spilled below their own box and sat on the bar. */
+.pre-bar{position:absolute;z-index:2;left:var(--pad);right:var(--pad);bottom:var(--pre-foot);height:2px;background:rgba(241,237,228,.28)}
+.pre-bar span{display:block;height:100%;width:0%;background:var(--cream)}
+
+/* On a shorter run the 0–100 count and the giant number are noise — the pages
+   that ask for a quick one just get the mark and the curtain. */
+#preloader.quick .pre-count,#preloader.quick .pre-bar{display:none}
+#preloader.quick .pre-stage{width:clamp(190px,34vh,320px)}
+
+@media (prefers-reduced-motion: reduce){
+  #preloader{display:none !important}
+  html.preloading{overflow:auto}
+}

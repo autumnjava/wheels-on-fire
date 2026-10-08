@@ -1,3 +1,12 @@
 node_modules
 dist
 **/.DS_Store
+CLAUDE.md
+# The redesign is the site now, so it is versioned — except the raw material
+# it was built from, which is heavy and is not served to anyone. Those stay on
+# the machine; .vercelignore already keeps them out of deploys.
+redesign/site/assets/_originals/
+redesign/site/assets/Our Tours/
+redesign/site/assets/hero_video.mp4
+redesign/site/.vercel/
+.vercel

@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Design proposal for client review — must not be indexed as the live site. -->
+<meta name="robots" content="noindex,nofollow">
+<title>About Us — Wheels on Fire</title>
+<!--
+  WHEELS ON FIRE — About Us
+
+  Structure: the story first (why they came, why they stayed), then the two
+  people behind it. The two rider profiles are the payoff, so they get the
+  full width and their own portrait rather than being a footnote.
+
+  ALL COPY IS THE CLIENT'S, lifted verbatim from the current site
+  (src/pages/about-us.tsx). Nothing here is written for the layout.
+-->
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/page-head.css">
+<link rel="stylesheet" href="/assets/cta.css">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/assets/chrome.css">
+<style>
+/* ---------- page-specific: About Us ---------- */
+
+/* The header photograph is a portrait frame in a wide band, so the crop is
+   what decides the picture. The two riders sit just below the middle of the
+   original, and this keeps them centred in the band at every width. */
+.ph-media img{object-position:center 56%}
+
+/* the story: quote left, portrait right */
+.story-grid{display:grid;grid-template-columns:5fr 6fr;gap:clamp(32px,5vw,80px);align-items:center}
+/* The opening section sits on the site's dark ink — a band between the header
+   photograph and the cream the two riders are set on, in the same black the
+   footer and the tours grid use. Its type is inverted to match. */
+.story-sec{background:var(--ink);color:var(--cream)}
+.story-quote{font-size:var(--fs-display-col);margin-bottom:28px}
+.story-quote .q{color:var(--red)}
+.story-copy{color:var(--cream-dim);font-size:14.5px;max-width:48ch;margin-bottom:18px}
+.story-copy strong{color:var(--cream);font-weight:400}
+.story-shot img{width:100%;aspect-ratio:4/4.4;object-fit:cover}
+@media (max-width:900px){.story-grid{grid-template-columns:1fr}}
+
+/* the two riders, side by side and equal — neither is the sidekick */
+.riders{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,80px)}
+.rider figure{margin:0}
+.rider img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.rider h3{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:-0.03em;
+  font-size:var(--fs-sub);line-height:.9;margin:clamp(18px,2.6vh,28px) 0 6px}
+.rider .from{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--red);margin-bottom:18px}
+.rider p{font-size:14px;color:var(--ink-dim);margin-bottom:14px;max-width:52ch}
+.rider p strong{color:var(--ink);font-family:var(--monob);font-weight:400}
+@media (max-width:860px){.riders{grid-template-columns:1fr;gap:clamp(40px,7vh,70px)}}
+</style>
+<noscript><style>[data-reveal]{opacity:1;transform:none}</style></noscript>
+<link rel="stylesheet" href="/assets/picture.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-arr" viewBox="0 0 32 24"><path d="M1 12h29M20 2l10 10-10 10" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></symbol>
+  <symbol id="i-arr-out" viewBox="0 0 24 24"><path d="M5 19 19 5M8 5h11v11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></symbol>
+</svg>
+
+<div class="grain" aria-hidden="true"></div>
+
+<header id="header">
+  <button class="menu-btn" id="menuToggle" aria-label="Menu" aria-expanded="false" aria-controls="menuOverlay">
+    <span class="bars" aria-hidden="true"><span></span><span></span></span>
+    <span class="label" aria-hidden="true"><span class="l-menu">Menu</span><span class="l-close">Close</span></span>
+  </button>
+  <a href="/index.html" class="logo-badge" aria-label="Wheels on Fire — home">
+    <img class="logo-full" src="/assets/wheelsonfire_white-01.png" alt="Wheels on Fire">
+    <span class="logo-mini" aria-hidden="true"><span class="lm-mark">
+      <img class="lm-tire" id="lmTire" src="/assets/logo-tire.png" alt="">
+      <img class="lm-flames" src="/assets/logo-flames.png" alt="">
+      <img class="lm-word" src="/assets/logo-word.png" alt=""></span></span>
+  </a>
+  <a href="/contact.html" class="btn btn-red">Get in touch</a>
+</header>
+
+<div class="menu-overlay" id="menuOverlay" role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="mo-panel mo-nav"><div class="mo-inner">
+    <nav class="mo-links" aria-label="Main">
+      <a href="/index.html" data-menu-link data-shot="0"><span>Home</span></a>
+      <a href="/about-us.html" data-menu-link aria-current="page" data-shot="1"><span>About us</span></a>
+      <a href="/tours.html" data-menu-link data-shot="2"><span>Tours &amp; Packages</span></a>
+      <a href="/bikes.html" data-menu-link data-shot="3"><span>Our bikes</span></a>
+      <a href="/our-adventures.html" data-menu-link data-shot="4"><span>Our adventures</span></a>
+      <a href="/contact.html" data-menu-link data-shot="5"><span>Get in touch</span></a>
+    </nav>
+    <div class="mo-side">
+      <div><p class="lbl">Bookings</p>
+        <p><a href="mailto:wheelsonfireazores@gmail.com">wheelsonfireazores@gmail.com</a></p>
+        </div>
+      <div><p class="lbl">Follow</p>
+        <p><a href="https://www.instagram.com/wheelsonfireazores" target="_blank" rel="noopener noreferrer">Instagram<svg class="ico-out" aria-hidden="true"><use href="#i-arr-out"/></svg></a>
+        &nbsp; <a href="https://www.youtube.com/@wheelsonfireazores" target="_blank" rel="noopener noreferrer">YouTube<svg class="ico-out" aria-hidden="true"><use href="#i-arr-out"/></svg></a></p></div>
+    </div>
+  </div></div>
+  <div class="mo-panel mo-visual" aria-hidden="true">
+    <div class="mo-shots" id="moShots">
+      <picture><source type="image/avif" srcset="/assets/hero-poster.avif"><img class="on" src="/assets/hero-poster.jpg" alt="" data-cap="MTB adventures — S. Miguel"></picture>
+      <picture><source type="image/avif" srcset="/assets/jj-trail.avif"><img src="/assets/jj-trail.jpg" alt="" data-cap="Jallas &amp; Juliana — in the green"></picture>
+      <picture><source type="image/avif" srcset="/assets/tours-hero.avif"><img src="/assets/tours-hero.jpg" alt="" data-cap="Tours &amp; packages — out on the trail"></picture>
+      <picture><source type="image/avif" srcset="/assets/tours/westside-1.avif"><img src="/assets/tours/westside-1.jpg" alt="" data-cap="Westside — down to the sea"></picture>
+      <picture><source type="image/avif" srcset="/assets/red-road.avif"><img src="/assets/red-road.jpg" alt="" data-cap="Bikepacking the Azores"></picture>
+      <picture><source type="image/avif" srcset="/assets/cta-truck.avif"><img src="/assets/cta-truck.jpg" alt="" data-cap="The shuttle — river ford"></picture>
+    </div>
+    <p class="mo-shot-cap" id="moCap">MTB adventures — S. Miguel</p>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="ph" id="top">
+  <div class="ph-media" data-parallax aria-hidden="true"><picture><source type="image/avif" srcset="assets/jj-trail.avif"><img src="assets/jj-trail.jpg" alt=""></picture></div>
+  <div class="ph-shade" aria-hidden="true"></div>
+
+
+  <div class="ph-content">
+    <div class="page-head">
+      <nav class="crumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a><span class="sep">/</span><span class="here">About us</span>
+      </nav>
+      <h1 class="disp" data-reveal>About us</h1>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 01 — OUR STORY ============ -->
+<section class="section story-sec">
+
+  <div class="story-grid">
+    <div>
+      <h2 class="story-quote disp" data-reveal>We discovered the Azores by bike</h2>
+      <p class="story-copy" data-reveal>In the spring of 2023 we packed our passion in life and shipped it over
+        to São Miguel — <strong>2 enduro bicycles, 2 surf boards and a bike trailer.</strong> Ending up spending
+        10 weeks biking and sleeping in a tent around 4 islands in the Azores.</p>
+      <p class="story-copy" data-reveal>That was enough, we knew by then that we wanted to move here permanently
+        and become part of the community.</p>
+      <a class="btn btn-ghost-c" href="adventure-bikepacking.html" data-reveal>
+        Read the whole trip <svg class="arr" aria-hidden="true"><use href="#i-arr"/></svg></a>
+    </div>
+    <div class="story-shot" data-reveal>
+      <picture><source type="image/avif" srcset="assets/red-road.avif"><img src="assets/red-road.jpg" alt="Riding the red dirt road along the north coast of São Miguel"></picture>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 — THE TWO OF THEM ============ -->
+<section class="light section">
+  <div class="label-row" data-reveal>
+    <p class="kicker">Jallas &amp; Juliana</p><div class="rule"></div>
+  </div>
+
+  <div class="riders">
+    <article class="rider" data-reveal>
+      <figure><picture><source type="image/avif" srcset="assets/jallas.avif"><img src="assets/jallas.jpg" alt="Jallas riding a forest trail"></picture></figure>
+      <h3>Jallas</h3>
+      <p class="from">South Sweden → São Miguel</p>
+      <p>Hello there! I'm Jallas born in south Sweden. Since south Sweden is kinda flat I started out with cross
+        country biking but lycra and pushing on the uphills was not really me. The free ride mountain bike was more
+        my style.</p>
+      <p>In 2012 I traveled to Portugal for the first time to pursue my surf dream and from then on I just knew that
+        this was where in the world I wanted to be. Biking has also always been a big part of my life wherever I was,
+        from working as a bike messenger, bikepacking or riding downhill, I always enjoy riding my bike. Not only
+        biking but also creating, building and maintaining the bike trails is something I really like spending my
+        time on.</p>
+      <p>After discovering the Azores by bike. Me and my partner Juliana really enjoyed the island life. We felt
+        that this is were we want to be and create — <strong>Wheels on Fire.</strong></p>
+    </article>
+
+    <article class="rider" data-reveal>
+      <figure><picture><source type="image/avif" srcset="assets/juliana.avif"><img src="assets/juliana.jpg" alt="Juliana riding across the red volcanic sand"></picture></figure>
+      <h3>Juliana</h3>
+      <p class="from">Porto, Portugal → São Miguel</p>
+      <p>Hey! I'm Juliana from Porto, Portugal.</p>
+      <p>I'll never forget the first time I learnt how to bike. Since then biking has always felt more than just the
+        act of riding a bike — represents freedom and creativity and it's the best way to get around! And it's funny
+        how the surroundings and the kind of bike I'm riding can make every experience very unique. Riding in the city
+        with my singlespeed, everything is fast and I love it! It's like a game: the other cyclists, the people, the
+        traffic.</p>
+      <p>When mountainbiking is different, being out in the wild riding the nature's “cool obstacles” like the
+        terrain, if it's rocky, rooty, steep, uphill or in flowy trails and jumps. Every bike day is different and
+        teaches so much more than just skills, but truly being in touch and in tune with everything and myself.</p>
+      <p><strong>Wheels on Fire</strong> is born, out of the burning passion of riding, travelling and is inspired by
+        the volcanic terrain of this amazing place that is the Azores.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta" id="book">
+  <div class="cta-media" data-parallax="12" aria-hidden="true"><picture><source type="image/avif" srcset="assets/cta-truck.avif"><img src="assets/cta-truck.jpg" alt="The shuttle crossing a river ford on the way to the trailhead"></picture></div>
+  <div class="cta-shade" aria-hidden="true"></div>
+  <div class="cta-inner" data-parallax-up="5">
+    <h2 class="disp" data-reveal>You ride.<br>We got you<br><span class="l3">all set up</span></h2>
+    <div class="cta-actions">
+      <a class="btn btn-red" href="contact.html" data-reveal>Book now <svg class="arr" aria-hidden="true"><use href="#i-arr"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <a class="foot-logo" href="#top" aria-label="Wheels on Fire — back to top"><img src="/assets/wheelsonfire_white-01.png" alt="Wheels on Fire logo"></a>
+    <nav class="foot-nav" aria-label="Footer">
+      <a href="/about-us.html">About us</a><a href="/tours.html">Tours &amp; Packages</a>
+      <a href="/bikes.html">Our bikes</a><a href="/our-adventures.html">Our adventures</a>
+      <a href="/contact.html">Get in touch</a>
+    </nav>
+    <div class="foot-info">
+      <p><b>WHEELS ON FIRE</b> is a MTB guide &amp; shuttle company based in the island of São Miguel, Azores.</p>
+      <div class="foot-social">
+        <a href="https://www.instagram.com/wheelsonfireazores" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.youtube.com/@wheelsonfireazores" target="_blank" rel="noopener noreferrer">YouTube</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>MTB tours — São Miguel — Azores</span><span><a href="/legal.html">Legal</a> · <a href="/general-terms.html">General terms</a></span>
+    <span>Design by Juliana &amp; <a href="https://phaze.design" target="_blank" rel="noopener noreferrer">Phaze Design</a> — © Wheels on Fire 2026</span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="assets/parallax.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>

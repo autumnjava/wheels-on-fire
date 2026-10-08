@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Design proposal for client review — must not be indexed as the live site. -->
+<meta name="robots" content="noindex,nofollow">
+<title>In Action! — Wheels on Fire</title>
+<!--
+  WHEELS ON FIRE — In Action!
+
+  A repository of the films and the stills, both opening in the same
+  lightbox: YouTube gets an iframe, photographs get a viewer you can
+  arrow through. One component, two payloads.
+
+  INTRO COPY IS THE CLIENT'S (src/pages/in-action.tsx).
+
+  CONTENT NOTE: the live page pulls its video list out of Sanity, which
+  cannot be read from here, so the two films below are the only YouTube
+  IDs that appear anywhere in the repo. The grid is built from a single
+  array — drop the rest of the Sanity records into VIDEOS and they
+  render with no other change.
+-->
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/page-head.css">
+<link rel="stylesheet" href="assets/lightbox.css">
+<link rel="stylesheet" href="/assets/cta.css">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/assets/chrome.css">
+<style>
+/* ---------- page-specific: In Action ---------- */
+
+/* The header photograph is a tall frame cropped to a wide band, so the
+   crop is what makes the picture: hold the rider rather than the middle
+   of the file, which is all undergrowth. */
+.ph-media img{object-position:center 44%}
+/* ============================================================
+   THE WALL
+
+   Not a page of sections — one wall. The client did not want articles
+   or tidy blocks, so there are none: films, loops, posters and stills
+   land in a single collage and the only thing that orders them is the
+   order they are listed in.
+
+   A grid, not CSS columns: columns cannot span, and the whole point is
+   that some pieces are bigger than others. Rows are a 6px unit and each
+   tile claims however many it needs, measured once its media knows its
+   own size (see fit() in the script). grid-auto-flow:dense then back-
+   fills the holes that leaves, which is what makes it read as pinned-up
+   rather than laid out.
+   ============================================================ */
+.wall-intro{display:flex;justify-content:space-between;align-items:flex-end;gap:clamp(24px,4vw,64px);
+  flex-wrap:wrap;margin-bottom:clamp(30px,5vh,58px)}
+.wall-intro h2{font-size:var(--fs-display-col)}
+.wall-intro p{font-size:14px;color:var(--cream-dim);max-width:44ch}
+
+.wall{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:6px;
+  grid-auto-flow:dense;gap:clamp(10px,1.5vw,20px)}
+@media (max-width:1100px){.wall{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:760px){.wall{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.w-item{grid-row-end:span 40;display:block;padding:0;border:0;background:none;color:inherit;
+  text-align:left;font:inherit;cursor:pointer;width:100%}
+/* the pieces that carry the page get two tracks; on two columns nothing does,
+   or a single item would take the whole width and the wall would unravel */
+.w-item.wide{grid-column:span 2}
+@media (max-width:760px){.w-item.wide{grid-column:span 2}}
+
+.w-frame{display:block;position:relative;overflow:hidden;background:var(--ink-2);
+  outline:1px solid rgba(241,237,228,.14);outline-offset:-1px}
+.w-frame img,.w-frame video{display:block;width:100%;height:auto;
+  transition:transform .7s cubic-bezier(.22,1,.36,1),opacity .35s ease}
+.w-item:hover .w-frame img,.w-item:hover .w-frame video,
+.w-item:focus-visible .w-frame img,.w-item:focus-visible .w-frame video{transform:scale(1.045)}
+/* the sticker edge — a red rule that snaps on, rather than a soft glow */
+.w-frame::after{content:'';position:absolute;inset:0;border:2px solid transparent;
+  transition:border-color .2s ease}
+.w-item:hover .w-frame::after,.w-item:focus-visible .w-frame::after{border-color:var(--red)}
+
+/* what kind of thing this is, stamped on the frame */
+.w-badge{position:absolute;z-index:2;top:0;left:0;background:var(--red);color:var(--cream);
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;padding:5px 9px 4px}
+.w-item.is-poster .w-badge{background:var(--cream);color:var(--ink)}
+
+/* films are the only things you have to ask for — the loops already run */
+.w-play{position:absolute;z-index:2;left:50%;top:50%;translate:-50% -50%;
+  width:clamp(52px,5vw,74px);aspect-ratio:1;border-radius:50%;background:var(--red);
+  display:grid;place-items:center;
+  transition:transform .35s cubic-bezier(.34,1.56,.64,1)}
+.w-play svg{width:34%;height:34%;fill:var(--cream);margin-left:8%}
+.w-item:hover .w-play,.w-item:focus-visible .w-play{transform:scale(1.14)}
+.w-frame::before{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(12,10,9,.18),rgba(12,10,9,0) 45%)}
+
+/* the annotation under each piece: contact-sheet, not caption */
+.w-cap{display:flex;align-items:baseline;gap:9px;padding-top:9px;
+  font-family:var(--mono);font-size:10.5px;line-height:1.45;color:var(--cream-dim)}
+.w-cap i{font-style:normal;color:var(--red);flex:none;letter-spacing:.1em}
+/* No date: it is not settled whether these get catalogued by one. Each item
+   still carries `meta`, so the year comes back by putting it in .w-cap. */
+
+/* ============ LIGHTBOX ============
+   One dialog for both payloads. The iframe is created on open and torn
+   down on close, which is the only reliable way to stop YouTube audio. */
+/* the lightbox lives in assets/lightbox.css, shared with the tour galleries */
+@media (max-width:640px){
+  .lb-nav{width:44px;height:44px}
+  .lb-prev{left:6px}.lb-next{right:6px}
+}
+</style>
+<noscript><style>[data-reveal]{opacity:1;transform:none}</style></noscript>
+<link rel="stylesheet" href="/assets/picture.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-arr" viewBox="0 0 32 24"><path d="M1 12h29M20 2l10 10-10 10" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></symbol>
+  <symbol id="i-arr-l" viewBox="0 0 32 24"><path d="M31 12H2M12 2 2 12l10 10" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></symbol>
+  <symbol id="i-arr-out" viewBox="0 0 24 24"><path d="M5 19 19 5M8 5h11v11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M5 3l16 9-16 9z"/></symbol>
+</svg>
+
+<div class="grain" aria-hidden="true"></div>
+
+<header id="header">
+  <button class="menu-btn" id="menuToggle" aria-label="Menu" aria-expanded="false" aria-controls="menuOverlay">
+    <span class="bars" aria-hidden="true"><span></span><span></span></span>
+    <span class="label" aria-hidden="true"><span class="l-menu">Menu</span><span class="l-close">Close</span></span>
+  </button>
+  <a href="/index.html" class="logo-badge" aria-label="Wheels on Fire — home">
+    <img class="logo-full" src="/assets/wheelsonfire_white-01.png" alt="Wheels on Fire">
+    <span class="logo-mini" aria-hidden="true"><span class="lm-mark">
+      <img class="lm-tire" id="lmTire" src="/assets/logo-tire.png" alt="">
+      <img class="lm-flames" src="/assets/logo-flames.png" alt="">
+      <img class="lm-word" src="/assets/logo-word.png" alt=""></span></span>
+  </a>
+  <a href="/contact.html" class="btn btn-red">Get in touch</a>
+</header>
+
+<div class="menu-overlay" id="menuOverlay" role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="mo-panel mo-nav"><div class="mo-inner">
+    <nav class="mo-links" aria-label="Main">
+      <a href="/index.html" data-menu-link data-shot="0"><span>Home</span></a>
+      <a href="/about-us.html" data-menu-link data-shot="1"><span>About us</span></a>
+      <a href="/tours.html" data-menu-link data-shot="2"><span>Tours &amp; Packages</span></a>
+      <a href="/bikes.html" data-menu-link data-shot="3"><span>Our bikes</span></a>
+      <a href="/our-adventures.html" data-menu-link data-shot="4"><span>Our adventures</span></a>
+      <a href="/contact.html" data-menu-link data-shot="5"><span>Get in touch</span></a>
+    </nav>
+    <div class="mo-side">
+      <div><p class="lbl">Bookings</p>
+        <p><a href="mailto:wheelsonfireazores@gmail.com">wheelsonfireazores@gmail.com</a></p>
+        </div>
+      <div><p class="lbl">Follow</p>
+        <p><a href="https://www.instagram.com/wheelsonfireazores" target="_blank" rel="noopener noreferrer">Instagram<svg class="ico-out" aria-hidden="true"><use href="#i-arr-out"/></svg></a>
+        &nbsp; <a href="https://www.youtube.com/@wheelsonfireazores" target="_blank" rel="noopener noreferrer">YouTube<svg class="ico-out" aria-hidden="true"><use href="#i-arr-out"/></svg></a></p></div>
+    </div>
+  </div></div>
+  <div class="mo-panel mo-visual" aria-hidden="true">
+    <div class="mo-shots" id="moShots">
+      <picture><source type="image/avif" srcset="/assets/hero-poster.avif"><img class="on" src="/assets/hero-poster.jpg" alt="" data-cap="MTB adventures — S. Miguel"></picture>
+      <picture><source type="image/avif" srcset="/assets/jj-trail.avif"><img src="/assets/jj-trail.jpg" alt="" data-cap="Jallas &amp; Juliana — in the green"></picture>
+      <picture><source type="image/avif" srcset="/assets/tours-hero.avif"><img src="/assets/tours-hero.jpg" alt="" data-cap="Tours &amp; packages — out on the trail"></picture>
+      <picture><source type="image/avif" srcset="/assets/tours/westside-1.avif"><img src="/assets/tours/westside-1.jpg" alt="" data-cap="Westside — down to the sea"></picture>
+      <picture><source type="image/avif" srcset="/assets/red-road.avif"><img src="/assets/red-road.jpg" alt="" data-cap="Bikepacking the Azores"></picture>
+      <picture><source type="image/avif" srcset="/assets/cta-truck.avif"><img src="/assets/cta-truck.jpg" alt="" data-cap="The shuttle — river ford"></picture>
+    </div>
+    <p class="mo-shot-cap" id="moCap">MTB adventures — S. Miguel</p>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="ph" id="top">
+  <div class="ph-media" data-parallax aria-hidden="true"><picture><source type="image/avif" srcset="assets/jallas-berm.avif"><img src="assets/jallas-berm.jpg" alt=""></picture></div>
+  <div class="ph-shade" aria-hidden="true"></div>
+
+
+  <div class="ph-content">
+    <div class="page-head">
+      <nav class="crumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a><span class="sep">/</span><span class="here">In action!</span>
+      </nav>
+      <h1 class="disp" data-reveal>In action!</h1>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE WALL ============
+     One run. No chapters, no "films" and "stills" headings — the client
+     asked for a wall of what they have been doing, so that is what it is. -->
+<section class="section">
+  <div class="label-row" data-reveal>
+    <p class="kicker">The wall</p><div class="rule"></div>
+  </div>
+
+  <div class="wall-intro">
+    <h2 class="disp" data-reveal>Everything<br>we&rsquo;ve been up to</h2>
+    <div data-reveal>
+      <p>Films, loops, posters, photographs. Shot on the island, mostly in the
+        rain, mostly with mud on the lens. Pick anything.</p>
+    </div>
+  </div>
+
+  <div class="wall" id="wall" data-reveal></div>
+</section>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Media viewer" hidden>
+  <div class="lb-bar">
+    <p class="lb-ctx"><span id="lbKind">Still</span> &nbsp;<b id="lbIndex">1 / 1</b></p>
+    <button class="lb-close" id="lbClose" type="button">
+      <span class="x" aria-hidden="true"><span></span><span></span></span> Close
+    </button>
+  </div>
+
+  <div class="lb-stage" id="lbStage">
+    <button class="lb-nav lb-prev" id="lbPrev" type="button" aria-label="Previous">
+      <svg aria-hidden="true"><use href="#i-arr-l"/></svg></button>
+    <button class="lb-nav lb-next" id="lbNext" type="button" aria-label="Next">
+      <svg aria-hidden="true"><use href="#i-arr"/></svg></button>
+  </div>
+
+  <div class="lb-foot">
+    <p class="lb-cap" id="lbCap"></p>
+    <a class="lb-out" id="lbOut" href="#" target="_blank" rel="noopener noreferrer" hidden>
+      Watch on YouTube <svg class="ico-out" aria-hidden="true"><use href="#i-arr-out"/></svg></a>
+  </div>
+</div>
+
+<!-- ============ CTA ============ -->
+<section class="cta" id="book">
+  <div class="cta-media" data-parallax="12" aria-hidden="true"><picture><source type="image/avif" srcset="assets/cta-truck.avif"><img src="assets/cta-truck.jpg" alt="The shuttle crossing a river ford on the way to the trailhead"></picture></div>
+  <div class="cta-shade" aria-hidden="true"></div>
+  <div class="cta-inner" data-parallax-up="5">
+    <h2 class="disp" data-reveal>You ride.<br>We got you<br><span class="l3">all set up</span></h2>
+    <div class="cta-actions">
+      <a class="btn btn-red" href="contact.html" data-reveal>Get in touch <svg class="arr" aria-hidden="true"><use href="#i-arr"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <a class="foot-logo" href="#top" aria-label="Wheels on Fire — back to top"><img src="/assets/wheelsonfire_white-01.png" alt="Wheels on Fire logo"></a>
+    <nav class="foot-nav" aria-label="Footer">
+      <a href="/about-us.html">About us</a><a href="/tours.html">Tours &amp; Packages</a>
+      <a href="/bikes.html">Our bikes</a><a href="/our-adventures.html">Our adventures</a>
+      <a href="/contact.html">Get in touch</a>
+    </nav>
+    <div class="foot-info">
+      <p><b>WHEELS ON FIRE</b> is a MTB guide &amp; shuttle company based in the island of São Miguel, Azores.</p>
+      <div class="foot-social">
+        <a href="https://www.instagram.com/wheelsonfireazores" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.youtube.com/@wheelsonfireazores" target="_blank" rel="noopener noreferrer">YouTube</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>MTB tours — São Miguel — Azores</span><span><a href="/legal.html">Legal</a> · <a href="/general-terms.html">General terms</a></span>
+    <span>Design by Juliana &amp; <a href="https://phaze.design" target="_blank" rel="noopener noreferrer">Phaze Design</a> — © Wheels on Fire 2026</span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="assets/picture.js"></script>
+<script src="assets/parallax.js"></script>
+<script src="assets/site.js"></script>
+<script>
+(function(){
+  /* ---------- the wall ----------
+     One list, in the order it hangs. Each piece says what it is:
+
+       still  — a photograph
+       loop   — a short clip that plays itself, muted, on repeat
+       film   — something with sound you have to ask for: a local file
+                (src) or a YouTube id (yt)
+       poster — artwork rather than a frame
+
+     `wide` gives a piece two columns. Use it sparingly: it is the only
+     hierarchy the wall has.
+
+     The live page reads its films from Sanity; drop those records in
+     here as {k:'film', yt:'...'} and they land in the wall with no
+     other change. */
+  var S = 'assets/story/', W = 'assets/wall/';
+  var ITEMS = [
+    {k:'film',   src:W+'teaser.mp4', poster:W+'teaser.jpg', wide:true, w:1200, h:676,
+     cap:'Vulcana — the teaser', meta:'2025'},
+    {k:'still',  src:S+'still-4.jpg', w:2000, h:1500,  cap:'Faial da Terra, dropping in', meta:'2024'},
+    {k:'loop',   src:W+'sophie.mp4',  poster:W+'sophie.jpg', w:960, h:540,
+     cap:'Sophie, off the top', meta:'2025'},
+    {k:'still',  src:S+'still-11.jpg', w:2000, h:1333, cap:'Wet roots, good grip', meta:'2024'},
+    {k:'poster', src:W+'poster-vulcana.jpg', w:1400, h:1764, cap:'Vulcana — the poster', meta:'2025'},
+    {k:'still',  src:S+'still-7.jpg', w:2000, h:1333,  cap:'Into the trees', meta:'2024'},
+    {k:'loop',   src:W+'toby.mp4',    poster:W+'toby.jpg', w:960, h:540,
+     cap:'Full gas through the trees', meta:'2025'},
+    {k:'still',  src:'assets/jallas-berm.jpg', w:1600, h:2132, cap:'Jallas, on the berm', meta:'2025'},
+    {k:'film',   yt:'XqkRExdx120', poster:S+'mosteiros-bike.jpg', wide:true, w:2000, h:1333,
+     cap:'Bikepacking in the Azores', meta:'2023'},
+    {k:'still',  src:S+'still-9.jpg', w:2000, h:1333,  cap:'Crater rim traverse', meta:'2024'},
+    {k:'still',  src:'assets/ju_bike.jpg', w:2200, h:1467, cap:'Juliana, singlespeed habits', meta:'2024'},
+    {k:'still',  src:S+'still-13.jpg', w:2000, h:1333, cap:'Atlantic on the left', meta:'2024'},
+    {k:'still',  src:S+'jallas-forest.jpg', w:2000, h:1333, cap:'Building, not just riding', meta:'2024'},
+    {k:'still',  src:S+'still-6.jpg', w:2000, h:1333,  cap:'Rolling the ridge', meta:'2024'},
+    {k:'film',   yt:'4iYAmrZAx18', poster:S+'desert-train.jpg', w:2000, h:1330,
+     cap:'The desert train', meta:'2020'},
+    {k:'still',  src:S+'still-12.jpg', w:2000, h:1333, cap:'Riding the old paths', meta:'2024'},
+    {k:'still',  src:S+'still-2.jpg', w:2000, h:1333,  cap:'Forest singletrack', meta:'2024'},
+    {k:'still',  src:S+'still-5.jpg', w:2000, h:1333,  cap:'Volcanic rock and green', meta:'2024'},
+    {k:'still',  src:S+'camping.jpg', w:2000, h:1333,  cap:'Ten weeks in a tent', meta:'2023'},
+    {k:'still',  src:S+'still-8.jpg', w:2000, h:1333,  cap:'Loam and ferns', meta:'2024'},
+    {k:'still',  src:S+'still-3.jpg', w:2000, h:1333,  cap:'Above the coast', meta:'2024'},
+    {k:'still',  src:S+'still-10.jpg', w:2000, h:1333, cap:'A break on the climb', meta:'2024'}
+  ];
+
+  var BADGE = {film:'Film', loop:'Loop', poster:'Poster', still:''};
+
+  /* ---------- build ---------- */
+  var wall = document.getElementById('wall');
+  var esc = function(t){ return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); };
+
+  wall.innerHTML = ITEMS.map(function(it, i){
+    var no = ('0' + (i + 1)).slice(-2);
+    var inner;
+    if (it.k === 'loop'){
+      /* Muted, looping, inline, and it does not start until it is on screen,
+         so a wall of clips does not cook the machine. width/height are the
+         file's own, and they are load-bearing: with preload="none" the
+         element has no intrinsic size until it plays, and the tile would
+         measure itself as a sliver before that. */
+      inner = '<video muted loop playsinline preload="none" width="' + it.w + '" height="' + it.h + '"' +
+              ' poster="' + esc(it.poster) + '" src="' + esc(it.src) + '"></video>';
+    } else {
+      /* width/height are the file's own: with loading="lazy" the element has
+         no intrinsic size until it arrives, and a tile below the fold would
+         measure itself as a sliver — which would collapse the wall and keep
+         the image out of view for good. */
+      var f = it.poster || it.src;
+      inner = WOF_PIC.pic(f,
+              '<img src="' + esc(f) + '" alt="' + esc(it.cap) + '"' +
+              ' width="' + it.w + '" height="' + it.h + '" loading="lazy">');
+    }
+    return '<button class="w-item' + (it.wide ? ' wide' : '') + ' is-' + it.k + '"' +
+      ' type="button" data-i="' + i + '" aria-label="' + esc(it.cap) + '">' +
+      '<span class="w-frame">' + inner +
+        (BADGE[it.k] ? '<span class="w-badge">' + BADGE[it.k] + '</span>' : '') +
+        (it.k === 'film' ? '<span class="w-play" aria-hidden="true"><svg><use href="#i-play"/></svg></span>' : '') +
+      '</span>' +
+      '<span class="w-cap"><i>' + no + '</i>' + esc(it.cap) + '</span>' +
+      '</button>';
+  }).join('');
+
+  /* ---------- heights ----------
+     Each tile claims as many 6px rows as its own content needs. Media does
+     not know its size until it has loaded, so this runs again per piece as
+     each one arrives, and once more on resize. */
+  var ROW = 6;
+  var gap = function(){ return parseFloat(getComputedStyle(wall).rowGap) || 0; };
+  var fit = function(el){
+    var inner = el.firstElementChild;                 /* .w-frame, in flow */
+    var h = inner.getBoundingClientRect().height +
+            el.lastElementChild.getBoundingClientRect().height;
+    var g = gap();
+    el.style.gridRowEnd = 'span ' + Math.max(1, Math.ceil((h + g) / (ROW + g)));
+  };
+  var fitAll = function(){ [].forEach.call(wall.children, fit); };
+
+  [].forEach.call(wall.querySelectorAll('img,video'), function(m){
+    var done = function(){ fit(m.closest('.w-item')); };
+    if (m.tagName === 'IMG'){ m.complete ? done() : m.addEventListener('load', done); }
+    else m.addEventListener('loadedmetadata', done);
+    m.addEventListener('error', done);
+  });
+  fitAll();
+  addEventListener('resize', fitAll);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitAll);
+
+  /* ---------- the loops ----------
+     Play only what is on screen. Anything scrolled away is paused, so the
+     wall stays cheap however many clips end up on it. */
+  if ('IntersectionObserver' in window){
+    /* A clip is loaded on demand, so the first play() can land before there is
+       a single frame to show and be rejected. Wait for canplay and try once
+       more — and only if it is still on screen by then. */
+    var start = function(v){
+      if (v.preload === 'none') v.preload = 'auto';
+      var go = function(){ v.play().catch(function(){}); };
+      if (v.readyState >= 2) go();
+      else v.addEventListener('canplay', function(){ if (v.dataset.want === '1') go(); }, {once:true});
+    };
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        var v = e.target;
+        if (e.isIntersecting){ v.dataset.want = '1'; start(v); }
+        else { v.dataset.want = '0'; v.pause(); }
+      });
+    }, {rootMargin:'200px 0px'});
+    [].forEach.call(wall.querySelectorAll('video'), function(v){ io.observe(v); });
+
+    /* A tab opened in the background reports nothing as on screen, so the
+       loops would sit dead until something moved. Kick them when the page
+       is actually looked at. */
+    document.addEventListener('visibilitychange', function(){
+      if (document.hidden) return;
+      [].forEach.call(wall.querySelectorAll('video'), function(v){
+        var r = v.getBoundingClientRect();
+        if (r.top < innerHeight && r.bottom > 0){ v.dataset.want = '1'; start(v); }
+      });
+    });
+  }
+
+  /* ---------- lightbox ----------
+     One viewer for the whole wall, so the arrows walk the wall itself
+     rather than a sub-list: a photograph, a local film and a YouTube
+     film are three payloads in the same frame. */
+  var lb = document.getElementById('lb'), stage = document.getElementById('lbStage');
+  var elKind = document.getElementById('lbKind'), elIndex = document.getElementById('lbIndex');
+  var elCap = document.getElementById('lbCap'), elOut = document.getElementById('lbOut');
+  var btnPrev = document.getElementById('lbPrev'), btnNext = document.getElementById('lbNext');
+  var btnClose = document.getElementById('lbClose');
+  var media = null, idx = 0, lastFocus = null;
+  /* open and close are both deferred, so a fast close-after-open would let
+     the stale callback win and leave the dialog stuck. One flag decides. */
+  var isOpen = false, raf = null, hideTimer = null;
+
+  var clearMedia = function(){
+    /* pulling the node out is the only dependable way to stop a YouTube
+       iframe — and it stops a <video> just as well */
+    if (media){ media.remove(); media = null; }
+  };
+
+  var render = function(){
+    clearMedia();
+    idx = (idx + ITEMS.length) % ITEMS.length;
+    var it = ITEMS[idx];
+
+    if (it.yt){
+      media = document.createElement('iframe');
+      media.className = 'lb-frame';
+      media.src = 'https://www.youtube-nocookie.com/embed/' + it.yt + '?autoplay=1&rel=0';
+      media.title = it.cap;
+      media.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
+      media.setAttribute('allowfullscreen','');
+      elOut.href = 'https://www.youtube.com/watch?v=' + it.yt;
+      elOut.hidden = false;
+      elKind.textContent = 'Film';
+    } else if (it.k === 'film' || it.k === 'loop'){
+      media = document.createElement('video');
+      media.src = it.src;
+      media.poster = it.poster || '';
+      media.controls = true;
+      media.autoplay = true;
+      media.playsInline = true;
+      /* a loop has no sound of its own — leave it muted and let it run */
+      if (it.k === 'loop'){ media.muted = true; media.loop = true; }
+      elOut.hidden = true;
+      elKind.textContent = it.k === 'loop' ? 'Loop' : 'Film';
+    } else {
+      media = document.createElement('img');
+      media.src = it.src;
+      media.alt = it.cap;
+      elOut.hidden = true;
+      elKind.textContent = it.k === 'poster' ? 'Poster' : 'Still';
+    }
+
+    stage.appendChild(media);
+    elCap.textContent = it.cap;
+    elIndex.textContent = (idx + 1) + ' / ' + ITEMS.length;
+    btnPrev.disabled = btnNext.disabled = ITEMS.length < 2;
+  };
+
+  var open = function(i){
+    idx = i; isOpen = true;
+    clearTimeout(hideTimer); cancelAnimationFrame(raf);
+    lastFocus = document.activeElement;
+    lb.hidden = false;
+    raf = requestAnimationFrame(function(){ if (isOpen) lb.classList.add('open'); });
+    document.body.classList.add('locked');
+    render();
+    btnClose.focus({preventScroll:true});
+  };
+
+  var close = function(){
+    isOpen = false;
+    cancelAnimationFrame(raf);
+    lb.classList.remove('open');
+    document.body.classList.remove('locked');
+    clearMedia();
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(function(){ if (!isOpen) lb.hidden = true; }, 320);
+    if (lastFocus) lastFocus.focus({preventScroll:true});
+  };
+
+  var step = function(d){ idx += d; render(); };
+
+  wall.addEventListener('click', function(e){
+    var b = e.target.closest('.w-item'); if (!b) return;
+    open(+b.dataset.i);
+  });
+  btnPrev.addEventListener('click', function(){ step(-1); });
+  btnNext.addEventListener('click', function(){ step(1); });
+  btnClose.addEventListener('click', close);
+  lb.addEventListener('click', function(e){ if (e.target === lb || e.target === stage) close(); });
+
+  document.addEventListener('keydown', function(e){
+    if (lb.hidden) return;
+    if (e.key === 'Escape'){ e.stopPropagation(); close(); }
+    else if (e.key === 'ArrowLeft'  && !btnPrev.disabled) step(-1);
+    else if (e.key === 'ArrowRight' && !btnNext.disabled) step(1);
+  }, true);   /* capture, so Escape closes the lightbox and not the menu */
+})();
+</script>
+</body>
+</html>

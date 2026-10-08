@@ -1,0 +1,39 @@
+/* ============================================================
+   WHEELS ON FIRE — the horizontal rail, shared.
+
+   One scrolling row of tiles with a pair of arrows over it. The homepage
+   uses it three times (tours, reviews, Instagram) and every tour detail
+   page ends with one. Behaviour is assets/rail.js.
+
+   The rail bleeds to both page edges: the negative margin pulls it past
+   the page padding and the matching padding puts the first tile back on
+   the measure, so a card can sit half off the screen instead of stopping
+   short of it. scroll-padding-inline keeps snapping aligned to that.
+   ============================================================ */
+
+/* the head: a title on the left, the arrows (and whatever else) on the right */
+.rail-head{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;
+  margin-bottom:clamp(26px,4vh,44px);flex-wrap:wrap}
+.rail-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.rail-nav{display:flex;gap:8px}
+
+.rail-btn{width:54px;height:54px;border:1px solid rgba(20,17,15,.35);background:transparent;color:var(--ink);
+  display:grid;place-items:center;cursor:pointer;
+  transition:background .25s ease,color .25s ease,border-color .25s ease,opacity .25s ease}
+.rail-btn svg{width:26px;height:19px}
+.rail-btn:hover:not(:disabled){background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.rail-btn:disabled{opacity:.28;cursor:default}
+/* the arrows are drawn for a cream ground; on a dark one they invert */
+.rail-btn.on-dark{border-color:rgba(241,237,228,.35);color:var(--cream)}
+.rail-btn.on-dark:hover:not(:disabled){background:var(--cream);color:var(--ink);border-color:var(--cream)}
+
+.tour-rail{display:grid;grid-auto-flow:column;grid-auto-columns:clamp(250px,27vw,360px);
+  gap:clamp(12px,1.6vw,20px);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;
+  padding:0 var(--pad) 4px;margin:0 calc(var(--pad) * -1);scroll-padding-inline:var(--pad)}
+.tour-rail::-webkit-scrollbar{display:none}
+@media (max-width:900px){.tour-rail{grid-auto-columns:clamp(220px,68vw,320px)}}
+
+/* On a phone the arrows are redundant: a row of cards cut off at the edge is
+   already the universal sign that it scrolls, and the thumb does it directly.
+   The rail itself keeps its overflow and snapping — only the buttons go. */
+@media (max-width:860px){ .rail-nav{display:none} }

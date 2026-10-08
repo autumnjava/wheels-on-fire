@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Design proposal for client review — must not be indexed as the live site. -->
+<meta name="robots" content="noindex,nofollow">
+<title>Tours &amp; Packages — Wheels on Fire</title>
+<!--
+  WHEELS ON FIRE — Tours & Packages
+  · Hero: photo, breadcrumb up top with real weight, price range.
+  · Themed cards (sage / slate / ochre / clay / pine / rose) keep the grid off black-and-red.
+  · A card or a pin opens the tour as a themed quick-view overlay.
+
+  Tours 01-05 are backed by the client's Trailforks GPX (assets/tours-geo.js):
+  real distance, ascent, descent, altimetry, pin position and route shape.
+  Grouping and riding order are the client's, not the shortest-link order.
+  Tours 06-08 still run on placeholder numbers and a generated trail line.
+-->
+<!-- tour detail design, shared with the standalone tour pages -->
+<link rel="stylesheet" href="assets/page-head.css">
+<link rel="stylesheet" href="assets/tour-colours.css">
+<link rel="stylesheet" href="assets/tour-card.css">
+<link rel="stylesheet" href="/assets/cta.css">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/assets/chrome.css">
+<style>
+/* ============ FONTS ============ */
+/* Each file is a single cut that ALREADY is its bold. Declaring the 400-700
+   range maps a heading's default weight:700 onto the real file instead of
+   letting the browser fake it — faux bold smears the glyphs, which doubles and
+   breaks every -webkit-text-stroke outline. */
+@font-face{font-family:'FuturaXB';src:url('assets/fonts/Futura-Condensed-Extra-Bold.otf') format('opentype');font-weight:400 700;font-display:swap}
+@font-face{font-family:'FuturaMd';src:url('assets/fonts/Futura-Condensed-Medium.otf') format('opentype');font-weight:400 700;font-display:swap}
+@font-face{font-family:'Futura';src:url('assets/fonts/Futura-Bold.woff') format('woff');font-weight:700;font-display:swap}
+@font-face{font-family:'Andale';src:url('assets/fonts/ANDALEMO.TTF') format('truetype');font-weight:400 700;font-display:swap}
+@font-face{font-family:'AndaleB';src:url('assets/fonts/ANDALEBMO.TTF') format('truetype');font-weight:400 700;font-display:swap}
+
+/* ============ TOKENS ============ */
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--cream);font-family:var(--mono);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
+body.locked{overflow:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--red);color:var(--cream)}
+.disp{font-family:var(--disp);font-weight:700;text-transform:uppercase;line-height:.84;letter-spacing:-0.03em}
+/* A line-height of .84 is an optical setting for display type at 100px and up,
+   where the cap height fills the line and the tightness reads as deliberate.
+   At the 34-44px these headings fall to on a phone the lines nearly touch, so
+   the ratio opens up as the type gets smaller. */
+@media (max-width:640px){ .disp{line-height:.95} }
+
+/* Same treatment as CLASH in the Our Bikes hero: a hairline stroke that stays
+   thin at poster scale, and a touch more letter-spacing so the outlines of
+   neighbouring glyphs never collide. */
+.outline-c,.outline-i{letter-spacing:-0.02em}
+.outline-c{color:var(--cream)}
+.outline-i{color:var(--ink)}
+.kicker{display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase}
+.kicker::before{content:'';width:10px;height:10px;background:var(--red);flex:none}
+
+/* ============ BUTTONS ============ */
+.btn{display:inline-flex;align-items:center;gap:14px;font-family:var(--med);text-transform:uppercase;letter-spacing:.08em;font-size:15px;padding:14px 26px;border:1px solid;cursor:pointer;position:relative;overflow:hidden;transition:color .28s ease;isolation:isolate}
+.btn::after{content:'';position:absolute;inset:0;transform:translateY(101%);transition:transform .28s cubic-bezier(.65,0,.35,1);z-index:-1}
+.btn:hover::after{transform:translateY(0)}
+.btn .arr{width:26px;height:19px;flex:none;transition:transform .28s cubic-bezier(.22,1,.36,1)}
+.btn:hover .arr{transform:translateX(6px)}
+.btn-red{background:var(--red);border-color:var(--red);color:var(--cream)}
+.btn-red::after{background:var(--cream)}
+.btn-red:hover{color:var(--ink)}
+.btn-ghost-i{background:transparent;border-color:rgba(20,17,15,.45);color:var(--ink)}
+.btn-ghost-i::after{background:var(--ink)}
+.btn-ghost-i:hover{color:var(--cream);border-color:var(--ink)}
+
+/* the header and the menu are assets/chrome.css, shared */
+
+/* ============ HERO ============ */
+.hero{position:relative;min-height:var(--page-hero-h,60svh);display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+.hero-media{position:absolute;inset:-12% 0;z-index:0}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 45%}
+.hero-shade{position:absolute;inset:0;z-index:1;background:
+  radial-gradient(95% 95% at 12% 106%, rgba(20,17,15,.88) 0%, rgba(20,17,15,.72) 32%,
+    rgba(20,17,15,.30) 60%, rgba(20,17,15,0) 80%)}
+/* the track is drawn straight onto the tour photo, over contour lines —
+   swap this whole block for the Strava map embed once the real GPX exists */
+/* lifts the white track off busy foliage without flattening the photo */
+/* mirrors .tov-body + .tov-top so the track sits over the altimetry column */
+
+.hero-content{position:relative;z-index:3;padding:0 var(--pad) clamp(56px,8vh,110px)}
+/* Pinned to the same landmark as the Our Bikes crumb, and styled to match it,
+   so the line does not jump when you move between pages. */
+.hero h1{font-size:var(--fs-display)}
+.hero h1 .dot{color:var(--red)}
+.hero-price{padding-left:22px;border-left:1px solid rgba(241,237,228,.3)}
+.hero-price .pr{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--cream-dim);margin-bottom:6px}
+.hero-price b{display:block;font-family:var(--disp);letter-spacing:-0.03em;font-size:clamp(38px,4.8vw,74px);font-weight:700;line-height:.85;color:var(--cream)}
+@media (max-width:640px){.hero-price{padding-left:0;border-left:0}.crumb{font-size:10px;letter-spacing:.12em}}
+
+/* ============ MARQUEE ============ */
+.marquee{background:var(--red);color:var(--cream);overflow:hidden;transform:rotate(-1.3deg) scale(1.02);margin:clamp(-46px,-4vh,-26px) 0 0;position:relative;z-index:5}
+.marquee-track{display:flex;white-space:nowrap;width:max-content;animation:mq 30s linear infinite}
+.marquee-chunk{display:flex;align-items:center;padding:clamp(18px,2.6vh,30px) 0}
+.marquee-chunk span{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:-0.02em;font-size:clamp(26px,4vw,54px);padding:0 28px}
+.marquee-chunk .mq-o{color:transparent;-webkit-text-stroke:1.6px var(--cream)}
+.marquee-chunk i{font-style:normal;font-family:var(--mono);font-size:18px}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* ============ SECTIONS ============ */
+.light{background:var(--cream);color:var(--ink)}
+.section{padding:clamp(58px,9vh,120px) var(--pad)}
+.label-row{display:flex;align-items:center;gap:18px;margin-bottom:clamp(28px,4.5vh,50px);flex-wrap:wrap}
+.label-row .kicker{flex:none}
+.light .label-row .rule{flex:1;height:1px;background:var(--line-l)}
+.dark .label-row .rule{flex:1;height:1px;background:var(--line-d)}
+.label-row .idx{font-family:var(--mono);font-size:12px;white-space:nowrap}
+.light .label-row .idx{color:var(--ink-dim)}
+.dark .label-row .idx{color:var(--cream-dim)}
+
+/* ============ PACKAGES ============ */
+.pk-sub{max-width:52ch;color:var(--ink-dim);font-size:14px;margin-bottom:20px}
+/* Condition of the booking, not fine print — it sits with the intro rather than
+   at the foot of the section, and carries the red mark the site uses for alerts. */
+/* A fill at 5% cream turns the red rule into a box: on the dark ground the
+   bare rule read as a stray line rather than as a note. Enough to separate it
+   from the section, not enough to become a panel. */
+.pk-alert{display:inline-flex;align-items:center;gap:12px;font-family:var(--monob);font-size:12.5px;
+  letter-spacing:.06em;color:var(--ink);border-left:2px solid var(--red);
+  background:rgba(241,237,228,.05);padding:14px 20px 14px 16px;
+  margin-bottom:clamp(32px,5vh,58px)}
+.pk-alert .pk-i{width:19px;height:19px;flex:none;color:var(--red)}
+@media (max-width:820px){.pk-grid{grid-template-columns:1fr;gap:44px}}
+
+/* ============ MAP — its own section ============ */
+/* sticky needs a containing block that spans map + cards, and no overflow clip */
+.explore{position:relative;background:var(--ink)}
+.explore .grid-lines{position:absolute;inset:0;z-index:0;opacity:.55;
+  background-image:repeating-linear-gradient(0deg,transparent 0 54px,rgba(241,237,228,.04) 54px 55px),
+                   repeating-linear-gradient(90deg,transparent 0 54px,rgba(241,237,228,.04) 54px 55px)}
+.explore-head{position:relative;z-index:1;padding:0 var(--pad)}
+.cards-wrap{position:relative;z-index:1;background:var(--ink);padding:clamp(54px,9vh,110px) var(--pad) clamp(58px,9vh,120px)}
+/* The title and its line of intro on the left, the riding-level note off to
+   the right. Both paragraphs came off a cream section, so they are recoloured
+   for the dark ground they sit on now. */
+.map-top{display:flex;justify-content:space-between;align-items:flex-end;
+  gap:clamp(22px,4vw,64px);flex-wrap:wrap;margin-bottom:clamp(22px,3.4vh,38px)}
+.map-top-lead{display:flex;flex-direction:column;align-items:flex-start;gap:clamp(12px,1.8vh,18px)}
+.map-top .pk-sub{color:var(--cream-dim);margin-bottom:0}
+.map-top .pk-alert{color:var(--cream);margin-bottom:0;max-width:34ch}
+.map-top h2{font-size:var(--fs-display-col)}
+.map-top h2 .fire{color:var(--red)}
+.map-top p{max-width:42ch;font-size:14px;color:var(--cream-dim)}
+/* The three groups and the result count sit on one line, spread edge to edge.
+   They only stack once there genuinely is not room — see the 1100px block. */
+.filters{position:sticky;top:var(--hh,84px);z-index:40;display:flex;gap:clamp(16px,2.6vw,42px);
+  flex-wrap:nowrap;justify-content:space-between;align-items:center;
+  /* No side padding: the bar lives inside .cards-wrap, which already insets it,
+     so the first button lines up with the left edge of the card grid. */
+  padding:16px 0;border-top:1px solid var(--line-d);border-bottom:1px solid var(--line-d);
+  margin-bottom:clamp(20px,3.4vh,38px);background:rgba(26,26,26,.94);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  box-shadow:0 16px 24px -20px rgba(0,0,0,.95)}
+.fgroup{display:flex;align-items:center;gap:10px;flex-wrap:nowrap;white-space:nowrap}
+.fgroup > span{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--cream-dim)}
+.fbtn{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--cream-dim);background:transparent;border:1px solid var(--line-d);padding:7px 14px;cursor:pointer;transition:color .22s ease,border-color .22s ease,background .22s ease}
+.fbtn:hover{color:var(--cream);border-color:rgba(241,237,228,.4)}
+.fbtn[aria-pressed="true"]{background:var(--red);border-color:var(--red);color:var(--cream)}
+.fcount{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--cream-dim);white-space:nowrap}
+@media (max-width:1100px){
+  .filters{flex-wrap:wrap;justify-content:flex-start}
+  .fcount{margin-left:auto}
+}
+/* On a phone .fgroup's nowrap was pushing the Level row to 486px inside a
+   371px screen, so the whole page scrolled sideways. Each group now takes a
+   line of its own, label above and buttons wrapping under it. The bar also
+   stops being sticky here: three stacked groups are 190px tall, and pinning
+   that to the top would cost a quarter of the screen for the whole scroll. */
+@media (max-width:760px){
+  .filters{position:static;flex-direction:column;align-items:stretch;gap:14px;
+    padding:18px 0}
+  .fgroup{flex-wrap:wrap;white-space:normal;align-items:center;gap:8px}
+  .fgroup > span{flex:0 0 100%}
+  /* 31px was under the thumb's comfortable minimum; these are the page's
+     main control and they are tapped, not clicked. */
+  .fbtn{font-size:11px;letter-spacing:.1em;padding:0 14px;
+    min-height:42px;display:inline-flex;align-items:center}
+  .fcount{margin-left:0}
+}
+/* difficulty reads as an arc around the disc, so it never covers the number */
+
+/* ============ CARDS ============ */
+.cards-sec{background:var(--ink-2)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.9vw,26px)}
+@media (max-width:1100px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:700px){.cards{grid-template-columns:1fr}}
+.card{position:relative;display:grid;grid-template-rows:auto 1fr;background:var(--th);color:var(--ink);
+  border:0;text-align:left;cursor:pointer;overflow:hidden;padding:0;font:inherit;
+  transition:transform .45s cubic-bezier(.22,1,.36,1)}
+.card:hover{transform:translateY(-6px)}
+.card.hide{display:none}
+.card-img{position:relative;display:block;aspect-ratio:16/10;overflow:hidden}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.22,1,.36,1)}
+.card:hover .card-img img{transform:scale(1.06)}
+.card-no{position:absolute;top:14px;left:16px;z-index:2;font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:var(--ink);background:var(--th);padding:4px 9px}
+.card-type{position:absolute;top:14px;right:16px;z-index:2;font-family:var(--med);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--th);background:var(--ink);padding:5px 11px}
+.card-body{padding:clamp(16px,1.8vw,24px);display:flex;flex-direction:column;gap:12px}
+.card h3{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:-0.03em;font-size:clamp(26px,2.7vw,40px);line-height:.9}
+.card-chips{display:flex;gap:7px;flex-wrap:wrap}
+.card-chips span{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;padding:4px 10px;border:1px solid rgba(20,17,15,.4)}
+.card-foot{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:auto;padding-top:14px;border-top:1px solid rgba(20,17,15,.28)}
+.card-foot .pr{font-family:var(--med);font-size:14px;letter-spacing:.04em}
+.card-foot .pr b{font-family:var(--disp);font-weight:700;font-size:22px;letter-spacing:-0.02em}
+.card-open{display:inline-flex;align-items:center;gap:10px;font-family:var(--med);font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+.card-open svg{width:24px;height:18px;transition:transform .28s ease}
+.card:hover .card-open svg{transform:translateX(5px)}
+
+/* ============ QUICK-VIEW OVERLAY ============ */
+/* stays painted while the sheet wipes back down, so the exit mirrors the entry */
+/* context on the left of the close, both on the same row */
+
+/* ============ PRIVATE / CTA / FOOTER ============ */
+/* the CTA band is assets/cta.css, shared */
+footer{background:var(--ink-2);padding:clamp(56px,9vh,110px) var(--pad) 34px;border-top:1px solid var(--line-d)}
+.foot-grid{display:grid;grid-template-columns:auto 1fr auto;gap:clamp(36px,6vw,110px);align-items:center;margin-bottom:clamp(48px,8vh,90px)}
+.foot-logo img{width:clamp(150px,24vw,340px)}
+.foot-nav{display:grid;grid-template-columns:repeat(2,max-content);gap:12px clamp(40px,5vw,90px)}
+.foot-nav a{font-family:var(--disp);font-weight:700;letter-spacing:-0.02em;text-transform:uppercase;font-size:clamp(20px,2.2vw,30px);line-height:1.15;transition:color .22s}
+.foot-nav a:hover{color:var(--red)}
+.foot-info{max-width:280px;display:flex;flex-direction:column;gap:20px}
+.foot-info p{font-size:12.5px;color:var(--cream-dim)}
+.foot-info p b{color:var(--red);font-family:var(--monob);font-weight:400}
+.foot-social{display:flex;gap:22px;font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+.foot-social a{border-bottom:1px solid var(--line-d);padding-bottom:3px}
+.foot-social a:hover{color:var(--red);border-color:var(--red)}
+.foot-bottom{border-top:1px solid var(--line-d);padding-top:22px;display:flex;justify-content:space-between;gap:14px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(241,237,228,.4);flex-wrap:wrap}
+/* The bottom line holds three links — Legal, General terms and the studio —
+   in the same dim colour as the text around them, which left them looking
+   like plain words. A hairline under them says they are clickable without
+   brightening a line that is meant to sit back. */
+.foot-bottom a{text-decoration:underline;text-decoration-color:rgba(241,237,228,.28);
+  text-underline-offset:3px;transition:color .22s ease,text-decoration-color .22s ease}
+.foot-bottom a:hover{text-decoration-color:var(--cream)}
+@media (max-width:900px){.foot-grid{grid-template-columns:1fr;gap:44px;justify-items:start}.foot-nav{grid-template-columns:1fr}}
+
+.grain{position:fixed;inset:0;z-index:80;pointer-events:none;opacity:.05;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+[data-reveal]{opacity:0;transform:translateY(42px)}
+.no-anim [data-reveal]{opacity:1 !important;transform:none !important}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}
+  [data-reveal]{opacity:1 !important;transform:none !important}
+  .marquee-track{animation:none !important}
+  .menu-overlay.open .mo-panel,.tov.open .tov-sheet{clip-path:inset(0)}
+}
+</style>
+<noscript><style>[data-reveal]{opacity:1;transform:none}</style></noscript>
+<link rel="stylesheet" href="/assets/picture.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-arr" viewBox="0 0 32 24"><path d="M1 12h29M20 2l10 10-10 10" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></symbol>
+  <symbol id="i-arr-out" viewBox="0 0 24 24"><path d="M5 19 19 5M8 5h11v11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></symbol>
+</svg>
+
+<div class="grain" aria-hidden="true"></div>
+
+<header id="header">
+  <button class="menu-btn" id="menuToggle" aria-label="Menu" aria-expanded="false" aria-controls="menuOverlay">
+    <span class="bars" aria-hidden="true"><span></span><span></span></span>
+    <span class="label" aria-hidden="true"><span class="l-menu">Menu</span><span class="l-close">Close</span></span>
+  </button>
+  <a href="/index.html" class="logo-badge" aria-label="Wheels on Fire — home">
+    <img class="logo-full" src="/assets/wheelsonfire_white-01.png" alt="Wheels on Fire">
+    <span class="logo-mini" aria-hidden="true"><span class="lm-mark">
+      <img class="lm-tire" id="lmTire" src="/assets/logo-tire.png" alt="">
+      <img class="lm-flames" src="/assets/logo-flames.png" alt="">
+      <img class="lm-word" src="/assets/logo-word.png" alt=""></span></span>
+  </a>
+  <a href="/contact.html" class="btn btn-red">Get in touch</a>
+</header>
+
+<div class="menu-overlay" id="menuOverlay" role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="mo-panel mo-nav"><div class="mo-inner">
+    <nav class="mo-links" aria-label="Main">
+      <a href="/index.html" data-menu-link data-shot="0"><span>Home</span></a>
+      <a href="/about-us.html" data-menu-link data-shot="1"><span>About us</span></a>
+      <a href="/tours.html" data-menu-link aria-current="page" data-shot="2"><span>Tours &amp; Packages</span></a>
+      <a href="/bikes.html" data-menu-link data-shot="3"><span>Our bikes</span></a>
+      <a href="/our-adventures.html" data-menu-link data-shot="4"><span>Our adventures</span></a>
+      <a href="/contact.html" data-menu-link data-shot="5"><span>Get in touch</span></a>
+    </nav>
+    <div class="mo-side">
+      <div><p class="lbl">Bookings</p>
+        <p><a href="mailto:wheelsonfireazores@gmail.com">wheelsonfireazores@gmail.com</a></p>
+        </div>
+      <div><p class="lbl">Follow</p>
+        <p><a href="https://www.instagram.com/wheelsonfireazores" target="_blank" rel="noopener noreferrer">Instagram<svg class="ico-out" aria-hidden="true"><use href="#i-arr-out"/></svg></a>
+        &nbsp; <a href="https://www.youtube.com/@wheelsonfireazores" target="_blank" rel="noopener noreferrer">YouTube<svg class="ico-out" aria-hidden="true"><use href="#i-arr-out"/></svg></a></p></div>
+    </div>
+  </div></div>
+  <div class="mo-panel mo-visual" aria-hidden="true">
+    <div class="mo-shots" id="moShots">
+      <picture><source type="image/avif" srcset="/assets/hero-poster.avif"><img class="on" src="/assets/hero-poster.jpg" alt="" data-cap="MTB adventures — S. Miguel"></picture>
+      <picture><source type="image/avif" srcset="/assets/jj-trail.avif"><img src="/assets/jj-trail.jpg" alt="" data-cap="Jallas &amp; Juliana — in the green"></picture>
+      <picture><source type="image/avif" srcset="/assets/tours-hero.avif"><img src="/assets/tours-hero.jpg" alt="" data-cap="Tours &amp; packages — out on the trail"></picture>
+      <picture><source type="image/avif" srcset="/assets/tours/westside-1.avif"><img src="/assets/tours/westside-1.jpg" alt="" data-cap="Westside — down to the sea"></picture>
+      <picture><source type="image/avif" srcset="/assets/red-road.avif"><img src="/assets/red-road.jpg" alt="" data-cap="Bikepacking the Azores"></picture>
+      <picture><source type="image/avif" srcset="/assets/cta-truck.avif"><img src="/assets/cta-truck.jpg" alt="" data-cap="The shuttle — river ford"></picture>
+    </div>
+    <p class="mo-shot-cap" id="moCap">MTB adventures — S. Miguel</p>
+  </div>
+</div>
+
+<section class="hero" id="top">
+  <div class="hero-media" data-parallax aria-hidden="true"><picture><source type="image/avif" srcset="assets/tours-hero.avif"><img src="assets/tours-hero.jpg" alt=""></picture></div>
+  <div class="hero-shade" aria-hidden="true"></div>
+
+
+  <div class="hero-content">
+    <div class="page-head">
+      <nav class="crumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a><span class="sep">/</span><span class="here">Tours &amp; Packages</span>
+      </nav>
+      <h1 class="disp" data-reveal>Tours &amp; Packages</h1>
+    </div>
+  </div>
+</section>
+
+
+
+<div class="explore dark">
+  <div class="grid-lines" aria-hidden="true"></div>
+
+  <div class="cards-wrap" id="tours">
+    <div class="label-row" data-reveal><p class="kicker">Our tours</p><div class="rule"></div></div>
+
+    <div class="map-top">
+      <div class="map-top-lead">
+        <h2 class="disp" data-reveal>MTB &amp;<br>EMTB Tours</h2>
+        <p class="pk-sub" data-reveal>Either in for a half, full or a couple of days — you'll sure feel your
+          wheels on fire!</p>
+      </div>
+      <p class="pk-alert" data-reveal>
+        <svg class="pk-i" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="10.4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="12" cy="7.3" r="1.2" fill="currentColor"/>
+          <path d="M12 10.9v6.4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+        </svg>Ride will be adjusted to your needs &amp; skills</p>
+    </div>
+
+    <div class="filters" role="group" aria-label="Filter tours" data-reveal>
+      <div class="fgroup"><span>Bike</span>
+        <button class="fbtn" data-f="type" data-v="all"  aria-pressed="true">All</button>
+        <button class="fbtn" data-f="type" data-v="mtb"  aria-pressed="false">MTB</button>
+        <button class="fbtn" data-f="type" data-v="emtb" aria-pressed="false">E-MTB</button>
+      </div>
+      <div class="fgroup"><span>Duration</span>
+        <button class="fbtn" data-f="dur" data-v="all"  aria-pressed="true">All</button>
+        <button class="fbtn" data-f="dur" data-v="half" aria-pressed="false">Half day</button>
+        <button class="fbtn" data-f="dur" data-v="full" aria-pressed="false">Full day</button>
+      </div>
+      <div class="fgroup"><span>Level</span>
+        <button class="fbtn" data-f="lvl" data-v="all"          aria-pressed="true">All</button>
+        <button class="fbtn" data-f="lvl" data-v="alllevels"    aria-pressed="false">All levels</button>
+        <button class="fbtn" data-f="lvl" data-v="intermediate" aria-pressed="false">Intermediate</button>
+        <button class="fbtn" data-f="lvl" data-v="advanced"     aria-pressed="false">Advanced</button>
+      </div>
+      <p class="fcount" id="fcount" aria-live="polite">6 tours</p>
+    </div>
+
+    <div class="cards" id="cards"></div>
+  </div>
+</div>
+
+
+
+<section class="cta" id="book">
+  <div class="cta-media" data-parallax="12" aria-hidden="true"><picture><source type="image/avif" srcset="assets/cta-truck.avif"><img src="assets/cta-truck.jpg" alt="The shuttle crossing a river ford on the way to the trailhead"></picture></div>
+  <div class="cta-shade" aria-hidden="true"></div>
+  <div class="cta-inner" data-parallax-up="5">
+    <h2 class="disp" data-reveal>You ride.<br>We got you<br><span class="l3">all set up</span></h2>
+    <div class="cta-actions" data-reveal>
+      <a class="btn btn-red" href="contact.html">Book now <svg class="arr" aria-hidden="true"><use href="#i-arr"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <a class="foot-logo" href="#top" aria-label="Wheels on Fire — back to top"><img src="/assets/wheelsonfire_white-01.png" alt="Wheels on Fire logo"></a>
+    <nav class="foot-nav" aria-label="Footer">
+      <a href="/about-us.html">About us</a><a href="/tours.html">Tours &amp; Packages</a>
+      <a href="/bikes.html">Our bikes</a><a href="/our-adventures.html">Our adventures</a>
+      <a href="/contact.html">Get in touch</a>
+    </nav>
+    <div class="foot-info">
+      <p><b>WHEELS ON FIRE</b> is a MTB guide &amp; shuttle company based in the island of São Miguel, Azores.</p>
+      <div class="foot-social">
+        <a href="https://www.instagram.com/wheelsonfireazores" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.youtube.com/@wheelsonfireazores" target="_blank" rel="noopener noreferrer">YouTube</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>MTB tours — São Miguel — Azores</span><span><a href="/legal.html">Legal</a> · <a href="/general-terms.html">General terms</a></span>
+    <span>Design by Juliana &amp; <a href="https://phaze.design" target="_blank" rel="noopener noreferrer">Phaze Design</a> — © Wheels on Fire 2026</span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<!-- assets/tours-geo.js (Trailforks GPX) is no longer loaded: the route traces
+     and elevation charts it fed are switched off so the real trail lines stay
+     private. The file is kept in the repo for when that changes. -->
+  <script src="assets/picture.js"></script>
+  <script src="assets/tours-data.js"></script>
+  <script src="assets/tour-card.js"></script>
+<script>
+(function(){
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const coarse  = window.matchMedia('(pointer: coarse)').matches;
+  const docEl   = document.documentElement;
+  const TOURS   = window.WOF_TOURS;
+
+  /* ---------- header ---------- */
+  const header=document.getElementById('header'), lmSpin=document.getElementById('lmTire');
+
+  /* the sticky filter bar docks straight under the header, so it needs the real
+     header height — which changes when the header shrinks on scroll */
+  let lastHH=-1;
+  const syncHeadHeight=()=>{
+    const h=Math.round(header.getBoundingClientRect().height);
+    if(h!==lastHH){ lastHH=h; docEl.style.setProperty('--hh', h+'px'); }
+  };
+  syncHeadHeight();
+  if('ResizeObserver' in window) new ResizeObserver(syncHeadHeight).observe(header);
+  window.addEventListener('resize', syncHeadHeight, {passive:true});
+  /* the padding change is transitioned — keep measuring until it settles */
+  header.addEventListener('transitionend', syncHeadHeight);
+
+  let ticking=false;
+  const onScroll=()=>{ if(ticking)return; ticking=true;
+    requestAnimationFrame(()=>{ header.classList.toggle('scrolled', window.scrollY>60); syncHeadHeight();
+      if(lmSpin&&!reduced) lmSpin.style.transform='rotate('+(window.scrollY*0.4%360)+'deg)';
+      ticking=false; }); };
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  /* Route trace + elevation profile are both derived from the real GPX, so they
+     pinpoint the trails. Flipped off for the client; flip back to true and the
+     markup, styling and interaction all return exactly as they were. */
+  const SHOW_ROUTE = false;
+
+  /* ---------- menu ---------- */
+  const overlay=document.getElementById('menuOverlay'), toggle=document.getElementById('menuToggle');
+  const shots=[...document.querySelectorAll('#moShots img')], cap=document.getElementById('moCap');
+  const mlinks=[...overlay.querySelectorAll('[data-menu-link]')];
+  let menuTl=null, menuBusy=false;
+  mlinks.forEach(a=>{ const show=()=>{ const i=+a.dataset.shot;
+    shots.forEach((im,n)=>im.classList.toggle('on',n===i)); cap.textContent=shots[i].dataset.cap; };
+    a.addEventListener('mouseenter',show); a.addEventListener('focus',show); });
+  const isMenuOpen=()=>toggle.getAttribute('aria-expanded')==='true';
+  const canAnimate=!reduced && typeof gsap!=='undefined';
+  const setMenu=(open)=>{
+    if(menuBusy||open===isMenuOpen())return;
+    toggle.setAttribute('aria-expanded',open);
+    docEl.style.overflow=open?'hidden':'';
+    document.body.classList.toggle('menu-open',open);
+    if(!canAnimate){overlay.classList.toggle('open',open);return;}
+    menuBusy=true;
+    if(!menuTl){ overlay.classList.add('open');
+      menuTl=gsap.timeline({paused:true,
+        onReverseComplete(){overlay.classList.remove('open');menuBusy=false;},
+        onComplete(){menuBusy=false;}})
+        .to('.mo-nav',{clipPath:'inset(0 0 0% 0)',duration:.6,ease:'expo.inOut'})
+        .to('.mo-visual',{clipPath:'inset(0 0 0% 0)',duration:.6,ease:'expo.inOut'},.08)
+        .from(mlinks,{y:34,opacity:0,duration:.55,ease:'power3.out',stagger:.055},.32)
+        .from('.mo-side',{y:16,opacity:0,duration:.45,ease:'power2.out'},.5)
+        .from('.mo-shot-cap',{opacity:0,duration:.4},.55); }
+    if(open){overlay.classList.add('open');menuTl.play();} else {menuTl.reverse();}
+  };
+  toggle.addEventListener('click',()=>setMenu(!isMenuOpen()));
+  mlinks.forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+  /* ---------- cards ---------- */
+  const cardsEl=document.getElementById('cards');
+  cardsEl.innerHTML = TOURS.map(WOF_CARD.html).join('');
+
+  /* The quick view is gone: a card opens the tour's own page, so the detail
+     is rendered once instead of twice. */
+
+  /* ---------- filters ---------- */
+  const state={type:'all',dur:'all',lvl:'all'};
+  const matches=t=>
+    /* 'any' belongs to both bikes — the Private Tour must survive every filter. */
+    (state.type==='all'||t.type===state.type||t.type==='any') &&
+    (state.dur ==='all'||t.durations.includes(state.dur)) &&
+    (state.lvl ==='all'||t.levels.includes(state.lvl));
+  const applyFilters=()=>{
+    let n=0;
+    TOURS.forEach(t=>{
+      const ok=matches(t); if(ok)n++;
+      cardsEl.querySelector(`[data-tour="${t.id}"]`).classList.toggle('hide',!ok);
+    });
+    const fc=document.getElementById('fcount');
+    if(fc) fc.textContent = n + (n===1?' tour':' tours');
+  };
+  document.querySelectorAll('.fbtn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const f=btn.dataset.f; state[f]=btn.dataset.v;
+      document.querySelectorAll(`.fbtn[data-f="${f}"]`).forEach(b=>
+        b.setAttribute('aria-pressed',String(b===btn)));
+      applyFilters();
+    });
+  });
+  applyFilters();
+
+  /* ---------- motion ---------- */
+  if(reduced || typeof gsap==='undefined'){ document.body.classList.add('no-anim'); return; }
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.querySelectorAll('[data-reveal]').forEach(el=>{
+    gsap.fromTo(el,{y:42,opacity:0},{y:0,opacity:1,duration:.9,ease:'power3.out',
+      scrollTrigger:{trigger:el,start:'top 97%',once:true}});
+  });
+  gsap.fromTo('.card',{y:40,opacity:0},
+    {y:0,opacity:1,duration:.75,ease:'power3.out',stagger:.08,
+     scrollTrigger:{trigger:'#cards',start:'top 88%',once:true}});
+  if(!coarse){
+    /* assets/parallax.js — the same layers the other pages use */
+    if(window.WOF_PARA) WOF_PARA.wire(document);
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+/* ============================================================
+   WHEELS ON FIRE — page header.
+
+   The breadcrumb and the page title are one unit: the crumb is the
+   title's overline. They live in a single container so the pairing and
+   the gap are defined once here and are identical on every page.
+
+   Loaded by every page that has a header — including the four original
+   pages, which otherwise carry their own inline CSS. This is the piece
+   they share, so the header can never drift between them.
+   ============================================================ */
+/* A shadow on the type, not more darkness on the picture. It buys contrast
+   exactly at the glyph edges, which is the only place it is needed, and costs
+   the photograph nothing. */
+.page-head{display:flex;flex-direction:column;gap:clamp(20px,3.2vh,32px);
+  text-shadow:0 1px 2px rgba(12,10,9,.55), 0 2px 18px rgba(12,10,9,.4)}
+/* Our Bikes sets its title on the centre line, so the pair centres with it */
+.page-head.is-centred{align-items:center;text-align:center}
+
+/* The breadcrumb sits on a photograph, so it carries its own contrast instead
+   of asking the curtain behind it to be darker: the bold mono face and full
+   cream hold at roughly half the veil the light face needed. */
+.crumb{display:flex;gap:10px;align-items:center;font-family:var(--monob);font-size:12.5px;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--cream);flex-wrap:wrap}
+.crumb a{transition:color .22s ease}
+.crumb a:hover{color:var(--cream)}
+.crumb .sep{color:var(--red)}
+.crumb .here{color:var(--cream)}
+
+/* Header height, shared. Interior pages run a short cinematic band — now that
+   the header is just breadcrumb + title, a full-height photo was mostly empty.
+   The homepage keeps its own full-height hero; it is the entrance, not a header. */
+:root{--page-hero-h:80svh}
+
+/* ---------- header logo ----------
+   Interior pages lead with the breadcrumb and the page name, and the wordmark
+   sitting over them at the top of the page competed with both. It stays out of
+   the way until the header compacts on scroll, then fades in as the mini mark.
+   The homepage does not load this file: there the wordmark IS the entrance. */
+header:not(.scrolled) .logo-badge{opacity:0;pointer-events:none}

@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Bikepacking in the Azores, Part 02 — Wheels on Fire</title>
+<!--
+  WHEELS ON FIRE — Our Adventures / long-form article, part 2 of 4.
+  ALL PROSE IS THE CLIENT'S (src/pages/blogposts/bikepacking-in-the-azores-part2.tsx).
+  Island photography was not supplied for the outer islands, so the images
+  are the library shots used as illustration — swap when the sets arrive.
+-->
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/page-head.css">
+<link rel="stylesheet" href="assets/rail.css">
+<link rel="stylesheet" href="assets/article.css">
+<link rel="stylesheet" href="assets/lightbox.css">
+<noscript><style>[data-reveal]{opacity:1;transform:none}</style></noscript>
+<link rel="stylesheet" href="/assets/picture.css">
+<link rel="stylesheet" href="/assets/cta.css">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/assets/chrome.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-arr" viewBox="0 0 32 24"><path d="M1 12h29M20 2l10 10-10 10" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></symbol>
+  <symbol id="i-arr-l" viewBox="0 0 32 24"><path d="M31 12H2M12 2 2 12l10 10" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></symbol>
+  <symbol id="i-arr-out" viewBox="0 0 24 24"><path d="M5 19 19 5M8 5h11v11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M5 3l16 9-16 9z"/></symbol>
+</svg>
+
+<div class="grain" aria-hidden="true"></div>
+
+<header id="header">
+  <button class="menu-btn" id="menuToggle" aria-label="Menu" aria-expanded="false" aria-controls="menuOverlay">
+    <span class="bars" aria-hidden="true"><span></span><span></span></span>
+    <span class="label" aria-hidden="true"><span class="l-menu">Menu</span><span class="l-close">Close</span></span>
+  </button>
+  <a href="/index.html" class="logo-badge" aria-label="Wheels on Fire — home">
+    <img class="logo-full" src="/assets/wheelsonfire_white-01.png" alt="Wheels on Fire">
+    <span class="logo-mini" aria-hidden="true"><span class="lm-mark">
+      <img class="lm-tire" id="lmTire" src="/assets/logo-tire.png" alt="">
+      <img class="lm-flames" src="/assets/logo-flames.png" alt="">
+      <img class="lm-word" src="/assets/logo-word.png" alt=""></span></span>
+  </a>
+  <a href="/contact.html" class="btn btn-red">Get in touch</a>
+</header>
+
+<div class="menu-overlay" id="menuOverlay" role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="mo-panel mo-nav"><div class="mo-inner">
+    <nav class="mo-links" aria-label="Main">
+      <a href="/index.html" data-menu-link data-shot="0"><span>Home</span></a>
+      <a href="/about-us.html" data-menu-link data-shot="1"><span>About us</span></a>
+      <a href="/tours.html" data-menu-link data-shot="2"><span>Tours &amp; Packages</span></a>
+      <a href="/bikes.html" data-menu-link data-shot="3"><span>Our bikes</span></a>
+      <a href="/our-adventures.html" data-menu-link aria-current="page" data-shot="4"><span>Our adventures</span></a>
+      <a href="/contact.html" data-menu-link data-shot="5"><span>Get in touch</span></a>
+    </nav>
+    <div class="mo-side">
+      <div><p class="lbl">Bookings</p>
+        <p><a href="mailto:wheelsonfireazores@gmail.com">wheelsonfireazores@gmail.com</a></p>
+        </div>
+      <div><p class="lbl">Follow</p>
+        <p><a href="https://www.instagram.com/wheelsonfireazores" target="_blank" rel="noopener noreferrer">Instagram<svg class="ico-out" aria-hidden="true"><use href="#i-arr-out"/></svg></a>
+        &nbsp; <a href="https://www.youtube.com/@wheelsonfireazores" target="_blank" rel="noopener noreferrer">YouTube<svg class="ico-out" aria-hidden="true"><use href="#i-arr-out"/></svg></a></p></div>
+    </div>
+  </div></div>
+  <div class="mo-panel mo-visual" aria-hidden="true">
+    <div class="mo-shots" id="moShots">
+      <picture><source type="image/avif" srcset="/assets/hero-poster.avif"><img class="on" src="/assets/hero-poster.jpg" alt="" data-cap="MTB adventures — S. Miguel"></picture>
+      <picture><source type="image/avif" srcset="/assets/jj-trail.avif"><img src="/assets/jj-trail.jpg" alt="" data-cap="Jallas &amp; Juliana — in the green"></picture>
+      <picture><source type="image/avif" srcset="/assets/tours-hero.avif"><img src="/assets/tours-hero.jpg" alt="" data-cap="Tours &amp; packages — out on the trail"></picture>
+      <picture><source type="image/avif" srcset="/assets/tours/westside-1.avif"><img src="/assets/tours/westside-1.jpg" alt="" data-cap="Westside — down to the sea"></picture>
+      <picture><source type="image/avif" srcset="/assets/red-road.avif"><img src="/assets/red-road.jpg" alt="" data-cap="Bikepacking the Azores"></picture>
+      <picture><source type="image/avif" srcset="/assets/cta-truck.avif"><img src="/assets/cta-truck.jpg" alt="" data-cap="The shuttle — river ford"></picture>
+    </div>
+    <p class="mo-shot-cap" id="moCap">MTB adventures — S. Miguel</p>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="art-hero" id="top">
+  <div class="art-hero-media" data-parallax aria-hidden="true"><picture><source type="image/avif" srcset="assets/ju_faial.avif"><img src="assets/ju_faial.jpeg" alt=""></picture></div>
+  <div class="art-hero-shade" aria-hidden="true"></div>
+
+  <div class="art-hero-content">
+    <div class="page-head">
+      <nav class="crumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a><span class="sep">/</span>
+        <!-- the article's own name is the h1 right below, so the crumb stops
+             at the section instead of saying it twice. It stays a link: this is
+             the level above, not the page we are on. -->
+        <a href="our-adventures.html">Our adventures</a>
+      </nav>
+      <h1 class="disp" data-reveal>Bikepacking in the Azores</h1>
+    </div>
+    <p class="art-part" data-reveal>Part 02</p>
+    <div class="art-hero-cta" data-reveal>
+      <button class="btn btn-red" id="playFilm" type="button">Watch the film <svg class="ic-play" aria-hidden="true"><use href="#i-play"/></svg></button>
+      <a class="btn btn-ghost-c" data-part-jump href="adventure-bikepacking-3.html">Next part 03 <svg class="arr" aria-hidden="true"><use href="#i-arr"/></svg></a>
+    </div>
+  </div>
+      <p class="art-byline" data-reveal>
+    <span>Words &amp; photos <b>Jallas &amp; Juliana</b></span>
+    <span>Spring <b>2023</b></span>
+    <span>The <b>central</b> islands</span>
+  </p>
+</section>
+
+<!-- ============ THE READ ============ -->
+<!-- the island this part is about, set the way part one sets its title -->
+<div class="art-title" data-reveal>
+  <h2>Faial</h2>
+</div>
+
+<article class="art-body">
+  <p class="art-lede" data-reveal>The local bike shop managed to patch up my bike, and with a working bike again we looked at the map and made a route around the biggest crater on the island.</p>
+
+  <p data-reveal>The local bike shop managed to patch up my bike with a new derailleur but they did not have a replacement for the brake lever, they just had some scrap parts and made my front brake kinda work again till a new lever would arrive.</p>
+  <p data-reveal>With a working bike again we had a look at the map and made a bike route. There was a small gravel road going up and around the biggest crater Caldeira, it&rsquo;s huge and really impressive.</p>
+  <p data-reveal>The lonely gravel road was nice to follow. Not too steep, more like slowly working its way up and no cars except for one tractor. It&rsquo;s so peaceful biking like this, makes the bike journey so much more joyful. It was mid April and we thought the weather now would offer more sunny days. We were wrong. Faial&rsquo;s weather was rough and we were constantly fighting strong winds and on and off rain.</p>
+  <p data-reveal>I really admire my girlfriend Juliana, she kept pushing on her heavy bike with the boards working like a sail that tossed her off the bike several times. Luckily nothing happened to her or the surfboards.</p>
+</article>
+
+<figure class="art-figure" data-reveal>
+  <picture><source type="image/avif" srcset="assets/story/still-6.avif"><img src="assets/story/still-6.jpg" alt="Working up the gravel road around the Caldeira"></picture>
+</figure>
+
+<article class="art-body">
+    <h3 class="pull" data-reveal>We reached the peak of the route and for a moment the fog disappeared and a beautiful view of the sea and the 10 volcanoes appeared in front of us. Sweaty, tired and wet, in one second it all makes sense why you go through what you do.</h3>
+  <p data-reveal>The wind slowed down and changed direction and we made it as a goal to make it down to the surf beach Faj&atilde; Praia Norte. The way down to the beach was long and fast and we just couldn&rsquo;t stop smiling. Most part of the world when you arrive to the main surf beach there will likely be some surfers out. Here not.</p>
+  <p data-reveal>Far out measured from the beach was a head high wave breaking. I was a bit nervous paddling out alone to a new wave but I had to do it, otherwise would have been hard to go to sleep. This night I didn&rsquo;t have any problems going to sleep.</p>
+  <p data-reveal>We woke up the following day, the wind had increased and the waves were not as good. So we took down our tent and packed our stuff.</p>
+  <p data-reveal>The west part of the island had a lot to offer and see. First we had to bike up again to the main road and that was a good 270m climb. In 1957 there was a volcanic eruption that made the island bigger. The lava cooled down and a peninsula was created. The old houses got destroyed but the old lighthouse remained and turned into a museum about the eruption.</p>
+  <p data-reveal>The good thing about Faial was that it was a much smaller island than S&atilde;o Miguel. If you want you can bike around the island in two days.</p>
+  <p data-reveal>I was still waiting for a new brake lever so there was no point in rushing. On the north east part of the island there was a bike park that the locals had built. For us that was a great place to spend some time while waiting. We set up a base camp and started to get familiar with the bike trails. The locals had put in a lot of effort in the trails with cool gaps and jumps all built by wood and all marked up very well.</p>
+  <p data-reveal>At this point we had spent two weeks on this island and still no spare part. It takes a long time to get stuff over to the islands so I gave up. I could brake, even managed to ride some trails, bit sketchy but it worked. We decided to bike back to the main city Horta and bought a boat ticket back to S&atilde;o Jorge.</p>
+</article>
+
+<!-- ============ GALLERY ============ -->
+<section class="section" style="padding-top:clamp(30px,5vh,60px)">
+  <!-- A slideshow rather than a block of squares: the photographs are of one
+       island and want to be looked at one at a time. Same rail as everywhere
+       else on the site, so the arrows behave the way the reader expects. -->
+  <div class="rail-head" data-reveal>
+    <div class="label-row" style="flex:1">
+      <p class="kicker">Faial Photos</p><div class="rule"></div>
+    </div>
+    <div class="rail-nav">
+      <button class="rail-btn on-dark" id="galPrev" type="button" aria-label="Previous photos" aria-controls="gal"><svg aria-hidden="true"><use href="#i-arr-l"/></svg></button>
+      <button class="rail-btn on-dark" id="galNext" type="button" aria-label="Next photos" aria-controls="gal"><svg aria-hidden="true"><use href="#i-arr"/></svg></button>
+    </div>
+  </div>
+  <div class="gal-rail" id="gal" data-reveal></div>
+</section>
+
+<!-- ============ PART NAV ============ -->
+<nav class="parts" aria-label="Article parts">
+  <p class="kicker" data-reveal>The trip in four parts</p>
+  <div class="parts-row" data-reveal>
+    <a href="adventure-bikepacking.html">Part 01 — São Miguel</a>
+    <span class="on">Part 02 — Faial</span>
+    <a href="adventure-bikepacking-3.html">Part 03 — São Jorge</a>
+    <a href="adventure-bikepacking-4.html">Part 04 — Pico</a>
+  </div>
+  <div class="cta-actions" style="margin-top:26px;display:flex;gap:14px;flex-wrap:wrap" data-reveal>
+    <a class="btn btn-ghost-c" href="adventure-bikepacking.html"><svg class="arr" aria-hidden="true"><use href="#i-arr-l"/></svg> Previous part</a>
+    <a class="btn btn-red" href="adventure-bikepacking-3.html">Next part <svg class="arr" aria-hidden="true"><use href="#i-arr"/></svg></a>
+  </div>
+</nav>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
+  <div class="lb-bar">
+    <p class="lb-ctx"><b id="lbIndex"></b></p>
+    <button class="lb-close" id="lbClose" type="button">
+      <span class="x" aria-hidden="true"><span></span><span></span></span> Close
+    </button>
+  </div>
+  <div class="lb-stage" id="lbStage">
+    <button class="lb-nav lb-prev" id="lbPrev" type="button" aria-label="Previous">
+      <svg aria-hidden="true"><use href="#i-arr-l"/></svg></button>
+    <button class="lb-nav lb-next" id="lbNext" type="button" aria-label="Next">
+      <svg aria-hidden="true"><use href="#i-arr"/></svg></button>
+  </div>
+  <div class="lb-foot"><p class="lb-cap" id="lbCap"></p></div>
+</div>
+
+<!-- ============ CTA ============ -->
+<section class="cta" id="book">
+  <div class="cta-media" data-parallax="12" aria-hidden="true"><picture><source type="image/avif" srcset="assets/cta-truck.avif"><img src="assets/cta-truck.jpg" alt="The shuttle crossing a river ford on the way to the trailhead"></picture></div>
+  <div class="cta-shade" aria-hidden="true"></div>
+  <div class="cta-inner" data-parallax-up="5">
+    <h2 class="disp" data-reveal>You ride.<br>We got you<br><span class="l3">all set up</span></h2>
+    <div class="cta-actions">
+      <a class="btn btn-red" href="tours.html" data-reveal>See the tours <svg class="arr" aria-hidden="true"><use href="#i-arr"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <a class="foot-logo" href="#top" aria-label="Wheels on Fire — back to top"><img src="/assets/wheelsonfire_white-01.png" alt="Wheels on Fire logo"></a>
+    <nav class="foot-nav" aria-label="Footer">
+      <a href="/about-us.html">About us</a><a href="/tours.html">Tours &amp; Packages</a>
+      <a href="/bikes.html">Our bikes</a><a href="/our-adventures.html">Our adventures</a>
+      <a href="/contact.html">Get in touch</a>
+    </nav>
+    <div class="foot-info">
+      <p><b>WHEELS ON FIRE</b> is a MTB guide &amp; shuttle company based in the island of São Miguel, Azores.</p>
+      <div class="foot-social">
+        <a href="https://www.instagram.com/wheelsonfireazores" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.youtube.com/@wheelsonfireazores" target="_blank" rel="noopener noreferrer">YouTube</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>MTB tours — São Miguel — Azores</span><span><a href="/legal.html">Legal</a> · <a href="/general-terms.html">General terms</a></span>
+    <span>Design by Juliana &amp; <a href="https://phaze.design" target="_blank" rel="noopener noreferrer">Phaze Design</a> — © Wheels on Fire 2026</span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="assets/parallax.js"></script>
+<script src="assets/site.js"></script>
+<script src="assets/rail.js"></script>
+<script>
+(function(){
+  var SHOTS = [
+    ['still-2.jpg','The coast on the way down to Praia Norte'],
+    ['still-3.jpg','Capelinhos, where the 1957 eruption made the island bigger'],
+    ['still-4.jpg','The old lighthouse, left standing in the ash'],
+    ['still-5.jpg','The gravel road up around the Caldeira']
+  ];
+  var gal=document.getElementById('gal');
+  gal.innerHTML=SHOTS.map(function(s,i){
+    return '<button type="button" data-i="'+i+'" aria-label="'+s[1]+'"><img src="assets/story/'+s[0]+'" alt="'+s[1]+'" loading="lazy"></button>';
+  }).join('');
+  WOF_RAIL.wire('gal','galPrev','galNext','button');
+  var lb=document.getElementById('lb'),stage=document.getElementById('lbStage');
+  var elIndex=document.getElementById('lbIndex'),elCap=document.getElementById('lbCap');
+  var bP=document.getElementById('lbPrev'),bN=document.getElementById('lbNext'),bC=document.getElementById('lbClose');
+  var img=null,idx=0,lastFocus=null,isOpen=false,raf=null,hideTimer=null;
+  function render(){ if(img)img.remove(); idx=(idx+SHOTS.length)%SHOTS.length;
+    img=document.createElement('img'); img.src='assets/story/'+SHOTS[idx][0]; img.alt=SHOTS[idx][1];
+    stage.appendChild(img); elIndex.textContent='Photo '+(idx+1)+' / '+SHOTS.length; elCap.textContent=SHOTS[idx][1];
+    bP.disabled=bN.disabled=SHOTS.length<2; }
+  function open(i){ idx=i; isOpen=true; clearTimeout(hideTimer); cancelAnimationFrame(raf);
+    lastFocus=document.activeElement; lb.hidden=false;
+    raf=requestAnimationFrame(function(){if(isOpen)lb.classList.add('open');});
+    document.body.classList.add('locked'); render(); bC.focus({preventScroll:true}); }
+  function close(){ isOpen=false; cancelAnimationFrame(raf); lb.classList.remove('open');
+    document.body.classList.remove('locked'); if(img){img.remove();img=null;}
+    clearTimeout(hideTimer); hideTimer=setTimeout(function(){if(!isOpen)lb.hidden=true;},320);
+    if(lastFocus)lastFocus.focus({preventScroll:true}); }
+  gal.addEventListener('click',function(e){var b=e.target.closest('button[data-i]');if(b)open(+b.dataset.i);});
+  bP.addEventListener('click',function(){idx--;render();});
+  bN.addEventListener('click',function(){idx++;render();});
+  bC.addEventListener('click',close);
+  lb.addEventListener('click',function(e){if(e.target===lb||e.target===stage)close();});
+  document.addEventListener('keydown',function(e){ if(lb.hidden)return;
+    if(e.key==='Escape'){e.stopPropagation();close();}
+    else if(e.key==='ArrowLeft'&&!bP.disabled){idx--;render();}
+    else if(e.key==='ArrowRight'&&!bN.disabled){idx++;render();} },true);
+  var pf=document.getElementById('playFilm');
+  if(pf) pf.addEventListener('click',function(){ openFilm(); });
+  function openFilm(){
+    isOpen=true; clearTimeout(hideTimer); cancelAnimationFrame(raf);
+    lastFocus=document.activeElement;
+    if(img){img.remove();img=null;}
+    var f=document.createElement('iframe'); f.className='lb-frame';
+    f.src='https://www.youtube-nocookie.com/embed/XqkRExdx120?autoplay=1&rel=0';
+    f.title='Bikepacking in the Azores';
+    f.allow='accelerometer; autoplay; encrypted-media; picture-in-picture'; f.setAttribute('allowfullscreen','');
+    stage.appendChild(f); img=f;                 /* close() removes whatever img points at */
+    elIndex.textContent='Film'; elCap.textContent='Four islands in two and a half months \u2014 film by Jallas & Juliana.';
+    bP.disabled=bN.disabled=true;
+    lb.hidden=false; raf=requestAnimationFrame(function(){ if(isOpen)lb.classList.add('open'); });
+    document.body.classList.add('locked'); bC.focus({preventScroll:true});
+  }
+})();
+</script>
+</body>
+</html>

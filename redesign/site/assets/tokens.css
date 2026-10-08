@@ -1,0 +1,37 @@
+/* ============================================================
+   WHEELS ON FIRE — the design tokens.
+
+   Every colour, measure and type stack the site uses, in one place.
+
+   They were written out seven times: here, in page-head.css, in
+   tour-colours.css and again inline in index, tours, bikes and contact.
+   All seven copies held the same values, which is luck rather than
+   design — nothing kept them in step. chrome.css, cta.css and site.css
+   are all written against these names, so this file has to load before
+   them; build-chrome.mjs and build-tours.mjs guarantee that.
+   ============================================================ */
+:root{
+  --ink:#1A1A1A; --ink-2:#0c0a09; --cream:#f1ede4;
+  --cream-dim:rgba(241,237,228,.64); --ink-dim:rgba(26,26,26,.62);
+  --red:#e61e29;
+  --line-d:rgba(241,237,228,.14); --line-l:rgba(26,26,26,.16);
+  --disp:'Futura', Impact, sans-serif;
+  --med:'FuturaMd', 'Arial Narrow', sans-serif;
+  --mono:'Andale', 'Courier New', monospace;
+  --monob:'AndaleB', 'Courier New', monospace;
+  --pad:clamp(20px,4.5vw,72px);
+  /* One display scale for full-bleed headings; the -col step for headings
+     that live inside a grid column; -sub for the h3s inside a section. */
+  --fs-display:clamp(44px,8vw,128px);
+  --fs-display-col:clamp(34px,5vw,84px);
+  --fs-sub:clamp(24px,2.8vw,44px);
+  /* Breadcrumbs sit at the same height on every page. */
+  --crumb-top:120px;
+}
+
+/* A button with no author colour falls back to the browser's own, and on iOS
+   that is the system blue — which is how the level cards in the booking form
+   came out with a bright blue heading on a phone while they were black on
+   every desktop we checked. Inheriting instead means a button always takes the
+   colour of the text around it, here and in anything added later. */
+button{color:inherit}

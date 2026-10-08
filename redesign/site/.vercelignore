@@ -1,0 +1,9 @@
+# raw originals — kept locally, never deployed
+assets/_originals
+assets/Our Tours
+assets/hero_video.mp4
+*.log
+ffmpeg2pass*
+_sheet.html
+scripts
+partials

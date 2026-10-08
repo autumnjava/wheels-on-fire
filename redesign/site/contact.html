@@ -1,0 +1,1343 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Design proposal for client review — must not be indexed as the live site. -->
+<meta name="robots" content="noindex,nofollow">
+<title>Get in Touch — Wheels on Fire</title>
+<!--
+  WHEELS ON FIRE — Get in Touch
+
+  THREE MOMENTS, not one question per screen. A question at a time reads as a
+  chore on a form this long; three grouped screens keep the guided feel and cut
+  the time it takes.
+
+    1  The tour        bike type, duration, which tour, dates, group size,
+                       own bike, gear sizes  — the choices that build investment
+    2  Bike Skills & Fitness Check  riding level, the client's three descriptions verbatim
+    3  Your contact    name, email, phone, country, notes — least effort last,
+                       with the estimate already settled above it
+
+  PRICING IS REAL
+    Half day  150€ all in / 110€ own bike
+    Full day  180€ all in / 160€ own bike
+    e-MTB is on request — the client has not set those prices yet, so the
+    estimate says so rather than guessing.
+
+  DEPOSIT / PAYMENT — PENDING
+    The deposit share, the payment methods and the cancellation window are the
+    client's to give. The block is written and marked; fill DEPOSIT_INFO in.
+
+  REUSABLE FOR DIRECT ENTRY
+    contact.html?tour=faial              picks the tour, and with it the bike
+                                         type and duration
+    contact.html?type=emtb&duration=full
+    contact.html?people=3&ownbike=1
+    Unknown values are ignored rather than trusted.
+-->
+<link rel="stylesheet" href="assets/page-head.css">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/assets/chrome.css">
+<style>
+/* ============ FONTS ============ */
+/* Each file is a single cut that ALREADY is its bold. Declaring the 400-700
+   range maps a heading's default weight:700 onto the real file instead of
+   letting the browser fake it — faux bold smears the glyphs, which doubles and
+   breaks every -webkit-text-stroke outline. */
+@font-face{font-family:'FuturaXB';src:url('assets/fonts/Futura-Condensed-Extra-Bold.otf') format('opentype');font-weight:400 700;font-display:swap}
+@font-face{font-family:'FuturaMd';src:url('assets/fonts/Futura-Condensed-Medium.otf') format('opentype');font-weight:400 700;font-display:swap}
+@font-face{font-family:'Futura';src:url('assets/fonts/Futura-Bold.woff') format('woff');font-weight:700;font-display:swap}
+@font-face{font-family:'Andale';src:url('assets/fonts/ANDALEMO.TTF') format('truetype');font-weight:400 700;font-display:swap}
+@font-face{font-family:'AndaleB';src:url('assets/fonts/ANDALEBMO.TTF') format('truetype');font-weight:400 700;font-display:swap}
+
+/* ============ TOKENS — identical to tours.html and bikes.html ============ */
+
+/* on top of assets/tokens.css: how much room the header takes, which this
+   page reserves at the top of its layout */
+:root{--head-h:72px}
+@media (max-width:640px){:root{--head-h:58px}}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--cream);color:var(--ink);font-family:var(--mono);font-size:15px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;overflow-x:clip}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--red);color:var(--cream)}
+.disp{font-family:var(--disp);font-weight:700;text-transform:uppercase;line-height:.84;letter-spacing:-0.03em}
+/* A line-height of .84 is an optical setting for display type at 100px and up,
+   where the cap height fills the line and the tightness reads as deliberate.
+   At the 34-44px these headings fall to on a phone the lines nearly touch, so
+   the ratio opens up as the type gets smaller. */
+@media (max-width:640px){ .disp{line-height:.95} }
+
+.kicker{display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase}
+.kicker::before{content:'';width:10px;height:10px;background:var(--red);flex:none}
+
+/* ============ BUTTONS ============ */
+.btn{display:inline-flex;align-items:center;gap:14px;font-family:var(--med);text-transform:uppercase;letter-spacing:.08em;font-size:15px;padding:14px 26px;border:1px solid;cursor:pointer;position:relative;overflow:hidden;transition:color .28s ease;isolation:isolate}
+.btn::after{content:'';position:absolute;inset:0;transform:translateY(101%);transition:transform .28s cubic-bezier(.65,0,.35,1);z-index:-1}
+.btn:hover::after{transform:translateY(0)}
+.btn .arr{width:26px;height:19px;flex:none;transition:transform .28s cubic-bezier(.22,1,.36,1)}
+.btn:hover .arr{transform:translateX(6px)}
+.btn:disabled{opacity:.35;cursor:not-allowed}
+.btn:disabled::after{transform:translateY(101%)}
+.btn-red{background:var(--red);border-color:var(--red);color:var(--cream)}
+.btn-red::after{background:var(--ink)}
+.btn-red:hover:not(:disabled){color:var(--cream)}
+.btn-ghost-i{background:transparent;border-color:rgba(20,17,15,.4);color:var(--ink)}
+.btn-ghost-i::after{background:var(--ink)}
+.btn-ghost-i:hover:not(:disabled){color:var(--cream);border-color:var(--ink)}
+
+/* ============ HEADER — page overrides ============
+   The shared header and menu are assets/chrome.css. This page keeps the small
+   mark at every scroll position rather than the full wordmark: everywhere else
+   the header floats over a photographic hero and its height costs nothing,
+   while here the content starts at 72px and the wordmark covered the title. */
+/* This page has no photographic hero for the bar to float over, so the header
+   is solid from the first pixel instead of only once you scroll, and it is
+   compact: the content starts at 72px and anything taller covers the title. */
+/* This page has no "Get in touch" button in the bar — it is the page you would
+   be going to — and that button is what gives every other header its height.
+   Without it the bar collapsed to 32px against 75px elsewhere, so the height
+   is stated here instead of being a side effect of what happens to be in it. */
+body > header{min-height:72px;align-content:center;padding:10px var(--pad);background:rgba(12,10,9,.94);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  box-shadow:0 1px 0 var(--line-d)}
+/* ---------- the menu, opened by CSS ----------
+   Everywhere else the panels are unclipped by a GSAP timeline in site.js,
+   which this page does not load — it carries its own script. So here the
+   open state is a plain CSS transition, and these two rules are what make
+   the menu appear at all. They cannot move to chrome.css: on the GSAP pages
+   the class lands before the timeline is built, so an unconditional rule
+   would snap the panels open and there would be nothing left to animate. */
+.mo-panel{transition:clip-path .6s cubic-bezier(.76,0,.24,1)}
+.menu-overlay.open .mo-panel{clip-path:inset(0)}
+.mo-visual{transition-delay:.08s}
+
+/* and it keeps the small mark at every scroll position, never the wordmark */
+.logo-full{display:none}
+.logo-mini{display:flex;align-items:center}
+.lm-mark{width:52px;height:52px}
+
+/* ============ LAYOUT ============ */
+.gt{display:grid;grid-template-columns:minmax(300px,32vw) 1fr;min-height:100svh;padding-top:72px}
+.gt-aside{position:sticky;top:var(--head-h);height:calc(100svh - var(--head-h));padding:clamp(28px,4.5vh,58px) clamp(24px,3vw,54px);
+  border-right:1px solid var(--red);display:flex;flex-direction:column;justify-content:space-between;overflow:auto}
+.gt-aside h1{font-size:var(--fs-display-col)}
+.gt-aside h2{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:-0.02em;line-height:.92;
+  font-size:clamp(21px,1.9vw,30px);margin:clamp(18px,2.6vh,32px) 0 12px}
+.gt-aside p{font-size:13.5px;color:var(--ink-dim);max-width:34ch}
+
+/* running total, visible from the first choice */
+.est{border-top:1px solid var(--line-l);border-bottom:1px solid var(--line-l);
+  padding:18px 0;margin:clamp(20px,3vh,34px) 0}
+.est .lbl{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:10px}
+.est .amt{font-family:var(--disp);font-weight:700;font-size:clamp(38px,4.4vw,70px);line-height:.82;letter-spacing:-0.02em;color:#333333}
+.est .amt.req{font-size:clamp(22px,2.2vw,32px);color:#333333}
+.est .bd{font-size:12px;color:var(--ink-dim);margin-top:12px}
+.gt-contact{border-top:1px solid var(--red);padding-top:18px}
+.gt-contact .lbl{font-family:var(--disp);font-weight:700;text-transform:uppercase;font-size:18px;margin-bottom:8px}
+.gt-contact p{font-size:12.5px;color:var(--ink-dim)}
+.gt-contact a:hover{color:var(--red)}
+
+.gt-main{position:relative;display:flex;flex-direction:column;min-height:calc(100svh - 72px);
+  scroll-margin-top:72px}   /* clears the fixed header when a moment scrolls into view */
+
+/* progress — three named segments, not a bare percentage */
+.gt-prog{position:sticky;top:var(--head-h);z-index:6;display:flex;gap:2px;padding:0 clamp(24px,4vw,80px);
+  background:var(--cream);padding-top:clamp(18px,2.6vh,30px);padding-bottom:14px;flex:none}
+.gt-seg{flex:1}
+.gt-seg .bar{height:3px;background:rgba(20,17,15,.14);overflow:hidden}
+.gt-seg .bar i{display:block;height:100%;width:0;background:var(--red);
+  transition:width .5s cubic-bezier(.22,1,.36,1)}
+.gt-seg.on .bar i,.gt-seg.filled .bar i{width:100%}
+.gt-seg .nm{display:flex;gap:8px;align-items:baseline;margin-top:10px;
+  font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(20,17,15,.38)}
+.gt-seg.on .nm,.gt-seg.filled .nm{color:var(--ink)}
+.gt-seg .nm b{font-family:var(--monob);font-weight:400;color:var(--red)}
+@media (max-width:640px){.gt-seg .nm span{display:none}}
+
+.gt-steps{flex:1;display:grid;padding:clamp(24px,4vh,54px) clamp(24px,4vw,80px) clamp(40px,6vh,70px)}
+.moment{grid-area:1/1;max-width:820px;opacity:0;visibility:hidden;transform:translateY(20px);
+  pointer-events:none;transition:opacity .4s ease, transform .5s cubic-bezier(.22,1,.36,1)}
+.moment.on{opacity:1;visibility:visible;transform:none;pointer-events:auto}
+.m-head{margin-bottom:clamp(22px,3.4vh,38px)}
+.m-no{font-family:var(--mono);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--red);margin-bottom:12px}
+.m-q{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:-0.025em;line-height:.9;
+  font-size:clamp(30px,3.9vw,62px)}
+.m-help{font-size:13.5px;color:var(--ink-dim);margin-top:10px;max-width:56ch}
+
+/* field groups inside a moment */
+/* A moment builds as it is answered. Showing all seven groups at once reads as
+   a wall of fields; this keeps two or three on screen at any time. */
+.grp{margin-bottom:clamp(22px,3vh,34px)}
+.grp[hidden]{display:none}
+/* the two opening questions belong together — one line, not two */
+.grp-pair{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,3vw,46px)}
+@media (max-width:700px){.grp-pair{grid-template-columns:1fr;gap:clamp(20px,3vh,30px)}}
+.grp.rev{animation:grpIn .45s cubic-bezier(.22,1,.36,1) both}
+@keyframes grpIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.disc{display:inline-flex;align-items:center;gap:12px;background:transparent;cursor:pointer;
+  border:1px dashed rgba(20,17,15,.35);color:var(--ink-dim);padding:12px 18px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  transition:border-color .22s ease,color .22s ease}
+.disc:hover{border-color:var(--ink);color:var(--ink)}
+.disc .pm{font-family:var(--med);font-size:18px;line-height:1}
+.disc[aria-expanded="true"]{border-style:solid;border-color:var(--ink);color:var(--ink)}
+.grp .lg{display:block;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:12px}
+.grp > .lg .req{color:var(--red)}
+.f-in{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(20,17,15,.35);
+  font-family:var(--med);font-size:clamp(19px,2.1vw,27px);color:var(--ink);padding:9px 2px;transition:border-color .25s ease}
+.f-in::placeholder{color:rgba(20,17,15,.26)}
+.f-in:focus{outline:none;border-color:var(--red)}
+textarea.f-in{font-family:var(--mono);font-size:14.5px;line-height:1.6;border:1px solid rgba(20,17,15,.35);padding:13px;min-height:120px;resize:vertical}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2.4vw,34px)}
+.f-row-3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,28px)}
+@media (max-width:700px){.f-row,.f-row-3{grid-template-columns:1fr}}
+
+/* chips — bike type, duration, tour */
+.chips{display:flex;gap:10px;flex-wrap:wrap}
+.chip{background:transparent;border:1px solid rgba(20,17,15,.3);color:var(--ink);cursor:pointer;
+  font-family:var(--med);text-transform:uppercase;letter-spacing:.06em;font-size:15px;padding:12px 20px;
+  transition:border-color .22s ease,background-color .22s ease,color .22s ease}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--cream)}
+.chip small{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;opacity:.7;margin-top:4px;text-transform:none}
+.chip[disabled]{opacity:.3;cursor:not-allowed}
+
+/* group size stepper */
+.stepper{display:flex;align-items:center;gap:0;width:max-content;border:1px solid rgba(20,17,15,.3)}
+.stepper button{width:46px;height:46px;background:transparent;border:0;cursor:pointer;color:var(--ink);
+  font-family:var(--med);font-size:22px;line-height:1;transition:background-color .2s ease,color .2s ease}
+.stepper button:hover{background:var(--ink);color:var(--cream)}
+.stepper input{width:64px;height:46px;border:0;border-left:1px solid rgba(20,17,15,.2);border-right:1px solid rgba(20,17,15,.2);
+  background:transparent;text-align:center;font-family:var(--disp);font-weight:700;font-size:26px;color:var(--ink)}
+.stepper input:focus{outline:none}
+.cap-note{font-size:12px;color:var(--ink-dim);margin-top:10px}
+
+/* Gear — a switch per item. The quantity is the number of riders, so asking
+   for it again is asking the same question twice. Sizes appear once it is on. */
+.gear2{border-top:1px solid var(--line-l)}
+.g-row{display:grid;grid-template-columns:auto 1fr auto;gap:clamp(14px,2vw,24px);align-items:center;
+  padding:16px 0;border-bottom:1px solid var(--line-l)}
+.g-name{font-family:var(--disp);font-weight:700;text-transform:uppercase;font-size:clamp(18px,1.8vw,24px);line-height:1}
+.g-qty{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-dim);margin-top:6px}
+.g-qty b{color:var(--red);font-family:var(--monob);font-weight:400}
+.sw{position:relative;width:54px;height:28px;flex:none;padding:0;cursor:pointer;
+  background:transparent;border:1px solid rgba(20,17,15,.4);
+  transition:background-color .25s ease,border-color .25s ease}
+.sw .knob{position:absolute;top:3px;left:3px;width:20px;height:20px;background:var(--ink);
+  transition:transform .25s cubic-bezier(.65,0,.35,1),background-color .25s ease}
+.sw[aria-checked="true"]{background:var(--red);border-color:var(--red)}
+.sw[aria-checked="true"] .knob{transform:translateX(26px);background:var(--cream)}
+.g-sizes{display:flex;gap:6px}
+/* The same alert the tour pages use, stated here because this page carries its
+   own CSS and does not load tour-detail.css. */
+.tv-warn{display:block;margin:22px 0 34px;background:rgba(12,10,9,.08);
+  border-left:4px solid var(--red);padding:14px 18px;
+  font-family:var(--mono);font-size:12.5px;line-height:1.6;color:rgba(20,17,15,.88)}
+/* `display:block` above beats the UA stylesheet's [hidden]{display:none}, so the
+   empty panel stayed on the page when another tour was picked. */
+.tv-warn[hidden]{display:none}
+.send-fail{margin:0 clamp(24px,4vw,80px) 18px;background:rgba(230,30,41,.07);
+  border-left:4px solid var(--red);padding:16px 20px;
+  font-family:var(--mono);font-size:12.5px;line-height:1.6;color:rgba(20,17,15,.88)}
+.send-fail[hidden]{display:none}
+.send-fail p{margin:0}
+.send-fail-alt{margin-top:8px;color:var(--ink-dim)}
+.send-fail a{color:var(--red);text-decoration:underline;text-underline-offset:3px}
+
+.lg-hint{font-style:normal;text-transform:none;letter-spacing:0;color:var(--red)}
+.tv-warn b{font-family:var(--monob);font-weight:400;color:var(--red);text-transform:uppercase;letter-spacing:.1em}
+.tv-warn strong{font-family:var(--monob);font-weight:400;color:var(--ink)}
+.flexday{display:flex;align-items:center;gap:12px;margin-top:14px;cursor:pointer;
+  font-family:var(--mono);font-size:12px;color:var(--ink-dim)}
+.g-sizes[hidden]{display:none}
+.szchip{background:transparent;border:1px solid rgba(20,17,15,.3);cursor:pointer;padding:9px 13px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--ink);white-space:nowrap;
+  transition:background-color .2s ease,border-color .2s ease,color .2s ease}
+.szchip:hover{border-color:var(--ink)}
+.szchip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--cream)}
+@media (max-width:640px){.g-row{grid-template-columns:auto 1fr}.g-sizes{grid-column:1/-1;flex-wrap:wrap}}
+
+/* level cards */
+.opts{display:flex;flex-direction:column;gap:12px}
+.opt{display:flex;gap:16px;align-items:flex-start;text-align:left;width:100%;cursor:pointer;
+  background:transparent;border:1px solid rgba(20,17,15,.28);padding:18px 20px;
+  transition:border-color .22s ease,background-color .22s ease}
+.opt:hover:not(:disabled){border-color:var(--ink)}
+/* Grades the chosen tour does not accept — visibly out of play, not just inert. */
+.opt:disabled{opacity:.38;cursor:not-allowed}
+.opt:disabled .box{border-style:dashed}
+.opt[aria-checked="true"]{border-color:var(--red);background:rgba(230,30,41,.06)}
+.opt .box{width:18px;height:18px;flex:none;border:1px solid rgba(20,17,15,.45);margin-top:3px;position:relative}
+.opt[aria-checked="true"] .box{border-color:var(--red);background:var(--red)}
+.opt[aria-checked="true"] .box::after{content:'';position:absolute;left:5px;top:1px;width:5px;height:10px;
+  border:2px solid var(--cream);border-top:0;border-left:0;transform:rotate(42deg)}
+.opt .lv{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--red);margin-bottom:6px}
+.opt .t{display:block;font-family:var(--disp);font-weight:700;text-transform:uppercase;font-size:clamp(20px,2vw,28px);line-height:1}
+.opt ul{margin:12px 0 0;padding-left:16px}
+.opt li{font-size:12.5px;color:var(--ink-dim);line-height:1.55}
+
+/* summary + payment, shown in moment 3 */
+.sum{border:1px solid var(--line-l);padding:clamp(18px,2.4vw,26px);margin-bottom:20px}
+.sum h3{font-family:var(--disp);font-weight:700;text-transform:uppercase;font-size:20px;margin-bottom:14px}
+.sum dl{display:grid;grid-template-columns:auto 1fr;gap:7px 20px;font-size:13px}
+.sum dt{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-dim);padding-top:3px}
+.sum .tot{display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+  border-top:1px solid var(--line-l);margin-top:16px;padding-top:14px}
+.sum .tot b{font-family:var(--disp);font-weight:700;font-size:clamp(28px,3vw,44px);line-height:.9;color:#333333}
+/* Two different things: one is a condition of booking, the other is what we do
+   next. Stacked with matching left rules they read as one block, so this one
+   gets a rule above it and real air instead. */
+.pay{border-top:1px solid var(--line-l);margin-top:clamp(28px,4vh,44px);padding-top:20px;margin-bottom:18px}
+.pay .hd{font-family:var(--disp);font-weight:700;text-transform:uppercase;font-size:19px;letter-spacing:-0.01em;margin-bottom:10px}
+.pay p{font-size:12.5px;color:var(--ink-dim);max-width:62ch}
+.pay p + p{margin-top:10px}
+.pay .todo{color:var(--red)}
+.legal{border-left:2px solid var(--red);padding-left:16px}
+.legal p{font-size:12.5px;color:var(--red);letter-spacing:.04em;text-transform:uppercase;line-height:1.5}
+
+/* the tour, already chosen elsewhere — confirmed, not asked again */
+.tour-lock{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  border:1px solid var(--ink);padding:18px 20px;margin-bottom:clamp(22px,3vh,34px)}
+.tour-lock[hidden]{display:none}
+.lock-name{font-family:var(--disp);font-weight:700;text-transform:uppercase;font-size:clamp(22px,2.4vw,34px);
+  letter-spacing:-0.02em;line-height:1;margin-top:8px}
+.lock-meta{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-dim);margin-top:8px}
+
+/* A condition of booking, so it has to register — but sitting under the notes
+   field it does not need to shout. Tinted, not solid. */
+.alert{display:flex;gap:14px;align-items:flex-start;background:rgba(230,30,41,.07);
+  border-left:2px solid var(--red);padding:16px 18px;margin-top:20px}
+.alert .bang{font-family:var(--disp);font-weight:700;font-size:22px;line-height:.9;color:var(--red);flex:none}
+.alert p{font-size:13px;color:var(--ink-dim);line-height:1.55}
+.alert p b{color:var(--ink);font-family:var(--monob);font-weight:400}
+
+/* date picker — same ink/cream/red as everything else */
+.dp{position:relative}
+.grp.dp-open{position:relative;z-index:40}
+.dp-trigger{width:100%;text-align:left;background:transparent;border:0;border-bottom:1px solid rgba(20,17,15,.35);
+  font-family:var(--med);font-size:clamp(19px,2.1vw,27px);color:var(--ink);padding:9px 2px;cursor:pointer;
+  transition:border-color .25s ease}
+.dp-trigger:hover,.dp-trigger[aria-expanded="true"]{border-color:var(--red)}
+.dp-trigger.empty{color:rgba(20,17,15,.26)}
+.dp-pop{position:absolute;z-index:20;top:calc(100% + 10px);left:0;width:min(340px,92vw);
+  background:var(--cream);border:1px solid var(--ink);padding:16px;
+  box-shadow:0 18px 40px -18px rgba(20,17,15,.5)}
+.dp-pop[hidden]{display:none}
+.dp-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.dp-head b{font-family:var(--disp);text-transform:uppercase;font-size:20px;letter-spacing:-0.01em;font-weight:700}
+.dp-nav{background:transparent;border:1px solid rgba(20,17,15,.3);width:32px;height:32px;cursor:pointer;
+  color:var(--ink);font-family:var(--med);font-size:16px;line-height:1;transition:background-color .2s ease,color .2s ease}
+.dp-nav:hover:not(:disabled){background:var(--ink);color:var(--cream)}
+.dp-nav:disabled{opacity:.25;cursor:not-allowed}
+.dp-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
+.dp-dow{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-dim);text-align:center;padding-bottom:6px}
+.dp-day{aspect-ratio:1;border:0;background:transparent;cursor:pointer;font-family:var(--mono);font-size:13px;
+  color:var(--ink);transition:background-color .16s ease,color .16s ease}
+.dp-day:hover:not(:disabled){background:rgba(20,17,15,.1)}
+.dp-day:disabled{opacity:.22;cursor:not-allowed}
+.dp-day.edge{background:var(--red);color:var(--cream)}
+.dp-day.out{visibility:hidden}
+.dp-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;
+  padding-top:12px;border-top:1px solid var(--line-l)}
+.dp-hint{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-dim)}
+.dp-clear{background:transparent;border:0;cursor:pointer;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--red);border-bottom:1px solid currentColor}
+
+/* nav */
+/* left must match the aside column exactly — minmax(300px,32vw) resolves to
+   max(300px,32vw). It was min(32vw,none), which is not a length, so the whole
+   declaration died and the bar shrink-wrapped into a tag. */
+/* Sticky, not fixed: it stays on the viewport floor while the form is in view
+   and then gives way to the footer, which a fixed bar would sit on top of. */
+.gt-nav{position:sticky;bottom:0;z-index:7;display:flex;align-items:center;
+  justify-content:space-between;gap:16px;padding:15px clamp(24px,4vw,80px);
+  background:var(--cream);border-top:1px solid var(--line-l)}
+/* Red marks where you are — the one live thing in an otherwise static bar. */
+.gt-count{font-family:var(--mono);font-size:11.5px;letter-spacing:.2em;color:var(--red);
+  text-transform:uppercase}
+.gt-count b{color:var(--ink);font-family:var(--monob);font-weight:400}
+/* Desktop keeps the estimate in the aside panel, so this line only exists on
+   the narrow layout — see the max-width:900px block. */
+.gt-est-m{display:none}
+/* The progress bar above already numbers the step, on every width — repeating
+   "01 / 03" down here was saying the same thing twice. */
+.gt-count-n{display:none}
+.gt-nav-r{display:flex;gap:12px;align-items:center}
+.gt-hint{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-dim);
+  max-width:34ch;text-align:right}
+@media (max-width:640px){.gt-hint{display:none}}
+@media (max-width:900px){
+  .gt{grid-template-columns:1fr}
+  /* The red rule is the column divider. Stacked, it turns into a full-bleed
+     line across the page that separates nothing — the change of ground is
+     already the separation. Drop it; the one above Other questions stays. */
+  .gt-aside{position:relative;top:0;height:auto;border-right:0;border-bottom:0}
+  /* The estimate panel costs a whole screen of scrolling before the form even
+     starts here. Drop it, and let the sticky footer carry the running total. */
+  .est{display:none}
+  /* A grid column is min-width:auto by default, so the widest field inside was
+     holding the whole layout at 420px on a 375px screen and pushing the Next
+     button off the edge. Letting the children shrink fixes the page, not just
+     this bar. */
+  .gt-main,.gt-aside{min-width:0}
+  /* Centred, not bottom-aligned: hung off the baseline the two lines drifted
+     away from the buttons and the block read as ragged. */
+  .gt-nav{align-items:center;gap:12px}
+  .gt-nav-l{display:flex;flex-direction:column;gap:3px;min-width:0}
+  /* The step name and the "estimated" label are the same kind of thing — one
+     label per line, matching size, tracking and colour, sharing a left edge.
+     Only the number is allowed to be loud, and only modestly. */
+  .gt-count,.gt-est-m{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;
+    text-transform:uppercase;line-height:1.35;white-space:nowrap}
+  .gt-count{overflow:hidden;text-overflow:ellipsis}
+  .gt-est-m{display:flex;align-items:baseline;gap:6px;color:var(--ink-dim)}
+  .gt-est-m b{font-family:var(--disp);font-weight:700;font-size:17px;line-height:1.35;
+    letter-spacing:-0.02em;color:#333333}
+  .gt-est-m b.req{font-size:10px;letter-spacing:.06em;font-family:var(--monob);color:var(--ink)}
+  /* At default padding the two buttons ate 220 of the 327px available and the
+     price line, which cannot wrap, spilled out from under them. */
+  .gt-nav .btn{padding:12px 15px;font-size:13px;gap:9px}
+  .gt-nav .btn .arr{width:19px;height:14px}
+}
+
+/* ============ FOOTER — identical to the rest of the site ============ */
+footer{background:var(--ink-2);color:var(--cream);padding:clamp(56px,9vh,110px) var(--pad) 34px;border-top:1px solid var(--line-d)}
+.foot-grid{display:grid;grid-template-columns:auto 1fr auto;gap:clamp(36px,6vw,110px);align-items:center;margin-bottom:clamp(48px,8vh,90px)}
+.foot-logo img{width:clamp(150px,24vw,340px)}
+.foot-nav{display:grid;grid-template-columns:repeat(2,max-content);gap:12px clamp(40px,5vw,90px)}
+.foot-nav a{font-family:var(--disp);font-weight:700;letter-spacing:-0.02em;text-transform:uppercase;font-size:clamp(20px,2.2vw,30px);line-height:1.15;transition:color .22s}
+.foot-nav a:hover{color:var(--red)}
+.foot-nav a.soon-link{opacity:.42;pointer-events:none}
+.foot-info{max-width:280px;display:flex;flex-direction:column;gap:20px}
+.foot-info p{font-size:12.5px;color:var(--cream-dim)}
+.foot-info p b{color:var(--red);font-family:var(--monob);font-weight:400}
+.foot-social{display:flex;gap:22px;font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+.foot-social a{border-bottom:1px solid var(--line-d);padding-bottom:3px}
+.foot-social a:hover{color:var(--red);border-color:var(--red)}
+.foot-bottom{border-top:1px solid var(--line-d);padding-top:22px;display:flex;justify-content:space-between;gap:14px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(241,237,228,.4);flex-wrap:wrap}
+/* The bottom line holds three links — Legal, General terms and the studio —
+   in the same dim colour as the text around them, which left them looking
+   like plain words. A hairline under them says they are clickable without
+   brightening a line that is meant to sit back. */
+.foot-bottom a{text-decoration:underline;text-decoration-color:rgba(241,237,228,.28);
+  text-underline-offset:3px;transition:color .22s ease,text-decoration-color .22s ease}
+.foot-bottom a:hover{text-decoration-color:var(--cream)}
+@media (max-width:900px){.foot-grid{grid-template-columns:1fr;gap:44px;justify-items:start}.foot-nav{grid-template-columns:1fr}}
+
+/* ============ DONE — success overlay. NB: '.done' is this full-screen
+   panel, so never use it as a state class elsewhere. ============ */
+.done{position:fixed;inset:0;z-index:95;background:var(--ink);color:var(--cream);
+  display:flex;align-items:center;justify-content:center;text-align:center;padding:var(--pad);
+  opacity:0;visibility:hidden;transition:opacity .5s ease}
+.done.on{opacity:1;visibility:visible}
+.done h2{font-size:var(--fs-display);margin-bottom:18px}
+.done p{color:var(--cream-dim);max-width:46ch;margin:0 auto 26px}
+.done .btn{border-color:var(--line-d);color:var(--cream)}
+.done .btn::after{background:var(--cream)}
+.done .btn:hover{color:var(--ink)}
+
+.grain{position:fixed;inset:0;z-index:80;pointer-events:none;opacity:.05;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}}
+</style>
+<link rel="stylesheet" href="/assets/picture.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-arr" viewBox="0 0 32 24"><path d="M1 12h29M20 2l10 10-10 10" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></symbol>
+</svg>
+<div class="grain" aria-hidden="true"></div>
+
+<header id="header">
+  <button class="menu-btn" id="menuToggle" aria-label="Menu" aria-expanded="false" aria-controls="menuOverlay">
+    <span class="bars" aria-hidden="true"><span></span><span></span></span>
+    <span class="label" aria-hidden="true"><span class="l-menu">Menu</span><span class="l-close">Close</span></span>
+  </button>
+  <a href="/index.html" class="logo-badge" aria-label="Wheels on Fire — home">
+    <img class="logo-full" src="/assets/wheelsonfire_white-01.png" alt="Wheels on Fire">
+    <span class="logo-mini" aria-hidden="true"><span class="lm-mark">
+      <img class="lm-tire" id="lmTire" src="/assets/logo-tire.png" alt="">
+      <img class="lm-flames" src="/assets/logo-flames.png" alt="">
+      <img class="lm-word" src="/assets/logo-word.png" alt=""></span></span>
+  </a>
+</header>
+
+<div class="menu-overlay" id="menuOverlay" role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="mo-panel mo-nav"><div class="mo-inner">
+    <nav class="mo-links" aria-label="Main">
+      <a href="/index.html" data-menu-link data-shot="0"><span>Home</span></a>
+      <a href="/about-us.html" data-menu-link data-shot="1"><span>About us</span></a>
+      <a href="/tours.html" data-menu-link data-shot="2"><span>Tours &amp; Packages</span></a>
+      <a href="/bikes.html" data-menu-link data-shot="3"><span>Our bikes</span></a>
+      <a href="/our-adventures.html" data-menu-link data-shot="4"><span>Our adventures</span></a>
+      <a href="/contact.html" data-menu-link aria-current="page" data-shot="5"><span>Get in touch</span></a>
+    </nav>
+    <div class="mo-side">
+      <div><p class="lbl">Bookings</p>
+        <p><a href="mailto:wheelsonfireazores@gmail.com">wheelsonfireazores@gmail.com</a></p>
+        </div>
+      <div><p class="lbl">Follow</p>
+        <p><a href="https://www.instagram.com/wheelsonfireazores" target="_blank" rel="noopener noreferrer">Instagram<svg class="ico-out" aria-hidden="true"><use href="#i-arr-out"/></svg></a>
+        &nbsp; <a href="https://www.youtube.com/@wheelsonfireazores" target="_blank" rel="noopener noreferrer">YouTube<svg class="ico-out" aria-hidden="true"><use href="#i-arr-out"/></svg></a></p></div>
+    </div>
+  </div></div>
+  <div class="mo-panel mo-visual" aria-hidden="true">
+    <div class="mo-shots" id="moShots">
+      <picture><source type="image/avif" srcset="/assets/hero-poster.avif"><img class="on" src="/assets/hero-poster.jpg" alt="" data-cap="MTB adventures — S. Miguel"></picture>
+      <picture><source type="image/avif" srcset="/assets/jj-trail.avif"><img src="/assets/jj-trail.jpg" alt="" data-cap="Jallas &amp; Juliana — in the green"></picture>
+      <picture><source type="image/avif" srcset="/assets/tours-hero.avif"><img src="/assets/tours-hero.jpg" alt="" data-cap="Tours &amp; packages — out on the trail"></picture>
+      <picture><source type="image/avif" srcset="/assets/tours/westside-1.avif"><img src="/assets/tours/westside-1.jpg" alt="" data-cap="Westside — down to the sea"></picture>
+      <picture><source type="image/avif" srcset="/assets/red-road.avif"><img src="/assets/red-road.jpg" alt="" data-cap="Bikepacking the Azores"></picture>
+      <picture><source type="image/avif" srcset="/assets/cta-truck.avif"><img src="/assets/cta-truck.jpg" alt="" data-cap="The shuttle — river ford"></picture>
+    </div>
+    <p class="mo-shot-cap" id="moCap">MTB adventures — S. Miguel</p>
+  </div>
+</div>
+
+<main class="gt">
+  <aside class="gt-aside">
+    <div>
+      <h1 class="disp">Get in<br>touch!</h1>
+      <h2>Make the most<br>of your trip.</h2>
+      <p>We will get back to you by email as soon as we can.</p>
+    </div>
+
+    <!-- the running total, so the choices above always have a consequence -->
+    <div class="est" aria-live="polite">
+      <p class="lbl">Estimated total</p>
+      <p class="amt" id="estAmt">—</p>
+      <p class="bd" id="estBd">Pick a tour type and duration to see the price.</p>
+    </div>
+
+    <div class="gt-contact">
+      <p class="lbl">Other questions &amp; urgent inquiries:</p>
+      <p>E: <a href="mailto:wheelsonfireazores@gmail.com">wheelsonfireazores@gmail.com</a></p>
+      <p>WhatsApp: <a href="tel:+351933549537">+351 93 3549 537</a></p>
+      <p>WhatsApp: <a href="tel:+351923044000">+351 92 3044 000</a></p>
+    </div>
+  </aside>
+
+  <div class="gt-main">
+    <div class="gt-prog" id="prog">
+      <div class="gt-seg on"><div class="bar"><i></i></div><p class="nm"><b>01</b><span>The tour</span></p></div>
+      <div class="gt-seg"><div class="bar"><i></i></div><p class="nm"><b>02</b><span>Bike Skills &amp; Fitness</span></p></div>
+      <div class="gt-seg"><div class="bar"><i></i></div><p class="nm"><b>03</b><span>Your contact</span></p></div>
+    </div>
+
+    <form class="gt-steps" id="gtForm" novalidate>
+
+      <!-- ============ MOMENT 1 — THE TOUR ============ -->
+      <section class="moment on" data-moment>
+        <div class="m-head">
+          <h2 class="m-q">The tour</h2>
+        </div>
+
+        <div class="tour-lock" id="tourLock" hidden>
+          <div>
+            <span class="lg" style="margin:0">Your tour</span>
+            <p class="lock-name" id="lockName"></p>
+            <p class="lock-meta" id="lockMeta"></p>
+          </div>
+          <button type="button" class="disc" id="lockEdit">Change <span class="pm" aria-hidden="true">↺</span></button>
+        </div>
+
+        <div class="grp grp-pair" id="grpStart">
+          <div id="grpType">
+            <span class="lg" id="lgType">Bike <span class="req">*</span></span>
+            <div class="chips" role="group" aria-labelledby="lgType" id="typeChips">
+              <button type="button" class="chip" data-type="mtb" aria-pressed="false">MTB<small>Full suspension</small></button>
+              <button type="button" class="chip" data-type="emtb" aria-pressed="false">E-MTB<small>Electric assist</small></button>
+            </div>
+          </div>
+          <div id="grpDur">
+            <span class="lg" id="lgDur">Duration <span class="req">*</span></span>
+            <div class="chips" role="group" aria-labelledby="lgDur" id="durChips">
+              <button type="button" class="chip" data-dur="half" aria-pressed="false">Half day<small>3–4 hours</small></button>
+              <button type="button" class="chip" data-dur="full" aria-pressed="false">Full day<small>5–6 hours</small></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="grp" id="grpTour" hidden>
+          <span class="lg" id="lgTour">Tours *</span>
+          <div class="chips" role="group" aria-labelledby="lgTour" id="tourChips"></div>
+        </div>
+
+        <!-- Filled from the chosen tour's `warn` in tours-data.js, and a sibling
+             of the tour group rather than a child of it: arriving from a tour
+             page hides that group behind the confirmation strip, and the safety
+             condition has to survive that. -->
+        <p class="tv-warn" id="tourWarn" role="alert" hidden></p>
+
+        <div class="grp" id="grpWhen" hidden>
+          <div class="f-row">
+            <div>
+              <span class="lg">Which day</span>
+              <div class="dp">
+                <button type="button" class="dp-trigger empty" id="dpTrigger"
+                        aria-expanded="false" aria-controls="dpPop">Pick your day</button>
+                <div class="dp-pop" id="dpPop" hidden role="dialog" aria-label="Choose dates">
+                  <div class="dp-head">
+                    <button type="button" class="dp-nav" id="dpPrev" aria-label="Previous month">‹</button>
+                    <b id="dpMonth"></b>
+                    <button type="button" class="dp-nav" id="dpNext" aria-label="Next month">›</button>
+                  </div>
+                  <div class="dp-grid" id="dpGrid"></div>
+                  <div class="dp-foot">
+                    <span class="dp-hint" id="dpHint">Pick the first day</span>
+                    <button type="button" class="dp-clear" id="dpClear">Clear</button>
+                  </div>
+                </div>
+              </div>
+              <!-- A day either side is often the difference between a tour that
+                   runs and one that doesn't, so it is asked here, beside the
+                   date, rather than left for the free-text box at the end. -->
+              <label class="flexday">
+                <button type="button" class="sw" id="flexSw" role="switch" aria-checked="false"
+                        aria-labelledby="flexLb"><span class="knob"></span></button>
+                <span id="flexLb">I&rsquo;m flexible with dates (+/- 1 day)</span>
+              </label>
+            </div>
+            <div>
+              <span class="lg">How many riders</span>
+              <div class="stepper">
+                <button type="button" id="pMinus" aria-label="One fewer rider">−</button>
+                <input id="people" name="people" type="number" min="1" max="12" value="2" inputmode="numeric" aria-label="Number of riders">
+                <button type="button" id="pPlus" aria-label="One more rider">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grp" id="grpOwn" hidden>
+          <span class="lg" id="lgBike">Bikes</span>
+          <div class="chips" role="group" aria-labelledby="lgBike" id="ownChips">
+            <button type="button" class="chip" data-own="0" aria-pressed="true">Use yours<small>Bike + gear included</small></button>
+            <button type="button" class="chip" data-own="1" aria-pressed="false">Bringing my own</button>
+          </div>
+        </div>
+
+        <div class="grp" id="grpGear" hidden>
+          <span class="lg" id="lgGear">Gear</span>
+          <div class="gear2" id="gearRows"></div>
+        </div>
+      </section>
+
+      <!-- ============ MOMENT 2 — THE EXPERIENCE ============ -->
+      <section class="moment" data-moment>
+        <div class="m-head">
+          <h2 class="m-q">Bike Skills &amp; Fitness Check</h2>
+          <p class="m-help">Please check in the box which of the levels below reflects how you ride on the trails. Be honest, safety first! Remember that you&rsquo;re not only on holidays but also riding in another part of the world!</p>
+        </div>
+        <div class="grp">
+          <span class="lg" id="lgLevel" hidden></span>
+          <div class="opts" role="radiogroup" aria-labelledby="lgLevel" id="levelOpts"></div>
+        </div>
+      </section>
+
+      <!-- ============ MOMENT 3 — YOUR CONTACT ============ -->
+      <section class="moment" data-moment data-final>
+        <div class="m-head">
+          <h2 class="m-q">Your contact</h2>
+          <p class="m-help">Last bit. Everything above is already saved.</p>
+        </div>
+
+        <div class="grp">
+          <div class="f-row">
+            <div><span class="lg">First name <span class="req">*</span></span>
+              <input class="f-in" id="firstName" name="firstName" autocomplete="given-name" placeholder="Jallas"></div>
+            <div><span class="lg">Last name <span class="req">*</span></span>
+              <input class="f-in" id="lastName" name="lastName" autocomplete="family-name" placeholder="Andersson"></div>
+          </div>
+        </div>
+        <div class="grp">
+          <div class="f-row-3">
+            <div><span class="lg">Email <span class="req">*</span></span>
+              <input class="f-in" id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com"></div>
+            <div><span class="lg">Phone</span>
+              <input class="f-in" id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+351 …"></div>
+            <div><span class="lg">Country <span class="req">*</span></span>
+              <input class="f-in" id="country" name="country" autocomplete="country-name" placeholder="Portugal"></div>
+          </div>
+        </div>
+        <div class="grp">
+          <span class="lg">Anything else we should know</span>
+          <textarea class="f-in" id="notes" name="notes" placeholder="Heights and weights, injuries, dietary needs, a question — anything."></textarea>
+        </div>
+
+        <div class="alert" role="note">
+          <span class="bang" aria-hidden="true">!</span>
+          <p><b>Travel and health insurance is mandatory</b> before booking a tour with us.</p>
+        </div>
+
+        <div class="pay">
+          <p class="hd">What happens next</p>
+          <p>We&rsquo;ll get back to you as soon as we can filling you up on the remaining details
+            regarding your tour &mdash; dates, meeting point, starting time and payment. Thanks for
+            reaching out and riding with us!</p>
+        </div>
+
+      </section>
+    </form>
+
+    <!-- Shown only when a send fails or is refused. Never on the happy path. -->
+    <div class="send-fail" id="sendFail" role="alert" hidden>
+      <p data-line></p>
+      <p class="send-fail-alt">Write to <a href="mailto:wheelsonfireazores@gmail.com">wheelsonfireazores@gmail.com</a> or WhatsApp <a href="tel:+351933549537">+351 93 3549 537</a> and we will pick it up from there.</p>
+    </div>
+
+    <nav class="gt-nav" aria-label="Form navigation">
+      <div class="gt-nav-l">
+        <p class="gt-count"><span class="gt-count-n"><b id="cNow">01</b> / 03 — </span><span id="cName">The tour</span></p>
+        <!-- Mobile only: the aside's estimate panel is hidden there, so the
+             running total rides along with the step name instead. -->
+        <p class="gt-est-m" id="navEst" aria-live="polite"><span>Estimated</span><b id="navEstAmt">—</b></p>
+      </div>
+      <div class="gt-nav-r">
+        <span class="gt-hint" id="navHint" aria-live="polite"></span>
+        <button class="btn btn-ghost-i" id="btnBack" type="button" disabled>Back</button>
+        <button class="btn btn-red" id="btnNext" type="button">Next <svg class="arr" aria-hidden="true"><use href="#i-arr"/></svg></button>
+      </div>
+    </nav>
+  </div>
+</main>
+
+<footer>
+  <div class="foot-grid">
+    <a class="foot-logo" href="#top" aria-label="Wheels on Fire — back to top"><img src="/assets/wheelsonfire_white-01.png" alt="Wheels on Fire logo"></a>
+    <nav class="foot-nav" aria-label="Footer">
+      <a href="/about-us.html">About us</a><a href="/tours.html">Tours &amp; Packages</a>
+      <a href="/bikes.html">Our bikes</a><a href="/our-adventures.html">Our adventures</a>
+      <a href="/contact.html">Get in touch</a>
+    </nav>
+    <div class="foot-info">
+      <p><b>WHEELS ON FIRE</b> is a MTB guide &amp; shuttle company based in the island of São Miguel, Azores.</p>
+      <div class="foot-social">
+        <a href="https://www.instagram.com/wheelsonfireazores" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.youtube.com/@wheelsonfireazores" target="_blank" rel="noopener noreferrer">YouTube</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>MTB tours — São Miguel — Azores</span><span><a href="/legal.html">Legal</a> · <a href="/general-terms.html">General terms</a></span>
+    <span>Design by Juliana &amp; <a href="https://phaze.design" target="_blank" rel="noopener noreferrer">Phaze Design</a> — © Wheels on Fire 2026</span>
+  </div>
+</footer>
+
+<div class="done" id="done" role="status" aria-live="polite">
+  <div>
+    <h2 class="disp">See you<br>on the trail</h2>
+    <p>Your request is on its way. We'll reply within a day with the follow-up detail and how to secure the date.</p>
+    <a class="btn btn-ghost-i" href="tours.html">Back to the tours <svg class="arr" aria-hidden="true"><use href="#i-arr"/></svg></a>
+  </div>
+</div>
+
+<!-- assets/tours-geo.js is not needed here: the booking form only reads the
+     tour name, bike type, duration and level from tours-data.js. -->
+<script src="assets/tours-data.js"></script>
+<script>
+(function(){
+  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var docEl=document.documentElement;
+
+  /* ---------- menu ---------- */
+  var overlay=document.getElementById('menuOverlay'), toggle=document.getElementById('menuToggle');
+  var shots=[].slice.call(document.querySelectorAll('#moShots img')), cap=document.getElementById('moCap');
+  [].slice.call(overlay.querySelectorAll('[data-menu-link]')).forEach(function(a){
+    function show(){var i=+a.dataset.shot;
+      shots.forEach(function(im,n){im.classList.toggle('on',n===i);});
+      cap.textContent=shots[i].dataset.cap;}
+    a.addEventListener('mouseenter',show); a.addEventListener('focus',show);
+    a.addEventListener('click',function(){setMenu(false);});
+  });
+  function setMenu(open){
+    toggle.setAttribute('aria-expanded',open);
+    overlay.classList.toggle('open',open);
+    document.body.classList.toggle('menu-open',open);
+    docEl.style.overflow=open?'hidden':'';
+  }
+  toggle.addEventListener('click',function(){setMenu(toggle.getAttribute('aria-expanded')!=='true');});
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&toggle.getAttribute('aria-expanded')==='true') setMenu(false);});
+
+  /* ---------- the client's data ---------- */
+  /* Real published rates. e-MTB is deliberately absent — those prices are not set. */
+  var PRICE={half:{ours:150,own:110}, full:{ours:180,own:160}};
+  /* The client's riding-level matrix. Five grades, their words. */
+  /* The client's riding-level matrix, their words. Four grades, not the five
+     this page carried before: the list they sent has no Novice, so Beginner is
+     now the entry point and everything below shifted up one. */
+  var LEVELS=[
+    {id:'l1',n:'Level 1',t:'Beginner',b:[
+      "You love to be on a bike and are starting to fall for mountain biking!",
+      "You're comfortable shifting gears, braking and maintaining an efficient pedalling rhythm",
+      "You enjoy covering distance and are happy spending around 3\u20134 hours riding",
+      "You ride a mix of rolling gravel trails, forest roads, doubletrack and some easier singletrack",
+      "You're looking to progress with your MTB skills",
+      "You have a good fitness level and you're comfortable spending around 3\u20134 hours or more riding"]},
+    {id:'l2',n:'Level 2',t:'Intermediate',b:[
+      "You have been mountain biking consistently for two years or more",
+      "You enjoy covering distance and are happy spending around 3\u20134 or 5\u20136 hours riding",
+      "You have good bike-control skills, change gears and corner",
+      "You can manage climbs and descents, steep switchbacks, although you may still walk some features",
+      "You are confident with mild drops, jumps and gap-jumps (up to 1\u20131.5 metre drops and 1.5 m gap jumps)",
+      "You have a good fitness level and you're comfortable spending around 5\u20136 hours riding"]},
+    {id:'l3',n:'Level 3',t:'Strong Intermediate',b:[
+      "You have been mountain biking consistently for some time now",
+      "You enjoy covering distance and are happy spending around 5\u20136 hours riding",
+      "You are comfortable with a wide range of technical surfaces and conditions, including singletrack, rocks, logs, switchbacks, larger rock gardens, steep technical descents and exposed sections",
+      "Wet or dry conditions, no problem for you!",
+      "Braking, shifting and cornering are instinctive for you",
+      "You are confident with mild drops, jumps and gap-jumps (up to 2 m drops and gap jumps)",
+      "You have a good fitness level and you're comfortable spending around 5\u20136 hours riding"]},
+    {id:'l4',n:'Level 4',t:'Advanced',b:[
+      "You're always hitting the trails!",
+      "You are highly confident dealing with a broad range of terrain and obstacles, including drops, jumps, gap-jumps, rocks, logs, switchbacks, larger rock gardens, steep technical descents and exposed sections",
+      "Wet or dry conditions, no problem for you!",
+      "Braking, shifting and cornering are instinctive",
+      "You have excellent control of your bike, corner effectively, ride steep technical climbs and descents, and you're confident with drops, jumps and gap-jumps (up to 2\u20133 m)",
+      "You have a really good fitness level"]}
+  ];
+
+  /* Which of those four a tour's own grade is open to, so picking a tour still
+     narrows the list instead of offering grades it cannot take. The pairings
+     are the ones that were here before, shifted with the levels: an
+     Intermediate tour still opens at Intermediate, an Advanced one at Strong
+     Intermediate. */
+  var FIT={ alllevels:['l1','l2','l3','l4'],
+            intermediate:['l2','l3','l4'],
+            advanced:['l3','l4'] };
+  var GEAR=[
+    {id:'helmet',label:'Helmet',sizes:['S / 51–54 cm','M / 55–58 cm','L / 59–62 cm']},
+    {id:'knee',  label:'Knee pads',sizes:['S','M','L']}
+  ];
+  var TOURS=(window.WOF_TOURS||[]).map(function(t){
+    return {id:t.id,name:t.name,type:t.type,durations:t.durations||[],
+            levels:t.levels||[],level:t.level,warn:t.warn||''};});
+
+  var S={type:null,dur:null,tour:null,own:false,level:null,flex:false,
+          gear:{helmet:{on:false,sizes:[]},knee:{on:false,sizes:[]}}};
+
+  /* ---------- build the choice controls ---------- */
+  var tourChips=document.getElementById('tourChips');
+  tourChips.innerHTML=TOURS.map(function(t){
+    return '<button type="button" class="chip" data-tour="'+t.id+'" aria-pressed="false">'+t.name+
+      '<small>'+(t.type==='any'?'MTB / E-MTB':t.type==='emtb'?'E-MTB':'MTB')+' · '+
+      t.durations.map(function(d){return d==='half'?'Half':'Full';}).join(' / ')+' day</small></button>';}).join('');
+
+  function pressGroup(root,attr,val){
+    [].slice.call(root.querySelectorAll('[data-'+attr+']')).forEach(function(b){
+      b.setAttribute('aria-pressed', String(b.dataset[attr]===String(val)));});
+  }
+  document.getElementById('typeChips').addEventListener('click',function(e){
+    var b=e.target.closest('[data-type]'); if(!b)return;
+    S.type=b.dataset.type; pressGroup(this,'type',S.type); syncTourChips(); price(); revealRest();});
+  document.getElementById('durChips').addEventListener('click',function(e){
+    var b=e.target.closest('[data-dur]'); if(!b)return;
+    S.dur=b.dataset.dur; pressGroup(this,'dur',S.dur);
+    var hint=document.querySelector('#lgDur .lg-hint'); if(hint) hint.remove();
+    syncTourChips(); price(); revealRest();});
+  document.getElementById('ownChips').addEventListener('click',function(e){
+    var b=e.target.closest('[data-own]'); if(!b)return;
+    S.own=b.dataset.own==='1'; pressGroup(this,'own',b.dataset.own); price();});
+  tourChips.addEventListener('click',function(e){
+    var b=e.target.closest('[data-tour]'); if(!b||b.disabled)return;
+    var same=S.tour===b.dataset.tour;
+    S.tour=same?null:b.dataset.tour;
+    [].slice.call(this.querySelectorAll('[data-tour]')).forEach(function(x){
+      x.setAttribute('aria-pressed', String(!same && x.dataset.tour===S.tour));});
+    if(S.tour){                                   /* the tour decides bike and length */
+      var t=TOURS.filter(function(x){return x.id===S.tour;})[0];
+      S.type=t.type; pressGroup(document.getElementById('typeChips'),'type',S.type);
+      if(t.durations.length===1){ S.dur=t.durations[0];
+        pressGroup(document.getElementById('durChips'),'dur',S.dur); }
+    }
+    /* always, so clearing the tour hands the grades back to the rider */
+    syncTourChips(); price(); revealRest(); levelFromTour(); syncWarn();
+  });
+
+  /* the chosen tour's safety condition, if it has one */
+  var tourWarn=document.getElementById('tourWarn');
+  function syncWarn(){
+    var t=S.tour?TOURS.filter(function(x){return x.id===S.tour;})[0]:null;
+    tourWarn.innerHTML = t && t.warn
+      ? t.warn.replace(/&/g,'&amp;').replace(/</g,'&lt;')
+              .replace(/^(Disclaimer:)/,'<b>$1</b>')
+              .replace(/\*([^*]+)\*/g,'<strong>$1</strong>')
+      : '';
+    tourWarn.hidden = !(t && t.warn);
+  }
+  /* grey out tours that cannot match what has been chosen */
+  function syncTourChips(){
+    [].slice.call(tourChips.querySelectorAll('[data-tour]')).forEach(function(b){
+      var t=TOURS.filter(function(x){return x.id===b.dataset.tour;})[0];
+      /* 'any' runs on either bike — the Private Tour must stay offerable whichever
+         one the rider picked. */
+      /* 'any' is not a bike, it is the absence of a constraint — it arrives
+         when the Private Tour is picked, and used to match nothing, which
+         greyed out every other tour and left no way back but deselecting. */
+      var ok=(!S.type||S.type==='any'||t.type===S.type||t.type==='any')&&
+             (!S.dur||t.durations.indexOf(S.dur)>-1);
+      b.disabled=!ok;
+      if(!ok&&S.tour===t.id){ S.tour=null; b.setAttribute('aria-pressed','false'); }
+    });
+  }
+
+  /* ---------- reveal as they answer ----------
+     Nothing past the first two questions exists until those two are answered,
+     so the opening screen is two rows of chips instead of seven field groups. */
+  /* A rider who arrived from a tour page has already answered bike, duration and
+     tour. Confirm those three in a strip instead of asking again, and open on
+     the first thing they have not decided. */
+  var locked=false;
+  function lockTour(on){
+    locked=on;
+    document.getElementById('tourLock').hidden=!on;
+    ['grpStart','grpTour'].forEach(function(id){document.getElementById(id).hidden=on;});
+    if(on){
+      var t=TOURS.filter(function(x){return x.id===S.tour;})[0];
+      document.getElementById('lockName').textContent=t.name;
+      document.getElementById('lockMeta').textContent=
+        (t.type==='any'?'MTB / E-MTB':t.type==='emtb'?'E-MTB':'MTB')+' · '+(S.dur==='half'?'Half day':'Full day');
+    }
+    syncWarn();
+  }
+  document.getElementById('lockEdit').addEventListener('click',function(){
+    lockTour(false);
+    if(revealed) document.getElementById('grpTour').hidden=false;
+    document.getElementById('grpStart').scrollIntoView({block:'center',behavior:reduced?'auto':'smooth'});
+  });
+
+  /* The tour's own grading answers moment 2, and it is not the rider's to
+     override: a tour graded Intermediate / Advanced cannot be ridden as "all
+     levels". So the grades the tour does not accept are disabled, and the
+     tour's own grade is ticked. With no tour chosen, everything reopens. */
+  function levelFromTour(){
+    var t=TOURS.filter(function(x){return x.id===S.tour;})[0];
+    var opts=[].slice.call(levelOpts.querySelectorAll('[data-level]'));
+    if(!t||!t.level){
+      opts.forEach(function(x){ x.disabled=false; x.removeAttribute('aria-disabled'); });
+      return;
+    }
+    var grades = (t.levels && t.levels.length) ? t.levels : [t.level];
+    var allowed = [];
+    grades.forEach(function(g){ (FIT[g]||[]).forEach(function(id){
+      if(allowed.indexOf(id) < 0) allowed.push(id); }); });
+    opts.forEach(function(x){
+      var ok = allowed.indexOf(x.dataset.level) > -1;
+      x.disabled = !ok;
+      x.setAttribute('aria-disabled', String(!ok));
+      /* a grade that is no longer on offer must not stay ticked */
+      if(!ok) x.setAttribute('aria-checked','false');
+    });
+    var b=levelOpts.querySelector('[data-level="'+t.level+'"]');
+    if(b){
+      opts.forEach(function(x){ x.setAttribute('aria-checked', String(x===b)); });
+      S.level=t.level;
+    }
+  }
+
+  /* The reveal is async, so a deep link can already have locked the tour or
+     ticked "own bike" before the timers land. One predicate decides visibility
+     so the timers cannot undo a choice that was made first. */
+  function shouldShow(id){
+    if(id==='grpTour') return !locked;
+    return true;
+  }
+  var GATED=[['grpTour',0],['grpWhen',80],['grpOwn',160],['grpGear',240]];
+  var revealed=false;
+  function revealRest(){
+    if(revealed||!S.type||!S.dur)return;
+    revealed=true;
+    GATED.forEach(function(g){
+      var el=document.getElementById(g[0]);
+      setTimeout(function(){
+        el.hidden = !shouldShow(g[0]);
+        if(!reduced && !el.hidden){
+          el.classList.add('rev');
+          /* fill-mode leaves transform:matrix(1,0,0,1,0,0) — not none, so it keeps
+             a stacking context alive and buries the date popover underneath the
+             groups that come after it. Take the class off once it has played. */
+          el.addEventListener('animationend',function h(){
+            el.classList.remove('rev'); el.removeEventListener('animationend',h);
+          });
+        }
+      }, reduced?0:g[1]);
+    });
+  }
+  /* Gear is asked either way, so nothing here reacts to the bike choice: on our
+     bikes it comes with the tour and we need the sizes, and on their own bike
+     they may still want a helmet or knee pads off us. */
+
+  var flexSw=document.getElementById('flexSw');
+  flexSw.addEventListener('click',function(){
+    S.flex=flexSw.getAttribute('aria-checked')!=='true';
+    flexSw.setAttribute('aria-checked',String(S.flex));
+  });
+
+  /* ---------- date picker ----------
+     One day, not a range — these are half and full day tours, not stays. A
+     native date input cannot be styled to match the rest of this. */
+  var DP={a:null,view:new Date()};
+  DP.view.setDate(1);
+  var dpTrigger=document.getElementById('dpTrigger'), dpPop=document.getElementById('dpPop'),
+      dpGrid=document.getElementById('dpGrid'), dpMonth=document.getElementById('dpMonth'),
+      dpHint=document.getElementById('dpHint');
+  var MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var DOW=['Mo','Tu','We','Th','Fr','Sa','Su'];
+  var DOWFULL=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+  function midnight(d){var x=new Date(d);x.setHours(0,0,0,0);return x;}
+  var TODAY=midnight(new Date());
+  function same(a,b){return a&&b&&a.getTime()===b.getTime();}
+  function fmt(d){return d.getDate()+' '+MONTHS[d.getMonth()].slice(0,3);}
+  function label(){
+    if(!DP.a) return null;
+    return DOWFULL[(DP.a.getDay()+6)%7]+' '+DP.a.getDate()+' '+
+           MONTHS[DP.a.getMonth()]+' '+DP.a.getFullYear();
+  }
+  function paintTrigger(){
+    var l=label();
+    dpTrigger.textContent=l||'Pick your day';
+    dpTrigger.classList.toggle('empty',!l);
+  }
+  function drawMonth(){
+    dpMonth.textContent=MONTHS[DP.view.getMonth()]+' '+DP.view.getFullYear();
+    var first=new Date(DP.view), start=(first.getDay()+6)%7;   /* weeks start Monday */
+    var days=new Date(DP.view.getFullYear(),DP.view.getMonth()+1,0).getDate();
+    var html=DOW.map(function(d){return '<span class="dp-dow">'+d+'</span>';}).join('');
+    for(var i=0;i<start;i++) html+='<button type="button" class="dp-day out" tabindex="-1" aria-hidden="true"></button>';
+    for(var d=1;d<=days;d++){
+      var cur=midnight(new Date(DP.view.getFullYear(),DP.view.getMonth(),d));
+      var past=cur<TODAY, cls='dp-day';
+      if(same(cur,DP.a)) cls+=' edge';
+      html+='<button type="button" class="'+cls+'" data-d="'+cur.getTime()+'"'+(past?' disabled':'')+'>'+d+'</button>';
+    }
+    dpGrid.innerHTML=html;
+    document.getElementById('dpPrev').disabled =
+      (DP.view.getFullYear()===TODAY.getFullYear()&&DP.view.getMonth()===TODAY.getMonth());
+    dpHint.textContent = DP.a ? 'Tap another day to change it' : 'Which day do you want to ride?';
+  }
+  function openDP(open){
+    dpPop.hidden=!open; dpTrigger.setAttribute('aria-expanded',open);
+    var g=dpTrigger.closest('.grp'); if(g) g.classList.toggle('dp-open',open);
+    if(open){ if(DP.a){DP.view=new Date(DP.a);DP.view.setDate(1);} drawMonth(); }
+  }
+  dpTrigger.addEventListener('click',function(){openDP(dpPop.hidden);});
+  document.getElementById('dpPrev').addEventListener('click',function(){
+    DP.view.setMonth(DP.view.getMonth()-1); drawMonth();});
+  document.getElementById('dpNext').addEventListener('click',function(){
+    DP.view.setMonth(DP.view.getMonth()+1); drawMonth();});
+  document.getElementById('dpClear').addEventListener('click',function(){
+    DP.a=null; drawMonth(); paintTrigger();});
+  dpGrid.addEventListener('click',function(e){
+    var b=e.target.closest('[data-d]'); if(!b||b.disabled)return;
+    /* drawMonth() rewrites the grid, so this button is detached by the time the
+       document-level "click outside" handler runs — closest('.dp') would return
+       null and shut the picker after a single date. Keep it off document. */
+    e.stopPropagation();
+    DP.a=midnight(new Date(+b.dataset.d));
+    drawMonth(); paintTrigger();
+    setTimeout(function(){openDP(false);},220);
+  });
+  document.addEventListener('click',function(e){
+    if(!dpPop.hidden&&!e.target.closest('.dp')) openDP(false);});
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&!dpPop.hidden){openDP(false);dpTrigger.focus();}});
+
+  var people=document.getElementById('people');
+  function clampPeople(n){return Math.max(1,Math.min(12,n||1));}
+  document.getElementById('pMinus').addEventListener('click',function(){
+    people.value=clampPeople(+people.value-1); price(); gearLines();});
+  document.getElementById('pPlus').addEventListener('click',function(){
+    people.value=clampPeople(+people.value+1); price(); gearLines();});
+  people.addEventListener('input',function(){price();gearLines();});
+
+  var gearRows=document.getElementById('gearRows');
+  gearRows.innerHTML=GEAR.map(function(g){
+    return '<div class="g-row">'+
+      '<button type="button" class="sw" role="switch" aria-checked="false" data-item="'+g.id+'" '+
+        'aria-label="'+g.label+'"><span class="knob" aria-hidden="true"></span></button>'+
+      '<div><p class="g-name">'+g.label+'</p><p class="g-qty" data-qty="'+g.id+'">Not needed</p></div>'+
+      '<div class="g-sizes" data-sizes="'+g.id+'" hidden>'+
+        g.sizes.map(function(sz){
+          return '<button type="button" class="szchip" aria-pressed="false" data-item="'+g.id+
+            '" data-size="'+sz+'">'+sz+'</button>';}).join('')+
+      '</div></div>';}).join('');
+
+  /* the count is the party size — switching an item on means one each */
+  function gearLine(id){
+    var g=S.gear[id], n=clampPeople(+people.value);
+    var el=gearRows.querySelector('[data-qty="'+id+'"]');
+    if(!g.on){ el.textContent='Not needed'; return; }
+    el.innerHTML='<b>'+n+'</b> needed'+(g.sizes.length?' · '+g.sizes.map(function(s){
+      return s.split(' / ')[0];}).join(', '):' · pick the sizes');
+  }
+  function gearLines(){Object.keys(S.gear).forEach(gearLine);}
+
+  gearRows.addEventListener('click',function(e){
+    var sw=e.target.closest('.sw');
+    if(sw){
+      var id=sw.dataset.item, on=sw.getAttribute('aria-checked')!=='true';
+      sw.setAttribute('aria-checked',on);
+      S.gear[id].on=on;
+      gearRows.querySelector('[data-sizes="'+id+'"]').hidden=!on;
+      if(!on) S.gear[id].sizes=[];
+      gearRows.querySelectorAll('[data-item="'+id+'"].szchip').forEach(function(c){
+        if(!on) c.setAttribute('aria-pressed','false');});
+      gearLine(id); return;
+    }
+    var chip=e.target.closest('.szchip');
+    if(chip){
+      var gid=chip.dataset.item, sz=chip.dataset.size;
+      var arr=S.gear[gid].sizes, i=arr.indexOf(sz);
+      if(i>-1) arr.splice(i,1); else arr.push(sz);
+      chip.setAttribute('aria-pressed', String(i===-1));
+      gearLine(gid);
+    }
+  });
+
+  var levelOpts=document.getElementById('levelOpts');
+  levelOpts.innerHTML=LEVELS.map(function(l){
+    return '<button type="button" class="opt" role="radio" aria-checked="false" data-level="'+l.id+'">'+
+      '<span class="box" aria-hidden="true"></span><span><span class="lv">'+l.n+'</span><span class="t">'+l.t+'</span>'+
+      '<ul>'+l.b.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul></span></button>';}).join('');
+  levelOpts.addEventListener('click',function(e){
+    var b=e.target.closest('[data-level]'); if(!b||b.disabled)return;
+    [].slice.call(this.querySelectorAll('[data-level]')).forEach(function(x){
+      x.setAttribute('aria-checked', String(x===b));});
+    S.level=b.dataset.level;
+  });
+
+  /* ---------- the running estimate ----------
+     Shown from the first choice so the tour questions have a visible payoff,
+     and it is the same number the CTA cards quote. */
+  var estAmt=document.getElementById('estAmt'), estBd=document.getElementById('estBd');
+  /* The mobile footer shows the same number as the aside panel, so it is mirrored
+     from one place rather than being worked out twice. */
+  var navEstAmt=document.getElementById('navEstAmt');
+  function setAmount(text, onRequest){
+    estAmt.textContent=text; estAmt.classList.toggle('req', !!onRequest);
+    navEstAmt.textContent=text; navEstAmt.classList.toggle('req', !!onRequest);
+  }
+  function perRider(){
+    if(S.type==='emtb'||!S.dur) return null;
+    return PRICE[S.dur][S.own?'own':'ours'];
+  }
+  function price(){
+    var n=clampPeople(+people.value), p=perRider();
+    if(S.type==='emtb'){
+      setAmount('On request', true);
+      estBd.textContent='e-MTB pricing is confirmed case by case — we will quote in the reply.';
+    } else if(p==null){
+      setAmount('—', false);
+      estBd.textContent='Pick a tour type and duration to see the price.';
+    } else {
+      setAmount((p*n)+'€', false);
+      estBd.textContent=p+'€ per rider × '+n+' '+(n===1?'rider':'riders')+
+        ' · '+(S.dur==='half'?'half':'full')+' day'+(S.own?' · your own bike':' · bike and gear included');
+    }
+
+  }
+
+  /* ---------- moments ---------- */
+  var moments=[].slice.call(document.querySelectorAll('[data-moment]'));
+  var segs=[].slice.call(document.querySelectorAll('.gt-seg'));
+  var NAMES=['The tour','Bike Skills & Fitness','Your contact'];
+  var cur=0;
+  var btnBack=document.getElementById('btnBack'), btnNext=document.getElementById('btnNext');
+
+  function show(i,scroll){
+    cur=Math.max(0,Math.min(moments.length-1,i));
+    moments.forEach(function(m,n){m.classList.toggle('on',n===cur);});
+    segs.forEach(function(sg,n){
+      sg.classList.toggle('on',n===cur); sg.classList.toggle('filled',n<cur);});
+    document.getElementById('cNow').textContent='0'+(cur+1);
+    document.getElementById('cName').textContent=NAMES[cur];
+    btnBack.disabled=cur===0;
+    var final=moments[cur].hasAttribute('data-final');
+    btnNext.innerHTML=final?'Send request':'Next <svg class="arr" aria-hidden="true"><use href="#i-arr"/></svg>';
+    refreshNext();
+    if(scroll!==false) document.querySelector('.gt-main').scrollIntoView({block:'start',behavior:reduced?'auto':'smooth'});
+  }
+
+  /* What is still missing on this moment, or null when it is complete. Used to
+     keep Next disabled rather than letting it be clicked into an error. */
+  function missing(){
+    if(cur===0){
+      if(!S.type) return 'Pick MTB or e-MTB';
+      if(!S.dur)  return 'Half day or full day?';
+      return null;
+    }
+    if(cur===1) return S.level ? null : ' ';
+    var v=function(id){return document.getElementById(id).value.trim();};
+    if(!v('firstName')||!v('lastName')) return ' ';
+    if(!v('email')) return 'We need an email to reply to';
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v('email'))) return 'That email looks off';
+    if(!v('country')) return 'Country of residence, please';
+    return null;
+  }
+  function refreshNext(){
+    var m=missing();
+    btnNext.disabled=!!m;
+    document.getElementById('navHint').textContent=m||'';
+  }
+
+  btnNext.addEventListener('click',function(){
+    if(missing())return;                     /* guard; the button is disabled anyway */
+    if(moments[cur].hasAttribute('data-final')) return sendBooking();
+    show(cur+1);
+  });
+  btnBack.addEventListener('click',function(){show(cur-1);});
+  document.getElementById('gtForm').addEventListener('input',refreshNext);
+  document.getElementById('gtForm').addEventListener('click',function(){setTimeout(refreshNext,0);});
+  document.getElementById('gtForm').addEventListener('keydown',function(e){
+    if(e.key!=='Enter')return;
+    if(e.target.tagName==='TEXTAREA')return;
+    e.preventDefault(); btnNext.click();
+  });
+
+  /* ---------- summary ---------- */
+  function gearSummary(){
+    var n=clampPeople(+people.value);
+    var on=GEAR.filter(function(g){return S.gear[g.id].on;});
+    if(!on.length) return 'None needed';
+    return on.map(function(g){
+      var sz=S.gear[g.id].sizes;
+      return g.label+' ×'+n+(sz.length?' ('+sz.join(', ')+')':' (sizes TBC)');}).join(' · ');
+  }
+  function collect(){
+    var v=function(id){var e=document.getElementById(id);return e?e.value.trim():'';};
+    var t=S.tour?TOURS.filter(function(x){return x.id===S.tour;})[0]:null;
+    var lv=LEVELS.filter(function(l){return l.id===S.level;})[0];
+    return [
+      ['Bike', S.type==='emtb'?'E-MTB':'MTB'],
+      ['Duration', S.dur==='half'?'Half day (3–4 h)':'Full day (5–6 h)'],
+      ['Tour', t?t.name:'Open to suggestions'],
+      ['Day', (label()||'Not given')+(S.flex?' (flexible +/- 1 day)':'')],
+      ['Riders', v('people')],
+      ['Bikes', S.own?'Bringing their own':'Ours, gear included'],
+      ['Gear', gearSummary()],
+      ['Level', lv?(lv.n+' — '+lv.t):'Not given'],
+      ['Name', (v('firstName')+' '+v('lastName')).trim()],
+      ['Email', v('email')],
+      ['Phone', v('phone')||'Not given'],
+      ['Country', v('country')],
+      ['Notes', v('notes')||'—']
+    ];
+  }
+
+  /* ---------- send ----------
+     EmailJS, the same account the live site already uses — its key is public
+     by design, which is the trade-off of sending straight from the browser.
+
+     The destination is NOT sent from here. It lives in the EmailJS template,
+     so nobody can point this form at an address of their own by editing the
+     request. That is also why switching between the test inbox and the real
+     one means switching template, not recipient. */
+  var MAIL = {
+    key:'xiKB2qC-EzY13ebzX',
+    service:'default_service',
+    /* the client's own template — goes to wheelsonfireazores@gmail.com */
+    live:'template_9kr5gbo',
+    /* a template of ours, addressed to hello@phaze.design, for everywhere that
+       is not the real site. Until it is filled in, test sends are refused
+       rather than quietly delivered to the client. */
+    test:{ key:'Rom2HtfQPnXgGq-nn', service:'service_ojpignl', template:'template_2m4iqt6' }
+  };
+  var LIVE_HOSTS = ['wheelsonfireazores.com','www.wheelsonfireazores.com'];
+  var isLive = LIVE_HOSTS.indexOf(location.hostname) > -1;
+
+  function mailBody(rows){
+    return rows.map(function(r){ return r[0] + ': ' + r[1]; }).join('\n');
+  }
+
+  function sendBooking(){
+    var rows = collect();
+    var get = function(k){ var f=rows.filter(function(r){return r[0]===k;})[0]; return f?f[1]:''; };
+
+    var cfg = isLive
+      ? {key:MAIL.key, service:MAIL.service, template:MAIL.live}
+      : MAIL.test;
+
+    if (!cfg.template || !cfg.key){
+      /* Nothing is pretended here: no template, no send, and the screen says
+         so instead of thanking someone whose message went nowhere. */
+      return failBooking('This is a preview — the test mailbox is not wired yet, so nothing was sent.');
+    }
+
+    btnNext.disabled = true;
+    var was = btnNext.innerHTML;
+    btnNext.textContent = 'Sending…';
+    var box = document.getElementById('sendFail'); if (box) box.hidden = true;
+
+    emailjs.send(cfg.service, cfg.template, {
+      from_name: get('Name'),
+      from_email: get('Email'),
+      subject: 'Booking request — ' + get('Tour') + ' (' + get('Duration') + ')',
+      message: mailBody(rows)
+    }, {publicKey: cfg.key}).then(function(){
+      document.getElementById('done').classList.add('on');
+      docEl.style.overflow='hidden';
+      var back=document.querySelector('#done .btn'); if(back) back.focus({preventScroll:true});
+    }).catch(function(err){
+      btnNext.disabled = false; btnNext.innerHTML = was;
+      failBooking('We could not send it just now.');
+      if (window.console) console.error('EmailJS', err);
+    });
+  }
+
+  /* A send that did not happen has to look like one. The address is repeated
+     so the rider still has a way through. */
+  function failBooking(line){
+    var box = document.getElementById('sendFail');
+    if (!box) return;
+    box.querySelector('[data-line]').textContent = line;
+    box.hidden = false;
+    box.scrollIntoView({block:'center', behavior: reduced ? 'auto' : 'smooth'});
+  }
+
+  /* ---------- direct entry from a tour page or a CTA card ---------- */
+  (function(){
+    var q=new URLSearchParams(location.search);
+    var tid=q.get('tour');
+    if(tid){
+      var b=tourChips.querySelector('[data-tour="'+tid+'"]');   /* unknown ids ignored */
+      if(b) b.click();
+    }
+    var ty=q.get('type');
+    if(ty==='mtb'||ty==='emtb'){
+      var tb=document.querySelector('[data-type="'+ty+'"]'); if(tb) tb.click();
+    }
+    var du=q.get('duration');
+    if(du==='half'||du==='full'){
+      var db=document.querySelector('[data-dur="'+du+'"]'); if(db) db.click();
+    }
+    var pp=q.get('people');
+    if(pp&&/^\d{1,2}$/.test(pp)){ people.value=clampPeople(+pp); }
+    if(q.get('ownbike')==='1'){ var ob=document.querySelector('[data-own="1"]'); if(ob) ob.click(); }
+    var lv=q.get('level');
+    if(lv&&LEVELS.some(function(l){return l.id===lv;})){
+      var lb=levelOpts.querySelector('[data-level="'+lv+'"]'); if(lb) lb.click();
+    }
+    price();
+    if(S.tour&&S.type&&S.dur){ levelFromTour(); lockTour(true); }
+    else if(S.tour){
+      /* A tour that runs both half and full days cannot be confirmed from the
+         link alone — the duration is still an open question. Rather than leave
+         the page looking untouched, show the tour group so the chosen tour is
+         visible and still changeable, and say what is missing. */
+      document.getElementById('grpTour').hidden=false;
+      document.getElementById('lgDur').innerHTML=
+        'Duration <span class="req">*</span> <i class="lg-hint">half or full day?</i>';
+    }
+    show(0,false);
+  })();
+})();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</body>
+</html>
