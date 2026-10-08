@@ -1,6 +1,5 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "//": "The site is the static pages in redesign/site. npm run build copies them into dist/, which is what this Vercel project already serves — so none of its own settings had to change. The old SolidJS build is kept as build-solid-legacy in package.json, and swapping the two scripts back is the whole of a rollback.",
   "cleanUrls": true,
   "headers": [
     {
