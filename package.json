@@ -6,8 +6,10 @@
   "scripts": {
     "start": "vite",
     "dev": "vite",
-    "build": "rm -rf ./dist && vite build && cd ./src/sitemaps && cp -r ./* ../../dist/",
-    "serve": "vite preview"
+    "build": "rm -rf ./dist && mkdir -p ./dist && cp -R ./redesign/site/. ./dist/ && rm -rf ./dist/scripts ./dist/partials ./dist/.vercel ./dist/.vercelignore ./dist/.gitignore './dist/assets/Our Tours' ./dist/assets/_originals ./dist/assets/hero_video.mp4",
+    "serve": "vite preview",
+    "redesign": "cd redesign/homepage && python3 -m http.server 8080",
+    "build-solid-legacy": "rm -rf ./dist && vite build && cd ./src/sitemaps && cp -r ./* ../../dist/"
   },
   "license": "MIT",
   "devDependencies": {

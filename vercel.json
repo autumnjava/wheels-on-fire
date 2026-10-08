@@ -1,23 +1,25 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-
-  "//": "The site is the static build in redesign/site. No build step runs: the pages are written, not compiled. The old SolidJS app is still in src/ and still in history — putting the two lines below back to a vite build and dist/ is the whole of a rollback.",
-
-  "buildCommand": "",
-  "outputDirectory": "redesign/site",
-  "installCommand": "",
-  "framework": null,
-
+  "//": "The site is the static pages in redesign/site. npm run build copies them into dist/, which is what this Vercel project already serves — so none of its own settings had to change. The old SolidJS build is kept as build-solid-legacy in package.json, and swapping the two scripts back is the whole of a rollback.",
   "cleanUrls": true,
-
   "headers": [
     {
       "source": "/assets/(.*).(css|js)",
-      "headers": [{ "key": "Cache-Control", "value": "no-cache, must-revalidate" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, must-revalidate"
+        }
+      ]
     },
     {
       "source": "/(.*).html",
-      "headers": [{ "key": "Cache-Control", "value": "no-cache, must-revalidate" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, must-revalidate"
+        }
+      ]
     }
   ]
 }
