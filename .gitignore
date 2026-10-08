@@ -10,3 +10,13 @@ redesign/site/assets/Our Tours/
 redesign/site/assets/hero_video.mp4
 redesign/site/.vercel/
 .vercel
+
+# Heavy source video kept out of the repository while we find out whether the
+# deployment is failing on weight. Local copies stay; nothing references them.
+redesign/site/assets/hero-loop.mp4
+redesign/site/assets/hero-loop.webm
+redesign/site/assets/wall/teaser.mp4
+
+# The old Solid site. The build no longer reads it; it stays on disk and in
+# git history, out of the deployment.
+/src/
