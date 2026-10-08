@@ -1,6 +1,63 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/what-we-offer",
+      "destination": "/tours",
+      "permanent": true
+    },
+    {
+      "source": "/get-in-touch",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/blog",
+      "destination": "/our-adventures",
+      "permanent": true
+    },
+    {
+      "source": "/our-adventures/bikepacking-in-the-azores",
+      "destination": "/adventure-bikepacking",
+      "permanent": true
+    },
+    {
+      "source": "/our-adventures/bikepacking-in-the-azores/1",
+      "destination": "/adventure-bikepacking",
+      "permanent": true
+    },
+    {
+      "source": "/our-adventures/bikepacking-in-the-azores/2",
+      "destination": "/adventure-bikepacking-2",
+      "permanent": true
+    },
+    {
+      "source": "/our-adventures/bikepacking-in-the-azores/3",
+      "destination": "/adventure-bikepacking-3",
+      "permanent": true
+    },
+    {
+      "source": "/our-adventures/bikepacking-in-the-azores/4",
+      "destination": "/adventure-bikepacking-4",
+      "permanent": true
+    },
+    {
+      "source": "/our-adventures/:slug/:page*",
+      "destination": "/our-adventures",
+      "permanent": true
+    },
+    {
+      "source": "/our-bikes",
+      "destination": "/bikes",
+      "permanent": true
+    },
+    {
+      "source": "/tours-and-packages",
+      "destination": "/tours",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/assets/(.*).(css|js)",
