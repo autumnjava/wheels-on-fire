@@ -43,7 +43,7 @@ const focusAttr = t => t.focus ? ` style="object-position:center ${t.focus}"` : 
 
 if (!V || !V.body)         { console.error('WOF_TOURVIEW not found'); process.exit(1); }
 
-const SITE = 'https://wof-redesign-proposal.vercel.app';
+const SITE = 'https://www.wheelsonfireazores.com';
 
 const esc  = s => String(s == null ? '' : s).replace(/&(?!\w+;|#)/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 const attr = s => esc(s).replace(/"/g,'&quot;');
@@ -69,13 +69,14 @@ function page(t, prev, next){
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Design proposal for client review — must not be indexed as the live site. -->
-<meta name="robots" content="noindex,nofollow">
 <title>${esc(t.name)} — MTB Tour · São Miguel, Azores | Wheels on Fire</title>
 <meta name="description" content="${attr(desc)}">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/icon-180.png">
 <link rel="canonical" href="${url}">
 <meta property="og:type" content="website">
-<meta property="og:title" content="${attr(t.name + ' — MTB Tour · Wheels on Fire')}">
+<meta property="og:site_name" content="Wheels on Fire">
+<meta property="og:title" content="${attr(t.name + ' — MTB Tour · São Miguel, Azores | Wheels on Fire')}">
 <meta property="og:description" content="${attr(desc)}">
 <meta property="og:url" content="${url}">
 <meta property="og:image" content="${SITE}${hero}">
