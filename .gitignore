@@ -11,10 +11,6 @@ redesign/site/assets/hero_video.mp4
 redesign/site/.vercel/
 .vercel
 
-# The webm twin of the hero loop. The h264 mp4 plays everywhere, so the
-# second encode bought nothing and cost 22MB. The file stays on disk.
-redesign/site/assets/hero-loop.webm
-
 # The old Solid site. The build no longer reads it; it stays on disk and in
 # git history, out of the deployment.
 /src/
