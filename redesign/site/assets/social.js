@@ -110,6 +110,36 @@
     });
   }
 
+  /* Mark the reviews that are actually cut, and let them open in place.
+     Measured rather than guessed: a short review in a wide card is not
+     folded, and the same review on a phone is -- the control has to follow
+     the layout, so it is re-measured when the fonts land and on resize. */
+  function foldable(rail){
+    var mark = function(){
+      var cards = rail.querySelectorAll('.review');
+      for (var i = 0; i < cards.length; i++){
+        if (cards[i].classList.contains('is-open')) continue;
+        var t = cards[i].querySelector('.rtext');
+        if (t) cards[i].classList.toggle('has-more', t.scrollHeight - t.clientHeight > 2);
+      }
+    };
+    mark();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(mark);
+    window.addEventListener('resize', mark);
+
+    rail.addEventListener('click', function(e){
+      var b = e.target.closest && e.target.closest('.rmore');
+      if (!b) return;
+      var card = b.closest('.review');
+      var open = card.classList.toggle('is-open');
+      b.textContent = open ? 'Read less' : 'Read more';
+      b.setAttribute('aria-expanded', open ? 'true' : 'false');
+      /* Closing a card that had grown taller than the rail leaves the rail
+         scrolled past it; this brings the card back into view. */
+      if (!open) card.scrollIntoView({block:'nearest', inline:'nearest'});
+    });
+  }
+
   /* ---------- Google reviews ---------- */
   function reviews(){
     var rail = document.getElementById('reviewsRail');
@@ -142,14 +172,21 @@
            straight into Date it lands in January 1970. */
         var when = r.published_at ? new Date(r.published_at * 1000).toLocaleDateString('en-GB',
                      {month:'long', year:'numeric'}) : '';
+        /* The whole review goes into the page. It used to be cut at 260
+           characters with an ellipsis and no way to see the rest, which is
+           exactly what the client ran into -- the long ones were unreadable.
+           Folding is CSS now, so opening a card costs nothing and the full
+           text is there for search engines and screen readers either way. */
         return '<article class="review">' +
           '<div class="stars" aria-label="' + r.rating + ' out of 5">' +
             new Array((r.rating|0) + 1).join('★') + '</div>' +
-          '<p>' + esc((r.text || '').slice(0, 260)) + ((r.text||'').length > 260 ? '…' : '') + '</p>' +
+          '<p class="rtext">' + esc(r.text || '').replace(/\n+/g, '<br>') + '</p>' +
+          '<button class="rmore" type="button" aria-expanded="false">Read more</button>' +
           '<p class="who">' + esc(r.reviewer_name) +
             (when ? '<span>' + esc(when) + '</span>' : '') + '</p>' +
         '</article>';
       }).join('');
+      foldable(rail);
     }).catch(function(){
       empty(rail, 'We could not load the reviews right now. They are all on our Google page.',
             'https://www.google.com/maps/search/?api=1&query=Wheels%20on%20Fire%20Azores&query_place_id=' + PLACE,
