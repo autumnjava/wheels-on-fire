@@ -642,7 +642,7 @@ footer{background:var(--ink-2);color:var(--cream);padding:clamp(56px,9vh,110px) 
         <div class="grp" id="grpWhen" hidden>
           <div class="f-row">
             <div>
-              <span class="lg">Which day</span>
+              <span class="lg">Which day <span class="req">*</span></span>
               <div class="dp">
                 <button type="button" class="dp-trigger empty" id="dpTrigger"
                         aria-expanded="false" aria-controls="dpPop">Pick your day</button>
@@ -1096,6 +1096,9 @@ footer{background:var(--ink-2);color:var(--cream);padding:clamp(56px,9vh,110px) 
     var l=label();
     dpTrigger.textContent=l||'Pick your day';
     dpTrigger.classList.toggle('empty',!l);
+    /* the day grid stops its clicks from bubbling, so the form-level listener
+       never hears about a date being picked — Next has to be told here */
+    refreshNext();
   }
   function drawMonth(){
     dpMonth.textContent=MONTHS[DP.view.getMonth()]+' '+DP.view.getFullYear();
@@ -1151,7 +1154,7 @@ footer{background:var(--ink-2);color:var(--cream);padding:clamp(56px,9vh,110px) 
     pMinus.disabled=+people.value<=minPeople();
     capNote.innerHTML = S.tour==='custom'
       ? 'Private Tour &mdash; solo riders welcome.'
-      : 'Tours run from 2 riders. Riding solo? <button type="button" id="goPrivate">Book a Private Tour</button>';
+      : 'Riding solo? <button type="button" id="goPrivate">Book a Private Tour</button>';
     price(); gearLines(); fitRows();
   }
   pMinus.addEventListener('click',function(){setPeople(+people.value-1);});
@@ -1447,6 +1450,9 @@ footer{background:var(--ink-2);color:var(--cream);padding:clamp(56px,9vh,110px) 
     if(cur===0){
       if(!S.type) return 'Pick MTB or e-MTB';
       if(!S.dur)  return 'Half day or full day?';
+      /* The day was optional, and riders ticked "flexible" instead of picking
+         one — the flexibility is around a date, not in place of it. */
+      if(revealed && !DP.a) return 'Pick the day you want to ride';
       if(revealed && fitMissing()) return 'Height and weight for each rider';
       return null;
     }
