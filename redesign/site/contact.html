@@ -226,7 +226,60 @@ textarea.f-in{font-family:var(--mono);font-size:14.5px;line-height:1.6;border:1p
 .stepper input{width:64px;height:46px;border:0;border-left:1px solid rgba(20,17,15,.2);border-right:1px solid rgba(20,17,15,.2);
   background:transparent;text-align:center;font-family:var(--disp);font-weight:700;font-size:26px;color:var(--ink)}
 .stepper input:focus{outline:none}
-.cap-note{font-size:12px;color:var(--ink-dim);margin-top:10px}
+.stepper button:disabled{opacity:.3;cursor:not-allowed}
+.stepper button:disabled:hover{background:transparent;color:var(--ink)}
+.cap-note{font-size:12px;color:var(--ink-dim);margin-top:10px;line-height:1.5}
+.cap-note:empty{display:none}
+.cap-note button{background:none;border:0;padding:0;cursor:pointer;font:inherit;color:var(--red);
+  text-decoration:underline;text-underline-offset:3px}
+
+/* Heights & weights — one row per rider. Plain number fields: people know
+   their height and weight by heart, so typing three digits on the numeric
+   keypad beats spinning a 90-item picker or nudging a slider. */
+.fit{margin-top:clamp(20px,3vh,28px)}
+.fit[hidden]{display:none}
+.fit-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:12px}
+.fit-head .lg{margin-bottom:6px}
+.fit-help{font-size:12px;color:var(--ink-dim)}
+.units{display:flex;border:1px solid rgba(20,17,15,.3)}
+.units button{background:transparent;border:0;cursor:pointer;padding:8px 12px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--ink);
+  transition:background-color .2s ease,color .2s ease}
+.units button + button{border-left:1px solid rgba(20,17,15,.3)}
+.units button[aria-pressed="true"]{background:var(--ink);color:var(--cream)}
+.fit-row{display:grid;grid-template-columns:90px auto 1fr;gap:clamp(14px,2.4vw,32px);align-items:end;
+  padding:12px 0;border-bottom:1px solid var(--line-l)}
+.fit-row:first-child{border-top:1px solid var(--line-l)}
+.fit-who{font-family:var(--disp);font-weight:700;text-transform:uppercase;font-size:18px;line-height:1;padding-bottom:12px}
+.fit-f small{display:block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:2px}
+/* − value + : the same stepper as the rider count, a size down. Typing still
+   works; the buttons and the arrow keys are for nudging a number that is
+   nearly right, and holding a button keeps it going. */
+.fit-step{display:flex;align-items:stretch;width:max-content;border:1px solid rgba(20,17,15,.3);
+  transition:border-color .25s ease}
+.fit-step:focus-within{border-color:var(--ink)}
+.fit-step.bad{border-color:var(--red)}
+.fs-btn{width:40px;min-height:44px;flex:none;background:transparent;border:0;cursor:pointer;color:var(--ink);
+  font-family:var(--med);font-size:20px;line-height:1;touch-action:manipulation;user-select:none;-webkit-user-select:none;
+  transition:background-color .2s ease,color .2s ease}
+.fs-btn:hover{background:var(--ink);color:var(--cream)}
+.fs-btn:disabled{opacity:.3;cursor:not-allowed}
+.fs-btn:disabled:hover{background:transparent;color:var(--ink)}
+.fit-in{display:flex;align-items:center;gap:8px;padding:0 8px;
+  border-left:1px solid rgba(20,17,15,.2);border-right:1px solid rgba(20,17,15,.2)}
+.fit-num{display:flex;align-items:baseline;gap:4px}
+.fit-num input{width:3.2ch;background:transparent;border:0;padding:8px 0 8px 2px;
+  font-family:var(--med);font-size:max(16px,1.5vw);color:var(--ink);text-align:right}
+.fit-num input.n2{width:2.2ch}
+.fit-num input:focus{outline:none}
+.fit-num input::placeholder{color:rgba(20,17,15,.26)}
+.fit-num span{font-family:var(--mono);font-size:11px;color:var(--ink-dim);padding-right:4px}
+.fit-err{font-size:11.5px;color:var(--red);margin-top:8px}
+.fit-err:empty{display:none}
+@media (max-width:640px){
+  .fit-row{display:flex;flex-wrap:wrap;gap:8px 14px}
+  .fit-who{flex-basis:100%;padding-bottom:0;font-size:16px}
+}
 
 /* Gear — a switch per item. The quantity is the number of riders, so asking
    for it again is asking the same question twice. Sizes appear once it is on. */
@@ -619,9 +672,12 @@ footer{background:var(--ink-2);color:var(--cream);padding:clamp(56px,9vh,110px) 
               <span class="lg">How many riders</span>
               <div class="stepper">
                 <button type="button" id="pMinus" aria-label="One fewer rider">−</button>
-                <input id="people" name="people" type="number" min="1" max="12" value="2" inputmode="numeric" aria-label="Number of riders">
+                <input id="people" name="people" type="number" min="2" max="12" value="2" inputmode="numeric" aria-label="Number of riders">
                 <button type="button" id="pPlus" aria-label="One more rider">+</button>
               </div>
+              <!-- The group tours start at two. Riders on their own kept booking
+                   them anyway, so the way to ride solo is offered right here. -->
+              <p class="cap-note" id="capNote" aria-live="polite"></p>
             </div>
           </div>
         </div>
@@ -631,6 +687,23 @@ footer{background:var(--ink-2);color:var(--cream);padding:clamp(56px,9vh,110px) 
           <div class="chips" role="group" aria-labelledby="lgBike" id="ownChips">
             <button type="button" class="chip" data-own="0" aria-pressed="true">Use yours<small>Bike + gear included</small></button>
             <button type="button" class="chip" data-own="1" aria-pressed="false">Bringing my own</button>
+          </div>
+          <!-- On our bikes we need each rider's height and weight to pick the
+               frame size and set up the suspension. One row per rider, kept in
+               step with the stepper above. -->
+          <div class="fit" id="fitBox">
+            <div class="fit-head">
+              <div>
+                <span class="lg" id="lgFit">Heights &amp; weights <span class="req">*</span></span>
+                <p class="fit-help">So we can have the right bike size ready for each rider.</p>
+              </div>
+              <div class="units" role="group" aria-label="Units" id="fitUnits">
+                <button type="button" data-unit="metric" aria-pressed="true">cm · kg</button>
+                <button type="button" data-unit="imperial" aria-pressed="false">ft · lb</button>
+              </div>
+            </div>
+            <div class="fit-rows" id="fitRows"></div>
+            <p class="fit-err" id="fitErr" aria-live="polite"></p>
           </div>
         </div>
 
@@ -679,7 +752,7 @@ footer{background:var(--ink-2);color:var(--cream);padding:clamp(56px,9vh,110px) 
         </div>
         <div class="grp">
           <span class="lg">Anything else we should know</span>
-          <textarea class="f-in" id="notes" name="notes" placeholder="Heights and weights, injuries, dietary needs, a question — anything."></textarea>
+          <textarea class="f-in" id="notes" name="notes" placeholder="Injuries, dietary needs, a question — anything."></textarea>
         </div>
 
         <div class="alert" role="note">
@@ -754,6 +827,12 @@ footer{background:var(--ink-2);color:var(--cream);padding:clamp(56px,9vh,110px) 
 <script src="assets/tours-data.js"></script>
 <script>
 (function(){
+  /* A reload starts the form over, and a form that has not been answered is
+     two rows of chips — so the place the browser would scroll back to is
+     empty space, and the page looked like it had not loaded. Always open at
+     the top, where the first question is. */
+  if('scrollRestoration' in history) history.scrollRestoration='manual';
+  window.scrollTo(0,0);
   var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var docEl=document.documentElement;
 
@@ -833,7 +912,8 @@ footer{background:var(--ink-2);color:var(--cream);padding:clamp(56px,9vh,110px) 
             levels:t.levels||[],level:t.level,warn:t.warn||''};});
 
   var S={type:null,dur:null,tour:null,own:false,level:null,flex:false,
-          gear:{helmet:{on:false,sizes:[]},knee:{on:false,sizes:[]}}};
+          gear:{helmet:{on:false,sizes:[]},knee:{on:false,sizes:[]}},
+          fit:[], unit:'metric'};               /* {cm,kg} per rider, on our bikes */
 
   /* ---------- build the choice controls ---------- */
   var tourChips=document.getElementById('tourChips');
@@ -856,7 +936,7 @@ footer{background:var(--ink-2);color:var(--cream);padding:clamp(56px,9vh,110px) 
     syncTourChips(); price(); revealRest();});
   document.getElementById('ownChips').addEventListener('click',function(e){
     var b=e.target.closest('[data-own]'); if(!b)return;
-    S.own=b.dataset.own==='1'; pressGroup(this,'own',b.dataset.own); price();});
+    S.own=b.dataset.own==='1'; pressGroup(this,'own',b.dataset.own); price(); fitRows();});
   tourChips.addEventListener('click',function(e){
     var b=e.target.closest('[data-tour]'); if(!b||b.disabled)return;
     var same=S.tour===b.dataset.tour;
@@ -870,7 +950,7 @@ footer{background:var(--ink-2);color:var(--cream);padding:clamp(56px,9vh,110px) 
         pressGroup(document.getElementById('durChips'),'dur',S.dur); }
     }
     /* always, so clearing the tour hands the grades back to the rider */
-    syncTourChips(); price(); revealRest(); levelFromTour(); syncWarn();
+    syncTourChips(); setPeople(+people.value); revealRest(); levelFromTour(); syncWarn();
   });
 
   /* the chosen tour's safety condition, if it has one */
@@ -1061,13 +1141,194 @@ footer{background:var(--ink-2);color:var(--cream);padding:clamp(56px,9vh,110px) 
   document.addEventListener('keydown',function(e){
     if(e.key==='Escape'&&!dpPop.hidden){openDP(false);dpTrigger.focus();}});
 
+  /* Group tours run from two riders. Only the Private Tour takes one. */
   var people=document.getElementById('people');
-  function clampPeople(n){return Math.max(1,Math.min(12,n||1));}
-  document.getElementById('pMinus').addEventListener('click',function(){
-    people.value=clampPeople(+people.value-1); price(); gearLines();});
-  document.getElementById('pPlus').addEventListener('click',function(){
-    people.value=clampPeople(+people.value+1); price(); gearLines();});
-  people.addEventListener('input',function(){price();gearLines();});
+  var pMinus=document.getElementById('pMinus'), capNote=document.getElementById('capNote');
+  function minPeople(){return S.tour==='custom'?1:2;}
+  function clampPeople(n){return Math.max(minPeople(),Math.min(12,n||minPeople()));}
+  function setPeople(n){
+    people.value=clampPeople(n); people.min=minPeople();
+    pMinus.disabled=+people.value<=minPeople();
+    capNote.innerHTML = S.tour==='custom'
+      ? 'Private Tour &mdash; solo riders welcome.'
+      : 'Tours run from 2 riders. Riding solo? <button type="button" id="goPrivate">Book a Private Tour</button>';
+    price(); gearLines(); fitRows();
+  }
+  pMinus.addEventListener('click',function(){setPeople(+people.value-1);});
+  document.getElementById('pPlus').addEventListener('click',function(){setPeople(+people.value+1);});
+  /* typing is left alone until they leave the field, or "1" on the way to "10"
+     would be bumped to 2 under their fingers */
+  people.addEventListener('input',function(){price();gearLines();fitRows();});
+  people.addEventListener('change',function(){setPeople(+people.value);});
+  capNote.addEventListener('click',function(e){
+    if(!e.target.closest('#goPrivate'))return;
+    var b=tourChips.querySelector('[data-tour="custom"]');
+    if(b&&S.tour!=='custom') b.click();
+    if(locked) lockTour(true);                  /* the strip names the tour */
+    setPeople(1);
+  });
+
+  /* ---------- heights & weights ----------
+     Kept in cm and kg whatever the rider types in, so the email always reads
+     the same. ft · lb is there for the riders who do not know their height in
+     centimetres — otherwise they would leave the page to convert it. */
+  var fitBox=document.getElementById('fitBox'), fitRowsEl=document.getElementById('fitRows'),
+      fitErr=document.getElementById('fitErr');
+  var CM={min:120,max:220}, KG={min:30,max:160};
+  function cmToFtIn(cm){var t=Math.round(cm/2.54),f=Math.floor(t/12);return {ft:f,inch:t-f*12};}
+  /* No frame size is worked out here. A rider outside the fleet's M / L is
+     still bookable — Wheels on Fire rents a bike in from a supplier — so the
+     form only collects the numbers and leaves the sizing to them. */
+  function numIn(field,i,val,ph,cls,unit,label){
+    return '<label class="fit-num"><input type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off"'+
+      ' maxlength="3" class="'+cls+'" data-f="'+field+'" data-i="'+i+'" placeholder="'+ph+'"'+
+      ' value="'+(val==null?'':val)+'" aria-label="'+label+'"><span aria-hidden="true">'+unit+'</span></label>';
+  }
+  function stepBox(k,i,inner,label){
+    var b=function(d,sym,verb){return '<button type="button" class="fs-btn" data-k="'+k+'" data-i="'+i+
+      '" data-d="'+d+'" aria-label="'+verb+' '+label+'">'+sym+'</button>';};
+    return '<div class="fit-step" data-k="'+k+'">'+b(-1,'−','Lower')+'<div class="fit-in">'+inner+'</div>'+
+      b(1,'+','Raise')+'</div>';
+  }
+  var drawn={n:0,unit:null};
+  function fitRows(){
+    fitBox.hidden=S.own;
+    var n=Math.max(1,Math.min(12,+people.value||1));
+    while(S.fit.length<n) S.fit.push({cm:null,kg:null});
+    S.fit.length=n;
+    if(drawn.n!==n||drawn.unit!==S.unit){
+      drawn={n:n,unit:S.unit};
+      var imp=S.unit==='imperial';
+      fitRowsEl.innerHTML=S.fit.map(function(r,i){
+        var who=n===1?'You':'Rider '+(i+1), h, w;
+        if(imp){
+          var fi=r.cm?cmToFtIn(r.cm):{ft:null,inch:null};
+          h=numIn('ft',i,fi.ft,'5','n2','ft',who+' height, feet')+
+            numIn('in',i,fi.inch,'9','n2','in',who+' height, inches');
+          w=numIn('lb',i,r.kg?Math.round(r.kg*2.20462):null,'160','','lb',who+' weight in pounds');
+        } else {
+          h=numIn('cm',i,r.cm,'175','','cm',who+' height in centimetres');
+          w=numIn('kg',i,r.kg,'70','','kg',who+' weight in kilograms');
+        }
+        return '<div class="fit-row" data-row="'+i+'"><span class="fit-who">'+who+'</span>'+
+          '<div class="fit-f"><small>Height</small>'+stepBox('h',i,h,who+' height')+'</div>'+
+          '<div class="fit-f"><small>Weight</small>'+stepBox('w',i,w,who+' weight')+'</div></div>';
+      }).join('');
+    }
+  }
+  /* Read one row back into cm/kg. Out-of-range numbers count as missing, so
+     Next stays shut until they are fixed. */
+  function readRow(i){
+    var row=fitRowsEl.querySelector('[data-row="'+i+'"]'), r=S.fit[i];
+    var val=function(f){var e=row.querySelector('[data-f="'+f+'"]');
+      return e&&e.value!==''?+e.value:null;};
+    var cm, kg;
+    if(S.unit==='imperial'){
+      var ft=val('ft'), inch=val('in')||0, lb=val('lb');
+      cm = ft==null||inch>11 ? null : Math.round((ft*12+inch)*2.54);
+      kg = lb==null ? null : Math.round(lb/2.20462);
+    } else { cm=val('cm'); kg=val('kg'); }
+    r.cm = cm!=null&&cm>=CM.min&&cm<=CM.max ? cm : null;
+    r.kg = kg!=null&&kg>=KG.min&&kg<=KG.max ? kg : null;
+    return {cmBad: cm!=null&&r.cm==null, kgBad: kg!=null&&r.kg==null};
+  }
+  fitRowsEl.addEventListener('input',function(e){
+    var inp=e.target.closest('input'); if(!inp) return;
+    var clean=inp.value.replace(/\D/g,'');
+    if(clean!==inp.value) inp.value=clean;
+    readRow(+inp.dataset.i);
+    /* feet hold one digit — move on to inches by itself */
+    if(inp.dataset.f==='ft'&&clean.length===1){
+      var nx=inp.closest('.fit-in').querySelector('[data-f="in"]'); if(nx) nx.focus();
+    }
+  });
+  function markRow(i){
+    var bad=readRow(i), row=fitRowsEl.querySelector('[data-row="'+i+'"]');
+    row.querySelector('.fit-step[data-k="h"]').classList.toggle('bad',bad.cmBad);
+    row.querySelector('.fit-step[data-k="w"]').classList.toggle('bad',bad.kgBad);
+    var msgs=[];
+    [].slice.call(fitRowsEl.querySelectorAll('.fit-row')).forEach(function(rw,n){
+      if(rw.querySelector('.fit-step.bad')) msgs.push(S.fit.length>1?'Rider '+(n+1):'Your numbers');
+    });
+    fitErr.textContent = msgs.length
+      ? msgs.join(', ')+(msgs.length>1?' look':' looks')+' off — heights '+
+        (S.unit==='imperial'?"4'0\"–7'2\"":CM.min+'–'+CM.max+' cm')+', weights '+
+        (S.unit==='imperial'?'66–350 lb':KG.min+'–'+KG.max+' kg')+'.'
+      : '';
+    refreshNext();
+  }
+  /* Complain once they leave the field, never mid-number. */
+  fitRowsEl.addEventListener('focusout',function(e){
+    var inp=e.target.closest('input'); if(inp) markRow(+inp.dataset.i);
+  });
+
+  /* ---- − / + and the arrow keys ----
+     Works in the units on screen, so a press is always one visible cm, kg,
+     inch or pound. An empty field starts from the placeholder rather than
+     from 0 — nobody wants to press + 175 times. */
+  var LIM={cm:[CM.min,CM.max], kg:[KG.min,KG.max], inch:[48,86], lb:[66,350]};
+  function clampTo(v,l){return Math.max(l[0],Math.min(l[1],v));}
+  function step(i,k,d){
+    var row=fitRowsEl.querySelector('[data-row="'+i+'"]');
+    var f=function(n){return row.querySelector('[data-f="'+n+'"]');};
+    if(k==='h'&&S.unit==='imperial'){
+      var ft=f('ft'), inch=f('in');
+      var tot = ft.value==='' ? 69 : clampTo(+ft.value*12+(+inch.value||0)+d, LIM.inch);
+      ft.value=Math.floor(tot/12); inch.value=tot%12;
+    } else {
+      var name = k==='h' ? 'cm' : S.unit==='imperial' ? 'lb' : 'kg';
+      var el=f(name), lim=LIM[name];
+      el.value = el.value==='' ? el.placeholder : clampTo(+el.value+d, lim);
+    }
+    markRow(i);
+  }
+  /* Hold to keep counting: a pause first so a single tap stays a single
+     step, then it repeats. Pointer only — keyboard presses arrive as click. */
+  var hold=null;
+  function stopHold(){ if(hold){clearTimeout(hold.t);clearInterval(hold.r);hold=null;} }
+  fitRowsEl.addEventListener('pointerdown',function(e){
+    var b=e.target.closest('.fs-btn'); if(!b||e.button>0) return;
+    e.preventDefault();                       /* keep focus, and no text selection */
+    stopHold();
+    var i=+b.dataset.i, k=b.dataset.k, d=+b.dataset.d;
+    step(i,k,d);
+    hold={t:setTimeout(function(){ hold.r=setInterval(function(){step(i,k,d);},70); },420)};
+  });
+  ['pointerup','pointercancel','pointerleave'].forEach(function(t){
+    fitRowsEl.addEventListener(t,stopHold);});
+  window.addEventListener('blur',stopHold);
+  fitRowsEl.addEventListener('click',function(e){
+    var b=e.target.closest('.fs-btn');
+    if(b&&e.detail===0) step(+b.dataset.i,b.dataset.k,+b.dataset.d);   /* Enter / Space */
+  });
+  /* ↑ / ↓ in a field; Shift moves by ten, and the feet field moves a foot. */
+  fitRowsEl.addEventListener('keydown',function(e){
+    var inp=e.target.closest('input');
+    if(!inp||(e.key!=='ArrowUp'&&e.key!=='ArrowDown')) return;
+    e.preventDefault();
+    var d=(e.key==='ArrowUp'?1:-1)*(inp.dataset.f==='ft'?12:e.shiftKey?10:1);
+    step(+inp.dataset.i, inp.dataset.f==='kg'||inp.dataset.f==='lb'?'w':'h', d);
+  });
+  document.getElementById('fitUnits').addEventListener('click',function(e){
+    var b=e.target.closest('[data-unit]'); if(!b||b.dataset.unit===S.unit) return;
+    S.unit=b.dataset.unit; pressGroup(this,'unit',S.unit);
+    fitErr.textContent='';
+    fitRows();                                  /* values carry over, converted */
+  });
+  function fitMissing(){
+    return !S.own && S.fit.some(function(r){return !r.cm||!r.kg;});
+  }
+  function fitSummary(){
+    if(S.own) return 'Own bikes';
+    var lines=S.fit.map(function(r,i){
+      var fi=cmToFtIn(r.cm);
+      return (S.fit.length>1?'Rider '+(i+1)+': ':'')+r.cm+' cm / '+r.kg+' kg'+
+        (S.unit==='imperial'?' ('+fi.ft+"'"+fi.inch+'" / '+Math.round(r.kg*2.20462)+' lb)':'');
+    });
+    /* one rider per line in the email: a group of four on one line was
+       unreadable at a glance, and this is what they set the bikes up from */
+    return lines.length>1 ? '\n  - '+lines.join('\n  - ') : lines[0];
+  }
 
   var gearRows=document.getElementById('gearRows');
   gearRows.innerHTML=GEAR.map(function(g){
@@ -1142,7 +1403,10 @@ footer{background:var(--ink-2);color:var(--cream);padding:clamp(56px,9vh,110px) 
   }
   function price(){
     var n=clampPeople(+people.value), p=perRider();
-    if(S.type==='emtb'){
+    if(S.tour==='custom'){
+      setAmount('On request', true);
+      estBd.textContent='Private tours are quoted once we know the days and the group.';
+    } else if(S.type==='emtb'){
       setAmount('On request', true);
       estBd.textContent='e-MTB pricing is confirmed case by case — we will quote in the reply.';
     } else if(p==null){
@@ -1183,6 +1447,7 @@ footer{background:var(--ink-2);color:var(--cream);padding:clamp(56px,9vh,110px) 
     if(cur===0){
       if(!S.type) return 'Pick MTB or e-MTB';
       if(!S.dur)  return 'Half day or full day?';
+      if(revealed && fitMissing()) return 'Height and weight for each rider';
       return null;
     }
     if(cur===1) return S.level ? null : ' ';
@@ -1233,6 +1498,7 @@ footer{background:var(--ink-2);color:var(--cream);padding:clamp(56px,9vh,110px) 
       ['Day', (label()||'Not given')+(S.flex?' (flexible +/- 1 day)':'')],
       ['Riders', v('people')],
       ['Bikes', S.own?'Bringing their own':'Ours, gear included'],
+      ['Heights & weights', fitSummary()],
       ['Gear', gearSummary()],
       ['Level', lv?(lv.n+' — '+lv.t):'Not given'],
       ['Name', (v('firstName')+' '+v('lastName')).trim()],
@@ -1330,7 +1596,8 @@ footer{background:var(--ink-2);color:var(--cream);padding:clamp(56px,9vh,110px) 
       var db=document.querySelector('[data-dur="'+du+'"]'); if(db) db.click();
     }
     var pp=q.get('people');
-    if(pp&&/^\d{1,2}$/.test(pp)){ people.value=clampPeople(+pp); }
+    if(pp&&/^\d{1,2}$/.test(pp)){ people.value=+pp; }
+    setPeople(+people.value);
     if(q.get('ownbike')==='1'){ var ob=document.querySelector('[data-own="1"]'); if(ob) ob.click(); }
     var lv=q.get('level');
     if(lv&&LEVELS.some(function(l){return l.id===lv;})){

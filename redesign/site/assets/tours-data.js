@@ -24,7 +24,7 @@ window.WOF_TOURS = [
   chips:['MTB','Intermediate / Advanced','Half + Full day'],
   terrain:'Singletrack / Flowy / Steep / Technical / Drops & Jumps, some with gaps / dirt to loose volcanic rocks',
   difficulty:{eu:'Equivalent to blue – red trails', us:'Equivalent to blue, black to double black in some parts'},
-  region:'Sete Cidades — west', riders:'3',
+  region:'Sete Cidades — west', riders:'2',
   desc:'Get to know the real side of this island, get surrounded by green volcanic slopes, lagoons, forests and the wild atlantic coast and its dark cliffs, all in one day. Dirt to dry and loose volcanic terrain. Explore local built trails by local passionate trailbuilders while having a full blast of fun on a MTB.',
   pending:false,
   lede:'The crater rim, the two lakes, and the steepest loam on the island.',
@@ -62,7 +62,7 @@ window.WOF_TOURS = [
   chips:['MTB','All levels','Half day'],
   terrain:'Singletrack / Rocks / Roots / Some technical parts / Cross country / Flowy & easy going trails / Gravel / Off road',
   difficulty:{eu:'Equivalent to green, blue and some parts red', us:'Equivalent to green and blue'},
-  region:'Ribeira Grande — north coast', riders:'3',
+  region:'Ribeira Grande — north coast', riders:'2',
   /* client copy */
   desc:'An all level adventure where you get to explore a combination of volcanic hills, forests, the island’s natural diversity and its shades of green, and the mesmerizing scenic views of black volcanic cliffs by the wild Atlantic sea.',
   note:'* Tour can be customized depending on the skill level of riders.',
@@ -100,7 +100,7 @@ window.WOF_TOURS = [
   chips:['MTB','Intermediate / Advanced','Full day'],
   terrain:'Singletrack / Rocks / Roots / Steeper descends and sustained technical sections / Tight switchbacks / Off-camber / Exposed sections',
   difficulty:{eu:'Equivalent to red and black trails', us:'Equivalent to blue, black to double black in some parts'},
-  region:'São Miguel — ridges &amp; river valleys', riders:'3',
+  region:'São Miguel — ridges &amp; river valleys', riders:'2',
   /* A safety condition, not a note: this one is read wherever the tour is
      offered — on its own page and in the booking flow — so it lives here
      rather than being written into either of them. */
@@ -144,7 +144,7 @@ window.WOF_TOURS = [
   chips:['E-MTB','All levels','Full day'],
   terrain:'Cross country / Mix of gravel, road and off-road & ancient paths / Climbs & descends',
   difficulty:{eu:'Equivalent to green, blue', us:'Equivalent to green'},
-  region:'Lagoa do Fogo — centre', riders:'3',
+  region:'Lagoa do Fogo — centre', riders:'2',
   desc:'Explore the wilderness and expect the unexpected — this is the traverse of the wild. Here the weather is the ruler of this adventure quest. You’ll ride along quiet volcanic highlands and immerse in its unpredictable landscapes filled with endemic lush green vegetation and forests, crossing beyond that allows you to observe the island’s ever changing nature.',
   note:'* Good endurance and fitness are essential.',
   pending:false,
@@ -183,7 +183,7 @@ window.WOF_TOURS = [
   chips:['E-MTB','All levels','Half day'],
   terrain:'Cross country / Mix of gravel, road and off-road & ancient paths / Climbs & descends',
   difficulty:{eu:'Equivalent to green, blue', us:'Equivalent to green'},
-  region:'Furnas &amp; Gorreana — east', riders:'3',
+  region:'Furnas &amp; Gorreana — east', riders:'2',
   /* client copy */
   desc:'This is an all levels adventure tour for the ones that want to get out there and experience the real rawness and wild nature of the island.',
   pending:false,
@@ -226,7 +226,7 @@ window.WOF_TOURS = [
      off a name, and it says what the Private tours section used to say. */
   cardNote:"Are you a solo rider? Do you want to improve your MTB skills? Or just ride with your close ones!",
   terrain:'Tour will be adapted to your MTB skills*',
-  region:'São Miguel — wherever you want to ride', riders:'3',
+  region:'São Miguel — wherever you want to ride', riders:'2',
   difficulty:{eu:'From green to black', us:'From blue to double black'},
   /* client copy */
   desc:"Make this your tour. Whether you're one rider or just want to ride with your people — we got you!",

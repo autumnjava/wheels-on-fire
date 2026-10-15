@@ -56,10 +56,10 @@
     var BAR = ' <i>|</i> ';
     /* What the tour is, in boxes. The level is the one the reader is deciding
        against, so it is the one drawn in red; what bike and how many are grey
-       facts around it. The cap is on the scheduled tours, which run in threes;
-       the Private tour drops it, because that one can be built for a group. */
+       facts around it. The scheduled tours run from two riders; the Private
+       tour drops the tag, because that one takes a single rider too. */
     var tags = [{t:esc(t.chips[0]) + ' tour', k:''}, {t:esc(t.chips[1]), k:' lv'}];
-    if (t.id !== 'custom' && t.riders) tags.push({t:'Max ' + esc(t.riders) + ' ppl', k:''});
+    if (t.id !== 'custom' && t.riders) tags.push({t:'Min ' + esc(t.riders) + ' ppl', k:''});
     var specTags = tags.map(function(x){
       return '<span class="tspec-tag' + x.k + '">' + x.t + '</span>'; }).join('');
 
