@@ -35,3 +35,9 @@
    every desktop we checked. Inheriting instead means a button always takes the
    colour of the text around it, here and in anything added later. */
 button{color:inherit}
+
+/* Focus ring. Chrome's default is a blue that belongs to nowhere on this
+   site. Brand red, drawn outside the control so it reads against the cream
+   and the ink alike rather than fighting whatever the control is filled
+   with. :focus-visible, so it answers the keyboard and not the mouse. */
+:focus-visible{outline:2px solid var(--red);outline-offset:2px}
