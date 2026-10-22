@@ -49,6 +49,30 @@ const esc  = s => String(s == null ? '' : s).replace(/&(?!\w+;|#)/g,'&amp;').rep
 const attr = s => esc(s).replace(/"/g,'&quot;');
 const strip = s => String(s).replace(/<[^>]+>/g,'');
 
+/* The hero's pixel size, read out of the file itself so it cannot go stale
+   when a photograph is swapped. Walks the JPEG marker chain to the frame
+   header, which is where the dimensions live. Anything it cannot parse
+   returns null and the two tags are left out -- they are a hint for the
+   scraper, not something worth guessing at. */
+function jpegSize(rel){
+  let b;
+  try { b = readFileSync(join(ROOT, rel.replace(/^\//, ''))); } catch { return null; }
+  if (b.length < 4 || b[0] !== 0xFF || b[1] !== 0xD8) return null;
+  let i = 2;
+  while (i + 9 < b.length) {
+    if (b[i] !== 0xFF) { i++; continue; }
+    const m = b[i + 1];
+    if (m === 0x01 || (m >= 0xD0 && m <= 0xD9)) { i += 2; continue; }
+    if (m === 0xDA) return null;                       // scan data begins
+    const len = b.readUInt16BE(i + 2);
+    if (m >= 0xC0 && m <= 0xCF && m !== 0xC4 && m !== 0xC8 && m !== 0xCC) {
+      return { h: b.readUInt16BE(i + 5), w: b.readUInt16BE(i + 7) };
+    }
+    i += 2 + len;
+  }
+  return null;
+}
+
 function page(t, prev, next){
   const desc  = strip(t.desc);
   const url   = `${SITE}/tours/${t.id}`;
@@ -79,7 +103,12 @@ function page(t, prev, next){
 <meta property="og:title" content="${attr(t.name + ' — MTB Tour · São Miguel, Azores | Wheels on Fire')}">
 <meta property="og:description" content="${attr(desc)}">
 <meta property="og:url" content="${url}">
-<meta property="og:image" content="${SITE}${hero}">
+<meta property="og:image" content="${SITE}${hero}">${(() => {
+  const d = jpegSize(hero);
+  return d ? `\n<meta property="og:image:width" content="${d.w}">`
+           + `\n<meta property="og:image:height" content="${d.h}">` : '';
+})()}
+<meta property="og:image:alt" content="${attr(t.name + ' — guided MTB tour on São Miguel, Azores')}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="/assets/tokens.css">
 <link rel="stylesheet" href="/assets/chrome.css">
