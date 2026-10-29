@@ -73,6 +73,55 @@ function jpegSize(rel){
   return null;
 }
 
+/* What the page already states in prose, said again in a form a machine
+   reads without having to interpret it: the price, how long it runs, who it
+   is for and where. Answer engines quote these; today they would have to
+   infer them from the markup.
+   TouristTrip rather than Product -- this is a guided day out, not a good on
+   a shelf, and Product markup on a service is against Google's guidance.
+   A tour priced "On request" gets no offer at all: an offer without a price
+   is noise, and inventing one would be worse. */
+function tripLd(t, url, hero, desc){
+  const LEVEL = { alllevels:'All levels', intermediate:'Intermediate', advanced:'Advanced' };
+  /* The copy is authored for HTML, so it carries entities. JSON-LD lives in a
+     script element, where nothing decodes them -- left alone, a region would
+     read "ridges &amp; river valleys" to every machine that parsed it. */
+  const plain = v => String(v == null ? '' : v)
+    .replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'")
+    .replace(/&mdash;/g, '\u2014').replace(/&ndash;/g, '\u2013')
+    .replace(/&nbsp;/g, ' ').replace(/&rsquo;/g, '\u2019');
+  const offers = [];
+  for (const [key, r] of Object.entries(t.rates || {})) {
+    const m = /(\d+(?:[.,]\d+)?)/.exec(r.price || '');
+    if (!m) continue;                                  // "On request"
+    offers.push({
+      '@type': 'Offer',
+      name: plain(`${key === 'half' ? 'Half day' : 'Full day'}, ${r.hrs} hours, per person`),
+      price: m[1].replace(',', '.'),
+      priceCurrency: 'EUR',
+      availability: 'https://schema.org/InStock',
+      url
+    });
+  }
+  const ld = {
+    '@context': 'https://schema.org',
+    '@type': 'TouristTrip',
+    name: plain(`${t.name} — guided ${t.type === 'emtb' ? 'e-MTB' : 'MTB'} tour`),
+    description: plain(desc),
+    url,
+    image: `${SITE}${hero}`,
+    touristType: (t.levels || []).map(l => LEVEL[l]).filter(Boolean),
+    itinerary: {
+      '@type': 'Place',
+      name: plain(`${t.region ? t.region + ', ' : ''}São Miguel, Azores, Portugal`)
+    },
+    provider: { '@type': 'Organization', name: 'Wheels on Fire', url: SITE }
+  };
+  if (offers.length) ld.offers = offers;
+  return JSON.stringify(ld, null, 2);
+}
+
 function page(t, prev, next){
   const desc  = strip(t.desc);
   const url   = `${SITE}/tours/${t.id}`;
@@ -110,6 +159,9 @@ function page(t, prev, next){
 })()}
 <meta property="og:image:alt" content="${attr(t.name + ' — guided MTB tour on São Miguel, Azores')}">
 <meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+${tripLd(t, url, hero, desc)}
+</script>
 <link rel="stylesheet" href="/assets/tokens.css">
 <link rel="stylesheet" href="/assets/chrome.css">
 <link rel="stylesheet" href="/assets/site.css">
